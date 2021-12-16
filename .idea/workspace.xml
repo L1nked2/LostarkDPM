@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb5b1736-074c-49de-a676-8e3ecd46cbb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crawler.py" afterDir="false" />
-    </list>
+    <list default="true" id="fb5b1736-074c-49de-a676-8e3ecd46cbb5" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,5 +79,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/LostarkDPM" />
     </ignored-roots>
+    <MESSAGE value="Test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test commit" />
   </component>
 </project>
