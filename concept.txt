@@ -1,0 +1,3 @@
+total_status()에 각 layer가 state의 변화를 가져오는 식
+event string이 존재해서 layer가 다른 layer policy에 영향을 줘야하는 경우 이를 parse해서 적용(or python eval()사용)
+tick마다 확인을 전제로 하지만 특정 상황에서는 lock이 가능할 것으로 생각, 최적화는 나중에 가능할 듯
