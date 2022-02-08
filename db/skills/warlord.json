@@ -1,0 +1,15 @@
+{
+  "skill_name": "버스트 캐넌",
+  "skill_attribute": {"홀딩": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+  "skill_default_damage": ["2979"],
+  "skill_default_coeff": ["18.461794"],
+  "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills"],
+  "skill_tripod_1_1": [
+    "mul 1.1 @ 1",
+    "mul 2.5 @ 2",
+    "mul 3.1 @ all",
+    "del 홀딩",
+    "add 차지 True",
+    "call_buff 2"
+  ]
+}
