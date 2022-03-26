@@ -1,0 +1,46 @@
+Option 1
+Multiple Inherited Structure of Layers
+Problem - unexpected use of super method -> cannot update CharacterLayer info indep.
+
+                      ------------------
+                      | CharacterLayer |
+                      ------------------
+                    /          |          \
+------------------    ------------------    ------------------
+| EngravingLayer | -- | EquipmentLayer | -- | JewelRuneLayer |
+------------------    ------------------    ------------------
+                    \          |          /
+                     --------------------
+                     | CombatStatsLayer |
+                     --------------------
+                               |
+                       -----------------
+                       | IdentityLayer |
+                       -----------------
+
+Option 2
+Linearly Inherited Structure of Layers
+Problem - some Inheritances look weird
+                      ------------------
+                      | CharacterLayer |
+                      ------------------
+                              |
+                      ------------------    
+                      | EngravingLayer |
+                      ------------------
+                              |
+                      ------------------
+                      | EquipmentLayer |
+                      ------------------
+                              |
+                      ------------------
+                      | JewelRuneLayer |
+                      ------------------
+                              |     -> idea - we may disconnet here (separate simulator and use previous layer as input)
+                     --------------------
+                     | CombatStatsLayer |
+                     --------------------
+                              |
+                       -----------------
+                       | IdentityLayer |
+                       -----------------
