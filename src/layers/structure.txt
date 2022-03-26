@@ -20,7 +20,7 @@ Problem - unexpected use of super method -> cannot update CharacterLayer info in
 
 Option 2
 Linearly Inherited Structure of Layers
-
+Problem - some Inheritances look weird
                       ------------------
                       | CharacterLayer |
                       ------------------
@@ -36,7 +36,7 @@ Linearly Inherited Structure of Layers
                       ------------------
                       | JewelRuneLayer |
                       ------------------
-                              |
+                              |     -> idea - we may disconnet here (separate simulator and use previous layer as input)
                      --------------------
                      | CombatStatsLayer |
                      --------------------
