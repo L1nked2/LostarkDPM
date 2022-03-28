@@ -44,3 +44,38 @@ Problem - some Inheritances look weird
                        -----------------
                        | IdentityLayer |
                        -----------------
+
+Option 3
+Separating Static & Dynamic Layers
+
+- Static Layers (Related to initialization of character state)
+                      ------------------
+                      | CharacterLayer |  -> Include some combat stats (e.g. crit, specialization)
+                      ------------------  
+                      | EngravingLayer |
+                      ------------------
+                      | EquipmentLayer |
+                      ------------------
+                      | SkillTreeLayer |
+                      ------------------  -> This Inheritance may be useless
+                      | JewelRuneLayer |
+                      ------------------
+                      |   InfoLayer    |  -> apply configs and hide upper layers
+                      ------------------
+
+- Dynamic Layers (Related to DPM simulator)
+                      -----------------
+                      | IdentityLayer |  -> class dependent
+                      -----------------
+                      | PolicyLayer   |  \
+                      -----------------   \
+                      | BuffsLayer    |  -> skill tree and identity dependent
+                      -----------------
+                      | DpmSimulator  |  -> User deals with DpmSimulator
+                      -----------------
+* we should add or remove layers to/from dynamic structure
+
+- Rough Flow
+1. Initialize character information with Static Layers
+2. Initialize dynamic settings of simulator with Dynamic Layers (policy, class identity, cooldown time, etc)
+3. Run simulator using method in DpmSimulator
