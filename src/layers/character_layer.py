@@ -1,7 +1,10 @@
+from utils import initialize_wrapper
+
 class CharacterLayer:
     """
     The base layer of simulator (or another name)
     """
+    @initialize_wrapper("CharacterLayer")
     def __init__(self, character_stat):
 
         # Strength, Dexterity, or Intelligence

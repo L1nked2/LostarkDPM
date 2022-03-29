@@ -1,6 +1,8 @@
 from jewel_rune_layer import JewelRuneLayer
+from utils import initialize_wrapper
 
 class InfoLayer(JewelRuneLayer):
+    @initialize_wrapper("InfoLayer")
     def __init__(self, config, **kwargs):
         super(InfoLayer, self).__init__(**kwargs)
         self.config = config

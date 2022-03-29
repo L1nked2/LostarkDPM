@@ -1,6 +1,8 @@
 from skill_tree_layer import SkilTreeLayer
+from utils import initialize_wrapper
 
 class JewelRuneLayer(SkilTreeLayer):
+    @initialize_wrapper("JewelRuneLayer")
     def __init__(self, jewel_spec, rune_spec, **kwargs):
         super(JewelRuneLayer, self).__init__(**kwargs)
         self.jewel_spec = jewel_spec

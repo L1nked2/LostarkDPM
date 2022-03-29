@@ -1,6 +1,8 @@
 from engraving_layer import EngravingLayer
+from utils import initialize_wrapper
 
 class EquipmentLayer(EngravingLayer):
+    @initialize_wrapper("EquipmentLayer")
     def __init__(self, artifact_set, accessories, **kwargs):
         super(EquipmentLayer, self).__init__(**kwargs)
         self.artifact_set_1 = artifact_set[0]
