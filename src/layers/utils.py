@@ -1,11 +1,13 @@
 from functools import wraps
 
-def initialize_wrapper(name):
+def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):
         @wraps(func)
         def decorator(*args, **kwargs):
-            print(f"##### Start Initialization of {name} #####")
+            if enable_start:
+                print(f"##### Start Initialization of {name} #####")
             func(*args, **kwargs)
-            print(f"##### Done Initialization of {name} #####")
+            if enable_end:
+                print(f"##### Done Initialization of {name} #####")
         return decorator
     return wrapper

@@ -1,0 +1,33 @@
+- Static Layers (Related to initialization of character state)
+
+                      ------------------
+                      | CharacterLayer |  
+                      ------------------  
+                      | EngravingLayer |
+                      ------------------
+                      | EquipmentLayer |
+                      ------------------
+                      | SkillTreeLayer |
+                      ------------------ 
+                      | JewelRuneLayer |
+                      ------------------
+                      |   InfoLayer    | 
+                      ------------------
+
+CharacterLayer
+- initialize_character_stat(character_stat)
+    - 각종 스탯 초기화 -> 스탯별 초기화 메소드 호출
+- initialize_combat_stat()
+- get_combat_stat()
+
+- initialize_stat()
+
+- initialize_damage()
+
+- initialize_crit()
+- get_crit_rate()
+- get_crit_damage()
+- update_crit()
+
+- update_attack_power()
+    - 공격력이 바뀌는 이벤트가 발생하면 호출되어야하는 메소드
