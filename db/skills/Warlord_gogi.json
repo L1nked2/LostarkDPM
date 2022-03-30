@@ -1,0 +1,119 @@
+{
+    "skill_name": "버스트 캐넌",
+    "skill_attribute": {"홀딩": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+    "skill_default_damage": ["2979", "1"],
+    "skill_default_coeff": ["18.461794", "0"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_3": [
+      "coeff_assign 6.324 @ 0",
+      "coeff_assign 12.1836 @ 1" ,
+      "mul 2 @ 1",
+      "call_buff 2"
+    ],
+    "skill_tripod_2_3" : [
+        "mul 1.95 @ all",
+        "del 홀딩",
+        "add 차지 True"
+    ],
+    "skill_tripod_3_2" : [
+        "mul 1.83 @ all",
+    ]
+}
+
+{
+    "skill_name": "스피어 샷",
+    "skill_attribute": {"일반": "True", "랜스": "True", "헤드": "True", "쿨타임": "18"},
+    "skill_default_damage": ["333", "666", "661"],
+    "skill_default_coeff": ["2.049" , "4.098", "4.096"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_2": [
+      "add 공격속도 27"
+    ],
+    "skill_tripod_2_2": [
+        "mul 1.7 @ all",
+    ],
+    "skill_tripod_3_2": [
+        "mul 2.05 @ all"
+    ]
+}
+
+{
+    "skill_name": "차지 스팅거",
+    "skill_attribute": {"차지": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+    "skill_default_damage": ["2997"],
+    "skill_default_coeff": ["18.593"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_2": [
+      "mul 1.45 @ all"
+    ],
+    "skill_tripod_2_2": [
+        "mul 1.9 @ all"
+    ],
+    "skill_tripod_3_2": [
+        "mul 2.2204 @ all"
+    ]
+}
+
+{
+    "skill_name": "파이어 불릿",
+    "skill_attribute": {"일반": "True", "랜스": "True", "헤드": "True", "쿨타임": "7"},
+    "skill_default_damage": ["561"],
+    "skill_default_coeff": ["3.062"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_2": [
+      "del 쿨타임"
+      "add 쿨타임 2"
+    ],
+    "skill_tripod_2_3": [
+        "mul 1.5 @ all"
+    ],
+    "skill_tripod_3_1": [
+        "mul 1.952 @ all"
+    ]
+    
+}
+
+{
+    "skill_name": "대쉬 어퍼 파이어",
+    "skill_attribute": {"홀딩": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+    "skill_default_damage": ["243", "984"],
+    "skill_default_coeff": ["1.523" , "6.093"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_3": [
+      "call buff 1"
+    ],
+    "skill_tripod_2_2": [
+        "mul 1.624 @ all"
+    ],
+    "skill_tripod_3_1": [
+        "mul 2.595 @ 1"
+    ]
+}
+
+{
+    "skill_name": "배쉬",
+    "skill_attribute": {"홀딩": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+    "skill_default_damage": ["388"],
+    "skill_default_coeff": ["2.322"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_1_1": [
+      "call buff 2"
+    ],
+    "skill_tripod_2_1": [
+        "call buff 0"
+    ],
+    "skill_tripod_3_1": [
+
+    ]
+}
+
+{
+    "skill_name": "증오의 함성",
+    "skill_attribute": {"홀딩": "True", "랜스": "True", "헤드": "True", "쿨타임": "30"},
+    "skill_default_damage": ["810"],
+    "skill_default_coeff": ["4.407"],
+    "skill_buff_table": ["on start attack 0.5 for next 1 skills", "on finish attack 0.3 for next 1 skills", "on finish attack_synergy 0.06 for next 20 skills", "on finish attack_synergy 0.12 for next 20 skills"],
+    "skill_tripod_3_1": [
+      "call buff 3"
+    ]
+}
