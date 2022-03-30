@@ -9,18 +9,18 @@
     {
       "skill_name": "버스트 캐넌",
       "skill_attribute": {
-        "홀딩": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "30"
+        "홀딩": false,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 30
       },
       "skill_default_damage": [
-        "2979",
-        "1"
+        2979,
+        1
       ],
       "skill_default_coeff": [
-        "18.461794",
-        "0"
+        18.461794,
+        0
       ],
       "skill_tripod_1_3": [
         "coeff_assign 6.324 @ 0",
@@ -40,20 +40,20 @@
     {
       "skill_name": "스피어 샷",
       "skill_attribute": {
-        "일반": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "18"
+        "일반": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 18
       },
       "skill_default_damage": [
-        "333",
-        "666",
-        "661"
+        333,
+        666,
+        661
       ],
       "skill_default_coeff": [
-        "2.049",
-        "4.098",
-        "4.096"
+        2.049,
+        4.098,
+        4.096
       ],
       "skill_tripod_1_2": [
         "add 공격속도 27"
@@ -68,16 +68,16 @@
     {
       "skill_name": "차지 스팅거",
       "skill_attribute": {
-        "차지": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "30"
+        "차지": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 30
       },
       "skill_default_damage": [
-        "2997"
+        2997
       ],
       "skill_default_coeff": [
-        "18.593"
+        18.593
       ],
       "skill_tripod_1_2": [
         "mul 1.45 @ all"
@@ -92,16 +92,16 @@
     {
       "skill_name": "파이어 불릿",
       "skill_attribute": {
-        "일반": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "7"
+        "일반": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 7
       },
       "skill_default_damage": [
-        "561"
+        561
       ],
       "skill_default_coeff": [
-        "3.062"
+        3.062
       ],
       "skill_tripod_1_2": [
         "del 쿨타임",
@@ -117,18 +117,18 @@
     {
       "skill_name": "대쉬 어퍼 파이어",
       "skill_attribute": {
-        "홀딩": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "30"
+        "홀딩": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 30
       },
       "skill_default_damage": [
-        "243",
-        "984"
+        243,
+        984
       ],
       "skill_default_coeff": [
-        "1.523",
-        "6.093"
+        1.523,
+        6.093
       ],
       "skill_tripod_1_3": [
         "call buff 1"
@@ -143,16 +143,16 @@
     {
       "skill_name": "배쉬",
       "skill_attribute": {
-        "홀딩": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "30"
+        "홀딩": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 30
       },
       "skill_default_damage": [
-        "388"
+        388
       ],
       "skill_default_coeff": [
-        "2.322"
+        2.322
       ],
       "skill_tripod_1_1": [
         "call buff 2"
@@ -165,16 +165,16 @@
     {
       "skill_name": "증오의 함성",
       "skill_attribute": {
-        "홀딩": "True",
-        "랜스": "True",
-        "헤드": "True",
-        "쿨타임": "30"
+        "홀딩": true,
+        "랜스": true,
+        "헤드": true,
+        "쿨타임": 30
       },
       "skill_default_damage": [
-        "810"
+        810
       ],
       "skill_default_coeff": [
-        "4.407"
+        4.407
       ],
       "skill_tripod_3_1": [
         "call buff 3"
