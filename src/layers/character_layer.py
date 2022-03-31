@@ -25,9 +25,10 @@ class CharacterLayer:
         
     def initialize_damage(self):
         # initialize damage based on stats
-        self.weapon_power = 0
+        self.weapon_power = self.character_stat['weapon_power']
         self.additional_damage = 0
-        self.attack_power = 0
+        self.attack_power = (self.stat * self.weapon_power / 6.0) ** 0.5
+        self.additional_attack_power = 0
         self.attack_speed = 100
     
     def initialize_crit(self):
@@ -45,14 +46,22 @@ class CharacterLayer:
         self.crit_rate += crit_rate_amount
         self.crit_damage += crit_damage_amount
 
-    def udpate_attack_power(self, increase=True):
-        pass
-
+    # Update Method 
+    # Usage - update_attribute_with_fucn('attack_power', lambda x: x * 1.2)
+    def update_attribute_with_func(self, attribute_name, update_func):
+        try:
+            attribute = getattr(self, attribute_name)
+        except AttributeError as e:
+            print(e)
+        else:
+            setattr(self, attribute_name, update_func(attribute))
+    
 
 if __name__ == '__main__':
     
     stat = {
         'stat': 10000,
+        'weapon_power': 10000,
         'combat_stat': {
             'crit': 1500,
             'specialization': 700,
