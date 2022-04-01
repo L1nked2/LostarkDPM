@@ -1,4 +1,11 @@
+import sys
+import io
+
+import json
 from functools import wraps
+
+sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):
@@ -11,3 +18,8 @@ def initialize_wrapper(name, enable_start=True, enable_end=True):
                 print(f"##### Done Initialization of {name} #####")
         return decorator
     return wrapper
+
+def json_parser(file_path):
+    json_file = open(file_path, "r", encoding='utf-8')
+    json_content = json.load(json_file)
+    return json_content

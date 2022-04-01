@@ -131,7 +131,7 @@
         6.093
       ],
       "skill_tripod_1_3": [
-        "call buff 1"
+        "call_buff 1"
       ],
       "skill_tripod_2_2": [
         "mul 1.624 @ all"
@@ -155,10 +155,10 @@
         2.322
       ],
       "skill_tripod_1_1": [
-        "call buff 2"
+        "call_buff 2"
       ],
       "skill_tripod_2_1": [
-        "call buff 0"
+        "call_buff 0"
       ],
       "skill_tripod_3_1": []
     },
@@ -177,7 +177,7 @@
         4.407
       ],
       "skill_tripod_3_1": [
-        "call buff 3"
+        "call_buff 3"
       ]
     }
   ]
