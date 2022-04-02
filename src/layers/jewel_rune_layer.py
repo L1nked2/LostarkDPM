@@ -1,6 +1,35 @@
 from skill_tree_layer import SkilTreeLayer
 from utils import initialize_wrapper
 
+# key = level
+# value = percent
+FROSTFIRE_JEWEL_LEVEL_DICT = {
+    1: 3,
+    2: 6,
+    3: 9,
+    4: 12,
+    5: 15,
+    6: 18,
+    7: 21,
+    8: 24,
+    9: 30,
+    10: 40
+}
+
+NEMESIS_JEWEL_LEVEL_DICT = {
+    1: 2,
+    2: 4,
+    3: 6,
+    4: 8,
+    5: 10,
+    6: 12,
+    7: 14,
+    8: 16,
+    9: 18,
+    10: 20
+}
+
+
 class JewelRuneLayer(SkilTreeLayer):
     @initialize_wrapper("JewelRuneLayer", enable_start=False)
     def __init__(self, jewel_spec, rune_spec, **kwargs):
@@ -29,7 +58,7 @@ class JewelRuneLayer(SkilTreeLayer):
         print("Disabled nemesis jewels:", disabled_nemesis_jewels)
 
 
-    # Overriding? or new method?
+    # Update skill damage w.r.t jewel specification
     def update(self):
         pass
 
