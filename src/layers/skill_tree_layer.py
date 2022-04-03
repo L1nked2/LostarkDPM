@@ -1,3 +1,4 @@
+from collections import defaultdict
 from equipment_layer import EquipmentLayer
 from utils import initialize_wrapper
 from utils import json_parser
@@ -7,10 +8,9 @@ class SkilTreeLayer(EquipmentLayer):
     def __init__(self, skill_tree, **kwargs):
         super(SkilTreeLayer, self).__init__(**kwargs)
         self.skill_tree = skill_tree
-        self.skill_cooldown_time = None
+        self.skill_info = defaultdict(list)
         
         self.parse_skill_tree()
-
     
     def parse_skill_tree(self):
         json_content = json_parser(self.skill_tree)
@@ -34,4 +34,7 @@ class SkilTreeLayer(EquipmentLayer):
         return skill_list
     
     def get_skill_preset_by_detail(self):
+        pass
+
+    def update_all_skill_info(self):
         pass

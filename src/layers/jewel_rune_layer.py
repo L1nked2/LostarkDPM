@@ -29,7 +29,6 @@ NEMESIS_JEWEL_LEVEL_DICT = {
     10: 20
 }
 
-
 class JewelRuneLayer(SkilTreeLayer):
     @initialize_wrapper("JewelRuneLayer", enable_start=False)
     def __init__(self, jewel_spec, rune_spec, **kwargs):

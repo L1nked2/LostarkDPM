@@ -47,7 +47,7 @@ class CharacterLayer:
         self.crit_damage += crit_damage_amount
 
     # Update Method 
-    # Usage - update_attribute_with_fucn('attack_power', lambda x: x * 1.2)
+    # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
     def update_attribute_with_func(self, attribute_name, update_func):
         try:
             attribute = getattr(self, attribute_name)
