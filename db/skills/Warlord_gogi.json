@@ -90,6 +90,9 @@
       ],
       "skill_tripod_3_2": [
         "mul 2.2204 @ all"
+      ],
+      "skill_rune" :[
+        "영웅 질풍"
       ]
     },
     {
