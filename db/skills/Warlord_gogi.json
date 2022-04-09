@@ -35,6 +35,9 @@
       ],
       "skill_tripod_3_2": [
         "mul 1.83 @ all"
+      ],
+      "skill_rune" : [
+        "전설 질풍"
       ]
     },
     {
