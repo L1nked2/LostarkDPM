@@ -2,6 +2,7 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.utils import initialize_wrapper
 
 class EngravingLayer(CharacterLayer):
+    
     @initialize_wrapper("EngravingLayer", enable_start=False)
     def __init__(self, engravings, **kwargs):
         super(EngravingLayer, self).__init__(**kwargs)

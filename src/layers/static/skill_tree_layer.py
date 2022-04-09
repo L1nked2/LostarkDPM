@@ -5,6 +5,7 @@ from src.layers.utils import initialize_wrapper
 from src.layers.utils import json_parser
 
 class SkilTreeLayer(EquipmentLayer):
+    
     @initialize_wrapper("SkillTreeLayer", enable_start=False)
     def __init__(self, skill_tree, **kwargs):
         super(SkilTreeLayer, self).__init__(**kwargs)
