@@ -1,4 +1,4 @@
-from identity_layer import IdentityLayer
+from src.layers.dynamic.identity_layer import IdentityLayer
 
 class PolicyLayer(IdentityLayer):
     def __init__(self, policy, **kwargs):

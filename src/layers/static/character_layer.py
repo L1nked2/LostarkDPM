@@ -1,4 +1,4 @@
-from utils import initialize_wrapper
+from src.layers.utils import initialize_wrapper
 
 class CharacterLayer:
     """

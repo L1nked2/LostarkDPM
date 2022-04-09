@@ -1,4 +1,4 @@
-from policy_layer import PolicyLayer
+from src.layers.dynamic.policy_layer import PolicyLayer
 
 class BuffsLayer(PolicyLayer):
     def __init__(self, **kwargs):

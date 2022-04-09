@@ -1,7 +1,8 @@
 from collections import defaultdict
-from equipment_layer import EquipmentLayer
-from utils import initialize_wrapper
-from utils import json_parser
+from src.layers.static.equipment_layer import EquipmentLayer
+
+from src.layers.utils import initialize_wrapper
+from src.layers.utils import json_parser
 
 class SkilTreeLayer(EquipmentLayer):
     @initialize_wrapper("SkillTreeLayer", enable_start=False)

@@ -1,5 +1,5 @@
-from engraving_layer import EngravingLayer
-from utils import initialize_wrapper
+from src.layers.static.engraving_layer import EngravingLayer
+from src.layers.utils import initialize_wrapper
 
 class EquipmentLayer(EngravingLayer):
     @initialize_wrapper("EquipmentLayer", enable_start=False)

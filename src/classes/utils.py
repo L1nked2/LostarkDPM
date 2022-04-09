@@ -1,4 +1,4 @@
-from warlord import Warlord
+from src.classes.warlord import Warlord
 
 def class_by_name(class_name):
     class_object = None

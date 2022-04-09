@@ -1,4 +1,4 @@
-from buffs_layer import BuffsLayer
+from src.layers.dynamic.buffs_layer import BuffsLayer
 
 class DpmSimulator(BuffsLayer):
     def __init__(self, config, **kwargs):

@@ -1,5 +1,5 @@
-from jewel_rune_layer import JewelRuneLayer
-from utils import initialize_wrapper
+from src.layers.static.jewel_rune_layer import JewelRuneLayer
+from src.layers.utils import initialize_wrapper
 
 class InfoLayer(JewelRuneLayer):
     @initialize_wrapper("InfoLayer", enable_start=False)

@@ -1,4 +1,4 @@
-from base import Base
+from src.classes.base import Base
 
 class Warlord(Base):
     def __init__(self):

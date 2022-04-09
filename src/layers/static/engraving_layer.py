@@ -1,6 +1,5 @@
-from character_layer import CharacterLayer
-from utils import initialize_wrapper
-
+from src.layers.static.character_layer import CharacterLayer
+from src.layers.utils import initialize_wrapper
 
 class EngravingLayer(CharacterLayer):
     @initialize_wrapper("EngravingLayer", enable_start=False)
