@@ -4,6 +4,7 @@ class CharacterLayer:
     """
     Base layer of static part of simulator
     """
+    
     @initialize_wrapper("CharacterLayer", enable_start=False)
     def __init__(self, character_stat):
         self.character_stat = character_stat
