@@ -19,6 +19,15 @@ def initialize_wrapper(name, enable_start=True, enable_end=True):
         return decorator
     return wrapper
 
+def print_info_wrapper(name):
+    def wrapper(func):
+        @wraps(func):
+        def decorator(*args, **kwargs):
+            print(f"##### Information of {name} ######")
+            func(*args, **kwargs)
+        return decorator
+    return wrapper
+
 def json_parser(file_path):
     json_file = open(file_path, "r", encoding='utf-8')
     json_content = json.load(json_file)

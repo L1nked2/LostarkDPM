@@ -1,8 +1,9 @@
 from src.layers.static.character_layer import CharacterLayer
-from src.layers.utils import initialize_wrapper
+from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class EngravingLayer(CharacterLayer):
-    
+    layer_name = "EngravingLayer"
+
     @initialize_wrapper("EngravingLayer", enable_start=False)
     def __init__(self, engravings, **kwargs):
         super(EngravingLayer, self).__init__(**kwargs)
@@ -17,6 +18,15 @@ class EngravingLayer(CharacterLayer):
     def apply_one_engraving(self, engraving_dict):
         for target, effect in zip(engraving_dict['engraving_target'], engraving_dict['engraving_effect']):
             super(EngravingLayer, self).update_attribute_with_func(target, effect)
+    
+    @print_info_wrapper(layer_name)
+    def print_character_info(self, detail=True):
+        if detail:
+            for attr_name in dir(self):
+                if not attr_name.startswith("__"):
+                    print(attr_name, getattr(self, attr_name))
+        else:
+            print("engravings:", self.engravings)
 
 if __name__ == '__main__':
     stat = {
