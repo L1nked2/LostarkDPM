@@ -21,7 +21,7 @@ def initialize_wrapper(name, enable_start=True, enable_end=True):
 
 def print_info_wrapper(name):
     def wrapper(func):
-        @wraps(func):
+        @wraps(func)
         def decorator(*args, **kwargs):
             print(f"##### Information of {name} ######")
             func(*args, **kwargs)

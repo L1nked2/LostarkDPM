@@ -1,4 +1,6 @@
 from typing import List
+
+from numpy import deprecate
 from src.layers.static.equipment_layer import EquipmentLayer
 
 from src.layers.utils import initialize_wrapper, print_info_wrapper
@@ -43,9 +45,8 @@ class SkilTreeLayer(EquipmentLayer):
     @initialize_wrapper("SkillTreeLayer", enable_start=False)
     def __init__(self, skill_tree, **kwargs):
         super(SkilTreeLayer, self).__init__(**kwargs)
+
         self.skill_tree = skill_tree
-        self.skill_info : List[Skill] = None
-        
         self.parse_skill_tree()
     
     def parse_skill_tree(self):
@@ -59,24 +60,24 @@ class SkilTreeLayer(EquipmentLayer):
         if len(self.skill_preset) > 8:
             raise Exception("Too many skills!")
     
-    def get_skill_preset_by_name(self):
-        if self.skill_preset is None:
-            raise Exception("No skill preset initialized!")
+    # @deprecate
+    # def get_skill_preset_by_name(self):
+    #     if self.skill_preset is None:
+    #         raise Exception("No skill preset initialized!")
 
-        skill_list = []
-        for skill in self.skill_preset:
-            skill_list.append(skill["skill_name"])
+    #     skill_list = []
+    #     for skill in self.skill_preset:
+    #         skill_list.append(skill["skill_name"])
         
-        return skill_list
+    #     return skill_list
     
-    def get_skill_preset_by_detail(self):
+    @property
+    def skill_info(self):
+        # Let's try to use @property to define skill_info attribute
         pass
 
-    def update_all_skill_info(self):
-        pass
-    
     @print_info_wrapper(layer_name)
-    def print_character_info(self, detail=True):
+    def print_skilltree_info(self, detail=True):
         if detail:
             for attr_name in dir(self):
                 if not attr_name.startswith("__"):

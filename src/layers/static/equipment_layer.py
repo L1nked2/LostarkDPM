@@ -15,7 +15,7 @@ class EquipmentLayer(EngravingLayer):
         pass
     
     @print_info_wrapper(layer_name)
-    def print_character_info(self, detail=True):
+    def print_equipment_info(self, detail=True):
         if detail:
             for attr_name in dir(self):
                 if not attr_name.startswith("__"):
