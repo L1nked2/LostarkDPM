@@ -1,12 +1,13 @@
 from typing import List
+import warnings
 
-from numpy import deprecate
 from src.layers.static.equipment_layer import EquipmentLayer
 
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 from src.layers.utils import json_parser
 
 FROSTFIRE_JEWEL_LEVEL_DICT = {
+    0: 0,
     1: 3,
     2: 6,
     3: 9,
@@ -20,6 +21,7 @@ FROSTFIRE_JEWEL_LEVEL_DICT = {
 }
 
 NEMESIS_JEWEL_LEVEL_DICT = {
+    0: 0,
     1: 2,
     2: 4,
     3: 6,
@@ -48,6 +50,7 @@ class SkilTreeLayer(EquipmentLayer):
 
         self.skill_tree = skill_tree
         self.parse_skill_tree()
+        self.save_skill_info()
     
     def parse_skill_tree(self):
         json_content = json_parser(self.skill_tree)
@@ -59,6 +62,31 @@ class SkilTreeLayer(EquipmentLayer):
         # check the number of skills
         if len(self.skill_preset) > 8:
             raise Exception("Too many skills!")
+
+        num_skill_jewels = 0
+        for skill in self.skill_preset:
+            # validate skill name
+
+            # validate skill rune
+
+            # validate skill jewel
+            skill_jewel = skill["skill_jewel"]
+            if (0 < skill_jewel["frostfire"] <= 10):
+                num_skill_jewels += 1
+            
+            if (0 < skill_jewel["nemesis"] <= 10):
+                num_skill_jewels += 1
+    
+        if num_skill_jewels > 11:
+            warnings.warn(f"LoasArkDPM expected less than or equal to 11 jewels, but detected {num_skill_jewels} jewels ...", UserWarning)
+    
+    def save_skill_info(self):
+        # compute skill damage, cooltime
+        # save it into Skill Class
+        for skill in self.skill_preset:
+            pass
+    
+    
     
     # @deprecate
     # def get_skill_preset_by_name(self):
@@ -71,10 +99,6 @@ class SkilTreeLayer(EquipmentLayer):
         
     #     return skill_list
     
-    @property
-    def skill_info(self):
-        # Let's try to use @property to define skill_info attribute
-        pass
 
     @print_info_wrapper(layer_name)
     def print_skilltree_info(self, detail=True):
