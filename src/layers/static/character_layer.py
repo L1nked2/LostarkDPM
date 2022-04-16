@@ -1,11 +1,12 @@
-from src.layers.utils import initialize_wrapper
+from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class CharacterLayer:
     """
     Base layer of static part of simulator
     """
+    layer_name = "CharacterLayer"
     
-    @initialize_wrapper("CharacterLayer", enable_start=False)
+    @initialize_wrapper(layer_name, enable_start=False)
     def __init__(self, character_stat):
         self.character_stat = character_stat
        
@@ -57,6 +58,16 @@ class CharacterLayer:
         else:
             setattr(self, attribute_name, update_func(attribute))
     
+    @print_info_wrapper(layer_name)
+    def print_character_info(self, detail=True):
+        if detail:
+            for attr_name in dir(self):
+                if not attr_name.startswith("__"):
+                    print(attr_name, getattr(self, attr_name))
+        else:
+            print("stat:", self.stat)
+            print("combat stat:", self.combat_stat)
+            print("attack_power:", self.attack_power)
 
 if __name__ == '__main__':
     

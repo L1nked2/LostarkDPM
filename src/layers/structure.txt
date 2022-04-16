@@ -56,9 +56,7 @@ Separating Static & Dynamic Layers
                       ------------------
                       | EquipmentLayer |
                       ------------------
-                      | SkillTreeLayer |
-                      ------------------  -> This Inheritance may be useless
-                      | JewelRuneLayer |
+                      | SkillTreeLayer |  -> Skill + Jewel Layer
                       ------------------
                       |   InfoLayer    |  -> apply configs and hide upper layers
                       ------------------
