@@ -20,13 +20,8 @@ class EngravingLayer(CharacterLayer):
             super(EngravingLayer, self).update_attribute_with_func(target, effect)
     
     @print_info_wrapper(layer_name)
-    def print_engraving_info(self, detail=True):
-        if detail:
-            for attr_name in dir(self):
-                if not attr_name.startswith("__"):
-                    print(attr_name, getattr(self, attr_name))
-        else:
-            print("engravings:", self.engravings)
+    def print_engraving_info(self):
+        print("engravings:", self.engravings)
 
 if __name__ == '__main__':
     stat = {

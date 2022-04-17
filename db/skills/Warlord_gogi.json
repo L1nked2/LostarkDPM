@@ -16,15 +16,15 @@
       },
       "skill_default_damage": [2979, 1],
       "skill_default_coeff": [18.461794, 0],
-      "skill_tripod_1_3": [
+      "skill_tripod_1": [
         "coeff_assign 6.324 @ 0",
         "coeff_assign 12.1836 @ 1",
         "mul 2 @ 1",
         "call_buff 2"
       ],
-      "skill_tripod_2_3": ["mul 1.95 @ all", "del 홀딩", "add 차지 True"],
-      "skill_tripod_3_2": ["mul 1.83 @ all"],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_2": ["mul 1.95 @ all", "del 홀딩", "add 차지 True"],
+      "skill_tripod_3": ["mul 1.83 @ all", "cooltime -5"],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 7,
         "nemesis": 7
@@ -40,10 +40,10 @@
       },
       "skill_default_damage": [333, 666, 661],
       "skill_default_coeff": [2.049, 4.098, 4.096],
-      "skill_tripod_1_2": ["add 공격속도 27"],
-      "skill_tripod_2_2": ["mul 1.7 @ all"],
-      "skill_tripod_3_2": ["mul 2.05 @ all"],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_1": ["add 공격속도 27"],
+      "skill_tripod_2": ["mul 1.7 @ all"],
+      "skill_tripod_3": ["mul 2.05 @ all"],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 7,
         "nemesis": 7
@@ -59,10 +59,10 @@
       },
       "skill_default_damage": [2997],
       "skill_default_coeff": [18.593],
-      "skill_tripod_1_2": ["mul 1.45 @ all"],
-      "skill_tripod_2_2": ["mul 1.9 @ all"],
-      "skill_tripod_3_2": ["mul 2.2204 @ all"],
-      "skill_rune": ["영웅 질풍"],
+      "skill_tripod_1": ["mul 1.45 @ all"],
+      "skill_tripod_2": ["mul 1.9 @ all"],
+      "skill_tripod_3": ["mul 2.2204 @ all"],
+      "skill_rune": { "category": "질풍", "level": "영웅" },
       "skill_jewel": {
         "frostfire": 7,
         "nemesis": 7
@@ -78,10 +78,10 @@
       },
       "skill_default_damage": [561],
       "skill_default_coeff": [3.062],
-      "skill_tripod_1_2": ["del 쿨타임", "add 쿨타임 2"],
-      "skill_tripod_2_3": ["mul 1.5 @ all"],
-      "skill_tripod_3_1": ["mul 1.952 @ all"],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_1": ["del 쿨타임", "add 쿨타임 2"],
+      "skill_tripod_2": ["mul 1.5 @ all"],
+      "skill_tripod_3": ["mul 1.952 @ all"],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 7,
         "nemesis": 7
@@ -97,10 +97,10 @@
       },
       "skill_default_damage": [243, 984],
       "skill_default_coeff": [1.523, 6.093],
-      "skill_tripod_1_3": ["call_buff 1"],
-      "skill_tripod_2_2": ["mul 1.624 @ all"],
-      "skill_tripod_3_1": ["mul 2.595 @ 1"],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_1": ["call_buff 1"],
+      "skill_tripod_2": ["mul 1.624 @ all"],
+      "skill_tripod_3": ["mul 2.595 @ 1"],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 7,
         "nemesis": 0
@@ -116,10 +116,10 @@
       },
       "skill_default_damage": [388],
       "skill_default_coeff": [2.322],
-      "skill_tripod_1_1": ["call_buff 2"],
-      "skill_tripod_2_1": ["call_buff 0"],
-      "skill_tripod_3_1": [],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_1": ["call_buff 2"],
+      "skill_tripod_2": ["call_buff 0"],
+      "skill_tripod_3": [],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 0,
         "nemesis": 7
@@ -135,8 +135,10 @@
       },
       "skill_default_damage": [810],
       "skill_default_coeff": [4.407],
-      "skill_tripod_3_1": ["call_buff 3"],
-      "skill_rune": ["전설 질풍"],
+      "skill_tripod_1": [],
+      "skill_tripod_2": [],
+      "skill_tripod_3": ["call_buff 3"],
+      "skill_rune": { "category": "질풍", "level": "전설" },
       "skill_jewel": {
         "frostfire": 0,
         "nemesis": 7

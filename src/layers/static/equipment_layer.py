@@ -15,10 +15,5 @@ class EquipmentLayer(EngravingLayer):
         pass
     
     @print_info_wrapper(layer_name)
-    def print_equipment_info(self, detail=True):
-        if detail:
-            for attr_name in dir(self):
-                if not attr_name.startswith("__"):
-                    print(attr_name, getattr(self, attr_name))
-        else:
-            print("artifact set", self.artifact_set)
+    def print_equipment_info(self):
+        print("artifact set", self.artifact_set)
