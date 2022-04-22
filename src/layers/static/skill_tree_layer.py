@@ -1,6 +1,5 @@
 import warnings
 
-from pprint import pprint
 from typing import List
 
 from db.constants.common import COOLDOWN_PERCENTAGE_PER_SWIFTNESS
@@ -85,15 +84,14 @@ class Skill:
         # Nemesis jewel - to be considered here?
 
         # Additional attack speed
-        # Rune
+        ## Rune
         rune_category = skill["skill_rune"]["category"]
         rune_level = skill["skill_rune"]["level"]
         if rune_category == "질풍":
             self.additional_attack_speed *= (1 + get_rune_effect(category=rune_category, level=rune_level))
 
-        # Tripod
+        ## Tripod
         attack_speed_effects = [effect for effect in self.tripod_effects if effect[1] == "공격속도"]
-        
         for effect in attack_speed_effects:
             self.additional_attack_speed *= (1 + int(effect[2]) / 100)
     
@@ -101,8 +99,6 @@ class Skill:
         print(f"Name: {self.name}")
         print(f"Damage: {self.damage}")
         print(f"Cooltime: {self.cooltime}")
-        #print(f"Tripod: {self.tripod_effects}")
-        #print(f"Attack speed: {self.additional_attack_speed}")
 
 
 class SkillTreeLayer(EquipmentLayer):
@@ -125,7 +121,6 @@ class SkillTreeLayer(EquipmentLayer):
         self.validate_skill_preset()
     
     def validate_skill_preset(self):
-        # check the number of skills
         if len(self.skill_preset) > 8:
             raise Exception("Too many skills!")
 
@@ -133,8 +128,6 @@ class SkillTreeLayer(EquipmentLayer):
         num_skill_jewels = 0
 
         for skill in self.skill_preset:
-            # validate skill name
-
             skill_runes.append(skill["skill_rune"])
 
             skill_jewel = skill["skill_jewel"]
@@ -150,8 +143,6 @@ class SkillTreeLayer(EquipmentLayer):
             warnings.warn(f"LoasArkDPM expected less than or equal to 11 jewels, but detected {num_skill_jewels} jewels ...", UserWarning)
     
     def save_skill_info(self):
-        # compute skill damage, cooltime
-        # save it into Skill Class
         for skill in self.skill_preset:
             skill_info = Skill(
                 skill=skill,
