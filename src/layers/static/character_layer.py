@@ -1,3 +1,4 @@
+from db.constants.common import CRITICAL_RATE_PER_CRIT
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class CharacterLayer:
@@ -35,7 +36,7 @@ class CharacterLayer:
     
     def initialize_crit(self):
         crit = self.get_combat_stat('crit')
-        self.crit_rate = 0.000357 * crit
+        self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
         self.crit_damage = 200
     
     def get_crit_rate(self):
@@ -59,15 +60,10 @@ class CharacterLayer:
             setattr(self, attribute_name, update_func(attribute))
     
     @print_info_wrapper(layer_name)
-    def print_character_info(self, detail=True):
-        if detail:
-            for attr_name in dir(self):
-                if not attr_name.startswith("__"):
-                    print(attr_name, getattr(self, attr_name))
-        else:
-            print("stat:", self.stat)
-            print("combat stat:", self.combat_stat)
-            print("attack_power:", self.attack_power)
+    def print_character_info(self):
+        print("stat:", self.stat)
+        print("combat stat:", self.combat_stat)
+        print("attack_power:", self.attack_power)
 
 if __name__ == '__main__':
     
