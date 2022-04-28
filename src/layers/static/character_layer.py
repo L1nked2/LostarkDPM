@@ -1,4 +1,4 @@
-from db.constants import common as constants
+from db.constants.common import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVING_SPEED_PER_SWIFTNESS
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class CharacterLayer:
@@ -10,60 +10,78 @@ class CharacterLayer:
     @initialize_wrapper(layer_name, enable_start=False)
     def __init__(self, character_stat):
         self.character_stat = character_stat
-        # Initialize
-        # Str, Dex, Int but not distinguished
+        # Initialize stat
+        # include Str, Dex, Int(not distinguished), weapon_power
+        # and combat_stat(crit, specialization, swiftness
+        # domination, endurance, expertise)
         self.initialize_stat()
-        # crit, specialization, swiftness
-        # domination, endurance, expertise
-        self.initialize_combat_stat()
-        self.apply_combat_stat()
-        #
-        self.initialize_damage()
+
+        # set initial stat using given stat
+        self.reset_stat()
 
     def initialize_stat(self):
         self.stat = self.character_stat['stat']
-        
-    def initialize_combat_stat(self):
+        self.weapon_power = self.character_stat['weapon_power']
         combat_stat_attr = ['crit', 'specialization', 'swiftness', 'domination', 'endurance', 'expertise']
         if all (k in self.character_stat['combat_stat'] for k in combat_stat_attr):
             self.combat_stat = self.character_stat['combat_stat']
         else:
             print("character_layer: missing field in combat_stat")
-            raise AttributeError
-    """
-    def get_combat_stat(self, target):
-        return self.combat_stat[target]
-    """
-    def apply_combat_stat(self):
+            raise AttributeError        
+    
+    def reset_stat(self):
+        # attack_power
+        self.additional_damage = 0
+        self.attack_power = (self.stat * self.weapon_power / 6.0) ** 0.5
+        self.additional_attack_power = 0
         # crit
         crit = self.combat_stat['crit']
-        self.crit_rate = crit * constants.CRITICAL_RATE_PER_CRIT
+        self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
         self.crit_damage = 2
         # spec -> TODO: init on where?
         specialization = self.combat_stat['specialization']
         # swiftness
-        swiftness = self.combat_stat['swiftness')]
-        self.attack_speed = swiftness * constants.ATTACK_SPEED_PER_SWIFTNESS
-        self.moving_speed = swiftness * constants.MOVING_SPEED_PER_SWIFTNESS
-        self.cooldown_percentage = swiftness * constants. COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+        swiftness = self.combat_stat['swiftness']
+        self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
+        self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
+        self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+    
+    def update_wrapper(self, update_func):
+        def refresh_function(*args, **kwargs):
+            res = update_func(*args, **kwargs)
+            self.refresh_character_layer()
+            return res
+        return refresh_function
+    
+    def get_attribute(self, target):
+        try:
+            result = getattr(self, target)
+        except AttributeError as e:
+            print(e)
+        else:
+            return result
 
-    def initialize_damage(self):
-        # initialize damage based on stats
-        self.weapon_power = self.character_stat['weapon_power']
-        self.additional_damage = 0
-        self.attack_power = (self.stat * self.weapon_power / 6.0) ** 0.5
-        self.additional_attack_power = 0
-    """
-    def get_crit_rate(self):
-        return self.crit_rate
-    
-    def get_crit_damage(self):
-        return self.crit_damage
-    
-    def update_crit(self, crit_rate_amount, crit_damage_amount):
-        self.crit_rate += crit_rate_amount
-        self.crit_damage += crit_damage_amount
-    """
+    # Update Method
+    @update_wrapper()
+    def update_attribute(self, target, new_value):
+        try:
+            getattr(self, target)
+        except AttributeError as e:
+            print(e)
+        else:
+            setattr(self, target, new_value)
+
+    # Update Method with first-order function
+    # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
+    @update_wrapper()
+    def update_attribute_with_func(self, attribute_name, update_func):
+        try:
+            attribute = getattr(self, attribute_name)
+        except AttributeError as e:
+            print(e)
+        else:
+            setattr(self, attribute_name, update_func(attribute))
+
     def get_character_detail(self):
         character_detail = dict()
         target_detail = [
@@ -77,16 +95,10 @@ class CharacterLayer:
         for item in target_detail:
             character_detail[item] = getattr(self,item)
         return character_detail
-
-    # Update Method 
-    # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
-    def update_attribute_with_func(self, attribute_name, update_func):
-        try:
-            attribute = getattr(self, attribute_name)
-        except AttributeError as e:
-            print(e)
-        else:
-            setattr(self, attribute_name, update_func(attribute))
+    
+    def refresh_character_layer(self):
+        # self.reset_stat()
+        return    
     
     @print_info_wrapper(layer_name)
     def print_character_info(self):
