@@ -1,4 +1,4 @@
-from db.constants.common import CRITICAL_RATE_PER_CRIT
+from db.constants.common import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVING_SPEED_PER_SWIFTNESS
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class CharacterLayer:
@@ -10,35 +10,50 @@ class CharacterLayer:
     @initialize_wrapper(layer_name, enable_start=False)
     def __init__(self, character_stat):
         self.character_stat = character_stat
-       
-       # Initialize
+        # Initialize
+        # Str, Dex, Int but not distinguished
         self.initialize_stat()
+        # crit, specialization, swiftness
+        # domination, endurance, expertise
         self.initialize_combat_stat()
+        self.apply_combat_stat()
+        #
         self.initialize_damage()
-        self.initialize_crit()
 
     def initialize_stat(self):
         self.stat = self.character_stat['stat']
         
     def initialize_combat_stat(self):
-        self.combat_stat = self.character_stat['combat_stat']
-
+        combat_stat_attr = ['crit', 'specialization', 'swiftness', 'domination', 'endurance', 'expertise']
+        if all (k in self.character_stat['combat_stat'] for k in combat_stat_attr):
+            self.combat_stat = self.character_stat['combat_stat']
+        else:
+            print("character_layer: missing field in combat_stat")
+            raise AttributeError
+    """
     def get_combat_stat(self, target):
         return self.combat_stat[target]
-        
+    """
+    def apply_combat_stat(self):
+        # crit
+        crit = self.get_combat_stat('crit')
+        self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
+        self.crit_damage = 2
+        # spec -> TODO: init on where?
+        specialization = self.get_combat_stat('specialization')
+        # swiftness
+        swiftness = self.get_combat_stat('swiftness')
+        self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
+        self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
+        self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+
     def initialize_damage(self):
         # initialize damage based on stats
         self.weapon_power = self.character_stat['weapon_power']
         self.additional_damage = 0
         self.attack_power = (self.stat * self.weapon_power / 6.0) ** 0.5
         self.additional_attack_power = 0
-        self.attack_speed = 100
-    
-    def initialize_crit(self):
-        crit = self.get_combat_stat('crit')
-        self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
-        self.crit_damage = 200
-    
+    """
     def get_crit_rate(self):
         return self.crit_rate
     
@@ -48,6 +63,20 @@ class CharacterLayer:
     def update_crit(self, crit_rate_amount, crit_damage_amount):
         self.crit_rate += crit_rate_amount
         self.crit_damage += crit_damage_amount
+    """
+    def get_character_detail(self):
+        character_detail = dict()
+        target_detail = [
+            # base attack terms
+            'attack_power','additional_damage', 'additional_attack_power',
+            # crit terms
+            'crit_rate', 'crit_damage',
+            # swiftness terms
+            'attack_speed', 'moving_speed', 'cooldown_percentage',
+        ]
+        for item in target_detail:
+            character_detail[item] = getattr(self,item)
+        return character_detail
 
     # Update Method 
     # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
@@ -81,7 +110,11 @@ if __name__ == '__main__':
     }
     # test CharacterLayer class methods
     temp = CharacterLayer(character_stat=stat)
-    print(temp.get_combat_stat('crit'))
-    print(temp.get_crit_rate(), temp.get_crit_damage())
-    temp.update_crit(crit_rate_amount=0.15, crit_damage_amount=50)
-    print(temp.get_crit_rate(), temp.get_crit_damage())
+    print("first details:")
+    print(temp.get_character_detail())
+    crit_rate_amount = 0.15
+    crit_damage_amount = 0.5
+    temp.update_attribute_with_func('crit_rate', lambda x: x + crit_rate_amount)
+    temp.update_attribute_with_func('crit_damage', lambda x: x + crit_damage_amount)
+    print("second details:")
+    print(temp.get_character_detail())
