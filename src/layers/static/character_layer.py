@@ -1,4 +1,4 @@
-from db.constants.common import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVING_SPEED_PER_SWIFTNESS
+from db.constants import common as constants
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class CharacterLayer:
@@ -37,15 +37,15 @@ class CharacterLayer:
     def apply_combat_stat(self):
         # crit
         crit = self.get_combat_stat('crit')
-        self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
+        self.crit_rate = crit * constants.CRITICAL_RATE_PER_CRIT
         self.crit_damage = 2
         # spec -> TODO: init on where?
         specialization = self.get_combat_stat('specialization')
         # swiftness
         swiftness = self.get_combat_stat('swiftness')
-        self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
-        self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
-        self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+        self.attack_speed = swiftness * constants.ATTACK_SPEED_PER_SWIFTNESS
+        self.moving_speed = swiftness * constants.MOVING_SPEED_PER_SWIFTNESS
+        self.cooldown_percentage = swiftness * constants. COOLDOWN_PERCENTAGE_PER_SWIFTNESS
 
     def initialize_damage(self):
         # initialize damage based on stats
