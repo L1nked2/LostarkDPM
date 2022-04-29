@@ -1,4 +1,5 @@
 {
+  "class": "warlord",
   "skill_buff_table": [
     "on start attack 0.5 for next 1 skills",
     "on finish attack 0.3 for next 1 skills",
