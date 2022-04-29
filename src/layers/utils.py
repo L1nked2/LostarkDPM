@@ -1,6 +1,6 @@
 import sys
 import io
-
+from db.constants.common import STAT_BY_UPGRAGE_TABLE
 import json
 from functools import wraps
 
@@ -32,3 +32,28 @@ def json_parser(file_path):
     json_file = open(file_path, "r", encoding='utf-8')
     json_content = json.load(json_file)
     return json_content
+
+
+class CharacterFactory:
+    def __init__(self):
+        return
+
+class StatFactory:
+
+    def __init__(self, upgrade=25, crit=0, specialization=0, swiftness=0):
+        self.stat = dict()
+        upgrade_table = STAT_BY_UPGRAGE_TABLE
+        self.stat['stat'] = upgrade_table['armor'][upgrade]
+        self.stat['weapon_power'] = upgrade_table['weapon'][upgrade]
+        self.stat['combat_stat'] = {
+            'crit': crit,
+            'specialization': specialization,
+            'swiftness': swiftness,
+            'domination': 0,
+            'endurance': 0,
+            'expertise': 0
+        }
+        
+    def get_data(self):
+        return self.stat
+
