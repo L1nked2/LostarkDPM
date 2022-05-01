@@ -38,7 +38,7 @@ class CharacterLayer:
         # set these terms in bottom layer first, and run refresh_character_layer()
         self.additional_attack_power = 0 # 추가 공격력(engraving,저받&질증)
         self.additional_damage = 0 # 추가피해(equipment, weapon quality)
-        self.damage_multiplier = 1 # 피해증가 
+        self.damage_multiplier = 1 # 피해증가
         # crit
         crit = self.combat_stat['crit']
         self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
@@ -51,8 +51,6 @@ class CharacterLayer:
         self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
         self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
         self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
-        # refresh attack_power and damage_multiplier
-        self.refresh_character_layer()
     
     def get_attribute(self, target):
         try:
@@ -98,11 +96,14 @@ class CharacterLayer:
             character_detail[item] = getattr(self,item)
         return character_detail
     
-    def refresh_character_layer(self):
-        # self.reset_stat()
+    def update_attack_power(self):
         self.attack_power = self.attack_power_base * (1 + self.additional_attack_power)
+        return
+
+    # apply additional_damage to damage_multiplier, do not call multiple times
+    def apply_additional_damage(self):
         self.damage_multiplier = self.damage_multiplier * (1 + self.additional_damage)
-        return    
+        return
     
     @print_info_wrapper(layer_name)
     def print_character_info(self):
