@@ -21,7 +21,7 @@ if __name__ == '__main__':
     temp = SkillTreeLayer(
         character_stat=stat,
         engravings=engravings,
-        artifact_set=None,
+        artifact_set="6악몽",
         skill_tree=skill_tree
     )
     print(temp.get_character_detail())

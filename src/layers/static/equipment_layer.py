@@ -17,7 +17,15 @@ class EquipmentLayer(EngravingLayer):
         return
     
     def parse_artifact_set(self, artifact_raw_string):
-        artifact_set = None
+        artifact_set = dict()
+        if len(artifact_raw_string) == 3:
+            artifact_set['artifact_list'] = [artifact_raw_string[1:3]]
+            artifact_set['artifact_count'] = [int(artifact_raw_string[0])]
+        elif len(artifact_raw_string) == 6:
+            artifact_set['artifact_list'] = [artifact_raw_string[1:3], artifact_raw_string[4:6]]
+            artifact_set['artifact_count'] = [int(artifact_raw_string[0]), int(artifact_raw_string[3])]
+        else:
+            raise ValueError("Invalid artifact")
         return artifact_set
     
     @print_info_wrapper(layer_name)
