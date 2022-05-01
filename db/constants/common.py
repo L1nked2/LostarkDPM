@@ -1,5 +1,7 @@
 # Common constants for computing some stats
 
+
+# Data for character_layer
 # Combat Stats Related
 CRITICAL_RATE_PER_CRIT = 1 / 27.944 / 100
 COOLDOWN_PERCENTAGE_PER_SWIFTNESS = 1 / 46.5731 / 100
@@ -9,7 +11,10 @@ MOVING_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
 # 각성 Damage
 AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.3020 / 100
 
-# data for StatFactory
+# Data for equipment_layer
+
+
+# Data for StatFactory
 # abrelshud, ancient equipment is base for this table
 # 0~25 for ancient, 26,27,28 -> sidereal(에스더) 6, 7, 8
 # base level is 1390, 10 for each upgrade 1~20, 5 for each upgrade 21~25

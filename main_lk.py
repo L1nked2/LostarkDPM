@@ -22,7 +22,6 @@ if __name__ == '__main__':
         character_stat=stat,
         engravings=engravings,
         artifact_set=None,
-        accessories=None,
         skill_tree=skill_tree
     )
     print(temp.get_character_detail())
