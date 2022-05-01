@@ -12,7 +12,8 @@ AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.3020 / 100
 # data for StatFactory
 # abrelshud, ancient equipment is base for this table
 # 0~25 for ancient, 26,27,28 -> sidereal(에스더) 6, 7, 8
-# base level is 1390, 10 for each upgrade 1~20 & 26~28, 5 for each upgrade 21~25
+# base level is 1390, 10 for each upgrade 1~20, 5 for each upgrade 21~25
+# until upgrade 14(< level 1540), relic accessories take part in stat. after that, ancient accessories take part
 STAT_BY_UPGRAGE_TABLE = {
     'armor': [
         55530,
@@ -31,5 +32,14 @@ STAT_BY_UPGRAGE_TABLE = {
         42232, 44132, 46118, 48194, 50362,
         52051, 53796, 55599, 57463, 59390,
         61800, 63160, 64519,
+    ],
+    'accessories' : [
+        39488,
+        39488, 39488, 39488, 39488, 39488,
+        39488, 39488, 39488, 39488, 39488, 
+        39488, 39488, 39488, 39488, 50184,
+        50184, 50184, 50184, 50184, 50184,
+        50184, 50184, 50184, 50184, 50184, 
+        50184, 50184, 50184,
     ]
 }
