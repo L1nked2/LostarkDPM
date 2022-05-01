@@ -34,10 +34,10 @@ class CharacterLayer:
     def reset_stat(self):
         # attack_power
         self.attack_power_base = (self.stat * self.weapon_power / 6.0) ** 0.5 # 기본 상태 스탯창 공격력
-        self.additional_attack_power = 0 # 추가 공격력(engraving,저받&질증)
-        self.additional_damage = 0 # 추가피해(equipment, weapon quality)
         # dynamic terms, refresh needed
         # set these terms in bottom layer first, and run refresh_character_layer()
+        self.additional_attack_power = 0 # 추가 공격력(engraving,저받&질증)
+        self.additional_damage = 0 # 추가피해(equipment, weapon quality)
         self.damage_multiplier = 1 # 피해증가 
         # crit
         crit = self.combat_stat['crit']
@@ -45,20 +45,14 @@ class CharacterLayer:
         self.crit_damage = 2
         # spec -> TODO: init on where?
         specialization = self.combat_stat['specialization']
+        self.specialization = specialization
         # swiftness
         swiftness = self.combat_stat['swiftness']
         self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
         self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
         self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
-        # refresh attack_power
+        # refresh attack_power and damage_multiplier
         self.refresh_character_layer()
-    
-    def update_wrapper(self, update_func):
-        def refresh_function(*args, **kwargs):
-            res = update_func(*args, **kwargs)
-            self.refresh_character_layer()
-            return res
-        return refresh_function
     
     def get_attribute(self, target):
         try:
@@ -69,7 +63,6 @@ class CharacterLayer:
             return result
 
     # Update Method
-    @update_wrapper()
     def update_attribute(self, target, new_value):
         try:
             getattr(self, target)
@@ -80,7 +73,6 @@ class CharacterLayer:
 
     # Update Method with first-order function
     # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
-    @update_wrapper()
     def update_attribute_with_func(self, attribute_name, update_func):
         try:
             attribute = getattr(self, attribute_name)
@@ -94,9 +86,11 @@ class CharacterLayer:
         character_detail = dict()
         target_detail = [
             # base attack terms
-            'attack_power', 'attack_power_base', 'additional_attack_power', 'additional_damage', 'damage_multiplier',
+            'attack_power', 'attack_power_base', 'damage_multiplier',
             # crit terms
             'crit_rate', 'crit_damage',
+            # spec terms
+            'specialization',
             # swiftness terms
             'attack_speed', 'moving_speed', 'cooldown_percentage',
         ]
@@ -107,8 +101,7 @@ class CharacterLayer:
     def refresh_character_layer(self):
         # self.reset_stat()
         self.attack_power = self.attack_power_base * (1 + self.additional_attack_power)
-        self.attack_power = self.attack_power * (1 + self.additional_damage)
-        self.attack_power = self.attack_power * self.damage_multiplier
+        self.damage_multiplier = self.damage_multiplier * (1 + self.additional_damage)
         return    
     
     @print_info_wrapper(layer_name)
