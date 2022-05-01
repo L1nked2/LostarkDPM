@@ -33,9 +33,12 @@ class CharacterLayer:
     # Reset status using given stat and combat_stat
     def reset_stat(self):
         # attack_power
-        self.additional_damage = 0
-        self.attack_power = (self.stat * self.weapon_power / 6.0) ** 0.5
-        self.additional_attack_power = 0
+        self.attack_power_base = (self.stat * self.weapon_power / 6.0) ** 0.5 # 기본 상태 스탯창 공격력
+        self.additional_attack_power = 0 # 추가 공격력(engraving,저받&질증)
+        self.additional_damage = 0 # 추가피해(equipment, weapon quality)
+        # dynamic terms, refresh needed
+        # set these terms in bottom layer first, and run refresh_character_layer()
+        self.damage_multiplier = 1 # 피해증가 
         # crit
         crit = self.combat_stat['crit']
         self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
@@ -47,6 +50,8 @@ class CharacterLayer:
         self.attack_speed = swiftness * ATTACK_SPEED_PER_SWIFTNESS
         self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
         self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+        # refresh attack_power
+        self.refresh_character_layer()
     
     def update_wrapper(self, update_func):
         def refresh_function(*args, **kwargs):
@@ -89,7 +94,7 @@ class CharacterLayer:
         character_detail = dict()
         target_detail = [
             # base attack terms
-            'attack_power','additional_damage', 'additional_attack_power',
+            'attack_power', 'attack_power_base', 'additional_attack_power', 'additional_damage', 'damage_multiplier',
             # crit terms
             'crit_rate', 'crit_damage',
             # swiftness terms
@@ -101,13 +106,14 @@ class CharacterLayer:
     
     def refresh_character_layer(self):
         # self.reset_stat()
+        self.attack_power = self.attack_power_base * (1 + self.additional_attack_power)
+        self.attack_power = self.attack_power * (1 + self.additional_damage)
+        self.attack_power = self.attack_power * self.damage_multiplier
         return    
     
     @print_info_wrapper(layer_name)
     def print_character_info(self):
-        print("stat:", self.stat)
-        print("combat stat:", self.combat_stat)
-        print("attack_power:", self.attack_power)
+        print(self.get_character_detail())
 
 if __name__ == '__main__':
     

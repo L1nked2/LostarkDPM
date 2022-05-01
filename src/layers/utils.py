@@ -35,17 +35,14 @@ def json_parser(file_path):
 
 """
 Factory for generating character
+character = CharacterFactory(upgrade = #, crit = #, specialization = #, swiftness = #).get_data()
 """
-class CharacterFactory:
-    def __init__(self):
-        return
-
 class StatFactory:
-
     def __init__(self, upgrade=25, crit=0, specialization=0, swiftness=0):
         self.stat = dict()
         upgrade_table = STAT_BY_UPGRAGE_TABLE
-        self.stat['stat'] = upgrade_table['armor'][upgrade]
+        # stat and weapon_power from equipment
+        self.stat['stat'] = upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]
         self.stat['weapon_power'] = upgrade_table['weapon'][upgrade]
         self.stat['combat_stat'] = {
             'crit': crit,
@@ -58,4 +55,11 @@ class StatFactory:
         
     def get_data(self):
         return self.stat
+
+class CharacterFactory(StatFactory):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        return
+
+
 
