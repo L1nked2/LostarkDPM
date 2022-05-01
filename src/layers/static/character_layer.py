@@ -46,9 +46,9 @@ class CharacterLayer:
         self.moving_speed = swiftness * MOVING_SPEED_PER_SWIFTNESS
         self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
     
-    def update_wrapper(self, update_func):
-        def refresh_function(*args, **kwargs):
-            res = update_func(*args, **kwargs)
+    def update_wrapper(func):
+        def refresh_function(self, *args, **kwargs):
+            res = func(self, *args, **kwargs)
             self.refresh_character_layer()
             return res
         return refresh_function
@@ -62,7 +62,7 @@ class CharacterLayer:
             return result
 
     # Update Method
-    @update_wrapper()
+    @update_wrapper
     def update_attribute(self, target, new_value):
         try:
             getattr(self, target)
@@ -73,7 +73,7 @@ class CharacterLayer:
 
     # Update Method with first-order function
     # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
-    @update_wrapper()
+    @update_wrapper
     def update_attribute_with_func(self, attribute_name, update_func):
         try:
             attribute = getattr(self, attribute_name)

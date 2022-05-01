@@ -1,5 +1,7 @@
+from numpy import character
 from src.layers.dynamic import dpm_simulator as simulator
-from src.layers.static.skill_tree_layer import SkillTreeLayer
+from src.layers.static.info_layer import InfoLayer
+
 
 
 if __name__ == '__main__':
@@ -28,10 +30,17 @@ if __name__ == '__main__':
     ]
 
 
-    temp = SkillTreeLayer(
+    info = InfoLayer(
         character_stat=stat,
         engravings=engravings,
         artifact_set=None,
         accessories=None,
         skill_tree=skill_tree
+    )
+
+    sim = simulator.DpmSimulator(
+        config=None,
+        policy=None,
+        character_info=info,
+        class_name='warlord'
     )
