@@ -19,6 +19,7 @@ class CharacterLayer:
         # set initial stat using given stat
         self.reset_stat()
 
+    # Import given stat
     def initialize_stat(self):
         self.stat = self.character_stat['stat']
         self.weapon_power = self.character_stat['weapon_power']
@@ -29,6 +30,7 @@ class CharacterLayer:
             print("character_layer: missing field in combat_stat")
             raise AttributeError        
     
+    # Reset status using given stat and combat_stat
     def reset_stat(self):
         # attack_power
         self.additional_damage = 0
@@ -82,6 +84,7 @@ class CharacterLayer:
         else:
             setattr(self, attribute_name, update_func(attribute))
 
+    # Returns character detail in dictionary for further usage
     def get_character_detail(self):
         character_detail = dict()
         target_detail = [

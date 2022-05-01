@@ -33,7 +33,9 @@ def json_parser(file_path):
     json_content = json.load(json_file)
     return json_content
 
-
+"""
+Factory for generating character
+"""
 class CharacterFactory:
     def __init__(self):
         return
