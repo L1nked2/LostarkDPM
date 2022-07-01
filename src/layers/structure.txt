@@ -3,28 +3,27 @@ Separating Static & Dynamic Layers
 
 - Static Layers (Related to initialization of character state)
                       ------------------
-                      | CharacterLayer |  -> Include some combat stats (e.g. crit, specialization)
+                      | CharacterLayer |  -> combat_stat & specific stats
                       ------------------  
-                      | EngravingLayer |
+                      | EngravingLayer |  -> static engravings
                       ------------------
-                      | EquipmentLayer |
-                      ------------------
-                      | SkillTreeLayer |  -> Skill + Jewel Layer
+                      | EquipmentLayer |  -> weapon_quality & artifact_set
                       ------------------
                       |   InfoLayer    |  -> apply configs and hide upper layers
                       ------------------
 
 - Dynamic Layers (Related to DPM simulator)
                       -----------------
-                      | IdentityLayer |  -> class dependent
+                      | IdentityLayer |  -> class dependent (buff setup included)
                       -----------------
-                      | PolicyLayer   |  \
-                      -----------------   \
-                      | BuffsLayer    |  -> skill tree and identity dependent
+                      | SkillTreeLayer | -> Skill + Jewel Layer (buff setup included)
                       -----------------
-                      | DpmSimulator  |  -> User deals with DpmSimulator
+                      | BuffsLayer    |  -> Buff management, including dynamic engraving
                       -----------------
-* we should add or remove layers to/from dynamic structure
+                      | PolicyLayer   |  -> Build queue of skills
+                      -----------------
+                      | DpmSimulator  |  -> Invoke next skill and calculate dpm
+                      -----------------
 
 - Rough Flow
 1. Initialize character information with Static Layers

@@ -146,7 +146,7 @@ class SkillTreeLayer(EquipmentLayer):
         for skill in self.skill_preset:
             skill_info = Skill(
                 skill=skill,
-                attack_power=self.attack_power,
+                attack_power=self.attack_power_base,
                 swiftness=self.combat_stat["swiftness"]
             )
             self.skill_info.append(skill_info)

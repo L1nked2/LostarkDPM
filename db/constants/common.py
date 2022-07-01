@@ -1,15 +1,52 @@
 # Common constants for computing some stats
 
-
 # Data for character_layer
 # Combat Stats Related
 CRITICAL_RATE_PER_CRIT = 1 / 27.944 / 100
 COOLDOWN_PERCENTAGE_PER_SWIFTNESS = 1 / 46.5731 / 100
 ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.2449 / 100
-MOVING_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
+MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
 
 # 각성 Damage
 AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.3020 / 100
+
+
+# Data for engraving_layer
+# Static Engravings
+STATIC_ENGRAVINGS = {
+  ####### 공통각인 #######
+  #원한
+  'Grudge_3': [('damage_multiplier', lambda x: x * 1.20)],
+  #저주받은인형
+  'Cursed_Doll_3': [('additional_attack_power', lambda x: x + 0.16)],
+  #정기흡수
+  'Spirit_Absorption_3': [('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
+  #예리한둔기
+  'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('damage_multiplier', lambda x: x * 0.98)],
+  #아드레날린
+  'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
+  'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
+  #달인의저력
+  #바리케이드
+  #안정된상태
+  #에테르포식자
+  #정밀단도
+  #질량증가
+
+  ####### 직업각인 #######
+  #광기
+  'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
+  #전투태세
+  #초심
+  #절제
+  #강화무기
+  #사냥의시간
+  #상급소환사
+  #환류
+  #잔재된기운
+  #완벽한억제
+  #갈증
+}
 
 # Data for equipment_layer
 

@@ -1,4 +1,4 @@
-from src.layers.static.skill_tree_layer import SkillTreeLayer
+from src.layers.static.equipment_layer import EquipmentLayer
 from src.layers.utils import initialize_wrapper
 
 # we may declare check list for each layer
@@ -8,25 +8,26 @@ STATIC_LAYER_CHECK_LIST = [
     "attack_power",
     "engravings",
     "artifact_set",
-    "skill_info"
 ]
 
-class InfoLayer(SkillTreeLayer):
+class InfoLayer(EquipmentLayer):
     
-    @initialize_wrapper("InfoLayer", enable_start=False)
-    def __init__(self, **kwargs):
-        super(InfoLayer, self).__init__(**kwargs)
-    
-    def check_static_layer_initialization(self):
-        for attribute_name in STATIC_LAYER_CHECK_LIST:
-            try:
-                attribute = getattr(self, attribute_name)
-            except AttributeError as e:
-                print(e)
-            else:
-                print(f"Attribute {attribute_name}: ", attribute)
+  @initialize_wrapper("InfoLayer", enable_start=False)
+  def __init__(self, class_name, skill_tree, **kwargs):
+    super(InfoLayer, self).__init__(**kwargs)
+    self.class_name = class_name
+    self.skill_tree = skill_tree
+  
+  def check_static_layer_initialization(self):
+    for attribute_name in STATIC_LAYER_CHECK_LIST:
+      try:
+        attribute = getattr(self, attribute_name)
+      except AttributeError as e:
+        print(e)
+      else:
+        print(f"Attribute {attribute_name}: ", attribute)
 
-    def print_layer_info(self, layers=["character", "engraving", "equipment", "skiltree"]):
-        for layer in layers:
-            print_info = getattr(self, "print" + layer + "info")
-            print_info()
+  def print_layer_info(self, layers=["character", "engraving", "equipment"]):
+    for layer in layers:
+      print_info = getattr(self, "print_" + layer + "_info")
+      print_info()

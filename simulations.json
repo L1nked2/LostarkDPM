@@ -1,0 +1,14 @@
+{
+  "simulations": [
+    {
+      "class_name": "warlord",
+      "upgrade": 20,
+      "crit": 800,
+      "specialization": 0,
+      "swiftness": 1300,
+      "engravings": ["Grudge_3", "Super_Charge_3", "Lone_Knight_3", "Master_Brawler_3", "Adrenaline_3"],
+      "artifact_set": "6사멸",
+      "skill_tree": "warlord_gogi.json"
+    }
+  ]
+}
