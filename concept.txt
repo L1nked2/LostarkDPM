@@ -1,7 +1,6 @@
 total_status()에 각 layer가 state의 변화를 가져오는 식
 event string이 존재해서 layer가 다른 layer policy에 영향을 줘야하는 경우 이를 parse해서 적용(or python eval()사용)
 tick마다 확인을 전제로 하지만 특정 상황에서는 lock이 가능할 것으로 생각, 최적화는 나중에 가능할 듯
-
 ================================================================
 ##취소##
 refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
@@ -17,8 +16,74 @@ bottom-to-top으로 리셋이후 계산이 적절할 듯
 refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
 static한 부분에서 할 수 있는 최대한의 status를 만들어내고 이를 dynamic에서 핸들링 하는것이 합리적인듯
 따라서 돌대, 직각은 buff나 identity에서 다루는 것이 효율적일듯
-
 ================================================================
+dynamic layer flow
+Main Flow
+1. freeze & copy character
+2. refresh skill queue, using policy
+3. invoke skill and update buff
+4. produce short-term character(stat_buff applied here)
+5. check attribute and deal with skill_buff, modifying damage multiplier
+6. calculate skill damage and add to damage history
+6. refresh buff based on tick
+================================================================
+buff는 어떻게 관리하는가?
+크게 세가지 종류 -> stat_buff, skill_buff, damage_buff
+
+stat_buff는 돌대, 공증 등 stat을 변경하는 buff이고
+skill_buff는 기습(헤드백), 고기(랜스스킬) 등 특정 타입의 스킬만 강화하는 버프이며
+damage_buff는 출혈, 화상 등 지속딜을 나타내는 버프이다.
+
+stat_buff는 short-term character를 만드는 과정에서 적용
+-> target, source, effect, expire_tick
+skill_buff는 calculate skill damage에서 각 attribute를 확인하고 일치시 효과를 부여하는 식으로 동작
+-> condition_list(attr, condition), target_stat, effect, expire_tick
+damage_buff는 refresh buff based on tick에서 계산해서 damage history에 추가해주는식
+-> tick_interval, base_damage, coefficient, expire_tick
+
+버프의 생성은 invoke skill and update buff에서 진행하고
+소멸은 refresh buff based on tick에서 expire_tick을 확인해 처리한다.
+버프는 따라서 생성시간을 이용해 소멸 시간을 기록해두어야한다
+================================================================
+skill에는 뭐가 있어야 하는가?
+기본적으로 json을 통해 import한다.
+데미지 계수, 트라이포드, 보석, 버프, attribute를 가지고 있어야할듯. -> 필요시 추후 추가
+스킬의 버프는 특정 직업에 한정되는 버프이므로 직업별로 hard coding해둔다.
+================================================================
+identity는 어떻게 처리하는가?
+일종의 스킬로 취급하여 처리한다. 확률이 개입하는 아덴은 고민해봐야할듯
+버서커: 버프, 광기는 각인단에서 처리
+워로드: x
+디트: 코어는 버프, 아덴은 스킬
+배마: x
+인파: x
+기공: 역천의 경우 버프, 세맥은 단계별 버프를 사이클마다 끼워넣어야할듯
+창술: 절정만 버프처리
+스커: x
+데헌: x
+블래: 게이지는 버프, 포격모드는 스킬처리 -> 버프의 갱신?
+호크: ?
+스카: 유산은 버프처리 -> 버프의 갱신? 변신 스킬 처리?
+건슬: 피메로 인한 스탠스별 버프처리 필요, 더미 스킬 도입?
+서머: 아덴은 스킬처리
+알카: ? 확률 도입?
+소서: 점화의 경우 버프처리, 스킬의 쿨감?
+모닉: 충동의 경우 버프처리, 변신 스킬 처리?
+블레: 스킬의 쿨감? 버스트의 데미지?
+리퍼: x
+-> 버프의 갱신, 변신 스킬 처리, 스탠스별 더미 스킬, 스킬의 쿨감 도입이 필요
+================================================================
+policy에는 뭐가 있어야 하는가?
+스킬의 priority를 부여하여 skill_queue(priority queue)를 구성한다.
+다만 특정 스킬들의 순서를 고정하고 싶으면 바인딩을 부여한다. ex)증배버차
+모든 스킬(단일 혹은 바인딩된 여러스킬)은 binding으로 wrap해준다. 그리고 pool에 등록해둔다.
+바인딩으로 묶인 스킬들은 하나의 스킬로 취급되며, priority는 스킬중 가장 높은 스킬이 가져간다.
+사실 가장 편한 방식은 모든 스킬을 하나의 바인딩으로 묶어서 제시하는 것이 가장 편할듯하다.
+
+어디다 어떻게 적어야하는가?
+skill정보를 담은 json에 작성 요령을 정해 적어두는게 좋을듯 하다
+================================================================
+기타 설정
 무품 100으로 정해놓고 추피 설정
 헬설정, 시너지는 각인의 일종으로 올려놓기
 방깎은 1%당 0.6% 딜증 취급
