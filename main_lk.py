@@ -9,6 +9,4 @@ if __name__ == '__main__':
 
   print(configs[0].build_dict())
   temp = CharacterLayer(**configs[0].build_dict())
-  #temp.print_character_info()
-  #temp.print_engraving_info()
   temp.print_layer_info()

@@ -17,6 +17,11 @@ ENGRAVINGS = {
   ####### Helper각인 #######
   #헬모드
   'Hell': [('additional_damage', lambda x: x - 0.30)],
+  'Synergy_Crit_A': [('crit_rate', lambda x: x + 0.10)],
+  'Synergy_Crit_B': [('crit_rate', lambda x: x + 0.18)],
+  'Synergy_Damage_A': [('damage_multiplier', lambda x: x * 1.06)],
+  'Synergy_Damage_B': [('damage_multiplier', lambda x: x * 1.072)],
+  'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
 
   ####### 공통각인 #######
   ## Static ##
