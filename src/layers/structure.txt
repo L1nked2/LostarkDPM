@@ -3,7 +3,7 @@ Separating Static & Dynamic Layers
 
 - Static Layers (Related to initialization of character state)
                       ------------------
-                      | CharacterLayer |  -> combat_stat & specific stats
+                      |   StatLayer    |  -> combat_stat & specific stats
                       ------------------  
                       | EngravingLayer |  -> static engravings
                       ------------------

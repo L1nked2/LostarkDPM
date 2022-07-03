@@ -1,29 +1,25 @@
-from src.layers.static.character_layer import CharacterLayer
-from db.constants.common import STATIC_ENGRAVINGS
-from src.layers.utils import initialize_wrapper, print_info_wrapper
+from src.layers.static.stat_layer import StatLayer
+from db.constants.common import ENGRAVINGS
+from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 
-
-
-class EngravingLayer(CharacterLayer):
+class EngravingLayer(StatLayer):
   layer_name = "EngravingLayer"
 
   @initialize_wrapper("EngravingLayer", enable_start=False)
   def __init__(self, engravings, **kwargs):
     super(EngravingLayer, self).__init__(**kwargs)
     self.engravings = engravings
-    self.dynamic_engraving_list = list()
     self.apply_static_engravings()
   
   def apply_static_engravings(self):
     for engraving in self.engravings:
-      if engraving in STATIC_ENGRAVINGS:
+      if engraving in ENGRAVINGS:
         self.apply_one_engraving(engraving)
       else:
-        self.dynamic_engraving_list.append(engraving)
+        raise_attribute_error('EngravingLayer', 'wrong engraving given, ' + engraving)
 
   def apply_one_engraving(self, engraving):
-    for target, effect in STATIC_ENGRAVINGS[engraving]:
-      
+    for target, effect in ENGRAVINGS[engraving]:
       super(EngravingLayer, self).update_attribute_with_func(target, effect)
   
   @print_info_wrapper(layer_name)

@@ -28,6 +28,10 @@ def print_info_wrapper(name):
         return decorator
     return wrapper
 
+def raise_attribute_error(layer_name, info):
+    print(layer_name + ": " + info)
+    raise AttributeError
+
 def json_parser(file_path):
     json_file = open(file_path, "r", encoding='utf-8')
     json_content = json.load(json_file)
