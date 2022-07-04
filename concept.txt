@@ -1,31 +1,6 @@
-total_status()에 각 layer가 state의 변화를 가져오는 식
-event string이 존재해서 layer가 다른 layer policy에 영향을 줘야하는 경우 이를 parse해서 적용(or python eval()사용)
-tick마다 확인을 전제로 하지만 특정 상황에서는 lock이 가능할 것으로 생각, 최적화는 나중에 가능할 듯
-================================================================
-##취소##
-refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
-bottom-to-top으로 리셋이후 계산이 적절할 듯
-영향이 가는 attribute는 치확&치피, 쿨다운&공이속과 추가피해, 추가공격력, 피해증가 및 파생되는 attack_power
-1. reset_stat()으로 모든 status를 초기화(character_layer)
-2. dynamic layer에서 buff(피증, 치확&치피, 공이속), identity(피증, 치확&치피, 공이속) 적용
-3. equipment_layer에서 추피(품질&세트), 피증(세트), 치확&치피(세트), 쿨다운&공이속(세트) 적용
-4. engraving_layer에서 추공(저받질증), 피증(이외각인), 치확&치피(아드정단예둔), 공이속(정흡) 적용 -> 정흡부터 해서 돌대 정상연산되게
-5. character_layer에서 위 과정에서 연산된 모든 attribute를 활용하여 최종 status 계산
-########
-================================================================
 refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
 static한 부분에서 할 수 있는 최대한의 status를 만들어내고 이를 dynamic에서 핸들링 하는것이 합리적인듯
 따라서 돌대, 직각은 buff나 identity에서 다루는 것이 효율적일듯
-================================================================
-dynamic layer flow
-Main Flow
-1. freeze & copy character
-2. refresh skill queue, using policy
-3. invoke skill and update buff
-4. produce short-term character(stat_buff applied here)
-5. check attribute and deal with skill_buff, modifying damage multiplier
-6. calculate skill damage and add to damage history
-6. refresh buff based on tick
 ================================================================
 buff는 어떻게 관리하는가?
 크게 세가지 종류 -> stat_buff, skill_buff, damage_buff

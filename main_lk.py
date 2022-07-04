@@ -1,4 +1,4 @@
-from src.layers.dynamic import dpm_simulator as simulator
+#from src.layers.dynamic import dpm_simulator as simulator
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.utils import import_simulation
 

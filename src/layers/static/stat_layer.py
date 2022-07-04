@@ -59,16 +59,22 @@ class StatLayer:
         self.static_buff_queue = list()
 
         # scale
-        self.scale_stat()
+        self.refresh_stats()
+    
+    # Refresh stats, called when stats are updated
+    def refresh_stats(self):
+        self.scale_stats()
+        self.calc_useful_stats()
 
     # Apply ceiling for some stats
-    def scale_stat(self):
+    def scale_stats(self):
         # crit_rate cannot exceed 1
         self.crit_rate = min(self.crit_rate, 1)
         # movement_speed and attack_speed cannot exceed 1.4
         self.movement_speed = min(self.movement_speed, 1.4)
         self.attack_speed = min(self.attack_speed, 1.4)
 
+    # Get method
     def get_attribute(self, target):
         try:
             result = getattr(self, target)
@@ -77,7 +83,7 @@ class StatLayer:
         else:
             return result
 
-    # Update Method
+    # Update method
     def update_attribute(self, target, new_value):
         try:
             getattr(self, target)
@@ -85,10 +91,10 @@ class StatLayer:
             print(e)
         else:
             setattr(self, target, new_value)
-        self.scale_stat()
+        self.refresh_stats()
 
-    # Update Method with first-order function
-    # Usage - update_attribute_with_func('attack_power', lambda x: x * 1.2)
+    # Update method with first-order function
+    # ex) update_attribute_with_func('attack_power', lambda x: x * 1.2)
     def update_attribute_with_func(self, attribute_name, update_func):
         try:
             attribute = getattr(self, attribute_name)
@@ -96,7 +102,7 @@ class StatLayer:
             print(e)
         else:
             setattr(self, attribute_name, update_func(attribute))
-        self.scale_stat()
+        self.refresh_stats()
 
     # Returns character detail in dictionary for further usage
     def get_stat_detail(self):
@@ -104,6 +110,8 @@ class StatLayer:
         target_detail = [
             # base attack terms
             'attack_power_base', 'additional_attack_power', 'additional_damage', 'damage_multiplier', 'static_buff_queue',
+            # useful terms
+            'actual_attack_power', 'total_multiplier',
             # crit terms
             'crit_rate', 'crit_damage',
             # spec terms
@@ -114,6 +122,11 @@ class StatLayer:
         for item in target_detail:
             character_detail[item] = getattr(self, item)
         return character_detail
+    
+    # useful stats for actual usage
+    def calc_useful_stats(self):
+        self.actual_attack_power = self.attack_power_base * (1 + self.additional_attack_power)
+        self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
 
     @print_info_wrapper(layer_name)
     def print_stat_info(self):
