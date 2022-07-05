@@ -57,25 +57,25 @@ class StatFactory:
     }
 
 class CharacterFactory(StatFactory):
-  def __init__(self, class_name, engravings, artifact_set, skill_tree, **kwargs):
+  def __init__(self, class_name, engravings, artifact_set, skill_set, **kwargs):
     super(CharacterFactory, self).__init__(**kwargs)
     self.class_name = class_name
     self.engravings = engravings
     self.artifact_set = artifact_set
-    self.skill_tree = skill_tree
+    self.skill_set = skill_set
   
   def build_dict(self):
     return self.__dict__
 
 """
-Import simulations from file_path
-returns list of dictionary contaning configuration of each simulation
+Import characterss from file_path
+returns list of dictionary contaning configuration of each character
 """
-def import_simulation(file_path):
+def import_character(file_path):
   json_content = json.load(open(file_path, 'r', encoding='utf-8'))
   configs = list()
-  for sim in json_content['simulations']:
-    config = CharacterFactory(**sim)
+  for character in json_content['character_settings']:
+    config = CharacterFactory(**character)
     configs.append(config)
   return configs
   

@@ -1,17 +1,17 @@
 ================================================================
 dynamic layer flow
 Main Flow
-1. freeze & copy character
-2. refresh skill queue, using policy
-3. invoke skill and update buff
-4. produce short-term character(stat_buff applied here)
-5. check attribute and deal with skill_buff, modifying damage multiplier
-6. calculate skill damage and add to damage history
-6. refresh buff based on tick
+1. refresh skill queue, using policy
+2. invoke skill and update buffs
+3. update dynamic_multiplier of buffs_manager(stat_buff applied here)
+4. calculate damage_buffs and add to damage_history
+5. check attribute and deal with skill_buff, modifying dynamic_skill_multiplier(skill_buff applied here)
+6. calculate skill damage and add to damage_history
+7. refresh buff based on tick
 ================================================================
 dpm_simulator, has character and managers to modify it
--single character(init, freeze & copy)
--buffs_manager(stat_buff applied character, skill_buff modifier, damage_buff calculation)
+-single character(init, static)
+-buffs_manager(stat_buff, skill_buff, damage_buff)
 -policy_manager()
 ================================================================
 buffs_manager, has queue of each type of buff

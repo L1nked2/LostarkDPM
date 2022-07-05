@@ -14,10 +14,10 @@ STATIC_LAYER_CHECK_LIST = [
 class CharacterLayer(EquipmentLayer):
     layer_name = "CharacterLayer"
     @initialize_wrapper(layer_name, enable_start=False)
-    def __init__(self, class_name, skill_tree, **kwargs):
+    def __init__(self, class_name, skill_set, **kwargs):
         super(CharacterLayer, self).__init__(**kwargs)
         self.class_name = class_name
-        self.skill_tree = skill_tree
+        self.skill_set = skill_set
 
     def check_static_layer_initialization(self):
         for attribute_name in STATIC_LAYER_CHECK_LIST:

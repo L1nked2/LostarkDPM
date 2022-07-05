@@ -1,3 +1,5 @@
+# do we need this module?
+
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.constants import *
@@ -21,19 +23,20 @@ class StatBuff(Buff):
     
     def apply_stat_buff(self, character: CharacterLayer) -> CharacterLayer:
         for effect in self.effects:
-          target = getattr(character, effect[0])
-          source = getattr(character, effect[1])
-          result = getattr(character, effect[2])(target, source)
-          setattr(character, target, result)
+          target = character.get_attribute(effect[0])
+          source = character.get_attribute(effect[1])
+          result = effect[2](target, source)
+          character.update_attribute(target, result)
 
-class SkillBuff:
+class SkillBuff(Buff):
     """Class for skill buff"""
     def __init__(self, conditions, effects, **kwargs):
-        super(StatBuff, self).__init__(**kwargs)
+        super(SkillBuff, self).__init__(**kwargs)
         self.conditions = conditions
         # lambda functions, takes target return bool
         # ex) [(target, lambda x: True if x == 'back' else False)]
         self.effects = effects
+        # ex) [(target, lambda x: x * 1.5)]
         if len(conditions) != len(effects):
           print('length of conditions must be equal to length of effects')
           raise ValueError
@@ -45,10 +48,10 @@ class SkillBuff:
         for effect in zip(effect_bool, self.effects):
           pass #TODO: fill this after skill is finished
 
-class DamageBuff:
+class DamageBuff(Buff):
     """Class for Damage buff"""
     def __init__(self, base_damage, coefficient, start_tick, total_tick, **kwargs):
-        super(StatBuff, self).__init__(**kwargs)
+        super(DamageBuff, self).__init__(**kwargs)
         self.base_damage = base_damage
         self.coefficient = coefficient
         self.start_tick = start_tick
