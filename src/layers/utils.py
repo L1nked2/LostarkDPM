@@ -67,6 +67,13 @@ class CharacterFactory(StatFactory):
   def build_dict(self):
     return self.__dict__
 
+
+"""
+Simple crit stats to multiplier helper
+"""
+def crit_to_multiplier(crit_rate, crit_damage):
+  return crit_rate * crit_damage + (1 - crit_rate) * 1.0
+
 """
 Import characterss from file_path
 returns list of dictionary contaning configuration of each character

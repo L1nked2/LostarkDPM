@@ -1,10 +1,10 @@
 ================================================================
 dynamic layer flow
 Main Flow
-1. refresh skill queue, using policy
-2. invoke skill and update buffs
+1. reset character derived stats
+2. refresh skill queue, using policy
 3. update dynamic_multiplier of buffs_manager(stat_buff applied here)
-4. calculate damage_buffs and add to damage_history
+4. calculate damage_buffs and add to damage_history(damage_buff applied here)
 5. check attribute and deal with skill_buff, modifying dynamic_skill_multiplier(skill_buff applied here)
 6. calculate skill damage and add to damage_history
 7. refresh buff based on tick

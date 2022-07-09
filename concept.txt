@@ -6,25 +6,17 @@ buff는 어떻게 관리하는가?
 크게 세가지 종류 -> stat_buff, skill_buff, damage_buff
 
 stat_buff는 돌대, 공증 등 stat을 변경하는 buff이고
+-> stat_buff는 manager의 dynamic_multiplier 수정하는 방식으로 적용
 skill_buff는 기습(헤드백), 고기(랜스스킬) 등 특정 타입의 스킬만 강화하는 버프이며
+-> skill_buff는 calculate skill damage에서 각 attribute를 확인하고 일치시 효과를 부여하는 식으로 동작
 damage_buff는 출혈, 화상 등 지속딜을 나타내는 버프이다.
-
-stat_buff는 manager의 dynamic_multiplier 수정하는 방식으로 적용
--> target, source, effect, expire_tick
-skill_buff는 calculate skill damage에서 각 attribute를 확인하고 일치시 효과를 부여하는 식으로 동작
--> condition_list(attr, condition), target_stat, effect, expire_tick
-damage_buff는 refresh buff based on tick에서 계산해서 damage history에 추가해주는식
--> tick_interval, base_damage, coefficient, expire_tick
+-> damage_buff는 refresh buff based on tick에서 계산해서 damage history에 추가해주는식
 
 버프의 생성은 invoke skill and update buff에서 진행하고
-소멸은 refresh buff based on tick에서 expire_tick을 확인해 처리한다.
+소멸은 refresh buff based on tick에서 expire여부를 확인해 처리한다.
 버프는 따라서 생성시간을 이용해 소멸 시간을 기록해두어야한다
 
-시너지를 제외한 자버프는 공증, 치적, 공속, 이속이 전부인듯 하다.
-character에서 네가지 요소를 복사하여 적용하면 될듯하다.
-트포, 질풍으로 인한 공속 버프는 140% 이상으로 적용된다.
-트포로 인한 이속버프는 140%에 막힌다.
-공증, 치적은 가장 높은 수치의 버프만 적용된다.
+name, source, target, effect, duration으로 구성
 ================================================================
 skill에는 뭐가 있어야 하는가?
 기본적으로 json을 통해 import한다.
@@ -67,4 +59,5 @@ skill정보를 담은 json에 작성 요령을 정해 적어두는게 좋을듯 
 기타 설정
 무품 100으로 정해놓고 추피 설정
 헬설정, 시너지는 각인의 일종으로 올려놓기
-방깎은 1%당 0.6% 딜증 취급
+방깎은 1%당 0.55% 딜증 취급
+(https://www.inven.co.kr/board/lostark/5647/70762)

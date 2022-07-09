@@ -4,6 +4,7 @@ import csv
 class DamageHistory:
     def __init__(self):
         self.history = list()
+        self.history_dps = list()
         self.statistics = dict()
         self.total_damage = 0.0
         self.last_tick = 0
@@ -14,6 +15,7 @@ class DamageHistory:
         self.history.append({"name": name, "damage_value": damage_value, "tick": tick})
         self.total_damage += damage_value
         self.last_tick = max(self.last_tick, tick)
+        self.history_dps.append(self.current_dps)
         self.prev_dps = self.current_dps
         self.current_dps = self.total_damage / self.last_tick
 

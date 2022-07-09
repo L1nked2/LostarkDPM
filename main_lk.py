@@ -12,7 +12,7 @@ if __name__ == '__main__':
     temp.print_layer_info()
 
     simulator_config = {
-        
+        'tick': 1,
     }
     simulator = DpmSimulator(simulator_config, temp)
     simulator.test()

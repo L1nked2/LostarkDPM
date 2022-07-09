@@ -1,7 +1,6 @@
 from db.constants.common import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 
-
 class StatLayer:
     """
     Base layer of static part of simulator
@@ -63,16 +62,7 @@ class StatLayer:
     
     # Refresh stats, called when stats are updated
     def refresh_stats(self):
-        self.scale_stats()
         self.calc_useful_stats()
-
-    # Apply ceiling for some stats
-    def scale_stats(self):
-        # crit_rate cannot exceed 1
-        self.crit_rate = min(self.crit_rate, 1)
-        # movement_speed and attack_speed cannot exceed 1.4
-        self.movement_speed = min(self.movement_speed, 1.4)
-        self.attack_speed = min(self.attack_speed, 1.4)
 
     # Get method
     def get_attribute(self, target):
@@ -111,7 +101,7 @@ class StatLayer:
             # base attack terms
             'attack_power_base', 'additional_attack_power', 'additional_damage', 'damage_multiplier', 'static_buff_queue',
             # useful terms
-            'actual_attack_power', 'total_multiplier',
+            'actual_attack_power', 'total_multiplier', 'actual_crit_rate', 'actual_attack_speed', 'actual_movement_speed',
             # crit terms
             'crit_rate', 'crit_damage',
             # spec terms
@@ -124,9 +114,15 @@ class StatLayer:
         return character_detail
     
     # useful stats for actual usage
+    # scale some stats
     def calc_useful_stats(self):
         self.actual_attack_power = self.attack_power_base * (1 + self.additional_attack_power)
         self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
+        # crit_rate cannot exceed 1
+        self.actual_crit_rate = min(self.crit_rate, 1)
+        # movement_speed and attack_speed cannot exceed 1.4
+        self.actual_movement_speed = min(self.movement_speed, 1.4)
+        self.actual_attack_speed = min(self.attack_speed, 1.4)
 
     @print_info_wrapper(layer_name)
     def print_stat_info(self):

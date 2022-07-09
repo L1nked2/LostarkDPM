@@ -1,64 +1,60 @@
-# do we need this module?
-
+"""
+Basic buff classes
+StatBuff, SkillBuff. DamageBuff inherits Buff
+"""
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.constants import *
 
 class Buff:
     """Base class for buff"""
-    def __init__(self, name, expires_at):
+    def __init__(self, name, buff_type, sources, target, effect, duration, priority, begin_tick):
         self.name = name
-        self.expires_at = expires_at
+        self.buff_type = buff_type
+        self.sources = sources
+        self.target = target
+        self.effect = effect
+        self.duration = duration
+        self.priority = priority
+        self.begin_tick = begin_tick
 
     def is_expired(self, current_tick) -> bool:
-        return self.expires_at >= current_tick
+        return self.begin_tick + self.duration <= current_tick
+    
+    def __repr__(self):
+        return str({'name': self.name, 'begin_tick': self.begin_tick, 'duration': self.duration})
 
 class StatBuff(Buff):
     """Class for stat buff"""
-    def __init__(self, effects, **kwargs):
+    def __init__(self, **kwargs):
         super(StatBuff, self).__init__(**kwargs)
-        self.effects = effects
-        # lambda functions, takes target and source to modify target
-        # ex) [(target, source, lambda x,y: x + y)]
     
     def apply_stat_buff(self, character: CharacterLayer) -> CharacterLayer:
-        for effect in self.effects:
-          target = character.get_attribute(effect[0])
-          source = character.get_attribute(effect[1])
-          result = effect[2](target, source)
-          character.update_attribute(target, result)
+        source_value = tuple()
+        for attr in self.sources:
+          source_value += character.get_attribute(attr)
+        result = self.effect(source_value)
+        print(f'buff test: ', result) ###test
+        character.update_attribute(self.target, result)
 
 class SkillBuff(Buff):
     """Class for skill buff"""
-    def __init__(self, conditions, effects, **kwargs):
+    def __init__(self, **kwargs):
         super(SkillBuff, self).__init__(**kwargs)
-        self.conditions = conditions
-        # lambda functions, takes target return bool
-        # ex) [(target, lambda x: True if x == 'back' else False)]
-        self.effects = effects
-        # ex) [(target, lambda x: x * 1.5)]
-        if len(conditions) != len(effects):
-          print('length of conditions must be equal to length of effects')
-          raise ValueError
     
     def apply_skill_buff(self, skill: Skill) -> Skill:
-        effect_bool = list()
-        for condition in self.conditions:
-          target = getattr(skill.attributes, condition)
-        for effect in zip(effect_bool, self.effects):
-          pass #TODO: fill this after skill is finished
+        pass
 
 class DamageBuff(Buff):
     """Class for Damage buff"""
-    def __init__(self, base_damage, coefficient, start_tick, total_tick, **kwargs):
+    def __init__(self, base_damage, coefficient, **kwargs):
         super(DamageBuff, self).__init__(**kwargs)
         self.base_damage = base_damage
         self.coefficient = coefficient
-        self.start_tick = start_tick
-        self.total_tick = total_tick
     
     def apply_damage_buff(self, character: CharacterLayer, current_tick) -> int:
         damage_value = 0
+        #last visited tick?
         if (current_tick - self.start_tick) % TICKS_PER_SECOND == 0:
           damage_value = (self.base_damage + (self.coefficient * character.actual_attack_power)) * character.total_multiplier
         return damage_value

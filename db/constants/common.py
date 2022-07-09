@@ -73,7 +73,7 @@ ENGRAVINGS = {
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
 
-  #전투태세
+  #전투태세 TODO: move to dynamic buff
   'Combat_Readiness_1': [('damage_multiplier', lambda x: x * 1.20),
                          ('awakening_damage_multiplier', lambda x: x / 1.20),
                          ('damage_multiplier', lambda x: x * 1.12)],
@@ -118,7 +118,7 @@ ENGRAVINGS = {
   #황제의칙령
   #점화
 
-  #환류
+  #환류 TODO: move to dynamic buff
   'Reflux_1': [('damage_multiplier', lambda x: x * 1.08),
                ('awakening_damage_multiplier', lambda x: x / 1.08),
                ('cooldown_percentage', lambda x: x + (1-x) * 0.03),
@@ -136,7 +136,7 @@ ENGRAVINGS = {
                          ('movement_speed', lambda x: x + 0.12)],
   #버스트
   #멈출수없는충동                         
-  #완벽한억제
+  #완벽한억제 TODO: move to dynamic buff
   'Perfect_Suppression_1': [('damage_multiplier', lambda x: x * 1.20),
                             ('awakening_damage_multiplier', lambda x: x / 1.20)],
   'Perfect_Suppression_3': [('damage_multiplier', lambda x: x * 1.30),
