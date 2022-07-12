@@ -1,27 +1,36 @@
 import importlib
-from src.layers.dynamic.buff import StatBuff, SkillBuff, DamageBuff
-from src.classes.base import BASE_BUFF_DICT
+import src.classes.base as base_buff_module
+from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
+from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.damage_history import DamageHistory
 
+
 class BuffsManager():
-    def __init__(self, class_name, **kwargs):
-        import_target = "src.classes." + class_name
-        self.class_module = importlib.import_module(import_target)
-        self.base_buff_table = BASE_BUFF_DICT
-        self.class_buff_table = getattr(self.class_module, 'CLASS_BUFF_DICT')
-        self.current_buffs = list() 
+    def __init__(self, base_character: CharacterLayer, **kwargs):
+        self.base_character = base_character
+        import_target = "src.classes." + self.base_character.class_name
+        self.class_buff_module = importlib.import_module(import_target)
+        self.class_buff_table = self.class_buff_module.CLASS_BUFF_DICT
+        self.current_buffs = list()
         self.update_tick(0)
+        
+        self._import_buffs(self.base_character.static_buff_queue)
 
     def update_tick(self, tick):
         self.current_tick = tick
     
-    def import_buffs(self, buffs_name_list):
+    def _import_buffs(self, buffs_name_list):
+        # register base buffs(default buffs)
+        for buff_name in base_buff_module.BASE_BUFF_DICT:
+            self.register_buff(base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
+        self.register_buff(self.class_buff_table['Specialization'], 'class')
+
         for buff_name in buffs_name_list:
-          if buff_name in self.base_buff_table:
-            self.register_buff(self.base_buff_table[buff_name])
+          if buff_name in base_buff_module.COMMON_BUFF_DICT:
+            self.register_buff(base_buff_module.COMMON_BUFF_DICT[buff_name], 'base')
           elif buff_name in self.class_buff_table:
-            self.register_buff(self.class_buff_table[buff_name])
+            self.register_buff(self.class_buff_table[buff_name], 'class')
     
     def is_buff_exists(self, name):
         for buff in self.current_buffs:
@@ -29,15 +38,13 @@ class BuffsManager():
             return True
         return False
 
-    def register_buff(self, buff_dict):
+    def register_buff(self, buff_dict, buff_origin):
         if self.is_buff_exists(buff_dict['name']):
             self.unregister_buff(buff_dict)
         if buff_dict['buff_type'] == 'stat':
-          buff = StatBuff(**buff_dict, begin_tick=self.current_tick)
-        elif buff_dict['buff_type'] == 'skill':
-          buff = SkillBuff(**buff_dict, begin_tick=self.current_tick)
+          buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
         elif buff_dict['buff_type'] == 'damage':
-          buff = DamageBuff(**buff_dict, begin_tick=self.current_tick)
+          buff = DamageBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
         else:
           raise Exception(f"BuffsManager: Wrong buff type, {buff_dict['type']}")
         self.current_buffs.append(buff)
@@ -47,24 +54,23 @@ class BuffsManager():
           if registerd_buff.name == buff['name']:
             self.current_buffs.remove(registerd_buff)
     
-    def sort_buffs(self):
-        self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority)
-    
-    def apply_stat_buffs(self, character: CharacterLayer):
+    def apply_stat_buffs(self, character: CharacterLayer, skill: Skill):
+        self._sort_buffs()
         for buff in self.current_buffs:
-            if buff.buff_type == 'stat':
-                buff.apply_stat_buff(character)
+            if buff.buff_origin == 'base':
+                buff_body = getattr(base_buff_module, buff.name)
+            elif buff.buff_origin == 'class':
+                buff_body = getattr(self.class_buff_module, buff.name)
+            buff_body(character, skill)
     
-    def apply_skill_buffs(self, skill):
-        for buff in self.current_buffs:
-            if buff.buff_type == 'skill':
-                buff.apply_skill_buff(skill)
-    
+    ## TODO
     def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory):
         for buff in self.current_buffs:
             if buff.buff_type == 'damage':
                 buff.apply_damage_buff(character, damage_history)
 
     def print_buffs(self):
-        for buff in self.current_buffs:
-            print(buff)
+        print(self.current_buffs)
+
+    def _sort_buffs(self):
+        self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority)

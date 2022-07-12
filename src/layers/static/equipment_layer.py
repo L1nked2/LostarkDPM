@@ -1,5 +1,5 @@
 from src.layers.static.engraving_layer import EngravingLayer
-from db.constants.common import ARTIFACT_TABLE
+from src.layers.static.constants import ARTIFACT_TABLE
 from src.layers.utils import initialize_wrapper, print_info_wrapper
 
 class EquipmentLayer(EngravingLayer):

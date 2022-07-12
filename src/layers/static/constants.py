@@ -1,4 +1,6 @@
-# Common constants for computing some stats
+"""
+Constants for static part of simulator
+"""
 
 # Data for character_layer
 # Combat Stats Related

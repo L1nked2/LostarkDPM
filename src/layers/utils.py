@@ -1,6 +1,10 @@
+"""
+Utilization functions for static and dynamic part of simulator
+"""
+
 import sys
 import io
-from db.constants.common import STAT_BY_UPGRAGE_TABLE
+from src.layers.static.constants import STAT_BY_UPGRAGE_TABLE
 import json
 from functools import wraps
 

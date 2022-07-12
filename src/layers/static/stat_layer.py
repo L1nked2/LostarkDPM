@@ -1,5 +1,6 @@
-from db.constants.common import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
+from src.layers.static.constants import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
+import copy
 
 class StatLayer:
     """
@@ -58,11 +59,11 @@ class StatLayer:
         self.static_buff_queue = list()
 
         # scale
-        self.refresh_stats()
+        self._refresh_stats()
     
     # Refresh stats, called when stats are updated
-    def refresh_stats(self):
-        self.calc_useful_stats()
+    def _refresh_stats(self):
+        self._calc_useful_stats()
 
     # Get method
     def get_attribute(self, target):
@@ -81,7 +82,7 @@ class StatLayer:
             print(e)
         else:
             setattr(self, target, new_value)
-        self.refresh_stats()
+        self._refresh_stats()
 
     # Update method with first-order function
     # ex) update_attribute_with_func('attack_power', lambda x: x * 1.2)
@@ -92,7 +93,7 @@ class StatLayer:
             print(e)
         else:
             setattr(self, attribute_name, update_func(attribute))
-        self.refresh_stats()
+        self._refresh_stats()
 
     # Returns character detail in dictionary for further usage
     def get_stat_detail(self):
@@ -113,9 +114,12 @@ class StatLayer:
             character_detail[item] = getattr(self, item)
         return character_detail
     
+    def copy(self):
+        return copy.deepcopy(self)
+    
     # useful stats for actual usage
     # scale some stats
-    def calc_useful_stats(self):
+    def _calc_useful_stats(self):
         self.actual_attack_power = self.attack_power_base * (1 + self.additional_attack_power)
         self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
         # crit_rate cannot exceed 1

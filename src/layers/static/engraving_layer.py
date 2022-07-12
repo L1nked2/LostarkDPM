@@ -1,5 +1,5 @@
 from src.layers.static.stat_layer import StatLayer
-from db.constants.common import ENGRAVINGS
+from src.layers.static.constants import ENGRAVINGS
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 
 class EngravingLayer(StatLayer):

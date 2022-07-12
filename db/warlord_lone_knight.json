@@ -1,0 +1,47 @@
+{
+  "class_name": "warlord",
+  "policy": {
+    "priorities": {
+      "차지 스팅거": 1,
+      "버스트 캐넌": 1
+    },
+    "bindings": [
+      {
+        "버스트 캐넌": ["증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"]
+      }
+    ],
+    "lookup_cooldown": 5
+  },
+  "skill_preset": [
+    {
+      "name": "차지 스팅거",
+      "default_damage": 2997,
+      "default_coefficient": 18.593,
+      "skill_type": "Charge",
+      "identity_type": "Lance",
+      "cooldown": 30,
+      "common_delay": 1.0,
+      "type_specific_delay": 1.0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 7,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": []
+    },
+    {
+      "name": "배쉬",
+      "default_damage": 2997,
+      "default_coefficient": 18.593,
+      "skill_type": "Common",
+      "identity_type": "Common",
+      "cooldown": 10,
+      "common_delay": 1.0,
+      "type_specific_delay": 0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 7,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": ["AP_buff_1"]
+    }
+  ]
+}
