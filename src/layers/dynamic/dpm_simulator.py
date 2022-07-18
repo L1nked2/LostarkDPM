@@ -1,9 +1,8 @@
-from copy import deepcopy
-import copy
-from src.layers.static.character_layer import CharacterLayer
-from src.layers.dynamic.buffs_manager import BuffsManager
-from src.layers.dynamic.damage_history import DamageHistory
-from src.layers.dynamic.constants import TICKS_PER_SECOND
+from ..static.character_layer import CharacterLayer
+from .buffs_manager import BuffsManager
+from .skills_manager import SkillsManager
+from .damage_history import DamageHistory
+from .constants import *
 
 
 class DpmSimulator:
@@ -17,9 +16,11 @@ class DpmSimulator:
     # buff manager
     self.buff_manager = BuffsManager(self.base_character)
     # skill manager
-
+    self.skills_manager = SkillsManager(self.base_character)
     # initialize tick
     self.sync_tick()
+
+    print('LostArkDpmSimulator is now ready to run')
 
   def progress(self):
     pass
@@ -31,10 +32,11 @@ class DpmSimulator:
     print(self.buff_manager.class_buff_table)
     print(self.base_character.get_stat_detail())
     self.buff_manager.print_buffs()
+    self.skills_manager.print_skills()
     
   def invoke_next_skill(self):
     self.sync_tick(self)
     self.elapsed_tick += self.config['tick']
 
   def print_progress(self):
-    print(f"Elapsed time: {self.elapsed_tick/TICKS_PER_SECOND} s")
+    print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")

@@ -5,7 +5,7 @@ Constants for static part of simulator
 # Data for character_layer
 # Combat Stats Related
 CRITICAL_RATE_PER_CRIT = 1 / 27.944 / 100
-COOLDOWN_PERCENTAGE_PER_SWIFTNESS = 1 / 46.5731 / 100
+COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.5731 / 100
 ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.2449 / 100
 MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
 
@@ -41,7 +41,7 @@ ENGRAVINGS = {
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
   'Master’s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
-  #바리케이드 -> TODO: move to buff layer
+  #바리케이드 -> TODO: move to buff layer(class specific)
   'Barricade_3': [('damage_multiplier', lambda x: x * 1.16)],
   #안정된상태
   'Stabilised_Status_3': [('damage_multiplier', lambda x: x * 1.16)],
@@ -198,12 +198,9 @@ ARTIFACT_TABLE = {
                ('attack_speed', lambda x: x + 0.10),
                ('damage_multiplier', lambda x: x * 1.06)],
   #사멸
-  '사멸_6_1': [('static_buff_queue', lambda x: x + ['사멸']),
-               ('crit_rate', lambda x: x + 0.17)],
-  '사멸_6_2': [('static_buff_queue', lambda x: x + ['사멸']),
-               ('crit_rate', lambda x: x + 0.20)],
-  '사멸_6_3': [('static_buff_queue', lambda x: x + ['사멸']),
-               ('crit_rate', lambda x: x + 0.22)],
+  '사멸_6_1': [('static_buff_queue', lambda x: x + ['Entropy_Set_1'])],
+  '사멸_6_2': [('static_buff_queue', lambda x: x + ['Entropy_Set_2'])],
+  '사멸_6_3': [('static_buff_queue', lambda x: x + ['Entropy_Set_3'])],
   #환각
   '환각_6_1': [('damage_multiplier', lambda x: x * 1.25),
                ('crit_rate', lambda x: x + 0.20)],

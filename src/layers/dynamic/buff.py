@@ -5,10 +5,11 @@ from src.layers.dynamic.constants import *
 
 class Buff:
     """Base class for buff"""
-    def __init__(self, name, buff_type, buff_origin, duration, priority, begin_tick):
+    def __init__(self, name, buff_type, buff_origin, effect, duration, priority, begin_tick):
         self.name = name
         self.buff_type = buff_type
         self.buff_origin = buff_origin
+        self.effect = effect
         self.duration = seconds_to_ticks(duration)
         self.priority = priority
         self.begin_tick = begin_tick

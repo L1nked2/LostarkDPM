@@ -15,7 +15,7 @@ def ticks_to_seconds(ticks):
   return int(ticks / TICKS_PER_SECOND)
 
 """
-Jewel dictionary
+Jewel convert list
 """
 DAMAGE_JEWEL_LIST = [
     0,

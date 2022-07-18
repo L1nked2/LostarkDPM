@@ -1,4 +1,4 @@
-from src.layers.static.constants import CRITICAL_RATE_PER_CRIT, COOLDOWN_PERCENTAGE_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
+from src.layers.static.constants import CRITICAL_RATE_PER_CRIT, COOLDOWN_REDUCTION_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 import copy
 
@@ -49,12 +49,12 @@ class StatLayer:
         specialization = self.combat_stat['specialization']
         self.specialization = specialization
         self.awakening_damage_multiplier = specialization * AWAKENING_DAMAGE_PER_SPECIALIZATION
-        self.awakening_cooldown_percentage = 0.0
+        self.awakening_cooldown_reduction = 0.0
         # swiftness
         swiftness = self.combat_stat['swiftness']
         self.attack_speed = 1.0 + (swiftness * ATTACK_SPEED_PER_SWIFTNESS)
         self.movement_speed = 1.0 + (swiftness * MOVEMENT_SPEED_PER_SWIFTNESS)
-        self.cooldown_percentage = swiftness * COOLDOWN_PERCENTAGE_PER_SWIFTNESS
+        self.cooldown_reduction = swiftness * COOLDOWN_REDUCTION_PER_SWIFTNESS
         # buff queue
         self.static_buff_queue = list()
 
@@ -106,9 +106,9 @@ class StatLayer:
             # crit terms
             'crit_rate', 'crit_damage',
             # spec terms
-            'specialization', 'awakening_damage_multiplier', 'awakening_cooldown_percentage',
+            'specialization', 'awakening_damage_multiplier', 'awakening_cooldown_reduction',
             # swiftness terms
-            'attack_speed', 'movement_speed', 'cooldown_percentage',
+            'attack_speed', 'movement_speed', 'cooldown_reduction',
         ]
         for item in target_detail:
             character_detail[item] = getattr(self, item)

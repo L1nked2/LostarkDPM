@@ -26,7 +26,8 @@
       "jewel_damage_level": 7,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": []
+      "triggered_actions": [],
+      "key_strokes" : 1
     },
     {
       "name": "배쉬",
@@ -41,7 +42,8 @@
       "jewel_damage_level": 7,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["AP_buff_1"]
+      "triggered_actions": ["AP_buff_1"],
+      "key_strokes" : 1
     }
   ]
 }

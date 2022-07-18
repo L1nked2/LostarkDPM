@@ -17,6 +17,8 @@ class BuffsManager():
         
         self._import_buffs(self.base_character.static_buff_queue)
 
+        print('##### Done Initialization of BuffsManager #####')
+
     def update_tick(self, tick):
         self.current_tick = tick
     
@@ -40,6 +42,8 @@ class BuffsManager():
 
     def register_buff(self, buff_dict, buff_origin):
         if self.is_buff_exists(buff_dict['name']):
+            buff_name = buff_dict['name']
+            print(f'buff already exists, {buff_name} is unregistered')
             self.unregister_buff(buff_dict)
         if buff_dict['buff_type'] == 'stat':
           buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
@@ -58,9 +62,9 @@ class BuffsManager():
         self._sort_buffs()
         for buff in self.current_buffs:
             if buff.buff_origin == 'base':
-                buff_body = getattr(base_buff_module, buff.name)
+                buff_body = getattr(base_buff_module, buff.effect)
             elif buff.buff_origin == 'class':
-                buff_body = getattr(self.class_buff_module, buff.name)
+                buff_body = getattr(self.class_buff_module, buff.effect)
             buff_body(character, skill)
     
     ## TODO

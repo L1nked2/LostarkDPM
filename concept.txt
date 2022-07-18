@@ -49,24 +49,37 @@ simulation variables: skill manager가 활용하는 변수들, policy에서 참�
 identity는 어떻게 처리하는가?
 일종의 스킬로 취급하여 처리한다. 확률이 개입하는 아덴은 고민해봐야할듯
 버서커: 버프, 광기는 각인단에서 처리
+-> skill, turn on buff
 워로드: x
 디트: 해방스킬 코어적용-> 더미스킬, 아덴은 스킬
+-> skill, turn on buff(short)
 배마: 오의스킬 버블적용-> 더미스킬
+-> skill, turn on buff(short)
 인파: x
 기공: 역천의 경우 버프, 세맥은 단계별 버프를 사이클마다 끼워넣어야할듯
+-> skill, turn on buff
 창술: 절정만 버프처리
+-> skill, turn on buff(short)
 스커: 일격필살 오의스킬 버블적용-> 더미스킬
-데헌: x
+-> skill, turn on buff(short)
+데헌: 스탠스별 버프
+-> skill, turn on buff(short)
 블래: 게이지는 버프, 포격모드는 스킬처리 -> 버프의 갱신?
+-> skill, turn on buff(short)
 호크: ?
 스카: 유산은 버프처리 -> 버프의 갱신? 변신 스킬 처리?
+-> skill, turn on buff(short), update
 건슬: 피메로 인한 스탠스별 버프처리 필요, 더미 스킬 도입?
+-> skill, turn on buff(short)
 서머: 아덴은 스킬처리
+-> skill
 알카: ? 확률 도입?
 소서: 점화의 경우 버프처리, 스킬의 쿨감?
 모닉: 충동의 경우 버프처리, 변신 스킬 처리?
 블레: 스킬의 쿨감? 버스트의 데미지?
+-> skill, turn on buff
 리퍼: 달소 버프 제공
+-> skill, turn on buff(short)
 -> 버프의 갱신, 변신 스킬 처리, 스탠스별 더미 스킬, 스킬의 쿨감 도입이 필요
 ================================================================
 policy에는 뭐가 있어야 하는가?

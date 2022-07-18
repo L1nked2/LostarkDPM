@@ -76,6 +76,7 @@ class CharacterFactory(StatFactory):
 Simple crit stats to multiplier helper
 """
 def crit_to_multiplier(crit_rate, crit_damage):
+  crit_rate = min(crit_rate, 1.0)
   return crit_rate * crit_damage + (1 - crit_rate) * 1.0
 
 """
@@ -84,11 +85,11 @@ returns list of dictionary contaning configuration of each character
 """
 def import_character(file_path):
   json_content = json.load(open(file_path, 'r', encoding='utf-8'))
-  configs = list()
-  for character in json_content['character_settings']:
-    config = CharacterFactory(**character)
-    configs.append(config)
-  return configs
+  characters = list()
+  for setting in json_content['character_settings']:
+    character = CharacterFactory(**setting)
+    characters.append(character)
+  return characters
   
 
 
