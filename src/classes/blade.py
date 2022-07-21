@@ -1,5 +1,5 @@
 """
-Actions & Buff bodies of warlord
+Buff bodies of blade
 """
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
@@ -28,6 +28,5 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Buff bodies
 def specialization(character: CharacterLayer, skill: Skill):
     s = character.get_attribute('specialization')

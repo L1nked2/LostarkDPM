@@ -1,22 +1,20 @@
 {
   "class_name": "warlord",
   "policy": {
-    "priorities": {
-      "차지 스팅거": 1,
-      "버스트 캐넌": 1
-    },
-    "bindings": [
-      {
-        "버스트 캐넌": ["증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"]
-      }
+    "mode": "fixed",
+    "main_cycle": [
+      "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅어"
     ],
-    "lookup_cooldown": 5
+    "awakening_cycle": [
+      "가디언의 수호", "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅어"
+    ]
   },
   "skill_preset": [
     {
-      "name": "차지 스팅거",
-      "default_damage": 2997,
-      "default_coefficient": 18.593,
+      "name": "버스트 캐넌",
+      "default_damage": 3075,
+      "default_coefficient": 19.06,
+      "base_damage_multiplier": 6.0512,
       "skill_type": "Charge",
       "identity_type": "Lance",
       "cooldown": 30,
@@ -27,15 +25,71 @@
       "head_attack": true,
       "back_attack": false,
       "triggered_actions": [],
-      "key_strokes" : 1
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "차지 스팅거",
+      "default_damage": 2997,
+      "default_coefficient": 18.59,
+      "base_damage_multiplier": 6.32814,
+      "skill_type": "Charge",
+      "identity_type": "Lance",
+      "cooldown": 30,
+      "common_delay": 1.0,
+      "type_specific_delay": 1.0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 7,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": [],
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
     },
     {
       "name": "배쉬",
-      "default_damage": 2997,
-      "default_coefficient": 18.593,
+      "default_damage": 388,
+      "default_coefficient": 2.4,
+      "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Common",
       "cooldown": 10,
+      "common_delay": 1.0,
+      "type_specific_delay": 0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 0,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": ["AP_buff_1"],
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "증오의 함성",
+      "default_damage": 810,
+      "default_coefficient": 4.41,
+      "base_damage_multiplier": 1.0,
+      "skill_type": "Common",
+      "identity_type": "Common",
+      "cooldown": 24,
+      "common_delay": 1.0,
+      "type_specific_delay": 1.0,
+      "jewel_cooldown_level": 0,
+      "jewel_damage_level": 0,
+      "head_attack": false,
+      "back_attack": false,
+      "triggered_actions": [],
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "대쉬 어퍼 파이어",
+      "default_damage": 1227,
+      "default_coefficient": 7.62,
+      "base_damage_multiplier": 3.8692,
+      "skill_type": "Combo",
+      "identity_type": "Lance",
+      "cooldown": 16,
       "common_delay": 1.0,
       "type_specific_delay": 0,
       "jewel_cooldown_level": 7,
@@ -43,6 +97,60 @@
       "head_attack": true,
       "back_attack": false,
       "triggered_actions": ["AP_buff_1"],
+      "key_strokes" : 2,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "파이어 불릿",
+      "default_damage": 561,
+      "default_coefficient": 3.06,
+      "base_damage_multiplier": 2.928,
+      "skill_type": "Common",
+      "identity_type": "Lance",
+      "cooldown": 7,
+      "common_delay": 1.0,
+      "type_specific_delay": 0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 7,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": [],
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "스피어 샷",
+      "default_damage": 1660,
+      "default_coefficient": 10.24,
+      "base_damage_multiplier": 4.2517,
+      "skill_type": "Charge",
+      "identity_type": "Lance",
+      "cooldown": 18,
+      "common_delay": 1.0,
+      "type_specific_delay": 0,
+      "jewel_cooldown_level": 7,
+      "jewel_damage_level": 7,
+      "head_attack": true,
+      "back_attack": false,
+      "triggered_actions": [],
+      "key_strokes" : 1,
+      "rune": "질풍_영웅"
+    },
+    {
+      "name": "가디언의 수호",
+      "default_damage": 14181,
+      "default_coefficient": 87.96,
+      "base_damage_multiplier": 1.0,
+      "skill_type": "Common",
+      "identity_type": "Awakening",
+      "cooldown": 300,
+      "common_delay": 1.0,
+      "type_specific_delay": 0,
+      "jewel_cooldown_level": 0,
+      "jewel_damage_level": 0,
+      "head_attack": false,
+      "back_attack": false,
+      "triggered_actions": [],
       "key_strokes" : 1
     }
   ]

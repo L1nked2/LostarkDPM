@@ -21,6 +21,7 @@ class BuffsManager():
 
     def update_tick(self, tick):
         self.current_tick = tick
+        self._refresh_buffs()
     
     def _import_buffs(self, buffs_name_list):
         # register base buffs(default buffs)
@@ -66,6 +67,7 @@ class BuffsManager():
             elif buff.buff_origin == 'class':
                 buff_body = getattr(self.class_buff_module, buff.effect)
             buff_body(character, skill)
+        skill.buff_applied = True
     
     ## TODO
     def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory):
@@ -78,3 +80,8 @@ class BuffsManager():
 
     def _sort_buffs(self):
         self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority)
+
+    def _refresh_buffs(self):
+      for buff in self.current_buffs:
+        if buff.is_expired(self.current_tick) == True:
+          self.unregister_buff(buff)

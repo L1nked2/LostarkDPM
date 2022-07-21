@@ -7,10 +7,7 @@ if __name__ == '__main__':
     character_path = './characters.json'
     character_configs = import_character(character_path)
 
-    simulator_config = {
-        'tick': 1,
-    }
     for character_config in character_configs:
       character_dict = character_config.build_dict()
-      simulator = DpmSimulator(simulator_config, character_dict)
+      simulator = DpmSimulator(character_dict, verbose=True)
       simulator.test()

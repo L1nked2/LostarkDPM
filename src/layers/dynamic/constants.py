@@ -12,7 +12,7 @@ def seconds_to_ticks(seconds):
   return seconds * TICKS_PER_SECOND
 
 def ticks_to_seconds(ticks):
-  return int(ticks / TICKS_PER_SECOND)
+  return ticks / TICKS_PER_SECOND
 
 """
 Jewel convert list

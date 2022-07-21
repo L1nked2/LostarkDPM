@@ -11,8 +11,8 @@ Main Flow
 ================================================================
 dpm_simulator, has character and managers to modify it
 -single character(init, static)
--buffs_manager(stat_buff, skill_buff, damage_buff)
--policy_manager()
+-buffs_manager(stat_buff, damage_buff)
+-skills_manager()
 ================================================================
 buffs_manager, has queue of each type of buff
   init: character -> None(fill buff queue)

@@ -1,4 +1,5 @@
 from src.layers.static.constants import CRITICAL_RATE_PER_CRIT, COOLDOWN_REDUCTION_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
+from src.layers.static.constants import MAX_MOVEMENT_SPEED, MAX_ATTACK_SPEED
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 import copy
 
@@ -113,7 +114,8 @@ class StatLayer:
         for item in target_detail:
             character_detail[item] = getattr(self, item)
         return character_detail
-    
+
+    # Generates hard copy of itself
     def copy(self):
         return copy.deepcopy(self)
     
@@ -125,8 +127,8 @@ class StatLayer:
         # crit_rate cannot exceed 1
         self.actual_crit_rate = min(self.crit_rate, 1)
         # movement_speed and attack_speed cannot exceed 1.4
-        self.actual_movement_speed = min(self.movement_speed, 1.4)
-        self.actual_attack_speed = min(self.attack_speed, 1.4)
+        self.actual_movement_speed = min(self.movement_speed, MAX_MOVEMENT_SPEED)
+        self.actual_attack_speed = min(self.attack_speed, MAX_ATTACK_SPEED)
 
     @print_info_wrapper(layer_name)
     def print_stat_info(self):
