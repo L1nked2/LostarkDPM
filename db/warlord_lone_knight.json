@@ -3,10 +3,10 @@
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅어"
+      "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"
     ],
     "awakening_cycle": [
-      "가디언의 수호", "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅어"
+      "가디언의 수호", "증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"
     ]
   },
   "skill_preset": [
@@ -60,7 +60,7 @@
       "jewel_damage_level": 0,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["AP_buff_1"],
+      "triggered_actions": ["action_1"],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },

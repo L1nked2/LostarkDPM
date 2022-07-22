@@ -2,13 +2,12 @@
 import importlib
 import json
 import warnings
-import queue
 from collections import deque
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 DEFAULT_LOOKUP_COOLDOWN = 5
 
-class SkillsManager:
+class SkillManager:
 
     def __init__(self, character: CharacterLayer, **kwargs):
         skill_info = json.load(open(character.skill_set, "r", encoding='utf-8'))
@@ -16,6 +15,7 @@ class SkillsManager:
         if character.class_name != class_name:
             warnings.warn("Class of character and skill_set does not match", UserWarning)
         self.last_tick = 0
+        self.blocked_until = -1
         #TODO: import identity
         # import policy
         self._import_policy(skill_info['policy'])
@@ -40,7 +40,7 @@ class SkillsManager:
                 self.policy[variable] = policy_contents[variable]
               else:
                 self.policy[variable] = default_values[variable]
-            self.skill_queue = queue.PriorityQueue()
+            self.skill_queue = deque()
         elif self.mode == 'fixed':
             scheduler_parameters = ['main_cycle', 'awakening_cycle']
             default_values = [list()]
@@ -68,13 +68,43 @@ class SkillsManager:
         cooldown_func = lambda x: x - tick_diff
         for skill_name in self.skill_pool:
           self.skill_pool[skill_name].update_remaining_cooldown(cooldown_func)
+        # update block status
+        if self.blocked_until < current_tick:
+          self.is_blocked = False
+        else:
+          self.is_blocked = True
         self.last_tick = current_tick
     
     def apply_function(self, func):
         for skill_name in self.skill_pool:
           func(self.skill_pool[skill_name])
 
+    def block_until(self, tick):
+        self.blocked_until = tick
+    
+    def is_skill_available(self):
+      # (is character available, is next skill available)
+      # True, True -> use_skill
+      # True, False -> idle
+      # False, T/F -> blocked
+      self._fetch_next_skills()
+      if len(self.skill_queue) == 0:
+        return (not self.is_blocked, False)
+      target_name = self.skill_queue[0]
+      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown == 0))
+
     def get_next_skill(self) -> Skill:
+        self._fetch_next_skills()
+        target_name = self.skill_queue.popleft()
+        return self.skill_pool[target_name]
+        
+    def is_awakening_skill_available(self):
+        for skill_name in self.skill_pool:
+          if self.skill_pool[skill_name].identity_type == 'Awakening':
+            return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
+        return False
+    
+    def _fetch_next_skills(self):
         if self.mode == 'scheduler':
           # TODO
           print('scheduler is not implemented yet')
@@ -85,14 +115,8 @@ class SkillsManager:
               self.skill_queue.extend(self.policy['awakening_cycle'])
             else:
               self.skill_queue.extend(self.policy['main_cycle'])
-          target_name = self.skill_queue.popleft()
-          return self.skill_pool[target_name]
-
-    def is_awakening_skill_available(self):
-        for skill_name in self.skill_pool:
-          if self.skill_pool[skill_name].identity_type == 'Awakening':
-            return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
-        return False
+        else:
+          raise Exception('Not implemented skill manager mode')
 
     def print_skills(self):
         skills = list(self.skill_pool.items())

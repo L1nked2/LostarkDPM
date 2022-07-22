@@ -11,3 +11,8 @@ if __name__ == '__main__':
       character_dict = character_config.build_dict()
       simulator = DpmSimulator(character_dict, verbose=True)
       simulator.test()
+      print('==========================')
+      simulator.run_simulation()
+      simulator.print_result()
+      print('==========================')
+      

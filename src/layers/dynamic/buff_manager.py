@@ -1,4 +1,5 @@
 import importlib
+import warnings
 import src.classes.base as base_buff_module
 from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
@@ -6,7 +7,7 @@ from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.damage_history import DamageHistory
 
 
-class BuffsManager():
+class BuffManager():
     def __init__(self, base_character: CharacterLayer, **kwargs):
         self.base_character = base_character
         import_target = "src.classes." + self.base_character.class_name
@@ -34,6 +35,8 @@ class BuffsManager():
             self.register_buff(base_buff_module.COMMON_BUFF_DICT[buff_name], 'base')
           elif buff_name in self.class_buff_table:
             self.register_buff(self.class_buff_table[buff_name], 'class')
+          else:
+            warnings.warn(f'Not implemented buff detected, {buff_name}', UserWarning)
     
     def is_buff_exists(self, name):
         for buff in self.current_buffs:
@@ -45,7 +48,7 @@ class BuffsManager():
         if self.is_buff_exists(buff_dict['name']):
             buff_name = buff_dict['name']
             print(f'buff already exists, {buff_name} is unregistered')
-            self.unregister_buff(buff_dict)
+            self.unregister_buff(buff_name)
         if buff_dict['buff_type'] == 'stat':
           buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
         elif buff_dict['buff_type'] == 'damage':
@@ -54,9 +57,9 @@ class BuffsManager():
           raise Exception(f"BuffsManager: Wrong buff type, {buff_dict['type']}")
         self.current_buffs.append(buff)
     
-    def unregister_buff(self, buff):
+    def unregister_buff(self, buff_name):
         for registerd_buff in self.current_buffs:
-          if registerd_buff.name == buff['name']:
+          if registerd_buff.name == buff_name:
             self.current_buffs.remove(registerd_buff)
     
     def apply_stat_buffs(self, character: CharacterLayer, skill: Skill):
@@ -84,4 +87,4 @@ class BuffsManager():
     def _refresh_buffs(self):
       for buff in self.current_buffs:
         if buff.is_expired(self.current_tick) == True:
-          self.unregister_buff(buff)
+          self.unregister_buff(buff.name)

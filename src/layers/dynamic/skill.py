@@ -21,6 +21,7 @@ data example
   "rune": "질풍_영웅"
 }
 """
+import copy
 import warnings
 import src.layers.dynamic.constants as constants
 from src.layers.utils import crit_to_multiplier
@@ -39,14 +40,14 @@ class Skill:
         self.cooldown = constants.seconds_to_ticks(cooldown)
         self.skill_type = skill_type
         self.identity_type = identity_type
-        self.common_delay = common_delay
-        self.type_specific_delay = type_specific_delay
+        self.base_common_delay = constants.seconds_to_ticks(common_delay)
+        self.base_type_specific_delay = constants.seconds_to_ticks(type_specific_delay)
         self.head_attack = head_attack
         self.back_attack = back_attack
         self.triggered_actions = triggered_actions
 
         # handle additional variables
-        self._handle_additional_variables(**kwargs)
+        self._init_additional_variables(**kwargs)
 
         # simulation variables
         self.remaining_cooldown = 0.0
@@ -57,9 +58,22 @@ class Skill:
         self._validate_skill()
 
         # reset variables
-        self.reset_simulation_variables()
+        self.reset()
+    
+    def copy(self):
+        return copy.deepcopy(self)
+    
+    # cancel buffs
+    def reset(self):
+        self.buff_applied = False
+        self.common_delay = self.base_common_delay
+        self.type_specific_delay = self.base_type_specific_delay
+        self.damage_multiplier = self.base_damage_multiplier
+        self.additional_crit_rate = self.base_additional_crit_rate
+        self.additional_crit_damage = self.base_additional_crit_damage
+        self._refresh_skill()
 
-    def _handle_additional_variables(self, **kwargs):
+    def _init_additional_variables(self, **kwargs):
         default_values = {
           'base_damage_multiplier': 1.0,
           'jewel_cooldown_level': 0,
@@ -86,11 +100,13 @@ class Skill:
         skill_types = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
         if not (self.skill_type in skill_types):
             warnings.warn(f"invalid skill type given, {self.skill_type}", UserWarning)
-        if self.common_delay < 0 or self.type_specific_delay < 0:
+        if self.base_common_delay < 0 or self.base_type_specific_delay < 0:
             warnings.warn("Delay cannot be negative", UserWarning)
         if self.jewel_cooldown_level < 0 or self.jewel_damage_level < 0:
             warnings.warn("Jewel level cannot be negative", UserWarning)
         
+    def _refresh_skill(self):
+        self.actual_delay = self.common_delay + self.type_specific_delay
 
     # Get method
     def get_attribute(self, target):
@@ -109,19 +125,13 @@ class Skill:
             print(e)
         else:
             setattr(self, target, new_value)
+        self._refresh_skill()
 
     def _apply_jewel(self):
         cj = constants.COOLDOWN_JEWEL_LIST[self.jewel_cooldown_level]
         dj = constants.DAMAGE_JEWEL_LIST[self.jewel_damage_level]
         self.cooldown = self.cooldown * (1 - cj)
         self.base_damage_multiplier = self.base_damage_multiplier * (1 + dj)
-
-    def reset_simulation_variables(self):
-        self.buff_applied = False
-        self.damage_multiplier = self.base_damage_multiplier
-        self.additional_crit_rate = self.base_additional_crit_rate
-        self.additional_crit_damage = self.base_additional_crit_damage
-        self.actual_delay = self.common_delay + self.type_specific_delay
 
     def update_priority(self, new_priority):
         self.priority = new_priority
