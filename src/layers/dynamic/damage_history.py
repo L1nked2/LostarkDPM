@@ -1,5 +1,5 @@
 import csv
-# TODO: elbow method
+# TODO: elbow method, 8 seconds damage
 
 class DamageHistory:
     def __init__(self):

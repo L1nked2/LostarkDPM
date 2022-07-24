@@ -26,12 +26,19 @@ CLASS_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'ap_buff_1',
     'duration': 5,
-    'priority': 3,
+    'priority': 5,
   },
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
+    'duration': 6,
+    'priority': 3,
+  },
+  'Synergy_2': {
+    'name': 'synergy_2',
+    'buff_type': 'stat',
+    'effect': 'synergy_2',
     'duration': 6,
     'priority': 3,
   }
@@ -40,7 +47,12 @@ CLASS_BUFF_DICT = {
 # Actions
 # 배쉬 공증 및 시너지
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  pass
+  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+
+# 증오의 함성 시너지
+def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill):
@@ -52,3 +64,21 @@ def lone_knight_3(character: CharacterLayer, skill: Skill):
       s_acd = skill.get_attribute('additional_crit_damage')
       skill.update_attribute('additional_crit_rate', s_acr + 0.15)
       skill.update_attribute('additional_crit_damage', s_acd + 0.50)
+
+# 배쉬 공증
+def ap_buff_1(character: CharacterLayer, skill: Skill):
+    c_aap = character.get_attribute('additional_attack_power')
+    character.update_attribute('additional_attack_power', c_aap + 0.335 * (1 + c_aap))
+
+# 배쉬 시너지
+def synergy_1(character: CharacterLayer, skill: Skill):
+    s_dm = skill.get_attribute('damage_multiplier')
+    skill.update_attribute('damage_multiplier', s_dm * 1.066)
+
+# 증오의 함성 시너지
+def synergy_2(character: CharacterLayer, skill: Skill):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+    else:
+      skill.update_attribute('damage_multiplier', s_dm * 1.03)

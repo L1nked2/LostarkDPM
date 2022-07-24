@@ -37,18 +37,24 @@ class DpmSimulator:
     self.blocked_until = 0
     self.idle_tick = 0
     self.delay_tick = 0
+    self.idle_streak = 0
 
   def _main_loop(self):
     # synchronize tick
     self._sync_tick()
     # check if skill_manager is blocked
-    flag = self.skills_manager.is_skill_available()
+    flag = self.skills_manager.is_cycle_available()
     # main task
     if flag[0] == False:
+      self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
     elif flag[1] == False:
+      self.idle_streak += 1
       self.idle_tick += DEFAULT_TICK_INTERVAL
     else:
+      if self.verbose and self.idle_streak > 0:
+        print(f'idle streak ended with {self.idle_streak} ticks')
+      self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
       self._freeze_character()
       self._use_skill()
@@ -90,8 +96,6 @@ class DpmSimulator:
     print('test infos')
     print(self.base_character.get_stat_detail())
     self.buffs_manager.print_buffs()
-    
-
 
   def print_result(self):
     print(f'total damage: {self.damage_history.total_damage}')

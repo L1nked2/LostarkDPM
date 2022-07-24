@@ -40,7 +40,6 @@ class SkillManager:
                 self.policy[variable] = policy_contents[variable]
               else:
                 self.policy[variable] = default_values[variable]
-            self.skill_queue = deque()
         elif self.mode == 'fixed':
             scheduler_parameters = ['main_cycle', 'awakening_cycle']
             default_values = [list()]
@@ -49,7 +48,7 @@ class SkillManager:
                 self.policy[variable] = policy_contents[variable]
               else:
                 self.policy[variable] = default_values[variable]
-            self.skill_queue = deque(self.policy['awakening_cycle'])
+        self.skill_queue = deque()
 
     def _validate_jewel(self):
         jewel_count = 0
@@ -82,7 +81,7 @@ class SkillManager:
     def block_until(self, tick):
         self.blocked_until = tick
     
-    def is_skill_available(self):
+    def is_cycle_available(self):
       # (is character available, is next skill available)
       # True, True -> use_skill
       # True, False -> idle
@@ -98,10 +97,16 @@ class SkillManager:
         target_name = self.skill_queue.popleft()
         return self.skill_pool[target_name]
         
-    def is_awakening_skill_available(self):
+    def _is_awakening_skill_available(self):
         for skill_name in self.skill_pool:
           if self.skill_pool[skill_name].identity_type == 'Awakening':
             return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
+        return False
+    
+    def _is_skill_available(self, target_skill_name):
+        for skill_name in self.skill_pool:
+            if self.skill_pool[skill_name].name == target_skill_name:
+              return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
         return False
     
     def _fetch_next_skills(self):
@@ -111,12 +116,28 @@ class SkillManager:
           pass
         elif self.mode == 'fixed':
           if len(self.skill_queue) == 0:
-            if self.is_awakening_skill_available() == True:
-              self.skill_queue.extend(self.policy['awakening_cycle'])
+            if self._is_awakening_skill_available() == True:
+              self.skill_queue = deque(self.policy['awakening_cycle'])
             else:
-              self.skill_queue.extend(self.policy['main_cycle'])
+              self.skill_queue = deque(self._select_cycle())
         else:
           raise Exception('Not implemented skill manager mode')
+    
+    def _select_cycle(self):
+        cycle_index = -1
+        for cycle in self.policy['main_cycle']:
+          cycle_available = True
+          for skill_name in cycle:
+            if self._is_skill_available(skill_name) == False:
+              cycle_available = False
+              break
+          if cycle_available:
+            cycle_index = self.policy['main_cycle'].index(cycle)
+            break
+        if cycle_index < 0:
+          return list()
+        else:
+          return self.policy['main_cycle'][cycle_index]
 
     def print_skills(self):
         skills = list(self.skill_pool.items())

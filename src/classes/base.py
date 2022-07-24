@@ -11,14 +11,14 @@ BASE_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'head_attack',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
   'Back_Attack': {
     'name': 'back_attack',
     'buff_type': 'stat',
     'effect': 'back_attack',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
 }
 
@@ -30,7 +30,7 @@ COMMON_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'synergy_head_back',
     'duration': 999999,
-    'priority': 9,
+    'priority': 3,
   },
   # 사멸
   'Entropy_Set_1': {
@@ -38,21 +38,21 @@ COMMON_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'entropy_set_1',
     'duration': 999999,
-    'priority': 9,
+    'priority': 3,
   },
   'Entropy_Set_2': {
     'name': 'entropy_set',
     'buff_type': 'stat',
     'effect': 'entropy_set_2',
     'duration': 999999,
-    'priority': 9,
+    'priority': 3,
   },
   'Entropy_Set_3': {
     'name': 'entropy_set',
     'buff_type': 'stat',
     'effect': 'entropy_set_3',
     'duration': 999999,
-    'priority': 9,
+    'priority': 3,
   },
   ###### engraving buffs ######
   'Raid_Captain_3': {
@@ -60,42 +60,42 @@ COMMON_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'raid_captain_3',
     'duration': 999999,
-    'priority': 9,
+    'priority': 7,
   },
   'Super_Charge_3': {
     'name': 'super_charge',
     'buff_type': 'stat',
     'effect': 'super_charge_3',
     'duration': 999999,
-    'priority': 7,
+    'priority': 5,
   },
   'Master_Brawler_3': {
     'name': 'master_brawler',
     'buff_type': 'stat',
     'effect': 'master_brawler_3',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
   'Master_Of_Ambush_3': {
     'name': 'master_of_ambush',
     'buff_type': 'stat',
     'effect': 'master_of_ambush_3',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
   'Hit_Master_3': {
     'name': 'hit_master',
     'buff_type': 'stat',
     'effect': 'hit_master_3',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
   'All_Out_Attack_3': {
     'name': 'all_out_attack',
     'buff_type': 'stat',
     'effect': 'all_out_attack_3',
     'duration': 999999,
-    'priority': 7,
+    'priority': 3,
   },
   
 }
