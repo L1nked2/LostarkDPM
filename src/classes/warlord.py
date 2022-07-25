@@ -32,14 +32,14 @@ CLASS_BUFF_DICT = {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
-    'duration': 6,
+    'duration': 10,
     'priority': 3,
   },
   'Synergy_2': {
     'name': 'synergy_2',
     'buff_type': 'stat',
     'effect': 'synergy_2',
-    'duration': 6,
+    'duration': 12,
     'priority': 3,
   }
 }

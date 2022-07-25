@@ -27,6 +27,7 @@ import src.layers.dynamic.constants as constants
 from src.layers.utils import crit_to_multiplier
 
 DEFAULT_PRIORITY = 10
+SKILL_TYPES = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
 
 class Skill:
     def __init__(self, name, default_damage, default_coefficient, 
@@ -59,6 +60,9 @@ class Skill:
 
         # reset variables
         self.reset()
+
+        # delay estimation
+        self.prev_delay = self.actual_delay
     
     def copy(self):
         return copy.deepcopy(self)
@@ -97,8 +101,7 @@ class Skill:
     def _validate_skill(self):
         if self.default_damage < 0 or self.default_coefficient < 0:
             warnings.warn("Damage and coefficient cannot be negative", UserWarning)
-        skill_types = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
-        if not (self.skill_type in skill_types):
+        if not (self.skill_type in SKILL_TYPES):
             warnings.warn(f"invalid skill type given, {self.skill_type}", UserWarning)
         if self.base_common_delay < 0 or self.base_type_specific_delay < 0:
             warnings.warn("Delay cannot be negative", UserWarning)
@@ -149,6 +152,11 @@ class Skill:
         damage = ((self.default_damage + attack_power) * self.default_coefficient 
                    * self.damage_multiplier * crit_multiplier * total_multiplier)
         return damage
+    
+    def calc_delay(self, attack_speed):
+        delay = self.actual_delay / attack_speed
+        self.prev_delay = delay
+        return delay
 
     def __repr__(self):
         info = f'{self.name}'

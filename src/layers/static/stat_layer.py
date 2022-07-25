@@ -125,7 +125,7 @@ class StatLayer:
         self.actual_attack_power = self.attack_power_base * (1 + self.additional_attack_power)
         self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
         # crit_rate cannot exceed 1
-        self.actual_crit_rate = min(self.crit_rate, 1)
+        self.actual_crit_rate = min(self.crit_rate, 1.0)
         # movement_speed and attack_speed cannot exceed 1.4
         self.actual_movement_speed = min(self.movement_speed, MAX_MOVEMENT_SPEED)
         self.actual_attack_speed = min(self.attack_speed, MAX_ATTACK_SPEED)

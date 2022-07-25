@@ -26,6 +26,49 @@ class SkillManager:
         self._validate_jewel()
 
         print('##### Done Initialization of SkillsManager #####')
+    
+    def update_tick(self, current_tick):
+        tick_diff = current_tick - self.last_tick
+        cooldown_func = lambda x: x - tick_diff
+        for skill_name in self.skill_pool:
+          self.skill_pool[skill_name].update_remaining_cooldown(cooldown_func)
+        # update block status
+        if self.blocked_until < current_tick:
+          self.is_blocked = False
+        else:
+          self.is_blocked = True
+        self.last_tick = current_tick
+    
+    def apply_function(self, func):
+        for skill_name in self.skill_pool:
+          func(self.skill_pool[skill_name])
+
+    def block_until(self, tick):
+        self.blocked_until = tick
+    
+    def is_next_cycle_available(self):
+      # (is character available, is next skill available)
+      # True, True -> use_skill
+      # True, False -> idle
+      # False, T/F -> blocked
+      self._fetch_next_skills()
+      if len(self.skill_queue) == 0:
+        return (not self.is_blocked, False)
+      target_name = self.skill_queue[0]
+      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown == 0))
+
+    def get_next_skill(self) -> Skill:
+        self._fetch_next_skills()
+        target_name = self.skill_queue.popleft()
+        return self.skill_pool[target_name]
+    
+    def print_skills(self):
+        skills = list(self.skill_pool.items())
+        print('Skills: (', end='')
+        for skill in skills[:-1]:
+            print(skill[0], end=', ')
+        print(skills[-1][0], end='')
+        print(')')
 
     def _import_policy(self, policy_contents):
         self.policy = dict()
@@ -61,52 +104,21 @@ class SkillManager:
             warnings.warn(f"Too many jewels, {jewel_count} > 11", UserWarning)
         elif jewel_count < 11:
             warnings.warn(f"Not enough jewels, {jewel_count} < 11", UserWarning)
-    
-    def update_tick(self, current_tick):
-        tick_diff = current_tick - self.last_tick
-        cooldown_func = lambda x: x - tick_diff
-        for skill_name in self.skill_pool:
-          self.skill_pool[skill_name].update_remaining_cooldown(cooldown_func)
-        # update block status
-        if self.blocked_until < current_tick:
-          self.is_blocked = False
-        else:
-          self.is_blocked = True
-        self.last_tick = current_tick
-    
-    def apply_function(self, func):
-        for skill_name in self.skill_pool:
-          func(self.skill_pool[skill_name])
-
-    def block_until(self, tick):
-        self.blocked_until = tick
-    
-    def is_cycle_available(self):
-      # (is character available, is next skill available)
-      # True, True -> use_skill
-      # True, False -> idle
-      # False, T/F -> blocked
-      self._fetch_next_skills()
-      if len(self.skill_queue) == 0:
-        return (not self.is_blocked, False)
-      target_name = self.skill_queue[0]
-      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown == 0))
-
-    def get_next_skill(self) -> Skill:
-        self._fetch_next_skills()
-        target_name = self.skill_queue.popleft()
-        return self.skill_pool[target_name]
         
     def _is_awakening_skill_available(self):
         for skill_name in self.skill_pool:
           if self.skill_pool[skill_name].identity_type == 'Awakening':
-            return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
+            return bool(self.skill_pool[skill_name].remaining_cooldown <= 0)
         return False
     
     def _is_skill_available(self, target_skill_name):
+        return self._is_skill_available_on(target_skill_name, self.last_tick)
+    
+    def _is_skill_available_on(self, target_skill_name, target_tick):
+        tick_diff = target_tick - self.last_tick
         for skill_name in self.skill_pool:
             if self.skill_pool[skill_name].name == target_skill_name:
-              return bool(self.skill_pool[skill_name].remaining_cooldown == 0)
+              return bool(self.skill_pool[skill_name].remaining_cooldown <= tick_diff)
         return False
     
     def _fetch_next_skills(self):
@@ -126,11 +138,11 @@ class SkillManager:
     def _select_cycle(self):
         cycle_index = -1
         for cycle in self.policy['main_cycle']:
-          cycle_available = True
-          for skill_name in cycle:
+          cycle_available = self._estimate_cycle_availablility(cycle)
+          """for skill_name in cycle:
             if self._is_skill_available(skill_name) == False:
               cycle_available = False
-              break
+              break"""
           if cycle_available:
             cycle_index = self.policy['main_cycle'].index(cycle)
             break
@@ -139,10 +151,10 @@ class SkillManager:
         else:
           return self.policy['main_cycle'][cycle_index]
 
-    def print_skills(self):
-        skills = list(self.skill_pool.items())
-        print('Skills: (', end='')
-        for skill in skills[:-1]:
-            print(skill[0], end=', ')
-        print(skills[-1][0], end='')
-        print(')')
+    def _estimate_cycle_availablility(self, cycle):
+        tick = self.last_tick
+        for skill_name in cycle:
+          if not self._is_skill_available_on(skill_name, tick):
+            return False
+          tick += self.skill_pool[skill_name].prev_delay
+        return True

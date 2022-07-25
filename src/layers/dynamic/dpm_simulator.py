@@ -31,7 +31,11 @@ class DpmSimulator:
   def run_simulation(self, max_tick=MAX_TICK):
     while self.elapsed_tick < max_tick:
       self._main_loop()
-  
+
+  def print_result(self):
+    print(f'total damage: {self.damage_history.total_damage}')
+    print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
+
   def _init_timer(self):
     self.elapsed_tick = 0
     self.blocked_until = 0
@@ -43,7 +47,7 @@ class DpmSimulator:
     # synchronize tick
     self._sync_tick()
     # check if skill_manager is blocked
-    flag = self.skills_manager.is_cycle_available()
+    flag = self.skills_manager.is_next_cycle_available()
     # main task
     if flag[0] == False:
       self.idle_streak = 0
@@ -53,7 +57,7 @@ class DpmSimulator:
       self.idle_tick += DEFAULT_TICK_INTERVAL
     else:
       if self.verbose and self.idle_streak > 0:
-        print(f'idle streak ended with {self.idle_streak} ticks')
+        print(f'idle streak ended with {ticks_to_seconds(self.idle_streak)}s')
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
       self._freeze_character()
@@ -76,7 +80,7 @@ class DpmSimulator:
     target_skill.start_cooldown(self.current_character.cooldown_reduction)
     self._handle_triggered_actions(target_skill.triggered_actions)
     # block skill_manger until delay is over
-    delay = target_skill.actual_delay
+    delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     self.skills_manager.block_until(self.elapsed_tick + delay)
     # reset skill
     target_skill.reset()
@@ -97,6 +101,3 @@ class DpmSimulator:
     print(self.base_character.get_stat_detail())
     self.buffs_manager.print_buffs()
 
-  def print_result(self):
-    print(f'total damage: {self.damage_history.total_damage}')
-    print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
