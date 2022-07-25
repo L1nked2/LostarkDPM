@@ -1,13 +1,142 @@
-total_status()에 각 layer가 state의 변화를 가져오는 식
-event string이 존재해서 layer가 다른 layer policy에 영향을 줘야하는 경우 이를 parse해서 적용(or python eval()사용)
-tick마다 확인을 전제로 하지만 특정 상황에서는 lock이 가능할 것으로 생각, 최적화는 나중에 가능할 듯
-
-=======
+기본 공격력 = sqrt((stat * weapon_power) / 6)
+스킬 데미지 = (기본 데미지 + 공격력) * 스킬 계수
+================================================================
 refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
-bottom-to-top으로 리셋이후 계산이 적절할 듯
-영향이 가는 attribute는 치확&치피, 쿨다운&공이속과 추가피해, 추가공격력, 피해증가 및 파생되는 attack_power
-1. reset_stat()으로 모든 status를 초기화(character_layer)
-2. dynamic layer에서 buff(피증, 치확&치피, 공이속), identity(피증, 치확&치피, 공이속) 적용
-3. equipment_layer에서 추피(품질&세트), 피증(세트), 치확&치피(세트), 쿨다운&공이속(세트) 적용
-4. engraving_layer에서 추공(저받질증), 피증(이외각인), 치확&치피(아드정단예둔), 공이속(정흡) 적용 -> 정흡부터 해서 돌대 정상연산되게
-5. character_layer에서 위 과정에서 연산된 모든 attribute를 활용하여 최종 status 계산
+static한 부분에서 할 수 있는 최대한의 status를 만들어내고 이를 dynamic에서 핸들링 하는것이 합리적인듯
+따라서 돌대, 직각은 buff나 identity에서 다루는 것이 효율적일듯
+================================================================
+buff는 어떻게 관리하는가?
+크게 세가지 종류 -> stat_buff, skill_buff, damage_buff
+
+stat_buff는 돌대, 공증 등 stat을 변경하는 buff이고
+-> stat_buff는 manager의 dynamic_multiplier 수정하는 방식으로 적용
+skill_buff는 기습(헤드백), 고기(랜스스킬) 등 특정 타입의 스킬만 강화하는 버프이며
+-> skill_buff는 calculate skill damage에서 각 attribute를 확인하고 일치시 효과를 부여하는 식으로 동작
+damage_buff는 출혈, 화상 등 지속딜을 나타내는 버프이다.
+-> damage_buff는 refresh buff based on tick에서 계산해서 damage history에 추가해주는식
+
+버프의 생성은 invoke skill and update buff에서 진행하고(dict를 통해 import)
+소멸은 refresh buff based on tick에서 expire여부를 확인해 처리한다.
+버프는 따라서 생성시간을 이용해 소멸 시간을 기록해두어야한다
+
+attributes: 기본정보
+->name, source, target, effect, duration
+
+buff_type에 따라 적절히 attributes를 추가해주는식
+skill buff는 특정 직업에 한정되는 버프이므로 직업별로 미리 작성해둔다.
+================================================================
+skill에는 뭐가 있어야 하는가?
+기본적으로 json을 통해 import한다.
+
+attributes
+-> name, default_damage, default_coefficient, skill_type, identity_type, cooldown,
+   common_delay, type_specific_delay, head, back, jewel_cooldown_level, jewel_damage_level
+triggered actions
+-> triggered_actions
+simulation variables
+-> buff_applied, damage_mutiplier, remaining_cooldown, priority, actual_delay
+
+attribute: skill_buff처리에 활용 하는 static한 변수들, skill_buff apply시 simulation variables를 조절
+-json으로 import
+trigger related: buff manager를 modify하는 skill들의 처리와 다른 skill들의 simulation variables를 조절하는 action(cooldown 조절이 주된 사용처)
+-json으로 import, class별 pre-defined된 function을 활용, rune은 base.py에서 pre-define
+simulation variables: skill manager가 활용하는 변수들, policy에서 참고하여 다음 스킬 계획 및 데미지 계산
+-import시 추가
+
+치적, 치피 트포는 어떻게?
+
+================================================================
+identity는 어떻게 처리하는가?
+일종의 스킬로 취급하여 처리한다. 확률이 개입하는 아덴은 고민해봐야할듯
+버서커: 버프, 광기는 각인단에서 처리
+-> skill, turn on buff
+워로드: x
+디트: 해방스킬 코어적용-> 더미스킬, 아덴은 스킬
+-> skill, turn on buff(short)
+배마: 오의스킬 버블적용-> 더미스킬
+-> skill, turn on buff(short)
+인파: x
+기공: 역천의 경우 버프, 세맥은 단계별 버프를 사이클마다 끼워넣어야할듯
+-> skill, turn on buff
+창술: 절정만 버프처리
+-> skill, turn on buff(short)
+스커: 일격필살 오의스킬 버블적용-> 더미스킬
+-> skill, turn on buff(short)
+데헌: 스탠스별 버프
+-> skill, turn on buff(short)
+블래: 게이지는 버프, 포격모드는 스킬처리 -> 버프의 갱신?
+-> skill, turn on buff(short)
+호크: ?
+스카: 유산은 버프처리 -> 버프의 갱신? 변신 스킬 처리?
+-> skill, turn on buff(short), update
+건슬: 피메로 인한 스탠스별 버프처리 필요, 더미 스킬 도입?
+-> skill, turn on buff(short)
+서머: 아덴은 스킬처리
+-> skill
+알카: ? 확률 도입?
+소서: 점화의 경우 버프처리, 스킬의 쿨감?
+모닉: 충동의 경우 버프처리, 변신 스킬 처리?
+블레: 스킬의 쿨감? 버스트의 데미지?
+-> skill, turn on buff
+리퍼: 달소 버프 제공
+-> skill, turn on buff(short)
+-> 버프의 갱신, 변신 스킬 처리, 스탠스별 더미 스킬, 스킬의 쿨감 도입이 필요
+================================================================
+policy에는 뭐가 있어야 하는가?
+스킬의 priority를 부여하여 skill_queue(priority queue)를 구성한다.
+다만 특정 스킬들의 순서를 고정하고 싶으면 바인딩을 부여한다. ex)증배버차
+바인딩으로 묶인 스킬들은 하나의 스킬로 취급되며, priority는 스킬중 가장 높은 스킬이 가져간다.
+사실 가장 편한 방식은 모든 스킬을 하나의 바인딩으로 묶어서 제시하는 것이 가장 편할듯하다.
+
+json을 통해 import한다.
+attributes
+->priorities, bindings, lookup_cooldown
+
+remaining_cooldown < lookup_cooldown인 스킬들에 대해
+priority를 고려하여 queue에 올린다.
+binding이 있는 스킬은 queue에 올릴 때 실제로 가용가능한지(바인딩 내부 스킬들의 쿨타임이 목표 스킬보다 작은지) 확인한다.
+만약 queue에 스킬이 없다면 idle 상태로 취급한다.
+
+idle 처리방식 추가 필요
+validation추가 필요
+
+어디다 어떻게 적어야하는가?
+skill정보를 담은 json에 작성 요령을 정해 적어두는게 좋을듯 하다
+"mode": scheduling,
+"priorities": {
+  "차지 스팅거": 1,
+  "버스트 캐넌": 1
+},
+"bindings": [
+  {
+    "버스트 캐넌": ["증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"]
+  }
+],
+"lookup_cooldown": 5
+
++
+policy를 자유롭게 풀어주는건 실제 사이클을 반영하기가 생각보다 힘들었다...
+cycle을 제공받아 고정된 스킬 순서로 사용하는 것을 먼저 지원하고 이후에 기능을 추가하는 방향으로 선회
+"mode": fixed,
+"cycle": ["123", "456", "789"]
+================================================================
+기타 설정
+무품 100으로 정해놓고 추피 설정
+헬설정, 시너지는 각인의 일종으로 올려놓기
+방깎은 1%당 0.55% 딜증 취급
+(0.55~0.6까지 다양했으나 최소값으로 지정, 실제로는 수치가 높을수록 효율이 하락하기에 최저값으로 지정)
+  1) https://www.inven.co.kr/board/lostark/5647/70762
+헤드어택 : 피해량 20% 증가, 무력화 10% 증가
+빽어택 : 피해량 5% 증가, 치명타 적중률 10% 증가
+쿨타임은 스킬 유형별로 시작시(일반, 지점, 차징, 홀딩A)와 종료시 도는 것으로 구분(콤보, 체인, 캐스팅, 홀딩B(캔슬 가능한 경우))
+  1) https://lostark.game.onstove.com/GameGuide/Pages/%EC%A0%84%ED%88%AC%20%EC%8A%A4%ED%82%AC
+콤보 및 체인은 사실 여러개의 스킬의 조합으로 이루어져 있어서 마지막 스킬의 사용시 쿨이 돌기 시작함.
+따라서 콤보 및 체인은 type_specific_delay에 마지막 스킬의 딜레이를 별도 기재해서 쿨다운시 별도 연산을 줄 예정
+================================================================
+계수 및 딜레이 측정
+1. 인벤을 참조해 기본 데미지 작성
+2. 머리장비를 해제하며 계수 측정(유효숫자 4자리)
+3. 노가다로 트라이포드 배율 측정
+4. 영상녹화 및 평타의 모션을 활용해 프레임 단위로 딜레이 측정
+
+  1)https://www.inven.co.kr/board/lostark/5339/123086

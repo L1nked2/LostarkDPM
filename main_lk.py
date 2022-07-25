@@ -1,28 +1,18 @@
-from src.layers.dynamic import dpm_simulator as simulator
-from src.layers.static.skill_tree_layer import SkillTreeLayer
-from src.layers.utils import CharacterFactory
+from src.layers.dynamic.dpm_simulator import DpmSimulator
+from src.layers.static.character_layer import CharacterLayer
+from src.layers.utils import import_character
 
 
 if __name__ == '__main__':
-    stat = CharacterFactory(upgrade=20, crit=1600, specialization=0, swiftness=500).get_data()
+    character_path = './characters.json'
+    character_configs = import_character(character_path)
 
-    skill_tree = "./db/skills/warlord_gogi.json"
-
-    engravings = [
-        {
-            'engraving_name': '원한',
-            'engraving_type': 'static',
-            'engraving_target': ['damage_multiplier'],
-            'engraving_effect': [(lambda x: x * 1.2)]
-        }
-    ]
-
-    print(stat)
-    temp = SkillTreeLayer(
-        character_stat=stat,
-        engravings=engravings,
-        artifact_set=None,
-        accessories=None,
-        skill_tree=skill_tree
-    )
-    print(temp.get_character_detail())
+    for character_config in character_configs:
+      character_dict = character_config.build_dict()
+      simulator = DpmSimulator(character_dict, verbose=True)
+      simulator.test()
+      print('==========================')
+      simulator.run_simulation()
+      simulator.print_result()
+      print('==========================')
+      
