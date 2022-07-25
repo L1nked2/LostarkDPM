@@ -3,6 +3,8 @@ Basic buff classes
 """
 from src.layers.dynamic.constants import *
 
+MAX_PRIORITY = 31
+
 class Buff:
     """Base class for buff"""
     def __init__(self, name, buff_type, buff_origin, effect, duration, priority, begin_tick):
@@ -13,12 +15,13 @@ class Buff:
         self.duration = seconds_to_ticks(duration)
         self.priority = priority
         self.begin_tick = begin_tick
+        self.is_shadowed = False
 
     def is_expired(self, current_tick) -> bool:
         return self.begin_tick + self.duration <= current_tick
         
     def __repr__(self):
-        return str({'name': self.name, 'begin_tick': self.begin_tick, 'duration': ticks_to_seconds(self.duration)})
+        return str({'name': self.name, 'begin_tick': self.begin_tick, 'duration': ticks_to_seconds(self.duration), 'is_shadowed': self.is_shadowed})
 
 class StatBuff(Buff):
     """Class for stat buff"""

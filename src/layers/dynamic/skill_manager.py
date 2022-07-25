@@ -84,7 +84,7 @@ class SkillManager:
               else:
                 self.policy[variable] = default_values[variable]
         elif self.mode == 'fixed':
-            scheduler_parameters = ['main_cycle', 'awakening_cycle']
+            scheduler_parameters = ['main_cycle']
             default_values = [list()]
             for variable in scheduler_parameters:
               if variable in policy_contents:
@@ -128,10 +128,7 @@ class SkillManager:
           pass
         elif self.mode == 'fixed':
           if len(self.skill_queue) == 0:
-            if self._is_awakening_skill_available() == True:
-              self.skill_queue = deque(self.policy['awakening_cycle'])
-            else:
-              self.skill_queue = deque(self._select_cycle())
+            self.skill_queue = deque(self._select_cycle())
         else:
           raise Exception('Not implemented skill manager mode')
     
@@ -139,10 +136,6 @@ class SkillManager:
         cycle_index = -1
         for cycle in self.policy['main_cycle']:
           cycle_available = self._estimate_cycle_availablility(cycle)
-          """for skill_name in cycle:
-            if self._is_skill_available(skill_name) == False:
-              cycle_available = False
-              break"""
           if cycle_available:
             cycle_index = self.policy['main_cycle'].index(cycle)
             break

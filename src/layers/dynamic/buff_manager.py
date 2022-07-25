@@ -22,7 +22,7 @@ class BuffManager():
 
     def update_tick(self, tick):
         self.current_tick = tick
-        self._refresh_buffs()
+        self._remove_expired_buffs()
     
     def _import_buffs(self, buffs_name_list):
         # register base buffs(default buffs)
@@ -47,8 +47,8 @@ class BuffManager():
     def register_buff(self, buff_dict, buff_origin):
         if self.is_buff_exists(buff_dict['name']):
             buff_name = buff_dict['name']
-            print(f'buff already exists, {buff_name} is unregistered')
-            self.unregister_buff(buff_name)
+            print(f'buff already exists, {buff_name} will be shadowed or refreshed')
+            self._remove_redundant_buff(buff_dict)
         if buff_dict['buff_type'] == 'stat':
           buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
         elif buff_dict['buff_type'] == 'damage':
@@ -56,6 +56,7 @@ class BuffManager():
         else:
           raise Exception(f"BuffsManager: Wrong buff type, {buff_dict['type']}")
         self.current_buffs.append(buff)
+        self._shadow_buffs(buff.name)
     
     def unregister_buff(self, buff_name):
         for registerd_buff in self.current_buffs:
@@ -65,6 +66,8 @@ class BuffManager():
     def apply_stat_buffs(self, character: CharacterLayer, skill: Skill):
         self._sort_buffs()
         for buff in self.current_buffs:
+            if buff.is_shadowed:
+                continue
             if buff.buff_origin == 'base':
                 buff_body = getattr(base_buff_module, buff.effect)
             elif buff.buff_origin == 'class':
@@ -81,10 +84,42 @@ class BuffManager():
     def print_buffs(self):
         print(self.current_buffs)
 
+    # sort buffs by priority, decending order
     def _sort_buffs(self):
-        self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority)
+        self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority, reverse=True)
 
-    def _refresh_buffs(self):
+    def _remove_expired_buffs(self):
+      removed_buffs = list()
       for buff in self.current_buffs:
         if buff.is_expired(self.current_tick) == True:
-          self.unregister_buff(buff.name)
+          removed_buffs.append(buff.name)
+          self.current_buffs.remove(buff)
+      for buff_name in removed_buffs:
+        self._shadow_buffs(buff_name)
+    
+    def _remove_redundant_buff(self, buff_dict):
+      for buff in self.current_buffs:
+        if buff.name == buff_dict['name'] and buff.effect == buff_dict['effect']:
+          self.current_buffs.remove(buff)
+      self._shadow_buffs(buff_dict['name'])
+
+
+    # shadows buffs with name, except highest priority buff
+    def _shadow_buffs(self, buff_name):
+      max_buff_priority = 0
+      alive_buff_count = 0
+      # find maximum buff priority
+      for buff in self.current_buffs:
+        if buff.name == buff_name and max_buff_priority < buff.priority:
+          max_buff_priority = buff.priority
+      # shadow buffs (lower than max_buff_priority)
+      for buff in self.current_buffs:
+        if buff.name == buff_name:
+          if buff.priority < max_buff_priority:
+            buff.is_shadowed = True
+          else:
+            alive_buff_count += 1
+      # check alive buff is unique
+      if alive_buff_count > 1:
+        print('Multiple buff alives after shadowing, check priority of buff dictionary')
+        

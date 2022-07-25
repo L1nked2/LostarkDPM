@@ -140,7 +140,13 @@ class Skill:
         self.priority = new_priority
 
     def start_cooldown(self, cooldown_reduction):
-        self.remaining_cooldown = self.cooldown * (1-cooldown_reduction)
+        if self.cooldown_on_finish:
+          if self.skill_type == 'Combo':
+            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.common_delay
+          else:
+            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.actual_delay
+        else:
+            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction)
     
     def update_remaining_cooldown(self, function):
         self.remaining_cooldown = max(0, function(self.remaining_cooldown))
