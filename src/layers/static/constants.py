@@ -26,6 +26,8 @@ ENGRAVINGS = {
   'Synergy_Damage_A': [('damage_multiplier', lambda x: x * 1.06)],
   'Synergy_Damage_B': [('damage_multiplier', lambda x: x * 1.072)],
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
+  'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
+  'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
 
   ####### 공통각인 #######
   ## Static ##

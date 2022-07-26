@@ -6,13 +6,15 @@ from .damage_history import DamageHistory
 from .constants import *
 
 DEFAULT_TICK_INTERVAL = 1
-MAX_TICK = 6000
+MAX_TICK = 300000
+DPS_CORRECTION = 0.4
 
 class DpmSimulator:
   def __init__(self, character_dict, verbose=False, tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
     self.verbose = verbose
     self.tick_interval = tick_interval
     self.base_character = CharacterLayer(**character_dict)
+    self.base_module = importlib.import_module("src.classes.base")
     import_target = "src.classes." + self.base_character.class_name
     self.class_module = importlib.import_module(import_target)
     # timer
@@ -20,7 +22,7 @@ class DpmSimulator:
     # damage history manager
     self.damage_history = DamageHistory()
     # buff manager
-    self.buffs_manager = BuffManager(self.base_character)
+    self.buffs_manager = BuffManager(self.base_character, self.verbose)
     # skill manager
     self.skills_manager = SkillManager(self.base_character)
     # initialize tick
@@ -30,11 +32,19 @@ class DpmSimulator:
 
   def run_simulation(self, max_tick=MAX_TICK):
     while self.elapsed_tick < max_tick:
+      if self.damage_history.is_stablized():
+        print("DPS stablized, terminating simulation")
+        break
       self._main_loop()
 
   def print_result(self):
-    print(f'total damage: {self.damage_history.total_damage}')
+    print(f'Total damage: {self.damage_history.total_damage}')
+    print(f'DPS: {self.damage_history.current_dps}')
+    print(f'Actual_DPS: {self.damage_history.current_dps * DPS_CORRECTION}')
     print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
+  
+  def print_damage_details(self):
+    print(self.damage_history.get_damage_details())
 
   def _init_timer(self):
     self.elapsed_tick = 0
@@ -88,7 +98,11 @@ class DpmSimulator:
   
   def _handle_triggered_actions(self, triggered_actions):
     for action_name in triggered_actions:
-      action_func = getattr(self.class_module, action_name)
+      action_func = getattr(self.class_module, action_name, None)
+      if action_func is None:
+        action_func = getattr(self.base_module, action_name, None)
+      if action_func is None:
+        raise Exception(f'Wrong action {action_name} given')
       action_func(self.buffs_manager, self.skills_manager)
     return
   

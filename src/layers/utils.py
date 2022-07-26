@@ -4,6 +4,7 @@ Utilization functions for static and dynamic part of simulator
 
 import sys
 import io
+import random
 from src.layers.static.constants import STAT_BY_UPGRAGE_TABLE
 import json
 from functools import wraps
@@ -44,12 +45,13 @@ def json_parser(file_path):
 """
 Factory for generating character
 """
+LEGEND_AVATAR_MULTIPLIER = 1.08
 class StatFactory:
-  def __init__(self, upgrade=25, crit=0, specialization=0, swiftness=0):
+  def __init__(self, upgrade=25, crit=0, specialization=0, swiftness=0, **kwargs):
     self.character_stat = dict()
     upgrade_table = STAT_BY_UPGRAGE_TABLE
     # stat and weapon_power from equipment
-    self.character_stat['stat'] = upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]
+    self.character_stat['stat'] = (upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]) * LEGEND_AVATAR_MULTIPLIER
     self.character_stat['weapon_power'] = upgrade_table['weapon'][upgrade]
     self.character_stat['combat_stat'] = {
       'crit': crit,
@@ -65,6 +67,9 @@ class CharacterFactory(StatFactory):
     super(CharacterFactory, self).__init__(**kwargs)
     self.class_name = class_name
     self.engravings = engravings
+    if 'options' in kwargs:
+      for option in kwargs['options']:
+        self.engravings.append(option)
     self.artifact_set = artifact_set
     self.skill_set = skill_set
   
@@ -90,7 +95,16 @@ def import_character(file_path):
     character = CharacterFactory(**setting)
     characters.append(character)
   return characters
-  
+
+
+"""
+Random function for probability
+"""
+def check_chance(probability):
+  if random.random() < probability:
+    return True
+  return False
+
 
 
 

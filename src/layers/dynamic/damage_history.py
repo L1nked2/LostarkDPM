@@ -1,5 +1,9 @@
 import csv
-# TODO: elbow method, 8 seconds damage
+from .constants import ticks_to_seconds
+# TODO: 8 seconds damage
+
+THRESHOLD = 0.03
+EARLY_STOPPING_ROUNDS = 1000
 
 class DamageHistory:
     def __init__(self):
@@ -18,7 +22,16 @@ class DamageHistory:
         self.history_dps.append(self.current_dps)
         self.prev_dps = self.current_dps
         if self.last_tick > 0:
-          self.current_dps = self.total_damage / self.last_tick
+          self.current_dps = self.total_damage / ticks_to_seconds(self.last_tick)
+
+    def is_stablized(self):
+        if len(self.history) < EARLY_STOPPING_ROUNDS:
+          return False
+        for dps_temp in self.history_dps[:-EARLY_STOPPING_ROUNDS]:
+          if (dps_temp < self.current_dps * (1-THRESHOLD) 
+              or dps_temp > self.current_dps * (1+THRESHOLD)):
+              return False
+        return True
 
     def get_damage_details(self):
         self.damage_details = dict()

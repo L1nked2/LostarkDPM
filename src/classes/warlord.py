@@ -5,6 +5,9 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
+from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.utils import check_chance
+
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -65,6 +68,19 @@ def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
 def action_3(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
 
+# 파이어불릿 1트포 행운의 기회
+def action_4(buff_manager: BuffManager, skill_manager: SkillManager):
+  def cooldown_reduction(skill: Skill):
+    n = skill.get_attribute('name')
+    if n == '파이어 불릿':
+      rc = skill.get_attribute('remaining_cooldown')
+      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(4.9))
+    return
+  if check_chance(0.50):
+    skill_manager.apply_function(cooldown_reduction)
+  if check_chance(0.50):
+    skill_manager.apply_function(cooldown_reduction)
+
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill):
     s = character.get_attribute('specialization')
@@ -84,7 +100,7 @@ def ap_buff_1(character: CharacterLayer, skill: Skill):
 # 대쉬 어퍼 파이어 공증
 def ap_buff_2(character: CharacterLayer, skill: Skill):
     c_aap = character.get_attribute('additional_attack_power')
-    character.update_attribute('additional_attack_power', c_aap + 0.229 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.23 * (1 + c_aap))
 
 # 배쉬 시너지
 def synergy_1(character: CharacterLayer, skill: Skill):

@@ -1,14 +1,9 @@
 {
-  "class_name": "warlord",
+  "class_name": "blade",
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      ["심판의 창"],
-      ["증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"],
-      ["배쉬", "대쉬 어퍼 파이어", "스피어 샷"],
-      ["대쉬 어퍼 파이어", "스피어 샷"],
-      ["배쉬", "파이어 불릿"],
-      ["파이어 불릿"]
+      ["버스트"]
     ]
   },
   "skill_preset": [
@@ -116,9 +111,9 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["action_4"],
+      "triggered_actions": [],
       "key_strokes" : 1,
-      "rune": "속행_전설"
+      "rune": "속행_영웅"
     },
     {
       "name": "스피어 샷",
