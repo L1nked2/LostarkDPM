@@ -5,9 +5,8 @@
     "main_cycle": [
       ["심판의 창"],
       ["증오의 함성"],
-      ["배쉬", "리프 어택(빠준)", "가디언의 낙뢰A", "방패 밀치기"],
-      ["배쉬", "리프 어택(빠준)", "방패 돌진", "방패 밀치기"],
-      ["버스트 캐넌"]
+      ["배쉬", "가디언의 낙뢰B", "방패 돌진", "방패 밀치기", "방패 격동"],
+      ["배쉬", "리프 어택(직타)", "방패 밀치기", "방패 격동"]
     ]
   },
   "skill_preset": [
@@ -156,22 +155,22 @@
       "rune": "질풍_영웅"
     },
     {
-      "name": "버스트 캐넌",
-      "default_damage": 3075,
-      "default_coefficient": 19.06,
-      "base_damage_multiplier": 6.0512,
-      "skill_type": "Charge",
-      "identity_type": "Lance",
-      "cooldown": 30,
-      "common_delay": 1.7,
-      "type_specific_delay": 1.32,
+      "name": "방패 격동",
+      "default_damage": 544,
+      "default_coefficient": 3.38,
+      "base_damage_multiplier": 2.45,
+      "skill_type": "Chain",
+      "identity_type": "Common",
+      "cooldown": 7.8,
+      "common_delay": 0.85,
+      "type_specific_delay": 1.1,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
       "triggered_actions": [],
-      "key_strokes" : 1,
-      "rune": "질풍_영웅"
+      "key_strokes" : 2,
+      "rune": "속행_전설"
     },
     {
       "name": "심판의 창",

@@ -195,6 +195,10 @@ ARTIFACT_TABLE = {
                ('crit_rate', lambda x: x + 0.25)],
   '환각_6_3': [('damage_multiplier', lambda x: x * 1.32),
                ('crit_rate', lambda x: x + 0.28)],
+  #2악4구
+  '2악4구_1': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_1'])],
+  '2악4구_2': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_2'])],
+  '2악4구_3': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_3'])],
 }
 
 # Data for StatFactory

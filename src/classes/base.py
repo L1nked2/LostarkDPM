@@ -31,7 +31,7 @@ RUNE_BUFF_DICT = {
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 236,
-    'coefficient': 1.075,
+    'coefficient': 2.6875,
     'damage_interval': 1,
     'duration': 6,
     'priority': 7,
@@ -41,7 +41,7 @@ RUNE_BUFF_DICT = {
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 236,
-    'coefficient': 1.075,
+    'coefficient': 2.6875,
     'damage_interval': 1,
     'duration': 5,
     'priority': 7,
@@ -113,6 +113,28 @@ COMMON_BUFF_DICT = {
     'name': 'nightmare_set',
     'buff_type': 'stat',
     'effect': 'nightmare_set_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 2악4구
+  'Nig2_Sal4_Set_1': {
+    'name': 'nig2_sal4_set',
+    'buff_type': 'stat',
+    'effect': 'nig2_sal4_set_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nig2_Sal4_Set_2': {
+    'name': 'nig2_sal4_set',
+    'buff_type': 'stat',
+    'effect': 'nig2_sal4_set_2',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nig2_Sal4_Set_3': {
+    'name': 'nig2_sal4_set',
+    'buff_type': 'stat',
+    'effect': 'nig2_sal4_set_3',
     'duration': 999999,
     'priority': 7,
   },
@@ -256,6 +278,28 @@ def nightmare_set_3(character: CharacterLayer, skill: Skill):
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.20)
     character.update_attribute('damage_multiplier', c_dm * 1.20)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.17)
+
+# 2악4구
+def nig2_sal4_set_1(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    character.update_attribute('additional_damage', c_ad + 0.14)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      
+def nig2_sal4_set_2(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    character.update_attribute('additional_damage', c_ad + 0.18)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
+def nig2_sal4_set_3(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    character.update_attribute('additional_damage', c_ad + 0.21)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
