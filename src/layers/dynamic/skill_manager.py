@@ -24,6 +24,8 @@ class SkillManager:
         for naive_skill in skill_info['skill_preset']:
             self.skill_pool[naive_skill['name']] = Skill(**naive_skill)
         self._validate_jewel()
+        # dummy skill
+        self.dummy_skill = Skill('dummy', 0, 0, None, None, 0, 0, 0, False, False, list())
 
         print('##### Done Initialization of SkillsManager #####')
     

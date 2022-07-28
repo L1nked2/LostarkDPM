@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     for character_config in character_configs:
       character_dict = character_config.build_dict()
-      simulator = DpmSimulator(character_dict, verbose=False)
+      simulator = DpmSimulator(character_dict, verbose=True)
       simulator.test()
       print('==========================')
       simulator.run_simulation()

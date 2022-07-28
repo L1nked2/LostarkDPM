@@ -70,14 +70,15 @@ class DpmSimulator:
         print(f'idle streak ended with {ticks_to_seconds(self.idle_streak)}s')
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
-      self._freeze_character()
       self._use_skill()
+    self._calc_damage_from_buffs()
     self.elapsed_tick += DEFAULT_TICK_INTERVAL
 
   def _freeze_character(self):
     self.current_character = self.base_character.copy()
   
   def _use_skill(self):
+    self._freeze_character()
     # get skill and calculate damage
     target_skill = self.skills_manager.get_next_skill()
     self.buffs_manager.apply_stat_buffs(self.current_character, target_skill)
@@ -95,6 +96,12 @@ class DpmSimulator:
     # reset skill
     target_skill.reset()
     return
+
+  def _calc_damage_from_buffs(self):
+    self._freeze_character()
+    self.buffs_manager.apply_stat_buffs(self.current_character, self.skills_manager.dummy_skill)
+    # get damage buffs and caclulate damage
+    self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history)
   
   def _handle_triggered_actions(self, triggered_actions):
     for action_name in triggered_actions:

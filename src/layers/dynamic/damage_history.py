@@ -3,7 +3,7 @@ from .constants import ticks_to_seconds
 # TODO: 8 seconds damage
 
 THRESHOLD = 0.03
-EARLY_STOPPING_ROUNDS = 1000
+EARLY_STOPPING_ROUNDS = 2000
 
 class DamageHistory:
     def __init__(self):

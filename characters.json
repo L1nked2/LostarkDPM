@@ -2,22 +2,11 @@
   "character_settings": [
     {
       "class_name": "warlord",
-      "upgrade": 25,
+      "upgrade": 19,
       "crit": 800,
       "specialization": 0,
       "swiftness": 1500,
       "engravings": ["Grudge_3", "Super_Charge_3", "Lone_Knight_3", "Master_Brawler_3", "Adrenaline_3"],
-      "options": ["Synergy_Crit_A", "Synergy_Head_Back"],
-      "artifact_set": ["사멸_6_3"],
-      "skill_set": "./db/warlord_lone_knight.json"
-    },
-    {
-      "class_name": "warlord",
-      "upgrade": 25,
-      "crit": 1500,
-      "specialization": 0,
-      "swiftness": 800,
-      "engravings": ["Grudge_3", "Super_Charge_3", "Lone_Knight_3", "Master_Brawler_3", "Cursed_Doll_3"],
       "options": ["Synergy_Crit_A", "Synergy_Head_Back"],
       "artifact_set": ["사멸_6_3"],
       "skill_set": "./db/warlord_lone_knight.json"

@@ -8,6 +8,7 @@ from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.constants import seconds_to_ticks
 from src.layers.utils import check_chance
 
+#SPEC_COEF = 
 
 CLASS_BUFF_DICT = {
   'Specialization': {

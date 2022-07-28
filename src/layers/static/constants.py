@@ -28,6 +28,9 @@ ENGRAVINGS = {
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
   'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
   'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
+  '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x * 0.08)],
+  '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x * 0.10)],
+  '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
 
   ####### 공통각인 #######
   ## Static ##

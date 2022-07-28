@@ -27,20 +27,22 @@ BASE_BUFF_DICT = {
 
 RUNE_BUFF_DICT = {
   'Bleed_Legendary': {
-    'name': 'bleed',
+    'name': '출혈',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 0,
-    'coefficient': 0,
+    'base_damage': 236,
+    'coefficient': 1.075,
+    'damage_interval': 1,
     'duration': 6,
     'priority': 7,
   },
   'Bleed_Epic': {
-    'name': 'bleed',
+    'name': '출혈',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 0,
-    'coefficient': 0,
+    'base_damage': 236,
+    'coefficient': 1.075,
+    'damage_interval': 1,
     'duration': 5,
     'priority': 7,
   },
@@ -256,7 +258,15 @@ def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager):
     pass
 def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
-    pass
+    def cooldown_reduction(skill: Skill):
+      it = skill.get_attribute('identity_type')
+      if it == 'Awakening':
+        return
+      rc = skill.get_attribute('remaining_cooldown')
+      skill.update_attribute('remaining_cooldown', rc * 0.88)
+      return
+    if check_chance(0.10):
+      skill_manager.apply_function(cooldown_reduction)
 def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')

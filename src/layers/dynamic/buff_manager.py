@@ -4,7 +4,7 @@ from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.damage_history import DamageHistory
-
+from src.layers.dynamic.constants import ticks_to_seconds
 
 class BuffManager():
     def __init__(self, base_character: CharacterLayer, verbose=False, **kwargs):
@@ -77,11 +77,16 @@ class BuffManager():
             buff_body(character, skill)
         skill.buff_applied = True
     
-    ## TODO
     def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory):
         for buff in self.current_buffs:
             if buff.buff_type == 'damage':
-                buff.apply_damage_buff(character, damage_history)
+                damage = buff.calc_damage_buff(character.actual_attack_power, 
+                                               character.actual_crit_rate, character.crit_damage, 
+                                               character.total_multiplier, self.current_tick)
+                if damage > 0:
+                  if self.verbose:
+                    print(f'{buff.name} delat {damage} on {ticks_to_seconds(self.current_tick)}s')
+                  damage_history.register_damage(buff.name, damage, self.current_tick)
 
     def print_buffs(self):
         print(self.current_buffs)
