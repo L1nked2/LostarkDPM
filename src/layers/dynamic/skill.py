@@ -51,6 +51,8 @@ class Skill:
         self._init_additional_variables(**kwargs)
         self._apply_jewel()
         self._apply_rune()
+        if self.skill_type == 'Chain':
+          self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
         self.remaining_cooldown = 0.0
@@ -87,7 +89,8 @@ class Skill:
           'key_strokes': 0,
           'base_additional_crit_rate': 0.0,
           'base_additional_crit_damage': 0.0,
-          'rune': 'None'
+          'rune': None,
+          'mana_cost': 1,
         }
         for variable in default_values:
           if variable in kwargs:
@@ -102,7 +105,7 @@ class Skill:
         # rune parsing
         if self.rune == 'None':
           self.rune = None
-        else:
+        if self.rune:
           self.rune_level = self.rune[3:]
           self.rune = self.rune[:2]
     
@@ -145,16 +148,15 @@ class Skill:
         self.base_damage_multiplier = self.base_damage_multiplier * (1 + dj)
     
     def _apply_rune(self):
-        if self.rune is None:
-          return
-        if self.rune == '질풍':
-          additional_attack_speed = constants.get_rune_effect(self.rune, self.rune_level)
-          self.base_common_delay = self.base_common_delay / (1 + additional_attack_speed)
-          self.base_type_specific_delay = (self.base_type_specific_delay / 
-                                            (1 + additional_attack_speed))
-        else:
-          effect = constants.get_rune_effect(self.rune, self.rune_level)
-          self.triggered_actions.append(effect)
+        if self.rune:
+          if self.rune == '질풍':
+            additional_attack_speed = constants.get_rune_effect(self.rune, self.rune_level)
+            self.base_common_delay = self.base_common_delay / (1 + additional_attack_speed)
+            self.base_type_specific_delay = (self.base_type_specific_delay / 
+                                              (1 + additional_attack_speed))
+          else:
+            effect = constants.get_rune_effect(self.rune, self.rune_level)
+            self.triggered_actions.append(effect)
 
     def update_priority(self, new_priority):
         self.priority = new_priority

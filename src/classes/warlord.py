@@ -7,14 +7,22 @@ from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.constants import seconds_to_ticks
 from src.layers.utils import check_chance
+from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
-#SPEC_COEF = 
+SPEC_COEF = 1 / 6.3591 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
     'name': 'specialization',
     'buff_type': 'stat',
     'effect': 'specialization',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Combat_Readiness_1': {
+    'name': 'combat_readiness',
+    'buff_type': 'stat',
+    'effect': 'combat_readiness_1',
     'duration': 999999,
     'priority': 7,
   },
@@ -85,6 +93,21 @@ def action_4(buff_manager: BuffManager, skill_manager: SkillManager):
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill):
     s = character.get_attribute('specialization')
+    s_multiplier_1 = (1 + s * SPEC_COEF)
+    s_multiplier_2 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
+    if skill.get_attribute('identity_type') == 'Common':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * s_multiplier_2)
+
+def combat_readiness_1(character: CharacterLayer, skill: Skill):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') == 'Common':
+      skill.update_attribute('damage_multiplier', s_dm * 1.20 * 1.12)
+    else:
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
 
 def lone_knight_3(character: CharacterLayer, skill: Skill):
     if skill.get_attribute('identity_type') == 'Lance':

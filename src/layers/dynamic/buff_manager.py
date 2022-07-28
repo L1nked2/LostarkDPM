@@ -29,6 +29,7 @@ class BuffManager():
         # register base buffs(default buffs)
         for buff_name in self.base_buff_module.BASE_BUFF_DICT:
             self.register_buff(self.base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
+        # specialization buff(class specific) added
         self.register_buff(self.class_buff_table['Specialization'], 'class')
 
         for buff_name in buffs_name_list:
@@ -85,7 +86,7 @@ class BuffManager():
                                                character.total_multiplier, self.current_tick)
                 if damage > 0:
                   if self.verbose:
-                    print(f'{buff.name} delat {damage} on {ticks_to_seconds(self.current_tick)}s')
+                    print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')
                   damage_history.register_damage(buff.name, damage, self.current_tick)
 
     def print_buffs(self):

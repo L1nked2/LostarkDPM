@@ -83,12 +83,8 @@ ENGRAVINGS = {
   #광전사의비기
 
   #전투태세 TODO: move to dynamic buff
-  'Combat_Readiness_1': [('damage_multiplier', lambda x: x * 1.20),
-                         ('awakening_damage_multiplier', lambda x: x / 1.20),
-                         ('damage_multiplier', lambda x: x * 1.12)],
-  'Combat_Readiness_3': [('damage_multiplier', lambda x: x * 1.20),
-                         ('awakening_damage_multiplier', lambda x: x / 1.20),
-                         ('damage_multiplier', lambda x: x * 1.18)],
+  'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
+  'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
   #분노의망치
@@ -103,7 +99,6 @@ ENGRAVINGS = {
   #역천지체
   #절정
   #절제
-  'Control_3': [('damage_multiplier', lambda x: x * 1.36), ('awakening_damage_multiplier', lambda x: x / 1.36)],
   #일격필살
   #오의난무
   #강화무기
@@ -145,14 +140,8 @@ ENGRAVINGS = {
                          ('movement_speed', lambda x: x + 0.12)],
   #버스트
   #멈출수없는충동                         
-  #완벽한억제 TODO: move to dynamic buff
-  'Perfect_Suppression_1': [('damage_multiplier', lambda x: x * 1.20),
-                            ('awakening_damage_multiplier', lambda x: x / 1.20)],
-  'Perfect_Suppression_3': [('damage_multiplier', lambda x: x * 1.30),
-                            ('awakening_damage_multiplier', lambda x: x / 1.30)],                         
+  #완벽한억제 TODO: move to dynamic buff                        
   #갈증
-  'Hunger_1': [('damage_multiplier', lambda x: x * 1.12)],
-  'Hunger_3': [('damage_multiplier', lambda x: x * 1.25)],
   #달의소리
 }
 
@@ -182,18 +171,9 @@ ARTIFACT_TABLE = {
                ('awakening_damage_multiplier', lambda x: x / 1.31),
                ('damage_multiplier', lambda x: x * 1.20)],
   #악몽
-  '악몽A_6_1': [('damage_multiplier', lambda x: x * 1.12),
-               ('awakening_damage_multiplier', lambda x: x / 1.12),
-               ('additional_damage', lambda x: x + 0.15),
-               ('damage_multiplier', lambda x: x * 1.15)],
-  '악몽A_6_2': [('damage_multiplier', lambda x: x * 1.15),
-               ('awakening_damage_multiplier', lambda x: x / 1.15),
-               ('additional_damage', lambda x: x + 0.18),
-               ('damage_multiplier', lambda x: x * 1.18)],
-  '악몽A_6_3': [('damage_multiplier', lambda x: x * 1.17),
-               ('awakening_damage_multiplier', lambda x: x / 1.17),
-               ('additional_damage', lambda x: x + 0.20),
-               ('damage_multiplier', lambda x: x * 1.20)],
+  '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
+  '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],
+  '악몽A_6_3': [('static_buff_queue', lambda x: x + ['Nightmare_Set_3'])],
   #구원
   '구원_6_1': [('additional_damage', lambda x: x + 0.42),
                ('attack_speed', lambda x: x + 0.10),

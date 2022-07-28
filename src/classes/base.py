@@ -94,6 +94,28 @@ COMMON_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  # 악몽
+  'Nightmare_Set_1': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nightmare_Set_2': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_2',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nightmare_Set_3': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_3',
+    'duration': 999999,
+    'priority': 7,
+  },
   ###### engraving buffs ######
   'Raid_Captain_3': {
     'name': 'raid_captain',
@@ -159,6 +181,7 @@ def back_attack(character: CharacterLayer, skill: Skill):
 
 
 # Non-engraving buffs
+# 헤드백 시너지
 def synergy_head_back(character: CharacterLayer, skill: Skill):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
@@ -166,6 +189,7 @@ def synergy_head_back(character: CharacterLayer, skill: Skill):
     else:
       skill.update_attribute('damage_multiplier', s_dm * 1.03)
 
+# 사멸
 def entropy_set_1(character: CharacterLayer, skill: Skill):
     c_cr = character.get_attribute('crit_rate')
     character.update_attribute('crit_rate', c_cr + 0.17)
@@ -207,6 +231,34 @@ def entropy_set_3(character: CharacterLayer, skill: Skill):
       s_dm = skill.get_attribute('damage_multiplier')
       character.update_attribute('crit_damage', c_cd + 0.22)
       skill.update_attribute('damage_multiplier', s_dm * 1.09)
+
+# 악몽
+def nightmare_set_1(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    c_dm = character.get_attribute('damage_multiplier')
+    character.update_attribute('additional_damage', c_ad + 0.15)
+    character.update_attribute('damage_multiplier', c_dm * 1.15)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      
+def nightmare_set_2(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    c_dm = character.get_attribute('damage_multiplier')
+    character.update_attribute('additional_damage', c_ad + 0.18)
+    character.update_attribute('damage_multiplier', c_dm * 1.18)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
+def nightmare_set_3(character: CharacterLayer, skill: Skill):
+    c_ad = character.get_attribute('additional_damage')
+    c_dm = character.get_attribute('damage_multiplier')
+    character.update_attribute('additional_damage', c_ad + 0.20)
+    character.update_attribute('damage_multiplier', c_dm * 1.20)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.17)
 
 # Engraving buffs
 def raid_captain_3(character: CharacterLayer, skill: Skill):
