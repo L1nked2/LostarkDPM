@@ -91,7 +91,7 @@
       "identity_type": "Common",
       "cooldown": 24,
       "common_delay": 1.04,
-      "type_specific_delay": 1.0,
+      "type_specific_delay": 0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 0,
       "head_attack": false,

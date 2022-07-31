@@ -83,6 +83,8 @@ identity는 어떻게 처리하는가?
 리퍼: 달소 버프 제공
 -> skill, turn on buff(short)
 -> 버프의 갱신, 변신 스킬 처리, 스탠스별 더미 스킬, 스킬의 쿨감 도입이 필요
+특화 계수 정리자료
+  1) https://www.inven.co.kr/board/lostark/4821/78320
 ================================================================
 policy에는 뭐가 있어야 하는가?
 스킬의 priority를 부여하여 skill_queue(priority queue)를 구성한다.

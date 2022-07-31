@@ -16,5 +16,6 @@ if __name__ == '__main__':
       simulator.print_result()
       print('==========================')
       simulator.print_damage_details()
+      simulator.print_delay_statistics()
       print('==========================')
       

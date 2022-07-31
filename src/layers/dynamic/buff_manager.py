@@ -9,6 +9,7 @@ from src.layers.dynamic.constants import ticks_to_seconds
 class BuffManager():
     def __init__(self, base_character: CharacterLayer, verbose=False, **kwargs):
         self.base_character = base_character
+        self.character_specialization = base_character.specialization
         self.verbose = verbose
         self.base_buff_module = importlib.import_module("src.classes.base")
         import_target = "src.classes." + self.base_character.class_name
@@ -69,7 +70,7 @@ class BuffManager():
     def apply_stat_buffs(self, character: CharacterLayer, skill: Skill):
         self._sort_buffs()
         for buff in self.current_buffs:
-            if not buff.buff_type =='stat' or buff.is_shadowed:
+            if not buff.buff_type =='stat' or buff.is_shadowed or buff.effect is None:
                 continue
             if buff.buff_origin == 'base':
                 buff_body = getattr(self.base_buff_module, buff.effect)
@@ -129,5 +130,5 @@ class BuffManager():
             alive_buff_count += 1
       # check alive buff is unique
       if alive_buff_count > 1:
-        print('Multiple buff alives after shadowing, check priority of buff dictionary')
+        print('Multiple buff alive after shadowing, check priority of buff dictionary')
         

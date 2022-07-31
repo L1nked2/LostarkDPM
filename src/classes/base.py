@@ -210,7 +210,26 @@ def synergy_head_back(character: CharacterLayer, skill: Skill):
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
     else:
       skill.update_attribute('damage_multiplier', s_dm * 1.03)
+# 광분
+def rage_legendary(character: CharacterLayer, skill: Skill):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.16)
+    character.update_attribute('movement_speed', c_ms + 0.16)
+    
 
+def rage_epic(character: CharacterLayer, skill: Skill):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.12)
+    character.update_attribute('movement_speed', c_ms + 0.12)
+    
+
+# Artifact buffs
+# 환각, 구원 -> engraving layer
+# 지배
+def dominion_set_1(character: CharacterLayer, skill: Skill):
+    pass
 # 사멸
 def entropy_set_1(character: CharacterLayer, skill: Skill):
     c_cr = character.get_attribute('crit_rate')

@@ -7,7 +7,7 @@ from .constants import *
 
 DEFAULT_TICK_INTERVAL = 1
 MAX_TICK = 300000
-DPS_CORRECTION = 0.4
+DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
   def __init__(self, character_dict, verbose=False, tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
@@ -27,24 +27,33 @@ class DpmSimulator:
     self.skills_manager = SkillManager(self.base_character)
     # initialize tick
     self._sync_tick()
+    # delay statistics
+    self.delay_statistics = dict()
 
     print('LostArkDpmSimulator is now ready to run')
 
   def run_simulation(self, max_tick=MAX_TICK):
     while self.elapsed_tick < max_tick:
       if self.damage_history.is_stablized():
-        print("DPS stablized, terminating simulation")
+        print("DPS stabilized, terminating simulation")
         break
       self._main_loop()
 
   def print_result(self):
     print(f'Total damage: {self.damage_history.total_damage}')
-    print(f'DPS: {self.damage_history.current_dps}')
-    print(f'Actual_DPS: {self.damage_history.current_dps * DPS_CORRECTION}')
+    print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
+    print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
+    #TODO 10seconds burst
     print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
   
   def print_damage_details(self):
     print(self.damage_history.get_damage_details())
+  
+  def print_delay_statistics(self):
+    result = dict()
+    for skill_name in self.delay_statistics:
+      result[skill_name] = round(self.delay_statistics[skill_name]['avg_delay'], 3)
+    print(result)
 
   def _init_timer(self):
     self.elapsed_tick = 0
@@ -93,6 +102,8 @@ class DpmSimulator:
     # block skill_manger until delay is over
     delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     self.skills_manager.block_until(self.elapsed_tick + delay)
+    # update average delay
+    self._update_delay_statistics(target_skill.name, delay)
     # reset skill
     target_skill.reset()
     return
@@ -116,6 +127,15 @@ class DpmSimulator:
   def _sync_tick(self):
     self.buffs_manager.update_tick(self.elapsed_tick)
     self.skills_manager.update_tick(self.elapsed_tick)
+  
+  def _update_delay_statistics(self, name, delay):
+    delay = ticks_to_seconds(delay)
+    if name in self.delay_statistics:
+      num = self.delay_statistics[name]['num'] + 1
+      self.delay_statistics[name]['avg_delay'] = (self.delay_statistics[name]['avg_delay'] * (num-1)/num
+                                                  + delay * (1/num))
+    else:
+      self.delay_statistics[name] = {'num': 1, 'avg_delay': delay}
   
   def test(self):
     print('test infos')

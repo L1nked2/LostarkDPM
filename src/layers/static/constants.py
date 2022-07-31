@@ -44,6 +44,7 @@ ENGRAVINGS = {
   #예리한둔기
   'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('damage_multiplier', lambda x: x * 0.98)],
   #아드레날린
+  'Adrenaline_1': [('additional_attack_power', lambda x: x + 0.018), ('crit_rate', lambda x: x + 0.05)],
   'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
@@ -60,8 +61,8 @@ ENGRAVINGS = {
   #질량증가
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
-  'Awakening_2': [('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.25)],
-  'Awakening_3': [('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.50)],
+  'Awakening_2': [('static_buff_queue', lambda x: x + ['Awakening_2'])],
+  'Awakening_3': [('static_buff_queue', lambda x: x + ['Awakening_3'])],
   ## Dynamic ##
   #돌격대장
   'Raid_Captain_3': [('static_buff_queue', lambda x: x + ['Raid_Captain_3'])],
@@ -82,7 +83,7 @@ ENGRAVINGS = {
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
 
-  #전투태세 TODO: move to dynamic buff
+  #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
   'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
@@ -132,12 +133,8 @@ ENGRAVINGS = {
                ('cooldown_percentage', lambda x: x + (1-x) * 0.10),
                ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.10)],
   #잔재된기운
-  'Remaining_Energy_1': [('damage_multiplier', lambda x: x * 1.12),
-                         ('attack_speed', lambda x: x + 0.12),
-                         ('movement_speed', lambda x: x + 0.12)],
-  'Remaining_Energy_3': [('damage_multiplier', lambda x: x * 1.36),
-                         ('attack_speed', lambda x: x + 0.12),
-                         ('movement_speed', lambda x: x + 0.12)],
+  'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
+  'Remaining_Energy_3': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_3'])],
   #버스트
   #멈출수없는충동                         
   #완벽한억제 TODO: move to dynamic buff                        
@@ -149,27 +146,9 @@ ENGRAVINGS = {
 # Artifact Sets
 ARTIFACT_TABLE = {
   #지배
-  '지배_6_1': [('awakening_damage_multiplier', lambda x: x * 0.50),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.25),
-               ('awakening_damage_multiplier', lambda x: x / 1.25),
-               ('damage_multiplier', lambda x: x * 1.15)],
-  '지배_6_2': [('awakening_damage_multiplier', lambda x: x * 0.70),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.28),
-               ('awakening_damage_multiplier', lambda x: x / 1.28),
-               ('damage_multiplier', lambda x: x * 1.18)],
-  '지배_6_3': [('awakening_damage_multiplier', lambda x: x * 0.90),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.31),
-               ('awakening_damage_multiplier', lambda x: x / 1.31),
-               ('damage_multiplier', lambda x: x * 1.20)],
+  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_1'])],
+  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_2'])],
+  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_3'])],
   #악몽
   '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
   '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],

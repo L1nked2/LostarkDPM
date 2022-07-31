@@ -5,7 +5,7 @@
     "main_cycle": [
       ["심판의 창"],
       ["증오의 함성"],
-      ["배쉬", "가디언의 낙뢰B", "방패 돌진", "방패 밀치기", "방패 격동"],
+      ["배쉬", "가디언의 낙뢰A", "방패 돌진", "방패 밀치기", "방패 격동"],
       ["배쉬", "리프 어택(직타)", "방패 밀치기", "방패 격동"]
     ]
   },
@@ -91,7 +91,7 @@
       "identity_type": "Common",
       "cooldown": 24,
       "common_delay": 1.04,
-      "type_specific_delay": 1.0,
+      "type_specific_delay": 0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 0,
       "head_attack": false,
