@@ -26,6 +26,11 @@ ENGRAVINGS = {
   'Synergy_Damage_A': [('damage_multiplier', lambda x: x * 1.06)],
   'Synergy_Damage_B': [('damage_multiplier', lambda x: x * 1.072)],
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
+  'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
+  'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
+  '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x + 0.08)],
+  '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x + 0.10)],
+  '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
 
   ####### 공통각인 #######
   ## Static ##
@@ -39,6 +44,7 @@ ENGRAVINGS = {
   #예리한둔기
   'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('damage_multiplier', lambda x: x * 0.98)],
   #아드레날린
+  'Adrenaline_1': [('additional_attack_power', lambda x: x + 0.018), ('crit_rate', lambda x: x + 0.05)],
   'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
@@ -55,8 +61,8 @@ ENGRAVINGS = {
   #질량증가
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
-  'Awakening_2': [('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.25)],
-  'Awakening_3': [('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.50)],
+  'Awakening_2': [('static_buff_queue', lambda x: x + ['Awakening_2'])],
+  'Awakening_3': [('static_buff_queue', lambda x: x + ['Awakening_3'])],
   ## Dynamic ##
   #돌격대장
   'Raid_Captain_3': [('static_buff_queue', lambda x: x + ['Raid_Captain_3'])],
@@ -77,13 +83,9 @@ ENGRAVINGS = {
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
 
-  #전투태세 TODO: move to dynamic buff
-  'Combat_Readiness_1': [('damage_multiplier', lambda x: x * 1.20),
-                         ('awakening_damage_multiplier', lambda x: x / 1.20),
-                         ('damage_multiplier', lambda x: x * 1.12)],
-  'Combat_Readiness_3': [('damage_multiplier', lambda x: x * 1.20),
-                         ('awakening_damage_multiplier', lambda x: x / 1.20),
-                         ('damage_multiplier', lambda x: x * 1.18)],
+  #전투태세
+  'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
+  'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
   #분노의망치
@@ -98,7 +100,6 @@ ENGRAVINGS = {
   #역천지체
   #절정
   #절제
-  'Control_3': [('damage_multiplier', lambda x: x * 1.36), ('awakening_damage_multiplier', lambda x: x / 1.36)],
   #일격필살
   #오의난무
   #강화무기
@@ -121,33 +122,16 @@ ENGRAVINGS = {
   #황후의은총
   #황제의칙령
   #점화
-
-  #환류 TODO: move to dynamic buff
-  'Reflux_1': [('damage_multiplier', lambda x: x * 1.08),
-               ('awakening_damage_multiplier', lambda x: x / 1.08),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.03),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.03)],
-  'Reflux_3': [('damage_multiplier', lambda x: x * 1.16),
-               ('awakening_damage_multiplier', lambda x: x / 1.16),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.10),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.10)],
+  #환류  
   #잔재된기운
-  'Remaining_Energy_1': [('damage_multiplier', lambda x: x * 1.12),
-                         ('attack_speed', lambda x: x + 0.12),
-                         ('movement_speed', lambda x: x + 0.12)],
-  'Remaining_Energy_3': [('damage_multiplier', lambda x: x * 1.36),
-                         ('attack_speed', lambda x: x + 0.12),
-                         ('movement_speed', lambda x: x + 0.12)],
+  'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
+  'Remaining_Energy_3': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_3'])],
   #버스트
-  #멈출수없는충동                         
-  #완벽한억제 TODO: move to dynamic buff
-  'Perfect_Suppression_1': [('damage_multiplier', lambda x: x * 1.20),
-                            ('awakening_damage_multiplier', lambda x: x / 1.20)],
-  'Perfect_Suppression_3': [('damage_multiplier', lambda x: x * 1.30),
-                            ('awakening_damage_multiplier', lambda x: x / 1.30)],                         
+  'Burst_1': [('static_buff_queue', lambda x: x + ['Burst_Enabled_1'])],
+  'Burst_3': [('static_buff_queue', lambda x: x + ['Burst_Enabled_3'])],
+  #멈출수없는충동
+  #완벽한억제
   #갈증
-  'Hunger_1': [('damage_multiplier', lambda x: x * 1.12)],
-  'Hunger_3': [('damage_multiplier', lambda x: x * 1.25)],
   #달의소리
 }
 
@@ -155,40 +139,13 @@ ENGRAVINGS = {
 # Artifact Sets
 ARTIFACT_TABLE = {
   #지배
-  '지배_6_1': [('awakening_damage_multiplier', lambda x: x * 0.50),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.25),
-               ('awakening_damage_multiplier', lambda x: x / 1.25),
-               ('damage_multiplier', lambda x: x * 1.15)],
-  '지배_6_2': [('awakening_damage_multiplier', lambda x: x * 0.70),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.28),
-               ('awakening_damage_multiplier', lambda x: x / 1.28),
-               ('damage_multiplier', lambda x: x * 1.18)],
-  '지배_6_3': [('awakening_damage_multiplier', lambda x: x * 0.90),
-               ('awakening_cooldown_percentage', lambda x: x + (1-x) * 0.20),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.18),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.18),
-               ('damage_multiplier', lambda x: x * 1.31),
-               ('awakening_damage_multiplier', lambda x: x / 1.31),
-               ('damage_multiplier', lambda x: x * 1.20)],
+  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_1'])],
+  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_2'])],
+  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_3'])],
   #악몽
-  '악몽A_6_1': [('damage_multiplier', lambda x: x * 1.12),
-               ('awakening_damage_multiplier', lambda x: x / 1.12),
-               ('additional_damage', lambda x: x + 0.15),
-               ('damage_multiplier', lambda x: x * 1.15)],
-  '악몽A_6_2': [('damage_multiplier', lambda x: x * 1.15),
-               ('awakening_damage_multiplier', lambda x: x / 1.15),
-               ('additional_damage', lambda x: x + 0.18),
-               ('damage_multiplier', lambda x: x * 1.18)],
-  '악몽A_6_3': [('damage_multiplier', lambda x: x * 1.17),
-               ('awakening_damage_multiplier', lambda x: x / 1.17),
-               ('additional_damage', lambda x: x + 0.20),
-               ('damage_multiplier', lambda x: x * 1.20)],
+  '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
+  '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],
+  '악몽A_6_3': [('static_buff_queue', lambda x: x + ['Nightmare_Set_3'])],
   #구원
   '구원_6_1': [('additional_damage', lambda x: x + 0.42),
                ('attack_speed', lambda x: x + 0.10),
@@ -210,6 +167,10 @@ ARTIFACT_TABLE = {
                ('crit_rate', lambda x: x + 0.25)],
   '환각_6_3': [('damage_multiplier', lambda x: x * 1.32),
                ('crit_rate', lambda x: x + 0.28)],
+  #2악4구
+  '2악4구_1': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_1'])],
+  '2악4구_2': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_2'])],
+  '2악4구_3': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_3'])],
 }
 
 # Data for StatFactory

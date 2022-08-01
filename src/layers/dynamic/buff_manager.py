@@ -1,15 +1,17 @@
 import importlib
 import warnings
-import src.classes.base as base_buff_module
 from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.damage_history import DamageHistory
-
+from src.layers.dynamic.constants import ticks_to_seconds
 
 class BuffManager():
-    def __init__(self, base_character: CharacterLayer, **kwargs):
+    def __init__(self, base_character: CharacterLayer, verbose=False, **kwargs):
         self.base_character = base_character
+        self.character_specialization = base_character.specialization
+        self.verbose = verbose
+        self.base_buff_module = importlib.import_module("src.classes.base")
         import_target = "src.classes." + self.base_character.class_name
         self.class_buff_module = importlib.import_module(import_target)
         self.class_buff_table = self.class_buff_module.CLASS_BUFF_DICT
@@ -26,13 +28,14 @@ class BuffManager():
     
     def _import_buffs(self, buffs_name_list):
         # register base buffs(default buffs)
-        for buff_name in base_buff_module.BASE_BUFF_DICT:
-            self.register_buff(base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
+        for buff_name in self.base_buff_module.BASE_BUFF_DICT:
+            self.register_buff(self.base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
+        # specialization buff(class specific) added
         self.register_buff(self.class_buff_table['Specialization'], 'class')
 
         for buff_name in buffs_name_list:
-          if buff_name in base_buff_module.COMMON_BUFF_DICT:
-            self.register_buff(base_buff_module.COMMON_BUFF_DICT[buff_name], 'base')
+          if buff_name in self.base_buff_module.COMMON_BUFF_DICT:
+            self.register_buff(self.base_buff_module.COMMON_BUFF_DICT[buff_name], 'base')
           elif buff_name in self.class_buff_table:
             self.register_buff(self.class_buff_table[buff_name], 'class')
           else:
@@ -43,11 +46,16 @@ class BuffManager():
           if buff.name == name:
             return True
         return False
+    
+    def apply_function(self, func):
+        for buff in self.current_buffs:
+          func(buff)
 
     def register_buff(self, buff_dict, buff_origin):
         if self.is_buff_exists(buff_dict['name']):
             buff_name = buff_dict['name']
-            print(f'buff already exists, {buff_name} will be shadowed or refreshed')
+            if self.verbose:
+              print(f'buff already exists, {buff_name} will be shadowed or refreshed')
             self._remove_redundant_buff(buff_dict)
         if buff_dict['buff_type'] == 'stat':
           buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
@@ -66,20 +74,25 @@ class BuffManager():
     def apply_stat_buffs(self, character: CharacterLayer, skill: Skill):
         self._sort_buffs()
         for buff in self.current_buffs:
-            if buff.is_shadowed:
+            if not buff.buff_type =='stat' or buff.is_shadowed or buff.effect is None:
                 continue
             if buff.buff_origin == 'base':
-                buff_body = getattr(base_buff_module, buff.effect)
+                buff_body = getattr(self.base_buff_module, buff.effect)
             elif buff.buff_origin == 'class':
                 buff_body = getattr(self.class_buff_module, buff.effect)
-            buff_body(character, skill)
+            buff_body(character, skill, buff)
         skill.buff_applied = True
     
-    ## TODO
-    def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory):
+    def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory, dummy_skill: Skill):
         for buff in self.current_buffs:
             if buff.buff_type == 'damage':
-                buff.apply_damage_buff(character, damage_history)
+                damage = buff.calc_damage_buff(character.actual_attack_power, 
+                                               character.actual_crit_rate, character.crit_damage, 
+                                               character.total_multiplier * dummy_skill.damage_multiplier, self.current_tick)
+                if damage > 0:
+                  if self.verbose:
+                    print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')
+                  damage_history.register_damage(buff.name, damage, self.current_tick)
 
     def print_buffs(self):
         print(self.current_buffs)
@@ -121,5 +134,5 @@ class BuffManager():
             alive_buff_count += 1
       # check alive buff is unique
       if alive_buff_count > 1:
-        print('Multiple buff alives after shadowing, check priority of buff dictionary')
+        print('Multiple buff alive after shadowing, check priority of buff dictionary')
         

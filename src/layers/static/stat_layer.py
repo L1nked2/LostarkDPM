@@ -49,8 +49,6 @@ class StatLayer:
         # spec -> TODO: init on where?
         specialization = self.combat_stat['specialization']
         self.specialization = specialization
-        self.awakening_damage_multiplier = specialization * AWAKENING_DAMAGE_PER_SPECIALIZATION
-        self.awakening_cooldown_reduction = 0.0
         # swiftness
         swiftness = self.combat_stat['swiftness']
         self.attack_speed = 1.0 + (swiftness * ATTACK_SPEED_PER_SWIFTNESS)
@@ -107,7 +105,7 @@ class StatLayer:
             # crit terms
             'crit_rate', 'crit_damage',
             # spec terms
-            'specialization', 'awakening_damage_multiplier', 'awakening_cooldown_reduction',
+            'specialization',
             # swiftness terms
             'attack_speed', 'movement_speed', 'cooldown_reduction',
         ]

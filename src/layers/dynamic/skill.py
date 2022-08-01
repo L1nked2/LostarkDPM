@@ -49,11 +49,14 @@ class Skill:
 
         # handle additional variables
         self._init_additional_variables(**kwargs)
+        self._apply_jewel()
+        self._apply_rune()
+        if self.skill_type == 'Chain':
+          self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
         self.remaining_cooldown = 0.0
         self.priority = DEFAULT_PRIORITY
-        self._apply_jewel()
 
         # validation
         self._validate_skill()
@@ -86,22 +89,30 @@ class Skill:
           'key_strokes': 0,
           'base_additional_crit_rate': 0.0,
           'base_additional_crit_damage': 0.0,
-          'rune': 'None'
+          'rune': None,
+          'mana_cost': 1,
         }
         for variable in default_values:
           if variable in kwargs:
             self.__setattr__(variable, kwargs[variable])
           else:
             self.__setattr__(variable, default_values[variable])
-        
+
+        # cooldown_on_finish
         cooldown_on_finish_types = ['Combo', 'Chain', 'Casting', 'Holding_B']
         if self.skill_type in cooldown_on_finish_types:
             self.cooldown_on_finish = True
+        # rune parsing
+        if self.rune == 'None':
+          self.rune = None
+        if self.rune:
+          self.rune_level = self.rune[3:]
+          self.rune = self.rune[:2]
     
     def _validate_skill(self):
         if self.default_damage < 0 or self.default_coefficient < 0:
             warnings.warn("Damage and coefficient cannot be negative", UserWarning)
-        if not (self.skill_type in SKILL_TYPES):
+        if not (self.skill_type in SKILL_TYPES or self.skill_type is None):
             warnings.warn(f"invalid skill type given, {self.skill_type}", UserWarning)
         if self.base_common_delay < 0 or self.base_type_specific_delay < 0:
             warnings.warn("Delay cannot be negative", UserWarning)
@@ -135,6 +146,17 @@ class Skill:
         dj = constants.DAMAGE_JEWEL_LIST[self.jewel_damage_level]
         self.cooldown = self.cooldown * (1 - cj)
         self.base_damage_multiplier = self.base_damage_multiplier * (1 + dj)
+    
+    def _apply_rune(self):
+        if self.rune:
+          if self.rune == '질풍':
+            additional_attack_speed = constants.get_rune_effect(self.rune, self.rune_level)
+            self.base_common_delay = self.base_common_delay / (1 + additional_attack_speed)
+            self.base_type_specific_delay = (self.base_type_specific_delay / 
+                                              (1 + additional_attack_speed))
+          else:
+            effect = constants.get_rune_effect(self.rune, self.rune_level)
+            self.triggered_actions.append(effect)
 
     def update_priority(self, new_priority):
         self.priority = new_priority

@@ -4,7 +4,9 @@ import json
 import warnings
 from collections import deque
 from src.layers.static.character_layer import CharacterLayer
-from src.layers.dynamic.skill import Skill
+from .skill import Skill
+from .constants import seconds_to_ticks
+
 DEFAULT_LOOKUP_COOLDOWN = 5
 
 class SkillManager:
@@ -24,6 +26,8 @@ class SkillManager:
         for naive_skill in skill_info['skill_preset']:
             self.skill_pool[naive_skill['name']] = Skill(**naive_skill)
         self._validate_jewel()
+        # dummy skill
+        self.dummy_skill = Skill('dummy', 0, 0, None, None, 0, 0, 0, False, False, list())
 
         print('##### Done Initialization of SkillsManager #####')
     
@@ -101,9 +105,9 @@ class SkillManager:
             if self.skill_pool[skill_name].jewel_damage_level > 0:
                 jewel_count += 1
         if jewel_count > 11:
-            warnings.warn(f"Too many jewels, {jewel_count} > 11", UserWarning)
+            print(f"Too many jewels, {jewel_count} > 11")
         elif jewel_count < 11:
-            warnings.warn(f"Not enough jewels, {jewel_count} < 11", UserWarning)
+            print(f"Not enough jewels, {jewel_count} < 11")
         
     def _is_awakening_skill_available(self):
         for skill_name in self.skill_pool:
