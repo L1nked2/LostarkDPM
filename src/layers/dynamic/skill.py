@@ -112,7 +112,7 @@ class Skill:
     def _validate_skill(self):
         if self.default_damage < 0 or self.default_coefficient < 0:
             warnings.warn("Damage and coefficient cannot be negative", UserWarning)
-        if not (self.skill_type in SKILL_TYPES):
+        if not (self.skill_type in SKILL_TYPES or self.skill_type is None):
             warnings.warn(f"invalid skill type given, {self.skill_type}", UserWarning)
         if self.base_common_delay < 0 or self.base_type_specific_delay < 0:
             warnings.warn("Delay cannot be negative", UserWarning)

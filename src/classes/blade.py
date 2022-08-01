@@ -71,12 +71,13 @@ CLASS_BUFF_DICT = {
     'duration': 6,
     'priority': 7,
   },
+  # 블랙 익스플로젼(10멸, 5렙)
   'Black_Explosion': {
     'name': 'black_explosion',
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 3564,
-    'coefficient': 23.1525,
+    'coefficient': 51.8616,
     'damage_interval': 1,
     'duration': 1,
     'priority': 7,

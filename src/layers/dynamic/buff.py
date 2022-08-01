@@ -17,6 +17,7 @@ class Buff:
         self.priority = priority
         self.begin_tick = begin_tick
         self.is_shadowed = False
+        self.stack = 1
 
     def is_expired(self, current_tick) -> bool:
         return self.begin_tick + self.duration < current_tick

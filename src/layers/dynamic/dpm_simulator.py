@@ -43,7 +43,7 @@ class DpmSimulator:
     print(f'Total damage: {self.damage_history.total_damage}')
     print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
     print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
-    #TODO 10seconds burst
+    print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps * DPS_CORRECTION_CONSTANT)}')
     print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
   
   def print_damage_details(self):
@@ -53,6 +53,15 @@ class DpmSimulator:
     result = dict()
     for skill_name in self.delay_statistics:
       result[skill_name] = round(self.delay_statistics[skill_name]['avg_delay'], 3)
+    print(result)
+  
+  def print_nuking_cycle(self):
+    result = dict()
+    for damage_info in self.damage_history.nuking_cycle:
+      if damage_info['name'] in result:
+        result[damage_info['name']] += damage_info['damage_value']
+      else:
+        result[damage_info['name']] = damage_info['damage_value']
     print(result)
 
   def _init_timer(self):
