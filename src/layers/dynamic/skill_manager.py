@@ -4,7 +4,9 @@ import json
 import warnings
 from collections import deque
 from src.layers.static.character_layer import CharacterLayer
-from src.layers.dynamic.skill import Skill
+from .skill import Skill
+from .constants import seconds_to_ticks
+
 DEFAULT_LOOKUP_COOLDOWN = 5
 
 class SkillManager:

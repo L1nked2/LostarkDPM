@@ -5,6 +5,7 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
+from src.layers.dynamic.buff import Buff
 from src.layers.dynamic.constants import seconds_to_ticks
 from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
@@ -91,7 +92,7 @@ def action_4(buff_manager: BuffManager, skill_manager: SkillManager):
     skill_manager.apply_function(cooldown_reduction)
 
 # Buff bodies
-def specialization(character: CharacterLayer, skill: Skill):
+def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * SPEC_COEF)
     s_multiplier_2 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
@@ -102,14 +103,14 @@ def specialization(character: CharacterLayer, skill: Skill):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_2)
 
-def combat_readiness_1(character: CharacterLayer, skill: Skill):
+def combat_readiness_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') == 'Common':
       skill.update_attribute('damage_multiplier', s_dm * 1.20 * 1.12)
     else:
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
 
-def lone_knight_3(character: CharacterLayer, skill: Skill):
+def lone_knight_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Lance':
       s_acr = skill.get_attribute('additional_crit_rate')
       s_acd = skill.get_attribute('additional_crit_damage')
@@ -117,22 +118,22 @@ def lone_knight_3(character: CharacterLayer, skill: Skill):
       skill.update_attribute('additional_crit_damage', s_acd + 0.50)
 
 # 배쉬 공증
-def ap_buff_1(character: CharacterLayer, skill: Skill):
+def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     character.update_attribute('additional_attack_power', c_aap + 0.335 * (1 + c_aap))
 
 # 대쉬 어퍼 파이어 공증
-def ap_buff_2(character: CharacterLayer, skill: Skill):
+def ap_buff_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     character.update_attribute('additional_attack_power', c_aap + 0.23 * (1 + c_aap))
 
 # 배쉬 시너지
-def synergy_1(character: CharacterLayer, skill: Skill):
+def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.066)
 
 # 증오의 함성 시너지
-def synergy_2(character: CharacterLayer, skill: Skill):
+def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
       skill.update_attribute('damage_multiplier', s_dm * 1.12)

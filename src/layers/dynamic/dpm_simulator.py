@@ -1,4 +1,5 @@
 import importlib
+import math
 from ..static.character_layer import CharacterLayer
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
@@ -29,6 +30,9 @@ class DpmSimulator:
     self._sync_tick()
     # delay statistics
     self.delay_statistics = dict()
+    self.delay_score = 0.0
+    self.used_skill_count = 0
+    self.actual_used_skill_count = 0
 
     print('LostArkDpmSimulator is now ready to run')
 
@@ -38,13 +42,15 @@ class DpmSimulator:
         print("DPS stabilized, terminating simulation")
         break
       self._main_loop()
+    self.delay_score = 1/(math.sqrt(self.delay_score) / self.actual_used_skill_count)
 
   def print_result(self):
-    print(f'Total damage: {self.damage_history.total_damage}')
+    print(f'Total_damage: {self.damage_history.total_damage}')
     print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
     print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
     print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps * DPS_CORRECTION_CONSTANT)}')
-    print(f"Elapsed time: {ticks_to_seconds(self.elapsed_tick)} s")
+    print(f'Delay_score: {round(self.delay_score, 3)}')
+    print(f"Elapsed_time: {ticks_to_seconds(self.elapsed_tick)} s")
   
   def print_damage_details(self):
     print(self.damage_history.get_damage_details())
@@ -112,16 +118,19 @@ class DpmSimulator:
     delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     self.skills_manager.block_until(self.elapsed_tick + delay)
     # update average delay
-    self._update_delay_statistics(target_skill.name, delay)
+    if delay > 0:
+      self._update_delay_statistics(target_skill.name, delay)
     # reset skill
     target_skill.reset()
+    self.used_skill_count += 1
     return
 
   def _calc_damage_from_buffs(self):
     self._freeze_character()
     self.buffs_manager.apply_stat_buffs(self.current_character, self.skills_manager.dummy_skill)
     # get damage buffs and caclulate damage
-    self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history)
+    self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history, self.skills_manager.dummy_skill)
+    self.skills_manager.dummy_skill.reset()
   
   def _handle_triggered_actions(self, triggered_actions):
     for action_name in triggered_actions:
@@ -140,11 +149,14 @@ class DpmSimulator:
   def _update_delay_statistics(self, name, delay):
     delay = ticks_to_seconds(delay)
     if name in self.delay_statistics:
-      num = self.delay_statistics[name]['num'] + 1
-      self.delay_statistics[name]['avg_delay'] = (self.delay_statistics[name]['avg_delay'] * (num-1)/num
-                                                  + delay * (1/num))
+      num = self.delay_statistics[name]['num']
+      self.delay_statistics[name]['avg_delay'] = (self.delay_statistics[name]['avg_delay'] * num/(num+1)
+                                                  + delay * 1/(num+1))
+      self.delay_statistics[name]['num'] = num + 1
     else:
       self.delay_statistics[name] = {'num': 1, 'avg_delay': delay}
+    self.delay_score += delay ** 2
+    self.actual_used_skill_count += 1
   
   def test(self):
     print('test infos')

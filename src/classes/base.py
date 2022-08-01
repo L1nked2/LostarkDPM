@@ -5,6 +5,7 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
+from src.layers.dynamic.buff import Buff
 from src.layers.utils import check_chance
 
 # Buff Dictionary
@@ -187,12 +188,12 @@ COMMON_BUFF_DICT = {
 Buff Bodies
 """
 # System-based buffs
-def head_attack(character: CharacterLayer, skill: Skill):
+def head_attack(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('head_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.2)
 
-def back_attack(character: CharacterLayer, skill: Skill):
+def back_attack(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('back_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       s_acr = skill.get_attribute('additional_crit_rate')
@@ -204,21 +205,21 @@ def back_attack(character: CharacterLayer, skill: Skill):
 
 # Non-engraving buffs
 # 헤드백 시너지
-def synergy_head_back(character: CharacterLayer, skill: Skill):
+def synergy_head_back(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
     else:
       skill.update_attribute('damage_multiplier', s_dm * 1.03)
 # 광분
-def rage_legendary(character: CharacterLayer, skill: Skill):
+def rage_legendary(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
     character.update_attribute('attack_speed', c_as + 0.16)
     character.update_attribute('movement_speed', c_ms + 0.16)
     
 
-def rage_epic(character: CharacterLayer, skill: Skill):
+def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
     character.update_attribute('attack_speed', c_as + 0.12)
@@ -228,10 +229,10 @@ def rage_epic(character: CharacterLayer, skill: Skill):
 # Artifact buffs
 # 환각, 구원 -> engraving layer
 # 지배
-def dominion_set_1(character: CharacterLayer, skill: Skill):
+def dominion_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     pass
 # 사멸
-def entropy_set_1(character: CharacterLayer, skill: Skill):
+def entropy_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_cr = character.get_attribute('crit_rate')
     character.update_attribute('crit_rate', c_cr + 0.17)
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
@@ -245,7 +246,7 @@ def entropy_set_1(character: CharacterLayer, skill: Skill):
       character.update_attribute('crit_damage', c_cd + 0.17)
       skill.update_attribute('damage_multiplier', s_dm * 1.07)
 
-def entropy_set_2(character: CharacterLayer, skill: Skill):
+def entropy_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_cr = character.get_attribute('crit_rate')
     character.update_attribute('crit_rate', c_cr + 0.20)
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
@@ -259,7 +260,7 @@ def entropy_set_2(character: CharacterLayer, skill: Skill):
       character.update_attribute('crit_damage', c_cd + 0.20)
       skill.update_attribute('damage_multiplier', s_dm * 1.08)
 
-def entropy_set_3(character: CharacterLayer, skill: Skill):
+def entropy_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_cr = character.get_attribute('crit_rate')
     character.update_attribute('crit_rate', c_cr + 0.22)
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
@@ -274,7 +275,7 @@ def entropy_set_3(character: CharacterLayer, skill: Skill):
       skill.update_attribute('damage_multiplier', s_dm * 1.09)
 
 # 악몽
-def nightmare_set_1(character: CharacterLayer, skill: Skill):
+def nightmare_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.15)
@@ -283,7 +284,7 @@ def nightmare_set_1(character: CharacterLayer, skill: Skill):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
       
-def nightmare_set_2(character: CharacterLayer, skill: Skill):
+def nightmare_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.18)
@@ -292,7 +293,7 @@ def nightmare_set_2(character: CharacterLayer, skill: Skill):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
-def nightmare_set_3(character: CharacterLayer, skill: Skill):
+def nightmare_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.20)
@@ -302,21 +303,21 @@ def nightmare_set_3(character: CharacterLayer, skill: Skill):
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
 
 # 2악4구
-def nig2_sal4_set_1(character: CharacterLayer, skill: Skill):
+def nig2_sal4_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     character.update_attribute('additional_damage', c_ad + 0.14)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
       
-def nig2_sal4_set_2(character: CharacterLayer, skill: Skill):
+def nig2_sal4_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     character.update_attribute('additional_damage', c_ad + 0.18)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
-def nig2_sal4_set_3(character: CharacterLayer, skill: Skill):
+def nig2_sal4_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     character.update_attribute('additional_damage', c_ad + 0.21)
     if skill.get_attribute('mana_cost') > 0:
@@ -324,34 +325,34 @@ def nig2_sal4_set_3(character: CharacterLayer, skill: Skill):
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
 
 # Engraving buffs
-def raid_captain_3(character: CharacterLayer, skill: Skill):
+def raid_captain_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_dm = character.get_attribute('damage_multiplier')
     c_ams = character.get_attribute('actual_movement_speed')
     character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.45))
 
-def super_charge_3(character: CharacterLayer, skill: Skill):
+def super_charge_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('skill_type') == 'Charge':
       s_dm = skill.get_attribute('damage_multiplier')
       s_tsd = skill.get_attribute('type_specific_delay')
       skill.update_attribute('damage_multiplier', s_dm * 1.20)
       skill.update_attribute('type_specific_delay', s_tsd / 1.40)
 
-def master_brawler_3(character: CharacterLayer, skill: Skill):
+def master_brawler_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('head_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
 
-def master_of_ambush_3(character: CharacterLayer, skill: Skill):
+def master_of_ambush_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('back_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
 
-def hit_master_3(character: CharacterLayer, skill: Skill):
+def hit_master_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('head_attack') == False and skill.get_attribute('back_attack') == False:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.16)
 
-def all_out_attack_3(character: CharacterLayer, skill: Skill):
+def all_out_attack_3(character: CharacterLayer, skill: Skill, buff: Buff):
     s_t = skill.get_attribute('skill_type')
     if  s_t == 'Holding' or s_t == 'Casting':
       s_dm = skill.get_attribute('damage_multiplier')

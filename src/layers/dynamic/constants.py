@@ -95,10 +95,6 @@ RUNE_ALL = {
     "정화": None,
 }
 
-RUNE_LEVEL_ALL = [
-    "고급", "희귀", "영웅", "전설", "유물"
-]
-
 def get_rune_effect(category, level):
     return RUNE_ALL[category][level]
 

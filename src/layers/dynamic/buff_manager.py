@@ -46,6 +46,10 @@ class BuffManager():
           if buff.name == name:
             return True
         return False
+    
+    def apply_function(self, func):
+        for buff in self.current_buffs:
+          func(buff)
 
     def register_buff(self, buff_dict, buff_origin):
         if self.is_buff_exists(buff_dict['name']):
@@ -76,15 +80,15 @@ class BuffManager():
                 buff_body = getattr(self.base_buff_module, buff.effect)
             elif buff.buff_origin == 'class':
                 buff_body = getattr(self.class_buff_module, buff.effect)
-            buff_body(character, skill)
+            buff_body(character, skill, buff)
         skill.buff_applied = True
     
-    def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory):
+    def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory, dummy_skill: Skill):
         for buff in self.current_buffs:
             if buff.buff_type == 'damage':
                 damage = buff.calc_damage_buff(character.actual_attack_power, 
                                                character.actual_crit_rate, character.crit_damage, 
-                                               character.total_multiplier, self.current_tick)
+                                               character.total_multiplier * dummy_skill.damage_multiplier, self.current_tick)
                 if damage > 0:
                   if self.verbose:
                     print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')

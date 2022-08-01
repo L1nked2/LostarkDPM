@@ -17,10 +17,13 @@ class Buff:
         self.priority = priority
         self.begin_tick = begin_tick
         self.is_shadowed = False
-        self.stack = 1
+        self.stack = 0
 
     def is_expired(self, current_tick) -> bool:
         return self.begin_tick + self.duration < current_tick
+    
+    def increase_stack(self):
+        self.stack += 1
         
     def __repr__(self):
         return str({'name': self.name, 'begin_tick': self.begin_tick, 'duration': ticks_to_seconds(self.duration), 'is_shadowed': self.is_shadowed})
@@ -39,7 +42,7 @@ class DamageBuff(Buff):
         self.last_tick = self.begin_tick
         self.damage_interval = seconds_to_ticks(damage_interval)
     
-    #is shadowd needed
+    #TODO:is shadowd needed
     def calc_damage_buff(self, attack_power, crit_rate, crit_damage, total_multiplier, current_tick) -> int:
         damage_value = 0
         tick_diff = current_tick - self.last_tick

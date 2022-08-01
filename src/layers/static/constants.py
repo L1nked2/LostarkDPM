@@ -28,8 +28,8 @@ ENGRAVINGS = {
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
   'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
   'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
-  '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x * 0.08)],
-  '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x * 0.10)],
+  '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x + 0.08)],
+  '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x + 0.10)],
   '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
 
   ####### 공통각인 #######
@@ -122,22 +122,15 @@ ENGRAVINGS = {
   #황후의은총
   #황제의칙령
   #점화
-
-  #환류 TODO: move to dynamic buff
-  'Reflux_1': [('damage_multiplier', lambda x: x * 1.08),
-               ('awakening_damage_multiplier', lambda x: x / 1.08),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.03),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.03)],
-  'Reflux_3': [('damage_multiplier', lambda x: x * 1.16),
-               ('awakening_damage_multiplier', lambda x: x / 1.16),
-               ('cooldown_percentage', lambda x: x + (1-x) * 0.10),
-               ('awakening_cooldown_percentage', lambda x: x - (1-x) * 0.10)],
+  #환류  
   #잔재된기운
   'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
   'Remaining_Energy_3': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_3'])],
   #버스트
-  #멈출수없는충동                         
-  #완벽한억제 TODO: move to dynamic buff                        
+  'Burst_1': [('static_buff_queue', lambda x: x + ['Burst_Enabled_1'])],
+  'Burst_3': [('static_buff_queue', lambda x: x + ['Burst_Enabled_3'])],
+  #멈출수없는충동
+  #완벽한억제
   #갈증
   #달의소리
 }
