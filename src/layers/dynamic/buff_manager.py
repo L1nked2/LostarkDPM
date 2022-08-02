@@ -87,7 +87,8 @@ class BuffManager():
         for buff in self.current_buffs:
             if buff.buff_type == 'damage':
                 damage = buff.calc_damage_buff(character.actual_attack_power, 
-                                               character.actual_crit_rate, character.crit_damage, 
+                                               character.actual_crit_rate + dummy_skill.additional_crit_rate,
+                                               character.crit_damage + dummy_skill.additional_crit_damage, 
                                                character.total_multiplier * dummy_skill.damage_multiplier, self.current_tick)
                 if damage > 0:
                   if self.verbose:

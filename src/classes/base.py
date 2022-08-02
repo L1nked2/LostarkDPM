@@ -354,7 +354,7 @@ def hit_master_3(character: CharacterLayer, skill: Skill, buff: Buff):
 
 def all_out_attack_3(character: CharacterLayer, skill: Skill, buff: Buff):
     s_t = skill.get_attribute('skill_type')
-    if  s_t == 'Holding' or s_t == 'Casting':
+    if  s_t == 'Holding_A' or s_t == 'Holding_B' or s_t == 'Casting':
       s_dm = skill.get_attribute('damage_multiplier')
       s_tsd = skill.get_attribute('type_specific_delay')
       skill.update_attribute('damage_multiplier', s_dm * 1.20)

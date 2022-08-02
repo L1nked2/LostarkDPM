@@ -101,6 +101,7 @@ ENGRAVINGS = {
   #절정
   #절제
   #일격필살
+  'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
   #오의난무
   #강화무기
   'Enhanced_Weapon_1': [('crit_rate', lambda x: x + 0.20)],
