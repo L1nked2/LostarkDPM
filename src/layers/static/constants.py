@@ -131,6 +131,7 @@ ENGRAVINGS = {
   'Burst_1': [('static_buff_queue', lambda x: x + ['Burst_Enabled_1'])],
   'Burst_3': [('static_buff_queue', lambda x: x + ['Burst_Enabled_3'])],
   #멈출수없는충동
+  "Demonic_Impulse_3": [('static_buff_queue', lambda x: x + ['Demonic_Impulse_3'])],
   #완벽한억제
   #갈증
   #달의소리

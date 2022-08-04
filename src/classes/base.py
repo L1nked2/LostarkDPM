@@ -1,6 +1,7 @@
 """
 Base buff dictionary and buff bodies
 """
+from re import S
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
@@ -374,6 +375,7 @@ def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager):
     pass
 def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
       if it == 'Awakening':
@@ -382,8 +384,10 @@ def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
       skill.update_attribute('remaining_cooldown', rc * 0.88)
       return
     if check_chance(0.10):
+      skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
       if it == 'Awakening':
@@ -392,6 +396,7 @@ def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
       skill.update_attribute('remaining_cooldown', rc * 0.84)
       return
     if check_chance(0.10):
+      skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 
 # 광분
@@ -400,10 +405,14 @@ def rune_rg_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager):
     raise NotImplementedError
 def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.15) and not buff_manager.is_buff_exists('rage'):
+      skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
 def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.20):
+      skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.unregister_buff('rage')
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')
 

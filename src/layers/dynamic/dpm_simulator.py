@@ -51,6 +51,7 @@ class DpmSimulator:
     print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps * DPS_CORRECTION_CONSTANT)}')
     print(f'Delay_score: {round(self.delay_score, 3)}')
     print(f"Elapsed_time: {ticks_to_seconds(self.elapsed_tick)} s")
+    print(f'Rune_ratio: {self.skills_manager.rune_ratio}')
   
   def print_damage_details(self):
     print(self.damage_history.get_damage_details())

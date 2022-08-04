@@ -26,6 +26,7 @@
       "back_attack": true,
       "triggered_actions": [],
       "key_strokes" : 1,
+      "mana_cost": 0,
       "rune": "질풍_전설"
     },
     {
@@ -44,6 +45,7 @@
       "back_attack": true,
       "triggered_actions": [],
       "key_strokes" : 1,
+      "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
@@ -62,6 +64,7 @@
       "back_attack": true,
       "triggered_actions": ["action_1"],
       "key_strokes" : 1,
+      "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
@@ -169,6 +172,7 @@
       "head_attack": false,
       "back_attack": false,
       "triggered_actions": [],
+      "mana_cost": 0,
       "key_strokes" : 1
     }
   ]

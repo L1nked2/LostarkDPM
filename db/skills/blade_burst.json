@@ -45,6 +45,7 @@
       "back_attack": true,
       "triggered_actions": ["use_burst"],
       "key_strokes" : 1,
+      "mana_cost": 0,
       "rune": "None"
     },
     {
@@ -208,7 +209,8 @@
       "head_attack": false,
       "back_attack": false,
       "triggered_actions": [],
-      "key_strokes" : 1
+      "key_strokes" : 1,
+      "mana_cost": 0
     }
   ]
 }

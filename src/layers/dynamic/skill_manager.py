@@ -28,6 +28,8 @@ class SkillManager:
         self._validate_jewel()
         # dummy skill
         self.dummy_skill = Skill('dummy', 0, 0, None, None, 0, 0, 0, False, False, list())
+        # 룬 통계
+        self.rune_ratio = {'rg': [0,0], 'qr': [0,0]}
 
         print('##### Done Initialization of SkillsManager #####')
     
