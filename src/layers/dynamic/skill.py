@@ -52,7 +52,8 @@ class Skill:
         self._apply_jewel()
         self._apply_rune()
         if self.skill_type == 'Chain':
-          self.triggered_actions.extend(self.triggered_actions)
+          for i in range(self.key_strokes):
+            self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
         self.remaining_cooldown = 0.0
@@ -156,7 +157,8 @@ class Skill:
                                               (1 + additional_attack_speed))
           else:
             effect = constants.get_rune_effect(self.rune, self.rune_level)
-            self.triggered_actions.append(effect)
+            if effect is not None:
+              self.triggered_actions.append(effect)
 
     def update_priority(self, new_priority):
         self.priority = new_priority
@@ -177,7 +179,7 @@ class Skill:
         if not self.buff_applied:
           warnings.warn("Damage calculation before buff applied", UserWarning)
         crit_multiplier = crit_to_multiplier(crit_rate + self.additional_crit_rate, crit_damage + self.additional_crit_damage)
-        damage = ((self.default_damage + attack_power) * self.default_coefficient 
+        damage = ((self.default_damage + attack_power * self.default_coefficient)
                    * self.damage_multiplier * crit_multiplier * total_multiplier)
         return damage
     

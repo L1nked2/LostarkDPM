@@ -107,6 +107,7 @@ ENGRAVINGS = {
   'Enhanced_Weapon_1': [('crit_rate', lambda x: x + 0.20)],
   'Enhanced_Weapon_3': [('crit_rate', lambda x: x + 0.30)],
   #핸드거너
+  'Pistoleer_3': [('static_buff_queue', lambda x: x + ['Pistoleer_3'])],
   #화력강화
   #포격강화
   #두번째동료

@@ -8,12 +8,10 @@ static한 부분에서 할 수 있는 최대한의 status를 만들어내고 이
 따라서 돌대, 직각은 buff나 identity에서 다루는 것이 효율적일듯
 ================================================================
 buff는 어떻게 관리하는가?
-크게 세가지 종류 -> stat_buff, skill_buff, damage_buff
+크게 두가지 종류 -> stat_buff, damage_buff
 
-stat_buff는 돌대, 공증 등 stat을 변경하는 buff이고
--> stat_buff는 manager의 dynamic_multiplier 수정하는 방식으로 적용
-skill_buff는 기습(헤드백), 고기(랜스스킬) 등 특정 타입의 스킬만 강화하는 버프이며
--> skill_buff는 calculate skill damage에서 각 attribute를 확인하고 일치시 효과를 부여하는 식으로 동작
+stat_buff는 돌대, 공증 등 stat과 skill의 attribute를 확인해 스킬의 stat을 변경하는 buff이고
+-> stat_buff는 character와 skill을 변경하는 식으로 작동
 damage_buff는 출혈, 화상 등 지속딜을 나타내는 버프이다.
 -> damage_buff는 refresh buff based on tick에서 계산해서 damage history에 추가해주는식
 
@@ -25,7 +23,13 @@ attributes: 기본정보
 ->name, source, target, effect, duration
 
 buff_type에 따라 적절히 attributes를 추가해주는식
-skill buff는 특정 직업에 한정되는 버프이므로 직업별로 미리 작성해둔다.
+각 버프는 직업별 코드에 추가해놓는다
+
+버프에는 우선순위가 있음(돌대는 공이속 연산이 끝난 뒤 적용하는 식)
+공이속 관련 -> 9
+일반 버프 -> 7
+공이속에 영향을 받는 버프 -> 1
+우선순위가 클수록 먼저 처리된다
 ================================================================
 skill에는 뭐가 있어야 하는가?
 기본적으로 json을 통해 import한다.
@@ -40,12 +44,17 @@ simulation variables
 
 attribute: skill_buff처리에 활용 하는 static한 변수들, skill_buff apply시 simulation variables를 조절
 -json으로 import
-trigger related: buff manager를 modify하는 skill들의 처리와 다른 skill들의 simulation variables를 조절하는 action(cooldown 조절이 주된 사용처)
+trigger related: buff manager를 modify하는 skill들의 처리와 다른 skill들의 simulation variables를 조절하는 action(cooldown 조절, 버프 사용이 주된 사용처)
 -json으로 import, class별 pre-defined된 function을 활용, rune은 base.py에서 pre-define
 simulation variables: skill manager가 활용하는 변수들, policy에서 참고하여 다음 스킬 계획 및 데미지 계산
 -import시 추가
 
-치적, 치피 트포는 어떻게?
+Common, Charge, Holding_A(일반 홀딩 or 퍼펙트 존) -> 시작시 쿨이 돌음
+Casting, Holding_B(캔슬 가능한 홀딩) -> 끝날 시 쿨이 돌음
+Combo, Chain -> 마지막 스킬 모션 시작부터 쿨이 돌음
+
+action은 buff_manager, skill_manager에서 제공하는 메소드를 활용하여 버프를 발동, 제거하거나 스킬의 쿨다운을 증가, 감소 시키는 식으로 작동한다.
+더미 스킬에 action을 부여하여 원하는 동작을 하도록 사용할 수도 있다(identity 처리)
 
 ================================================================
 identity는 어떻게 처리하는가?
@@ -83,10 +92,13 @@ identity는 어떻게 처리하는가?
 리퍼: 달소 버프 제공
 -> skill, turn on buff(short)
 -> 버프의 갱신, 변신 스킬 처리, 스탠스별 더미 스킬, 스킬의 쿨감 도입이 필요
+
 특화 계수 정리자료
   1) https://www.inven.co.kr/board/lostark/4821/78320
 ================================================================
 policy에는 뭐가 있어야 하는가?
+
+=== 무시 ===
 스킬의 priority를 부여하여 skill_queue(priority queue)를 구성한다.
 다만 특정 스킬들의 순서를 고정하고 싶으면 바인딩을 부여한다. ex)증배버차
 바인딩으로 묶인 스킬들은 하나의 스킬로 취급되며, priority는 스킬중 가장 높은 스킬이 가져간다.
@@ -106,23 +118,16 @@ validation추가 필요
 
 어디다 어떻게 적어야하는가?
 skill정보를 담은 json에 작성 요령을 정해 적어두는게 좋을듯 하다
-"mode": scheduling,
-"priorities": {
-  "차지 스팅거": 1,
-  "버스트 캐넌": 1
-},
-"bindings": [
-  {
-    "버스트 캐넌": ["증오의 함성", "배쉬", "버스트 캐넌", "차지 스팅거"]
-  }
-],
-"lookup_cooldown": 5
+=== 무시 ===
 
-+
 policy를 자유롭게 풀어주는건 실제 사이클을 반영하기가 생각보다 힘들었다...
 cycle을 제공받아 고정된 스킬 순서로 사용하는 것을 먼저 지원하고 이후에 기능을 추가하는 방향으로 선회
 "mode": fixed,
 "cycle": ["123", "456", "789"]
+
+각 서브 사이클을 제공받아 서브 사이클을 우선순위 순서대로 나열한다.
+skill_manager는 남은 쿨다운과 이전 딜레이 정보를 바탕으로 사이클의 사용 가능 여부를 판단하여
+가장 높은 우선순위의 사이클을 반환한다. 모든 서브 사이클이 사용 불가능할시 idle로 전환한다.
 ================================================================
 기타 설정
 무품 100으로 정해놓고 추피 설정
@@ -139,7 +144,7 @@ cycle을 제공받아 고정된 스킬 순서로 사용하는 것을 먼저 지�
 
 출혈
 약 50번 정도 무공 0으로 측정한 결과 236의 기본 데미지로 추정
-무공 145, 170으로 약 50번 정도 각각 측정하여 1.075의 계수로 추정
+무공 145, 170으로 약 50번 정도 각각 측정하여 2.6875의 계수로 추정
 속행
 확률 10%
 광분

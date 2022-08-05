@@ -62,6 +62,20 @@ RUNE_BUFF_DICT = {
     'duration': 6,
     'priority': 7,
   },
+  'Judgement_Cooldown': {
+    'name': 'judgement_cooldown',
+    'buff_type': 'stat',
+    'effect': 'judgement_cooldown',
+    'duration': 30,
+    'priority': 7,
+  },
+  'Judgement': {
+    'name': 'judgement',
+    'buff_type': 'stat',
+    'effect': 'judgement',
+    'duration': 6,
+    'priority': 9,
+  },
 }
 
 COMMON_BUFF_DICT = {
@@ -427,3 +441,23 @@ def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager):
     buff_manager.unregister_buff('bleed')
     buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'], 'base')
+
+
+# 심판
+def rune_jm_1(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_2(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    if not buff_manager.is_buff_exists('judgement_cooldown'):
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'], 'base')
+
+# 심판 버프 및 내부쿨 표시용 더미 버프
+def judgement(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_cr = character.get_attribute('cooldown_reduction')
+    character.update_attribute('cooldown_reduction', 1 - (1 - c_cr) * (1 - 0.15))
+def judgement_cooldown(character: CharacterLayer, skill: Skill, buff: Buff):
+    return

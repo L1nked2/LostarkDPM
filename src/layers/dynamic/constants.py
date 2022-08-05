@@ -81,18 +81,33 @@ RUNE_BD = {
     "전설": 'rune_bd_4',
 }
 
+# 심판 / Rune Judgement
+RUNE_JM = {
+    "고급": 'rune_jm_1',
+    "희귀": 'rune_jm_2',
+    "영웅": 'rune_jm_3',
+    "전설": 'rune_jm_4',
+}
+
+# 이외 룬 처리 / rest runes
+RUNE_NONE = {
+    "고급": None,
+    "희귀": None,
+    "영웅": None,
+    "전설": None,
+}
 RUNE_ALL = {
     "질풍": RUNE_GW,
     "속행": RUNE_QR,
     "광분": RUNE_RG,
     "출혈": RUNE_BD,
-    "집중": None,
-    "단죄": None,
-    "심판": None,
-    "압도": None,
-    "풍요": None,
-    "수호": None,
-    "정화": None,
+    "집중": RUNE_NONE,
+    "단죄": RUNE_NONE,
+    "심판": RUNE_JM,
+    "압도": RUNE_NONE,
+    "풍요": RUNE_NONE,
+    "수호": RUNE_NONE,
+    "정화": RUNE_NONE,
 }
 
 def get_rune_effect(category, level):
