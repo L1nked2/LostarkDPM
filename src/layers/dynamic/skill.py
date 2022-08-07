@@ -52,7 +52,7 @@ class Skill:
         self._apply_jewel()
         self._apply_rune()
         if self.skill_type == 'Chain':
-          for i in range(self.key_strokes):
+          for i in range(self.key_strokes-1):
             self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables

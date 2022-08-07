@@ -9,7 +9,7 @@
       "engravings": ["Grudge_3", "Barricade_3", "Cursed_Doll_3", "Stabilised_Status_3", "Adrenaline_3", "Combat_Readiness_1"],
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
       "artifact_set": ["악몽A_6_3"],
-      "skill_set": "./db/skills/warlord_combat_readiness.json"
+      "skill_set": "./db/skills/warlord_combat_readiness_c1.json"
     }
   ]
 }

@@ -4,7 +4,7 @@ from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.damage_history import DamageHistory
-from src.layers.dynamic.constants import ticks_to_seconds
+from src.layers.dynamic.constants import ticks_to_seconds, seconds_to_ticks
 
 class BuffManager():
     def __init__(self, base_character: CharacterLayer, verbose=False, **kwargs):
@@ -56,7 +56,8 @@ class BuffManager():
             buff_name = buff_dict['name']
             if self.verbose:
               print(f'buff already exists, {buff_name} will be shadowed or refreshed')
-            self._remove_redundant_buff(buff_dict)
+            if self._try_handle_redundant_buff(buff_dict) == True:
+              return
         if buff_dict['buff_type'] == 'stat':
           buff = StatBuff(**buff_dict, buff_origin=buff_origin, begin_tick=self.current_tick)
         elif buff_dict['buff_type'] == 'damage':
@@ -111,11 +112,14 @@ class BuffManager():
       for buff_name in removed_buffs:
         self._shadow_buffs(buff_name)
     
-    def _remove_redundant_buff(self, buff_dict):
+    # if buff is identical to target buff, extend duration
+    def _try_handle_redundant_buff(self, buff_dict):
       for buff in self.current_buffs:
         if buff.name == buff_dict['name'] and buff.effect == buff_dict['effect']:
-          self.current_buffs.remove(buff)
-      self._shadow_buffs(buff_dict['name'])
+          new_duration = (self.current_tick - buff.begin_tick) + seconds_to_ticks(buff_dict['duration'])
+          buff.duration = new_duration
+          return True
+      return False
 
 
     # shadows buffs with name, except highest priority buff

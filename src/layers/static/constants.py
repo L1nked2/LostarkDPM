@@ -85,6 +85,7 @@ ENGRAVINGS = {
 
   #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
+  'Combat_Readiness_Full_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_Full_1'])],
   'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
@@ -136,6 +137,7 @@ ENGRAVINGS = {
   #완벽한억제
   #갈증
   #달의소리
+  "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
 }
 
 # Data for equipment_layer
