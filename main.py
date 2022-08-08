@@ -1,56 +1,27 @@
-from src.layers.dynamic import dpm_simulator as simulator
-from src.layers.static import jewel_rune_layer
+import os
+import sys
+from src.layers.dynamic.dpm_simulator import DpmSimulator
+from src.layers.static.character_layer import CharacterLayer
+from src.layers.utils import import_character
 
 
 if __name__ == '__main__':
-    stat = {
-        'stat': 10000,
-        'weapon_power': 10000,
-        'combat_stat': {
-            'crit': 1500,
-            'specialization': 700,
-            'domination': 0,
-            'swiftness': 0,
-            'endurance': 0,
-            'expertise': 0
-        }
-    }
+    sys.stdout = open('results.txt', 'w')
+    characters_root_path = './db/characters/'
+    character_file_names = os.listdir(characters_root_path)
+    for character_file_name in character_file_names:
+      character_configs = import_character(characters_root_path + character_file_name)
 
-    skill_tree = "./db/skills/warlord_gogi.json"
-
-    engravings = [
-        {
-            'engraving_name': '원한',
-            'engraving_type': 'static',
-            'engraving_target': ['attack_power'],
-            'engraving_effect': [(lambda x: x * 1.2)]
-        }
-    ]
-
-    # frostfire - 멸화
-    # nemesis   - 홍염
-    jewel_spec = {
-        "frostfire": [
-            ["버스트 캐넌", 7],
-            ["스피어 샷", 7],
-            ["차지 스팅거", 7],
-            ["대쉬 어퍼 파이어", 7]
-        ],
-        "nemesis": [
-            ["버스트 캐넌", 7],
-            ["스피어 샷", 7],
-            ["차지 스팅거", 7],
-            ["증오의 함성", 7],
-            ["배쉬", 7]
-        ]
-    }
-
-    temp = jewel_rune_layer.JewelRuneLayer(
-        character_stat=stat,
-        engravings=engravings,
-        artifact_set=None,
-        accessories=None,
-        skill_tree=skill_tree,
-        jewel_spec=jewel_spec,
-        rune_spec=None
-    )
+      for character_config in character_configs:
+        character_dict = character_config.build_dict()
+        simulator = DpmSimulator(character_dict, verbose=False)
+        print(f'target_character: {character_file_name}')
+        simulator.test()
+        print('==========================')
+        simulator.run_simulation()
+        simulator.print_result()
+        print('==========================')
+        simulator.print_damage_details()
+        simulator.print_delay_statistics()
+        simulator.print_nuking_cycle()
+        print('==========================')

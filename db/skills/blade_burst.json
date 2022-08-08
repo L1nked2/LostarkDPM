@@ -45,6 +45,7 @@
       "back_attack": true,
       "triggered_actions": ["use_burst"],
       "key_strokes" : 1,
+      "mana_cost": 0,
       "rune": "None"
     },
     {
@@ -173,7 +174,7 @@
       "back_attack": true,
       "triggered_actions": ["activate_synergy_1", "burst_increase_stack", "burst_increase_stack", "burst_increase_stack"],
       "key_strokes" : 3,
-      "rune": "None"
+      "rune": "질풍_영웅"
     },
     {
       "name": "다크 악셀",
@@ -208,7 +209,8 @@
       "head_attack": false,
       "back_attack": false,
       "triggered_actions": [],
-      "key_strokes" : 1
+      "key_strokes" : 1,
+      "mana_cost": 0
     }
   ]
 }

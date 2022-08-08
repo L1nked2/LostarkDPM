@@ -186,6 +186,14 @@ def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['Void_Zone'], 'class')
 
+def mael_storm_cooldown_indicator(buff_manager: BuffManager, skill_manager: SkillManager):
+  def cooldown_reduction(skill: Skill):
+    if skill.get_attribute('name') == '마엘스톰 쿨타임 체크':
+      rc = skill.get_attribute('remaining_cooldown')
+      skill.start_cooldown
+    return
+  skill_manager.apply_function(cooldown_reduction)
+
 
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

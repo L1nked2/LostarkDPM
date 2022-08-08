@@ -11,26 +11,22 @@ Main Flow
 ================================================================
 dpm_simulator, has character and managers to modify it
 -single character(init, static)
--buffs_manager(stat_buff, damage_buff)
--skills_manager()
+-buffs_manager(stat_buff & damage_buff)
+-skills_manager(policy)
+-damage_history(damage statistics & simulation termination)
 ================================================================
 buffs_manager, has queue of each type of buff
   init: character -> None(fill buff queue)
-  create_short_term_character: (stat_buff, character) -> short-term character
-  finalize_skill: (skill_buff, skill) -> actual skill(damage modified)
   calc_damage_buffs: (damage_buff, current tick) -> damage
   refresh_buffs: current tick -> None(refresh buff queue)
 ================================================================
-policy_manager, 
+skill_manager, 
 
 ================================================================
-buff, has 3 types(stat, skill, damage)
+buff, has 2 types(stat, damage)
 stat_buff, has name, effects, expires_at
-skill_buff, has name, conditions, effects, expires_at
 damage_buff, has name, base_damage, coefficient, total_tick, expires_at
   apply_{type}_buff: apply buff
   is_expired: check if expired
 ================================================================
 skill
-================================================================
-binding, list of skills

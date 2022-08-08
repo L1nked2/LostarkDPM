@@ -85,6 +85,7 @@ ENGRAVINGS = {
 
   #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
+  'Combat_Readiness_Full_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_Full_1'])],
   'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
@@ -101,11 +102,13 @@ ENGRAVINGS = {
   #절정
   #절제
   #일격필살
+  'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
   #오의난무
   #강화무기
   'Enhanced_Weapon_1': [('crit_rate', lambda x: x + 0.20)],
   'Enhanced_Weapon_3': [('crit_rate', lambda x: x + 0.30)],
   #핸드거너
+  'Pistoleer_3': [('static_buff_queue', lambda x: x + ['Pistoleer_3'])],
   #화력강화
   #포격강화
   #두번째동료
@@ -130,9 +133,12 @@ ENGRAVINGS = {
   'Burst_1': [('static_buff_queue', lambda x: x + ['Burst_Enabled_1'])],
   'Burst_3': [('static_buff_queue', lambda x: x + ['Burst_Enabled_3'])],
   #멈출수없는충동
+  "Demonic_Impulse_3": [('static_buff_queue', lambda x: x + ['Demonic_Impulse_3'])],
   #완벽한억제
   #갈증
+  "Hunger_3": [('static_buff_queue', lambda x: x + ['Hunger_3'])],
   #달의소리
+  "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
 }
 
 # Data for equipment_layer

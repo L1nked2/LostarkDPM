@@ -20,6 +20,13 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  'Combat_Readiness_Full_1': {
+    'name': 'combat_readiness',
+    'buff_type': 'stat',
+    'effect': 'combat_readiness_full_1',
+    'duration': 999999,
+    'priority': 7,
+  },
   'Combat_Readiness_1': {
     'name': 'combat_readiness',
     'buff_type': 'stat',
@@ -103,12 +110,17 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_2)
 
-def combat_readiness_1(character: CharacterLayer, skill: Skill, buff: Buff):
+def combat_readiness_full_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') == 'Common':
       skill.update_attribute('damage_multiplier', s_dm * 1.20 * 1.12)
     else:
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
+
+def combat_readiness_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') == 'Common':
+      skill.update_attribute('damage_multiplier', s_dm * 1.20)
 
 def lone_knight_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Lance':

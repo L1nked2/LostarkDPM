@@ -7,6 +7,7 @@ import io
 import random
 from src.layers.static.constants import STAT_BY_UPGRAGE_TABLE
 import json
+import warnings
 from functools import wraps
 
 sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
@@ -81,6 +82,10 @@ class CharacterFactory(StatFactory):
 Simple crit stats to multiplier helper
 """
 def crit_to_multiplier(crit_rate, crit_damage):
+  if crit_rate < 0 or crit_damage < 0:
+    warnings.warn("Critrate and crit damage must be positive")
+    crit_rate = 0
+    crit_damage = 0
   crit_rate = min(crit_rate, 1.0)
   return crit_rate * crit_damage + (1 - crit_rate) * 1.0
 

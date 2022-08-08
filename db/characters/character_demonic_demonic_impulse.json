@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "demonic",
+      "upgrade": 25,
+      "crit": 500,
+      "specialization": 1800,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Demonic_Impulse_3", "Raid_Captain_3", "Adrenaline_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["구원_6_3"],
+      "skill_set": "./db/skills/demonic_demonic_impulse.json"
+    }
+  ]
+}

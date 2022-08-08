@@ -1,6 +1,7 @@
 """
 Base buff dictionary and buff bodies
 """
+from re import S
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
@@ -60,6 +61,20 @@ RUNE_BUFF_DICT = {
     'effect': 'rage_epic',
     'duration': 6,
     'priority': 7,
+  },
+  'Judgement_Cooldown': {
+    'name': 'judgement_cooldown',
+    'buff_type': 'stat',
+    'effect': 'judgement_cooldown',
+    'duration': 30,
+    'priority': 7,
+  },
+  'Judgement': {
+    'name': 'judgement',
+    'buff_type': 'stat',
+    'effect': 'judgement',
+    'duration': 6,
+    'priority': 9,
   },
 }
 
@@ -354,7 +369,7 @@ def hit_master_3(character: CharacterLayer, skill: Skill, buff: Buff):
 
 def all_out_attack_3(character: CharacterLayer, skill: Skill, buff: Buff):
     s_t = skill.get_attribute('skill_type')
-    if  s_t == 'Holding' or s_t == 'Casting':
+    if  s_t == 'Holding_A' or s_t == 'Holding_B' or s_t == 'Casting':
       s_dm = skill.get_attribute('damage_multiplier')
       s_tsd = skill.get_attribute('type_specific_delay')
       skill.update_attribute('damage_multiplier', s_dm * 1.20)
@@ -374,6 +389,7 @@ def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager):
     pass
 def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
       if it == 'Awakening':
@@ -382,8 +398,10 @@ def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
       skill.update_attribute('remaining_cooldown', rc * 0.88)
       return
     if check_chance(0.10):
+      skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
       if it == 'Awakening':
@@ -392,6 +410,7 @@ def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
       skill.update_attribute('remaining_cooldown', rc * 0.84)
       return
     if check_chance(0.10):
+      skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 
 # 광분
@@ -400,10 +419,14 @@ def rune_rg_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager):
     raise NotImplementedError
 def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.15) and not buff_manager.is_buff_exists('rage'):
+      skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
 def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.20):
+      skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.unregister_buff('rage')
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')
 
@@ -413,8 +436,27 @@ def rune_bd_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_bd_2(buff_manager: BuffManager, skill_manager: SkillManager):
     raise NotImplementedError
 def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager):
-    if not buff_manager.is_buff_exists('bleed'):
-      buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Epic'], 'base')
+    raise NotImplementedError
 def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager):
-    buff_manager.unregister_buff('bleed')
+    #buff_manager.unregister_buff('bleed')
     buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'], 'base')
+
+
+# 심판
+def rune_jm_1(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_2(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_3(buff_manager: BuffManager, skill_manager: SkillManager):
+    raise NotImplementedError
+def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    if not buff_manager.is_buff_exists('judgement_cooldown'):
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'], 'base')
+
+# 심판 버프 및 내부쿨 표시용 더미 버프
+def judgement(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_cr = character.get_attribute('cooldown_reduction')
+    character.update_attribute('cooldown_reduction', 1 - (1 - c_cr) * (1 - 0.15))
+def judgement_cooldown(character: CharacterLayer, skill: Skill, buff: Buff):
+    return
