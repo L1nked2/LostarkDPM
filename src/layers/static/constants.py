@@ -136,6 +136,7 @@ ENGRAVINGS = {
   "Demonic_Impulse_3": [('static_buff_queue', lambda x: x + ['Demonic_Impulse_3'])],
   #완벽한억제
   #갈증
+  "Hunger_3": [('static_buff_queue', lambda x: x + ['Hunger_3'])],
   #달의소리
   "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
 }

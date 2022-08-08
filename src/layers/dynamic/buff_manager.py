@@ -94,7 +94,7 @@ class BuffManager():
                 if damage > 0:
                   if self.verbose:
                     print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')
-                  damage_history.register_damage(buff.name, damage, self.current_tick)
+                  damage_history.register_damage(buff.name, damage, False, self.current_tick)
 
     def print_buffs(self):
         print(self.current_buffs)

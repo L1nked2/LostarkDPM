@@ -111,11 +111,11 @@ class SkillManager:
         elif jewel_count < 11:
             print(f"Not enough jewels, {jewel_count} < 11")
         
-    def _is_awakening_skill_available(self):
+    """def _is_awakening_skill_available(self):
         for skill_name in self.skill_pool:
           if self.skill_pool[skill_name].identity_type == 'Awakening':
             return bool(self.skill_pool[skill_name].remaining_cooldown <= 0)
-        return False
+        return False"""
     
     def _is_skill_available(self, target_skill_name):
         return self._is_skill_available_on(target_skill_name, self.last_tick)
@@ -157,3 +157,9 @@ class SkillManager:
             return False
           tick += self.skill_pool[skill_name].prev_delay
         return True
+    
+    def _block_awakening_skill(self):
+        for skill_name in self.skill_pool:
+          if self.skill_pool[skill_name].identity_type == 'Awakening':
+            return bool(self.skill_pool[skill_name].remaining_cooldown <= 0)
+        return False

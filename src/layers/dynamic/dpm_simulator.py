@@ -11,8 +11,9 @@ MAX_TICK = 300000
 DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
-  def __init__(self, character_dict, verbose=False, tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
+  def __init__(self, character_dict, verbose=False, max_tick=MAX_TICK,tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
     self.verbose = verbose
+    self.max_tick = max_tick
     self.tick_interval = tick_interval
     self.base_character = CharacterLayer(**character_dict)
     self.base_module = importlib.import_module("src.classes.base")
@@ -33,22 +34,27 @@ class DpmSimulator:
     self.delay_score = 0.0
     self.used_skill_count = 0
     self.actual_used_skill_count = 0
+    # idle statistics
+    self.idle_score = 0.0
+    self.idle_streak_num = 0
 
     print('LostArkDpmSimulator is now ready to run')
 
-  def run_simulation(self, max_tick=MAX_TICK):
-    while self.elapsed_tick < max_tick:
+  def run_simulation(self):
+    while self.elapsed_tick < self.max_tick:
       if self.damage_history.is_stablized():
         print("DPS stabilized, terminating simulation")
         break
       self._main_loop()
-    self.delay_score = 1/(math.sqrt(self.delay_score) / self.actual_used_skill_count)
+    self._finalize_statistics()
 
   def print_result(self):
     print(f'Total_damage: {self.damage_history.total_damage}')
     print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
-    print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
+    print(f'Nuking_W/O_Awaking_DPS: {round(self.damage_history.max_nuking_without_awakening_dps * DPS_CORRECTION_CONSTANT)}')
     print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps * DPS_CORRECTION_CONSTANT)}')
+    print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
+    print(f'Idle_Score: {round(self.idle_score, 2)}')
     print(f'Delay_score: {round(self.delay_score, 3)}')
     print(f"Elapsed_time: {ticks_to_seconds(self.elapsed_tick)} s")
     print(f'Rune_ratio: {self.skills_manager.rune_ratio}')
@@ -65,6 +71,13 @@ class DpmSimulator:
   def print_nuking_cycle(self):
     result = dict()
     for damage_info in self.damage_history.nuking_cycle:
+      if damage_info['name'] in result:
+        result[damage_info['name']] += damage_info['damage_value']
+      else:
+        result[damage_info['name']] = damage_info['damage_value']
+    print(result)
+    result.clear()
+    for damage_info in self.damage_history.nuking_without_awakening_cycle:
       if damage_info['name'] in result:
         result[damage_info['name']] += damage_info['damage_value']
       else:
@@ -93,6 +106,7 @@ class DpmSimulator:
     else:
       if self.verbose and self.idle_streak > 0:
         print(f'idle streak ended with {ticks_to_seconds(self.idle_streak)}s')
+      self._update_idle_statistics(self.idle_streak)
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
       self._use_skill()
@@ -109,7 +123,8 @@ class DpmSimulator:
     self.buffs_manager.apply_stat_buffs(self.current_character, target_skill)
     dmg_stats = self.current_character.extract_dmg_stats()
     damage = round(target_skill.calc_damage(**dmg_stats))
-    self.damage_history.register_damage(target_skill.name, damage, self.elapsed_tick)
+    is_awakening =  bool(target_skill.identity_type == "Awakening")
+    self.damage_history.register_damage(target_skill.name, damage, is_awakening, self.elapsed_tick)
     if self.verbose:
       print(f'{target_skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
     # start cooldown and handle triggered_actions
@@ -159,6 +174,14 @@ class DpmSimulator:
     self.delay_score += delay ** 2
     self.actual_used_skill_count += 1
   
+  def _update_idle_statistics(self, streak_length):
+    self.idle_streak_num += 1
+    self.idle_score += streak_length ** 2
+  
+  def _finalize_statistics(self):
+    self.delay_score = 1/(math.sqrt(self.delay_score / self.actual_used_skill_count))
+    self.idle_score = (math.sqrt(self.idle_score / self.idle_streak_num))
+
   def test(self):
     print('test infos')
     print(self.base_character.get_stat_detail())

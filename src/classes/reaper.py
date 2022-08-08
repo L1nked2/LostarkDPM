@@ -43,6 +43,14 @@ CLASS_BUFF_DICT = {
     'duration': 4,
     'priority': 9,
   },
+  # 갈증 버프, 아덴 자체 효과도 통합되어있음
+  'Hunger_3': {
+    'name': 'hunger',
+    'buff_type': 'stat',
+    'effect': 'hunger_3',
+    'duration': 999999,
+    'priority': 9,
+  },
   # 독: 부식, 상시 3중첩
   'Poison_Corrosion': {
     'name': 'poison_corrosion',
@@ -130,3 +138,14 @@ def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
 def tailwind(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ms = character.get_attribute('movement_speed')
     character.update_attribute('movement_speed', c_ms + 0.3)
+
+# 갈증 및 아덴 자체 버프
+def hunger_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    c_cr = character.get_attribute('crit_rate')
+    c_aap = character.get_attribute('additional_attack_power')
+    character.update_attribute('attack_speed', c_as + 0.1)
+    character.update_attribute('movement_speed', c_ms + 0.1)
+    character.update_attribute('crit_rate', c_cr + 0.15)
+    character.update_attribute('additional_attack_power', c_aap + 0.25 * (1 + c_aap))
