@@ -9,7 +9,7 @@ class StatLayer:
     """
     layer_name = "StatLayer"
 
-    @initialize_wrapper(layer_name, enable_start=False)
+    @initialize_wrapper(layer_name, enable_start=False, enable_end=False)
     def __init__(self, character_stat):
         self.character_stat = character_stat
         # Initialize stat

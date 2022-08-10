@@ -3,13 +3,13 @@
     {
       "class_name": "reaper",
       "upgrade": 25,
-      "crit": 0,
-      "specialization": 1250,
-      "swiftness": 1050,
-      "engravings": ["Grudge_3", "Hunger_3", "Raid_Captain_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Adrenaline_1"],
+      "crit": 500,
+      "specialization": 1800,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Lunar_Voice_3", "Keen_Blunt_Weapon_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Adrenaline_1"],
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
-      "skill_set": "./db/skills/reaper_hunger.json"
+      "skill_set": "./db/skills/reaper_lunar_voice.json"
     }
   ]
 }
