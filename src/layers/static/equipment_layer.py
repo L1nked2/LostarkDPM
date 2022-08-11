@@ -5,7 +5,7 @@ from src.layers.utils import initialize_wrapper, print_info_wrapper
 class EquipmentLayer(EngravingLayer):
     layer_name = "EquipmentLayer"
 
-    @initialize_wrapper("EquipmentLayer", enable_start=False)
+    @initialize_wrapper("EquipmentLayer", enable_start=False, enable_end=False)
     def __init__(self, artifact_set, **kwargs):
         super(EquipmentLayer, self).__init__(**kwargs)
         self.artifact_set = artifact_set

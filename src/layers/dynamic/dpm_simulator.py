@@ -49,40 +49,51 @@ class DpmSimulator:
     self._finalize_statistics()
 
   def print_result(self):
-    print(f'Total_damage: {self.damage_history.total_damage}')
     print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_W/O_Awaking_DPS: {round(self.damage_history.max_nuking_without_awakening_dps * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps * DPS_CORRECTION_CONSTANT)}')
+    print(f'Nuking_W/O_Awaking_Short_DPS: {round(self.damage_history.max_nuking_dps_short * DPS_CORRECTION_CONSTANT)}')
+    print(f'Nuking_W/O_Awaking_Long_DPS: {round(self.damage_history.max_nuking_dps_long * DPS_CORRECTION_CONSTANT)}')
+    print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps_awakening * DPS_CORRECTION_CONSTANT)}')
+    print(f'Nuking_Dealtime_DPS: {round(self.damage_history.max_dealing_time_dps * DPS_CORRECTION_CONSTANT)}')
     print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
     print(f'Idle_Score: {round(self.idle_score, 2)}')
-    print(f'Delay_score: {round(self.delay_score, 3)}')
-    print(f"Elapsed_time: {ticks_to_seconds(self.elapsed_tick)} s")
-    print(f'Rune_ratio: {self.skills_manager.rune_ratio}')
+    print(f'Delay_Score: {round(self.delay_score, 3)}')
+    print(f'Total_Damage: {self.damage_history.total_damage}')
+    print(f"Elapsed_Time: {ticks_to_seconds(self.elapsed_tick)} s")
+    print(f'Rune_Ratio: {self.skills_manager.rune_ratio}')
   
   def print_damage_details(self):
-    print(self.damage_history.get_damage_details())
+    print(f'Damage_Details: {self.damage_history.get_damage_details()}')
   
   def print_delay_statistics(self):
     result = dict()
     for skill_name in self.delay_statistics:
       result[skill_name] = round(self.delay_statistics[skill_name]['avg_delay'], 3)
-    print(result)
+    print(f'Delay_Statistics: {result}')
   
   def print_nuking_cycle(self):
-    result = dict()
-    for damage_info in self.damage_history.nuking_cycle:
-      if damage_info['name'] in result:
-        result[damage_info['name']] += damage_info['damage_value']
-      else:
-        result[damage_info['name']] = damage_info['damage_value']
-    print(result)
+    result = list()
+
+    for damage_info in self.damage_history.nuking_subhistory_short.max_cycle:
+      result.append((damage_info['name'], damage_info['damage_value']))
+    print(f'Nuking_W/O_Awaking_Cycle_Short: {result}')
     result.clear()
-    for damage_info in self.damage_history.nuking_without_awakening_cycle:
-      if damage_info['name'] in result:
-        result[damage_info['name']] += damage_info['damage_value']
-      else:
-        result[damage_info['name']] = damage_info['damage_value']
-    print(result)
+
+    for damage_info in self.damage_history.nuking_subhistory_long.max_cycle:
+      result.append((damage_info['name'], damage_info['damage_value']))
+    print(f'Nuking_W/O_Awaking_Cycle_Long: {result}')
+    result.clear()
+
+    for damage_info in self.damage_history.nuking_subhistory_awakening.max_cycle:
+      result.append((damage_info['name'], damage_info['damage_value']))
+    print(f'Nuking_Cycle: {result}')
+    result.clear()
+
+    for damage_info in self.damage_history.dealing_time_cycle:
+      result.append((damage_info['name'], damage_info['damage_value']))
+    print(f'Dealing_Time: {self.damage_history.dealing_time_length}s')
+    print(f'Dealing_Time_Cycle: {result}')
+    
+    
 
   def _init_timer(self):
     self.elapsed_tick = 0

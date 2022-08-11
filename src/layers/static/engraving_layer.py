@@ -5,7 +5,7 @@ from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attri
 class EngravingLayer(StatLayer):
   layer_name = "EngravingLayer"
 
-  @initialize_wrapper("EngravingLayer", enable_start=False)
+  @initialize_wrapper("EngravingLayer", enable_start=False, enable_end=False)
   def __init__(self, engravings, **kwargs):
     super(EngravingLayer, self).__init__(**kwargs)
     self.engravings = engravings

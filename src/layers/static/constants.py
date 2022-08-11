@@ -97,6 +97,7 @@ ENGRAVINGS = {
   'First_Intention_3': [('damage_multiplier', lambda x: x * 1.32)],
   #극의:체술
   #충격단련
+  'Shock_Training_3': [('static_buff_queue', lambda x: x + ['Shock_Training_3'])],
   #세맥타통
   #역천지체
   #절정
