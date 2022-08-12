@@ -46,6 +46,8 @@ class DpmSimulator:
         print("DPS stabilized, terminating simulation")
         break
       self._main_loop()
+    if self.damage_history.stablization_flag == False:
+      print(f'DPS stablization failed, ratio is {self.damage_history.dps_ratio}')
     self._finalize_statistics()
 
   def print_result(self):

@@ -117,7 +117,7 @@ class BuffManager():
       for buff in self.current_buffs:
         if buff.name == buff_dict['name'] and buff.effect == buff_dict['effect']:
           new_duration = (self.current_tick - buff.begin_tick) + seconds_to_ticks(buff_dict['duration'])
-          buff.duration = new_duration
+          buff.duration = max(buff.duration, new_duration)
           return True
       return False
 

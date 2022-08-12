@@ -28,11 +28,40 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  'Taijutsu_3': {
+    'name': 'taijutsu',
+    'buff_type': 'stat',
+    'effect': 'taijutsu_3',
+    'duration': 999999,
+    'priority': 7,
+  },
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
     'duration': 8,
+    'priority': 7,
+  },
+  # 화신출격(5렙), 10멸
+  'Conflagration_Attack': {
+    'name': 'conflagration_attack',
+    'buff_type': 'damage',
+    'effect': None,
+    'base_damage': 309,
+    'coefficient': 2.674,
+    'damage_interval': 1,
+    'duration': 6,
+    'priority': 7,
+  },
+  # 불굴의 힘(1렙), 보석 적용x 버프
+  'Undying_Power': {
+    'name': 'undying_power',
+    'buff_type': 'damage',
+    'effect': None,
+    'base_damage': 67,
+    'coefficient': 0.4,
+    'damage_interval': 5,
+    'duration': 6,
     'priority': 7,
   },
 }
@@ -42,6 +71,7 @@ CLASS_BUFF_DICT = {
 def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
+# 일망타진 쿨초
 def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '일망타진':
@@ -49,6 +79,21 @@ def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager):
     return
   if check_chance(0.75):
     skill_manager.apply_function(cooldown_reduction)
+
+# 용의 강림 출혈 갱신, 출혈룬이 있을 때만 사용
+def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager):
+  def duration_increase(buff: Buff):
+    if buff.name == 'bleed':
+      buff.duration += seconds_to_ticks(6)
+  buff_manager.apply_function(duration_increase)
+
+# 용의 강림 2트포 등록 action
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Conflagration_Attack'], 'class')
+
+# 지진쇄 1트포 action
+def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Undying_Power'], 'class')
 
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -67,8 +112,18 @@ def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.06)
 
-# 일격필살 버프
+# 충격 단련 버프
 def shock_training_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Shock':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.2)
+
+# 극의 : 체술 버프
+def taijutsu_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  if skill.get_attribute('identity_type') == 'Stamina':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.65)
+  elif skill.get_attribute('identity_type') == 'Shock':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 0.7)
+

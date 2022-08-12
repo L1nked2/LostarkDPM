@@ -10,17 +10,6 @@
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
       "artifact_set": ["환각_6_3"],
       "skill_set": "./db/skills/scouter_evolutionary_legacy.json"
-    },
-    {
-      "class_name": "scouter",
-      "upgrade": 25,
-      "crit": 500,
-      "specialization": 1800,
-      "swiftness": 0,
-      "engravings": ["Grudge_3", "Barricade_3", "Raid_Captain_3", "Cursed_Doll_3", "Keen_Blunt_Weapon_3", "Evolutionary_Legacy_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
-      "artifact_set": ["환각_6_3"],
-      "skill_set": "./db/skills/scouter_evolutionary_legacy_c1.json"
     }
   ]
 }
