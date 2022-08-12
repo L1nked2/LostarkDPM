@@ -55,6 +55,9 @@ class DamageHistory:
         self.total_damage = 0
         self.last_tick = 0
         self.current_dps = 0.0
+        self.dps_ratio = 0.0
+        self.stablization_flag = False
+
         self.damage_details = dict()
 
         # recent statistics
@@ -86,9 +89,11 @@ class DamageHistory:
     def is_stablized(self):
         if self.last_tick < seconds_to_ticks(MINIMUM_RUNNING_SECONDS):
           return False
+        self.dps_ratio = self.recent_dps / self.current_dps
         if (self.recent_dps < self.current_dps * (1-STABILIZATION_THRESHOLD) 
             or self.recent_dps > self.current_dps * (1+STABILIZATION_THRESHOLD)):
             return False
+        self.stablization_flag = True
         return True
 
     def get_damage_details(self):

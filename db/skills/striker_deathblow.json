@@ -3,7 +3,7 @@
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      ["폭쇄진", "붕천퇴", "번개의 속삭임", "뇌호격"],
+      ["폭쇄진", "번개의 속삭임", "폭쇄진_대폭발", "붕천퇴", "뇌호격"],
       ["격호각", "월섬각", "호왕출현"],
       ["붕천퇴", "운룡각", "격호각"],
       ["진천각"]
@@ -52,7 +52,7 @@
       "name": "폭쇄진",
       "default_damage": 4360,
       "default_coefficient": 27.01,
-      "base_damage_multiplier": 3.52,
+      "base_damage_multiplier": 1.6,
       "skill_type": "Common",
       "identity_type": "Esoteric",
       "cooldown": 20,
@@ -66,6 +66,25 @@
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
+    },
+    {
+      "name": "폭쇄진_대폭발",
+      "default_damage": 4360,
+      "default_coefficient": 27.01,
+      "base_damage_multiplier": 1.92,
+      "skill_type": "Common",
+      "identity_type": "Esoteric",
+      "cooldown": 0,
+      "common_delay": 0,
+      "type_specific_delay": 0.0,
+      "jewel_cooldown_level": 10,
+      "jewel_damage_level": 10,
+      "head_attack": false,
+      "back_attack": true,
+      "triggered_actions": [],
+      "key_strokes" : 1,
+      "mana_cost": 0,
+      "rune": "None"
     },
     {
       "name": "붕천퇴",

@@ -96,6 +96,7 @@ ENGRAVINGS = {
   'First_Intention_1': [('damage_multiplier', lambda x: x * 1.16)],
   'First_Intention_3': [('damage_multiplier', lambda x: x * 1.32)],
   #극의:체술
+  'Taijutsu_3': [('static_buff_queue', lambda x: x + ['Taijutsu_3'])],
   #충격단련
   'Shock_Training_3': [('static_buff_queue', lambda x: x + ['Shock_Training_3'])],
   #세맥타통
@@ -116,6 +117,7 @@ ENGRAVINGS = {
   #죽음의습격
   #아르데타인의기술
   #진화의유산
+  "Evolutionary_Legacy_1": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
   #사냥의시간
   'Time_To_Hunt_1': [('crit_rate', lambda x: x + 0.20)],
   'Time_To_Hunt_3': [('crit_rate', lambda x: x + 0.40)],

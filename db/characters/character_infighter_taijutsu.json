@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "infighter",
+      "upgrade": 25,
+      "crit": 700,
+      "specialization": 0,
+      "swiftness": 1600,
+      "engravings": ["Grudge_3", "Taijutsu_3", "Raid_Captain_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Adrenaline_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["사멸_6_3"],
+      "skill_set": "./db/skills/infighter_taijutsu.json"
+    }
+  ]
+}
