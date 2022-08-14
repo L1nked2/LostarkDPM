@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "gunslinger",
+      "upgrade": 25,
+      "crit": 1500,
+      "specialization": 800,
+      "swiftness": 50,
+      "engravings": ["Grudge_3", "Hit_Master_3", "Cursed_Doll_3", "Keen_Blunt_Weapon_3", "Adrenaline_3", "Peace_Maker_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["구원_6_3"],
+      "skill_set": "./db/skills/gunslinger_peace_maker.json"
+    }
+  ]
+}
