@@ -17,8 +17,8 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 핸드건 치명타 피해량 특화 계수
 SPEC_COEF_1 = 1 / 9.3206 / 100
-# 샷건 스킬 피해량 특화 계수
-SPEC_COEF_2 = 1 / 15.38146 / 100
+# 샷건 스킬 물/마방관 특화 계수
+SPEC_COEF_2 = 1 / 27.9663 / 100
 # 라이플 스킬 피해량 특화 계수
 SPEC_COEF_3 = 1 / 27.9663 / 100
 
@@ -92,8 +92,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
     s_handgun_additional_crit_damage = s * SPEC_COEF_1
-    s_shotgun_multiplier = (1 + s * SPEC_COEF_2)
-    s_marksman_multiplier = (1 + s * SPEC_COEF_2 * 0.5)
+    s_shotgun_multiplier = (1 + s * SPEC_COEF_2 * 0.55)
     s_rifle_multiplier = (1 + s * SPEC_COEF_3)
     
     if skill.get_attribute('identity_type') == 'Awakening':
@@ -108,38 +107,31 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == 'Shotgun':
       s_dm = skill.get_attribute('damage_multiplier')
       if skill.get_attribute('name') == '마탄의 사수':
-        # 마탄의 사수 특화 50% 적용
+        # 마탄의 사수 가디언의 숨결 특화 미적용
         s_dm = skill.get_attribute('damage_multiplier')
-        skill.update_attribute('damage_multiplier', s_dm * s_marksman_multiplier)
+        skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier * 0.495)
       else:
         skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
       
 # 피스메이커 각인
 def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):  
-    if skill.get_attribute('identity_type') == 'Awakening':
+    if skill.get_attribute('identity_type') == "Handgun":
+      c_as = character.get_attribute('attack_speed')         
+      character.update_attribute('attack_speed', c_as + 0.08)
+    elif (skill.get_attribute('identity_type') == "Shotgun" 
+          or skill.get_attribute('identity_type') == 'Awakening'):
       # 각성기 피스메이커-샷건 효과 적용
       s_dm = skill.get_attribute('damage_multiplier') 
       s_acr = skill.get_attribute('additional_crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.05)
       skill.update_attribute('additional_crit_rate', s_acr + 0.10)
-    elif skill.get_attribute('identity_type') == "Handgun":
-      c_as = character.get_attribute('attack_speed')         
-      character.update_attribute('attack_speed', c_as + 0.138)
-    elif skill.get_attribute('identity_type') == "Shotgun":
-      s_dm = skill.get_attribute('damage_multiplier') 
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('damage_multiplier', s_dm * 1.05)
-      skill.update_attribute('additional_crit_rate', s_acr + 0.10)
     elif skill.get_attribute('identity_type') == "Rifle":
       s_dm = skill.get_attribute('damage_multiplier') 
-      skill.update_attribute('damage_multiplier', s_dm * 1.1478)      
+      skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0435)
       
 # 사냥의시간 각인
 def time_to_hunt_3(character: CharacterLayer, skill: Skill, buff: Buff):  
-    if skill.get_attribute('identity_type') == "Handgun":
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.45)
-    elif skill.get_attribute('identity_type') == "Rifle":
+    if skill.get_attribute('identity_type') == "Handgun" or skill.get_attribute('identity_type') == "Rifle":
       s_acr = skill.get_attribute('additional_crit_rate')
       skill.update_attribute('additional_crit_rate', s_acr + 0.45)
      
