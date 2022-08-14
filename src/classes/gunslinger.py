@@ -57,7 +57,15 @@ CLASS_BUFF_DICT = {
     'effect': 'synergy_1',
     'duration': 8,
     'priority': 7,
+  },
+  'Synergy_2': {
+    'name': 'synergy_1',
+    'buff_type': 'stat',
+    'effect': 'synergy_1',
+    'duration': 12,
+    'priority': 7,
   }
+  
 }
 
 # Actions
@@ -71,6 +79,9 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager):
 # 치적 시너지 등록
 def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  
+def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
   
 # 퀵스텝 이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager):

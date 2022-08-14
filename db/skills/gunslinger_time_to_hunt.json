@@ -84,7 +84,7 @@
         "jewel_damage_level": 0,
         "head_attack": false,
         "back_attack": true,
-        "triggered_actions": ["activate_synergy_1"],
+        "triggered_actions": ["activate_synergy_2"],
         "key_strokes" : 1
       },
       {
