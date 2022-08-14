@@ -10,8 +10,8 @@ import json
 import warnings
 from functools import wraps
 
-sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
+#sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
+#sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):
