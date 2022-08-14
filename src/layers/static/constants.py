@@ -119,9 +119,10 @@ ENGRAVINGS = {
   #진화의유산
   "Evolutionary_Legacy_1": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
   #사냥의시간
-  'Time_To_Hunt_1': [('crit_rate', lambda x: x + 0.20)],
-  'Time_To_Hunt_3': [('crit_rate', lambda x: x + 0.40)],
+  "Time_To_Hunt_1": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_1'])],
+  "Time_To_Hunt_3": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_3'])],
   #피스메이커
+  "Peace_Maker_1": [('static_buff_queue', lambda x: x + ['Peace_Maker_1'])],
   #상급소환사
   'Master_Summoner_3': [('damage_multiplier', lambda x: x * 1.15)],
   #넘치는교감
