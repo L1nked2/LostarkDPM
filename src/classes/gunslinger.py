@@ -108,8 +108,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       if skill.get_attribute('name') == '마탄의 사수':
         # 마탄의 사수 가디언의 숨결 특화 미적용
-        s_dm = skill.get_attribute('damage_multiplier')
-        skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier * 0.495)
+        skill.update_attribute('damage_multiplier', s_dm * (1 + (s_shotgun_multiplier - 1) * 0.495))
       else:
         skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
       
@@ -118,9 +117,7 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == "Handgun":
       c_as = character.get_attribute('attack_speed')         
       character.update_attribute('attack_speed', c_as + 0.08)
-    elif (skill.get_attribute('identity_type') == "Shotgun" 
-          or skill.get_attribute('identity_type') == 'Awakening'):
-      # 각성기 피스메이커-샷건 효과 적용
+    elif skill.get_attribute('identity_type') == "Shotgun":
       s_dm = skill.get_attribute('damage_multiplier') 
       s_acr = skill.get_attribute('additional_crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.05)
@@ -128,6 +125,17 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == "Rifle":
       s_dm = skill.get_attribute('damage_multiplier') 
       skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0435)
+    # 각성기 피메-샷건 적용, 사시는 피메-라이플 적용
+    elif  skill.get_attribute('identity_type') == 'Awakening':
+      if ('Time_To_Hunt_3' in character.static_buff_queue 
+          or 'Time_To_Hunt_1' in character.static_buff_queue):
+        s_dm = skill.get_attribute('damage_multiplier') 
+        skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0435)
+      else: 
+        s_dm = skill.get_attribute('damage_multiplier') 
+        s_acr = skill.get_attribute('additional_crit_rate')
+        skill.update_attribute('damage_multiplier', s_dm * 1.05)
+        skill.update_attribute('additional_crit_rate', s_acr + 0.10)
       
 # 사냥의시간 각인
 def time_to_hunt_3(character: CharacterLayer, skill: Skill, buff: Buff):  

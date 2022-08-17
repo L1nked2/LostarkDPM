@@ -8,30 +8,29 @@ MINIMUM_RUNNING_SECONDS = 1500
 RECENT_SECONDS = 300
 NUKING_SECONDS_SHORT = 6
 NUKING_SECONDS_LONG = 8
-AWAKENING_NUKING_SECONDS = 10 
-MAX_DEALING_TIME_SECONDS = 8
-MIN_DEALTIME_SECONDS = 6
+AWAKENING_NUKING_SECONDS = 10
 
 class Subhistory():
-    def __init__(self, max_time_seconds, awakening_in_max_dps_cycle=False):
+    def __init__(self, max_seconds, awakening_in_max_dps_cycle=False):
       self.damages = deque()
       self.total_damage = 0
       self.cur_dps = 0
       self.max_dps = 0
       self.max_cycle = deque()
-      self.max_tick = seconds_to_ticks(max_time_seconds)
+      self.max_tick = seconds_to_ticks(max_seconds)
       self.awakening_in_max_dps_cycle = awakening_in_max_dps_cycle
       self.is_awakening_included_in_cycle = False
     
     def add_damage_event(self, damage_event):
       damage_value = damage_event['damage_value']
+      delay = damage_event['delay']
       is_awakening = damage_event['is_awakening']
       tick = damage_event['tick']
       self.damages.append(damage_event)
       self.total_damage += damage_value
       if is_awakening == True:
         self.is_awakening_included_in_cycle = True
-      while (tick - self.damages[0]['tick']) > self.max_tick:
+      while ((tick + delay) - self.damages[0]['tick']) > self.max_tick:
         old_damage_info = self.damages.popleft()
         self.total_damage -= old_damage_info['damage_value']
         if old_damage_info['is_awakening'] == True:
@@ -53,12 +52,14 @@ class DamageHistory:
     def __init__(self):
         self.history = list()
         self.total_damage = 0
+        self.total_skill_count = 0
         self.last_tick = 0
         self.current_dps = 0.0
         self.dps_ratio = 0.0
         self.stablization_flag = False
 
         self.damage_details = dict()
+        self.skill_counts = dict()
 
         # recent statistics
         self.recent_subhistory = Subhistory(RECENT_SECONDS)
@@ -72,13 +73,8 @@ class DamageHistory:
         self.nuking_subhistory_awakening = Subhistory(AWAKENING_NUKING_SECONDS, True)
         self.max_nuking_dps_awakening = 0
 
-        # dealtime statistics
-        self.dealing_time_subhistory = Subhistory(MAX_DEALING_TIME_SECONDS)
-        self.max_dealing_time_dps = 0
-        self.dealing_time_length = 0
-
-    def register_damage(self, name, damage_value, is_awakening, tick):
-        damage_event = dict(name=name, damage_value=damage_value, is_awakening=is_awakening,tick=tick)
+    def register_damage(self, name, damage_value, delay, is_awakening, tick):
+        damage_event = dict(name=name, damage_value=damage_value, delay=delay, is_awakening=is_awakening, tick=tick)
         self.history.append(damage_event)
         self.total_damage += damage_value
         self.last_tick = max(self.last_tick, tick)
@@ -122,31 +118,20 @@ class DamageHistory:
         self.max_nuking_dps_long = self.nuking_subhistory_long.max_dps
         self.nuking_subhistory_awakening.add_damage_event(damage_event)
         self.max_nuking_dps_awakening = self.nuking_subhistory_awakening.max_dps
-        # dealing_time_dps
-        self._update_dealing_time_dps(damage_event)
 
     def _update_damage_details(self, damage_event):
         name = damage_event['name']
         damage_value = damage_event['damage_value']
+        delay = damage_event['delay']
         if name in self.damage_details:
           self.damage_details[name] += damage_value
         else:
           self.damage_details[name] = damage_value
+        if name in self.skill_counts:
+          self.skill_counts[name] += 1
+        else:
+          self.skill_counts[name] = 1
+        if delay > 0:
+          self.total_skill_count += 1
     
-    def _update_dealing_time_dps(self, damage_event):
-        self.dealing_time_subhistory.add_damage_event(damage_event)
-        tick = damage_event['tick']
-        if self.dealing_time_subhistory.is_awakening_included_in_cycle == False:        
-          total_damage = self.dealing_time_subhistory.total_damage
-          damages = self.dealing_time_subhistory.damages
-          for index in range(len(damages)-1):
-            tick_diff = tick - damages[index+1]['tick']
-            if tick_diff < seconds_to_ticks(MIN_DEALTIME_SECONDS):
-              break
-            total_damage -= damages[index]['damage_value']
-            dealing_time_dps = total_damage/ticks_to_seconds(tick_diff)
-            if self.max_dealing_time_dps < dealing_time_dps:
-              self.max_dealing_time_dps = dealing_time_dps
-              self.dealing_time_length = ticks_to_seconds(tick_diff)
-              self.dealing_time_cycle = list(damages)[index+1:]
 

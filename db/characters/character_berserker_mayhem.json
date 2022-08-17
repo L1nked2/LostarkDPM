@@ -3,7 +3,7 @@
     {
       "class_name": "berserker",
       "upgrade": 25,
-      "crit": 1500,
+      "crit": 1400,
       "specialization": 0,
       "swiftness": 800,
       "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Mayhem_3", "Master’s_Tenacity_3", "Raid_Captain_3", "Ether_Predator_1"],
