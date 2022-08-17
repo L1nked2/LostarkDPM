@@ -54,8 +54,12 @@ class StatFactory:
     # stat and weapon_power from equipment
     self.character_stat['stat'] = (upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]) * LEGEND_AVATAR_MULTIPLIER
     self.character_stat['weapon_power'] = upgrade_table['weapon'][upgrade]
-    max_stat = max(crit, specialization, swiftness)
+    # default stats
+    crit += 50
+    specialization += 50
+    swiftness += 50
     # pet applied, priority is spec > crit > swift
+    max_stat = max(crit, specialization, swiftness)
     if max_stat == specialization:
       specialization = specialization * 1.10
     elif max_stat == crit:

@@ -33,33 +33,51 @@ CLASS_BUFF_DICT = {
     'duration': 8,
     'priority': 7,
   },
+  'Synergy_2': {
+    'name': 'synergy_1',
+    'buff_type': 'stat',
+    'effect': 'synergy_1',
+    'duration': 16,
+    'priority': 7,
+  },
   'Speed_Buff_1': {
     'name': 'speed_buff',
     'buff_type': 'stat',
     'effect': 'speed_buff_1',
     'duration': 6,
-    'priority': 3,
+    'priority': 9,
   },
   'Demon_State': {
     'name': 'demon_state',
     'buff_type': 'stat',
     'effect': 'demon_state',
     'duration': 999999,
-    'priority': 3,
+    'priority': 9,
+  },
+  'Perfect_Suppression_1': {
+    'name': 'perfect_suppression',
+    'buff_type': 'stat',
+    'effect': 'perfect_suppression_1',
+    'duration': 999999,
+    'priority': 7,
   },
   'Demonic_Impulse_3': {
     'name': 'demonic_impulse',
     'buff_type': 'stat',
     'effect': 'demonic_impulse_3',
     'duration': 999999,
-    'priority': 3,
+    'priority': 7,
   },
 }
 
 # Actions
-# 피증 시너지 등록
+# 데모닉 슬래쉬 피증 시너지 등록
 def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+
+# 하울링 피증 시너지 등록
+def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 슬래쉬 이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager):
@@ -84,7 +102,8 @@ def demon_transform(buff_manager: BuffManager, skill_manager: SkillManager):
       skill.update_attribute('remaining_cooldown', seconds_to_ticks(transform_time_limit))
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Demon':
-      skill.update_attribute('remaining_cooldown', 0)  
+      skill.update_attribute('remaining_cooldown', 0)
+  # 악마화 변신, 충동 각인 있을 시 악마 스킬 쿨 초기화
   skill_manager.apply_function(set_time_limit)
   if buff_manager.is_buff_exists('demonic_impulse'):
     skill_manager.apply_function(cooldown_reduction)
@@ -102,13 +121,13 @@ def recover_human_form(buff_manager: BuffManager, skill_manager: SkillManager):
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
-    s_multiplier_2 = (1 + s * SPEC_COEF_1)
+    s_demon_multiplier = (1 + s * SPEC_COEF_1)
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
     elif skill.get_attribute('identity_type') == 'Demon':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * s_multiplier_2)
+      skill.update_attribute('damage_multiplier', s_dm * s_demon_multiplier)
 
 # 데모닉 슬래쉬 피증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -124,6 +143,12 @@ def speed_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
 def demon_state(character: CharacterLayer, skill: Skill, buff: Buff):
   c_ms = character.get_attribute('movement_speed')
   character.update_attribute('movement_speed', c_ms + 0.2)
+
+# 완벽한 억제 버프
+def perfect_suppression_1(character: CharacterLayer, skill: Skill, buff: Buff):
+  if skill.get_attribute('identity_type') == 'Common':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.20)
 
 # 멈출 수 없는 충동 버프
 def demonic_impulse_3(character: CharacterLayer, skill: Skill, buff: Buff):

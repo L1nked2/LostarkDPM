@@ -7,7 +7,7 @@ from .damage_history import DamageHistory
 from .constants import *
 
 DEFAULT_TICK_INTERVAL = 1
-MAX_TICK = 300000
+MAX_TICK = 360000
 DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
