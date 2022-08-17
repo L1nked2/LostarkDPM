@@ -3,8 +3,8 @@
     {
       "class_name": "reaper",
       "upgrade": 25,
-      "crit": 500,
-      "specialization": 1800,
+      "crit": 600,
+      "specialization": 1600,
       "swiftness": 0,
       "engravings": ["Grudge_3", "Lunar_Voice_3", "Keen_Blunt_Weapon_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Adrenaline_1"],
       "options": ["Synergy_Damage_A", "Synergy_Damage_A", "갈망_3"],

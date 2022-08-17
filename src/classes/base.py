@@ -436,9 +436,9 @@ def rune_bd_1(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_bd_2(buff_manager: BuffManager, skill_manager: SkillManager):
     raise NotImplementedError
 def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager):
-    raise NotImplementedError
+    if not buff_manager.is_buff_exists('bleed'):
+      buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Epic'], 'base')
 def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager):
-    #buff_manager.unregister_buff('bleed')
     buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'], 'base')
 
 
@@ -450,7 +450,9 @@ def rune_jm_2(buff_manager: BuffManager, skill_manager: SkillManager):
 def rune_jm_3(buff_manager: BuffManager, skill_manager: SkillManager):
     raise NotImplementedError
 def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager):
+    skill_manager.rune_ratio['jm'][0] += 1
     if not buff_manager.is_buff_exists('judgement_cooldown'):
+      skill_manager.rune_ratio['jm'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'], 'base')
       buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'], 'base')
 

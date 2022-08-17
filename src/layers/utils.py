@@ -10,8 +10,8 @@ import json
 import warnings
 from functools import wraps
 
-#sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
-#sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):
@@ -54,6 +54,18 @@ class StatFactory:
     # stat and weapon_power from equipment
     self.character_stat['stat'] = (upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]) * LEGEND_AVATAR_MULTIPLIER
     self.character_stat['weapon_power'] = upgrade_table['weapon'][upgrade]
+    # default stats
+    crit += 50
+    specialization += 50
+    swiftness += 50
+    # pet applied, priority is spec > crit > swift
+    max_stat = max(crit, specialization, swiftness)
+    if max_stat == specialization:
+      specialization = specialization * 1.10
+    elif max_stat == crit:
+      crit = crit * 1.10
+    else:
+      swiftness = swiftness * 1.10
     self.character_stat['combat_stat'] = {
       'crit': crit,
       'specialization': specialization,

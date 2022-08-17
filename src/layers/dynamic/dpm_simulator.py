@@ -7,7 +7,7 @@ from .damage_history import DamageHistory
 from .constants import *
 
 DEFAULT_TICK_INTERVAL = 1
-MAX_TICK = 300000
+MAX_TICK = 360000
 DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
@@ -34,9 +34,13 @@ class DpmSimulator:
     self.delay_score = 0.0
     self.used_skill_count = 0
     self.actual_used_skill_count = 0
+    self.delay_score_by_percentage = 0.0
     # idle statistics
     self.idle_score = 0.0
     self.idle_streak_num = 0
+    # dpct_statistics
+    self.dpct_by_percentage_statistics = dict()
+    self.dpct_by_percentage = 0.0
 
     print('LostArkDpmSimulator is now ready to run')
 
@@ -55,16 +59,18 @@ class DpmSimulator:
     print(f'Nuking_W/O_Awaking_Short_DPS: {round(self.damage_history.max_nuking_dps_short * DPS_CORRECTION_CONSTANT)}')
     print(f'Nuking_W/O_Awaking_Long_DPS: {round(self.damage_history.max_nuking_dps_long * DPS_CORRECTION_CONSTANT)}')
     print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps_awakening * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_Dealtime_DPS: {round(self.damage_history.max_dealing_time_dps * DPS_CORRECTION_CONSTANT)}')
+    print(f'DPCT_by_Percentage: {round(self.dpct_by_percentage, 3)}')
     print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
     print(f'Idle_Score: {round(self.idle_score, 2)}')
     print(f'Delay_Score: {round(self.delay_score, 3)}')
+    print(f'Delay_Score_by_Percentage: {round(self.delay_score_by_percentage, 3)}')
     print(f'Total_Damage: {self.damage_history.total_damage}')
     print(f"Elapsed_Time: {ticks_to_seconds(self.elapsed_tick)} s")
     print(f'Rune_Ratio: {self.skills_manager.rune_ratio}')
   
   def print_damage_details(self):
     print(f'Damage_Details: {self.damage_history.get_damage_details()}')
+    print(f'DPCT_by_Percentage: {self.dpct_by_percentage_statistics}')
   
   def print_delay_statistics(self):
     result = dict()
@@ -88,14 +94,7 @@ class DpmSimulator:
     for damage_info in self.damage_history.nuking_subhistory_awakening.max_cycle:
       result.append((damage_info['name'], damage_info['damage_value']))
     print(f'Nuking_Cycle: {result}')
-    result.clear()
-
-    for damage_info in self.damage_history.dealing_time_cycle:
-      result.append((damage_info['name'], damage_info['damage_value']))
-    print(f'Dealing_Time: {self.damage_history.dealing_time_length}s')
-    print(f'Dealing_Time_Cycle: {result}')
-    
-    
+    result.clear()    
 
   def _init_timer(self):
     self.elapsed_tick = 0
@@ -137,7 +136,6 @@ class DpmSimulator:
     dmg_stats = self.current_character.extract_dmg_stats()
     damage = round(target_skill.calc_damage(**dmg_stats))
     is_awakening =  bool(target_skill.identity_type == "Awakening")
-    self.damage_history.register_damage(target_skill.name, damage, is_awakening, self.elapsed_tick)
     if self.verbose:
       print(f'{target_skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
     # start cooldown and handle triggered_actions
@@ -149,6 +147,8 @@ class DpmSimulator:
     # update average delay
     if delay > 0:
       self._update_delay_statistics(target_skill.name, delay)
+    # register damage info
+    self.damage_history.register_damage(target_skill.name, damage, delay, is_awakening, self.elapsed_tick)
     # reset skill
     target_skill.reset()
     self.used_skill_count += 1
@@ -194,7 +194,13 @@ class DpmSimulator:
   def _finalize_statistics(self):
     self.delay_score = 1/(math.sqrt(self.delay_score / self.actual_used_skill_count))
     self.idle_score = (math.sqrt(self.idle_score / self.idle_streak_num))
-
+    for name in self.delay_statistics:
+      if self.delay_statistics[name]['avg_delay'] > 0:
+        self.dpct_by_percentage_statistics[name] = (self.damage_history.damage_details[name] / (self.delay_statistics[name]['avg_delay'] * self.delay_statistics[name]['num'])
+                                                    * self.damage_history.damage_details[name] / self.damage_history.total_damage)
+        self.dpct_by_percentage += self.dpct_by_percentage_statistics[name]
+        self.delay_score_by_percentage += self.delay_statistics[name]['avg_delay'] * self.damage_history.damage_details[name] / self.damage_history.total_damage
+    
   def test(self):
     print('test infos')
     print(self.base_character.get_stat_detail())

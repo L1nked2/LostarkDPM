@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "berserker",
+      "upgrade": 25,
+      "crit": 1400,
+      "specialization": 0,
+      "swiftness": 800,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Mayhem_3", "Master’s_Tenacity_3", "Raid_Captain_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["악몽A_6_3"],
+      "skill_set": "./db/skills/berserker_mayhem.json"
+    }
+  ]
+}

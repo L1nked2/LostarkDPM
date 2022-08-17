@@ -3,8 +3,8 @@
     {
       "class_name": "devilhunter",
       "upgrade": 25,
-      "crit": 500,
-      "specialization": 1800,
+      "crit": 600,
+      "specialization": 1600,
       "swiftness": 0,
       "engravings": ["Grudge_3", "Pistoleer_3", "Cursed_Doll_3", "Precise_Dagger_3", "Adrenaline_3", "Ether_Predator_1"],
       "options": ["Synergy_Damage_A", "Synergy_Damage_A", "갈망_3"],
