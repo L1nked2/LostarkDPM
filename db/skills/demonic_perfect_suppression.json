@@ -112,7 +112,7 @@
       "base_damage_multiplier": 5.66,
       "skill_type": "Common",
       "identity_type": "Common",
-      "cooldown": 18,
+      "cooldown": 23,
       "common_delay": 1.07,
       "type_specific_delay": 0,
       "jewel_cooldown_level": 10,

@@ -116,6 +116,7 @@ ENGRAVINGS = {
   #두번째동료
   #죽음의습격
   #아르데타인의기술
+  "Arthetinean_Skill_1": [('static_buff_queue', lambda x: x + ['Arthetinean_Skill_1'])],
   #진화의유산
   "Evolutionary_Legacy_1": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
   #사냥의시간

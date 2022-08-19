@@ -1,5 +1,6 @@
 import importlib
 import math
+from re import T
 from ..static.character_layer import CharacterLayer
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
@@ -53,6 +54,13 @@ class DpmSimulator:
     if self.damage_history.stablization_flag == False:
       print(f'DPS stablization failed, ratio is {self.damage_history.dps_ratio}')
     self._finalize_statistics()
+
+  def get_result(self):
+    result = [round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT),
+                  round(self.damage_history.max_nuking_dps_short * DPS_CORRECTION_CONSTANT),
+                  round(self.damage_history.max_nuking_dps_long * DPS_CORRECTION_CONSTANT),
+                  round(self.damage_history.max_nuking_dps_awakening * DPS_CORRECTION_CONSTANT)]
+    return result
 
   def print_result(self):
     print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')

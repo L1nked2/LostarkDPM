@@ -61,7 +61,7 @@ class SkillManager:
       if len(self.skill_queue) == 0:
         return (not self.is_blocked, False)
       target_name = self.skill_queue[0]
-      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown == 0))
+      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown <= 0))
 
     def get_next_skill(self) -> Skill:
         self._fetch_next_skills()
