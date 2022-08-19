@@ -29,12 +29,33 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  'Arthetinean_Skill_1': {
+    'name': 'arthetinean_skill',
+    'buff_type': 'stat',
+    'effect': 'arthetinean_skill_1',
+    'duration': 999999,
+    'priority': 9,
+  },
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
     'duration': 999999,
     'priority': 7,
+  },
+  'Synergy_2': {
+    'name': 'synergy_1',
+    'buff_type': 'stat',
+    'effect': 'synergy_1',
+    'duration': 14,
+    'priority': 7,
+  },
+  'Agility': {
+    'name': 'agility',
+    'buff_type': 'stat',
+    'effect': 'agility',
+    'duration': 6,
+    'priority': 9,
   },
   'Hyper_Sync': {
     'name': 'hyper_sync',
@@ -48,6 +69,16 @@ CLASS_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'evolutionary_legacy_1',
     'duration': 6,
+    'priority': 7,
+  },
+  'Flame_Buster': {
+    'name': 'flame_buster',
+    'buff_type': 'damage',
+    'effect': None,
+    'base_damage': 29,
+    'coefficient': 0.19,
+    'damage_interval': 1,
+    'duration': 5,
     'priority': 7,
   }
 }
@@ -76,9 +107,21 @@ def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager
   buff_manager.unregister_buff('evolutionary_legacy')
   buff_manager.unregister_buff('synergy_1')
 
-# 뎀증 시너지 등록
+# 변신시 시너지 등록
 def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+
+# 과충전 배터리 시너지 등록
+def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+
+# 기동 타격 버프 등록
+def agility_action(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Agility'], 'class')
+
+# 부식 독 데미지 버프 등록
+def activate_flame_buster(buff_manager: BuffManager, skill_manager: SkillManager):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Buster'], 'class')
 
 # 진화의 유산 쿨감 및 버프 스택
 def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillManager):
@@ -124,9 +167,29 @@ def evolutionary_legacy_1(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * (1 + (0.02 * buff.stack)))
 
+# 아르데타인의 기술 버프
+def arthetinean_skill_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    # 재장전 풀스택 제공
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.05)
+    character.update_attribute('movement_speed', c_ms + 0.05)
+    # 드론, 합작 스킬 피증
+    if (skill.get_attribute('identity_type') == "Drone" 
+        or skill.get_attribute('identity_type') == "Joint"):
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
 # 공증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.06)
+
+# 기동 타격 날렵함 버프
+def agility(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.192)
+    character.update_attribute('movement_speed', c_ms + 0.192)
 
 
