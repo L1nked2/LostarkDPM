@@ -7,6 +7,7 @@ from src.layers.utils import import_character
 
 
 if __name__ == '__main__':
+    std_out_temp = sys.stdout
     sys.stdout = open('results.txt', 'w')
     result_csv = open('results.csv', 'w', newline='')
     csv_wrt = csv.writer(result_csv)
@@ -15,7 +16,6 @@ if __name__ == '__main__':
     character_file_names = os.listdir(characters_root_path)
     for character_file_name in character_file_names:
       character_configs = import_character(characters_root_path + character_file_name)
-
       for character_config in character_configs:
         character_dict = character_config.build_dict()
         simulator = DpmSimulator(character_dict, verbose=False)
@@ -31,3 +31,5 @@ if __name__ == '__main__':
         simulator.print_delay_statistics()
         simulator.print_nuking_cycle()
         print('==========================')
+
+      print(f'{character_file_names.index(character_file_name)+1}/{len(character_file_names)}, ({character_file_name}) done', file=std_out_temp)

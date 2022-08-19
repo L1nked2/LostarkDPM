@@ -176,6 +176,8 @@ class Skill:
         self.remaining_cooldown = max(0, function(self.remaining_cooldown))
 
     def calc_damage(self, attack_power, crit_rate, crit_damage, total_multiplier):
+        if not self.remaining_cooldown <= 0:
+          warnings.warn(f"Damage calculation before cooldown finished, check skill {self.name}", UserWarning)
         if not self.buff_applied:
           warnings.warn("Damage calculation before buff applied", UserWarning)
         crit_multiplier = crit_to_multiplier(crit_rate + self.additional_crit_rate, crit_damage + self.additional_crit_damage)

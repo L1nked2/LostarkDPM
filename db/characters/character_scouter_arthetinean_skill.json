@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "scouter",
+      "upgrade": 25,
+      "crit": 1400,
+      "specialization": 0,
+      "swiftness": 800,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Increase_Mass_3", "Raid_Captain_3", "Adrenaline_3", "Arthetinean_Skill_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["구원_6_3"],
+      "skill_set": "./db/skills/scouter_arthetinean_skill.json"
+    }
+  ]
+}

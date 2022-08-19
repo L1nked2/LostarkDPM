@@ -10,8 +10,8 @@ import json
 import warnings
 from functools import wraps
 
-sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
+#sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
+#sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):
@@ -47,6 +47,7 @@ def json_parser(file_path):
 Factory for generating character
 """
 LEGEND_AVATAR_MULTIPLIER = 1.08
+DEFAULT_STAT_SUM = 2200
 class StatFactory:
   def __init__(self, upgrade=25, crit=0, specialization=0, swiftness=0, **kwargs):
     self.character_stat = dict()
@@ -54,6 +55,8 @@ class StatFactory:
     # stat and weapon_power from equipment
     self.character_stat['stat'] = (upgrade_table['armor'][upgrade] + upgrade_table['accessories'][upgrade]) * LEGEND_AVATAR_MULTIPLIER
     self.character_stat['weapon_power'] = upgrade_table['weapon'][upgrade]
+    if (crit + specialization + swiftness) != DEFAULT_STAT_SUM:
+      print('Wrong stat sum, check character json')
     # default stats
     crit += 50
     specialization += 50
