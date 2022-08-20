@@ -25,7 +25,7 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
     character_path = './db/characters/character_scouter_evolutionary_legacy.json'
     character_configs = import_character(character_path)
 ```
-
+-------
 * 원하는 스킬 셋 사용시 character파일에서 skill_set 필드에 원하는 스킬셋 json을 입력합니다.
 > character_scouter_evolutionary_legacy.json
 ``` json
@@ -45,7 +45,7 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
   ]
 }
 ```
-
+----------
 * 원하는 스킬 사이클 사용시 skill파일에서 main_cycle 필드에 우선 순위대로 스킬 사이클을 입력합니다.
 * 각 서브사이클이 우선순위대로 사용되며, 서브사이클 내의 모든 스킬이 사용가능하다고 판단하면 사용합니다. 스킬 딜레이로 인해 쿨이 돌아오는 것도 감안하여 판단합니다.
 > striker_death_blow.json
@@ -61,7 +61,7 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
     ]
   },
 ```
-
+-----------
 * 스킬의 보석, 룬을 변경하는 것도 가능합니다. 각 skill의 jewel과 rune 필드에 원하는 정보를 입력하면 됩니다.
 * 보석은 레벨 기준이며, 룬은 "이름_등급" 의 형태를 따릅니다.
 > striker_death_blow.json
@@ -86,7 +86,7 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
       "rune": "질풍_전설"
     },
 ```
-
+------------
 * 시뮬레이션 로그 확인 및 최대 시간 지정도 가능합니다. DpmSimulator Class에 원하는 argument를 넘겨주면 됩니다.
 > main_lk.py
 ``` python
@@ -97,7 +97,7 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
       character_dict = character_config.build_dict()
       simulator = DpmSimulator(character_dict, max_tick=9000, verbose=True)
 ```
-
+------------
 * 이외 모든 필드를 변경하는 것도 가능하나 의도치 않은 동작을 보일 수 있으므로 추천드리지 않습니다.
 
 ## 추후 계획
