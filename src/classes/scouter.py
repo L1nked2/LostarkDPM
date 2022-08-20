@@ -85,14 +85,14 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 하이퍼 싱크 변신 사용 가능 전환
-def grant_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager):
+def grant_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신':
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(cooldown_reduction)
 
 # 하이퍼 싱크 사용
-def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Hyper_Sync'], 'class')
   if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
@@ -102,123 +102,33 @@ def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager):
   skill_manager.apply_function(cooldown_reduction)
 
 # 변신 해제
-def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager):
+def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('hyper_sync')
   buff_manager.unregister_buff('evolutionary_legacy')
   buff_manager.unregister_buff('synergy_1')
 
 # 변신시 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 과충전 배터리 시너지 등록
-def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 기동 타격 버프 등록
-def agility_action(buff_manager: BuffManager, skill_manager: SkillManager):
+def agility_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Agility'], 'class')
 
 # 플레임 버스터 데미지 버프 등록
-def activate_flame_buster(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_flame_buster(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Buster'], 'class')
 
 # 진화의 유산 쿨감 및 버프 스택, 각 스킬별로 제공
-def evolutionary_legacy_action_q(buff_manager: BuffManager, skill_manager: SkillManager):
+def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   # 현재 사용한 스킬 제외 쿨감 함수
   def cooldown_reduction(skill: Skill):
     if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "코멧 스트라이크")):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
-  # 유산 버프 스택 증가함수
-  def increase_legacy_buff_stack(buff: Buff):
-    if buff.name == 'evolutionary_legacy' and buff.stack < 3:
-      buff.increase_stack()
-  # 유산 버프 확인
-  if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
-    buff_manager.apply_function(increase_legacy_buff_stack)
-    skill_manager.apply_function(cooldown_reduction)
-    
-def evolutionary_legacy_action_w(buff_manager: BuffManager, skill_manager: SkillManager):
-  # 현재 사용한 스킬 제외 쿨감 함수
-  def cooldown_reduction(skill: Skill):
-    if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "슬러그 샷")):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
-  # 유산 버프 스택 증가함수
-  def increase_legacy_buff_stack(buff: Buff):
-    if buff.name == 'evolutionary_legacy' and buff.stack < 3:
-      buff.increase_stack()
-  # 유산 버프 확인
-  if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
-    buff_manager.apply_function(increase_legacy_buff_stack)
-    skill_manager.apply_function(cooldown_reduction)
-
-def evolutionary_legacy_action_e(buff_manager: BuffManager, skill_manager: SkillManager):
-  # 현재 사용한 스킬 제외 쿨감 함수
-  def cooldown_reduction(skill: Skill):
-    if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "레이저 블레이드")):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
-  # 유산 버프 스택 증가함수
-  def increase_legacy_buff_stack(buff: Buff):
-    if buff.name == 'evolutionary_legacy' and buff.stack < 3:
-      buff.increase_stack()
-  # 유산 버프 확인
-  if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
-    buff_manager.apply_function(increase_legacy_buff_stack)
-    skill_manager.apply_function(cooldown_reduction)
-
-def evolutionary_legacy_action_r(buff_manager: BuffManager, skill_manager: SkillManager):
-  # 현재 사용한 스킬 제외 쿨감 함수
-  def cooldown_reduction(skill: Skill):
-    if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "엑셀리온 빔")):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
-  # 유산 버프 스택 증가함수
-  def increase_legacy_buff_stack(buff: Buff):
-    if buff.name == 'evolutionary_legacy' and buff.stack < 3:
-      buff.increase_stack()
-  # 유산 버프 확인
-  if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
-    buff_manager.apply_function(increase_legacy_buff_stack)
-    skill_manager.apply_function(cooldown_reduction)
-
-def evolutionary_legacy_action_a(buff_manager: BuffManager, skill_manager: SkillManager):
-  # 현재 사용한 스킬 제외 쿨감 함수
-  def cooldown_reduction(skill: Skill):
-    if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "버스트 블로우")):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
-  # 유산 버프 스택 증가함수
-  def increase_legacy_buff_stack(buff: Buff):
-    if buff.name == 'evolutionary_legacy' and buff.stack < 3:
-      buff.increase_stack()
-  # 유산 버프 확인
-  if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
-    buff_manager.apply_function(increase_legacy_buff_stack)
-    skill_manager.apply_function(cooldown_reduction)
-
-def evolutionary_legacy_action_s(buff_manager: BuffManager, skill_manager: SkillManager):
-  # 현재 사용한 스킬 제외 쿨감 함수
-  def cooldown_reduction(skill: Skill):
-    if (skill.get_attribute('identity_type') == 'Sync' 
-      and not(skill.get_attribute('name') == "크림슨 브레이커")):
+      and not(skill.get_attribute('name') == skill_on_use.get_attribute('name'))):
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
   # 유산 버프 스택 증가함수

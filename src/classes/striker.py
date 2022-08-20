@@ -57,24 +57,24 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 버블 활성화
-def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager):
+def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if not buff_manager.is_buff_exists('esoteric_prepared'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Esoteric_Prepared_4'], 'class')
 
 # 버블 사용
-def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager):
+def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('esoteric_prepared')
 
 # 번개의 속삭임 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 붕천퇴 공이속 버프 등록
-def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
 
 # 폭쇄진 2트포 화염 폭발 action
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Explosion'], 'class')
 
 # Buff bodies

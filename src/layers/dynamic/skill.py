@@ -38,7 +38,7 @@ class Skill:
         self.name = name
         self.default_damage = default_damage
         self.default_coefficient = default_coefficient
-        self.cooldown = constants.seconds_to_ticks(cooldown)
+        self.base_cooldown = constants.seconds_to_ticks(cooldown)
         self.skill_type = skill_type
         self.identity_type = identity_type
         self.base_common_delay = constants.seconds_to_ticks(common_delay)
@@ -56,6 +56,7 @@ class Skill:
             self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
+        self.actual_cooldown = self.base_cooldown
         self.remaining_cooldown = 0.0
         self.priority = DEFAULT_PRIORITY
 
@@ -74,6 +75,7 @@ class Skill:
     # cancel buffs
     def reset(self):
         self.buff_applied = False
+        self.actual_cooldown = self.base_cooldown
         self.common_delay = self.base_common_delay
         self.type_specific_delay = self.base_type_specific_delay
         self.damage_multiplier = self.base_damage_multiplier
@@ -145,7 +147,7 @@ class Skill:
     def _apply_jewel(self):
         cj = constants.COOLDOWN_JEWEL_LIST[self.jewel_cooldown_level]
         dj = constants.DAMAGE_JEWEL_LIST[self.jewel_damage_level]
-        self.cooldown = self.cooldown * (1 - cj)
+        self.base_cooldown = self.base_cooldown * (1 - cj)
         self.base_damage_multiplier = self.base_damage_multiplier * (1 + dj)
     
     def _apply_rune(self):
@@ -166,11 +168,11 @@ class Skill:
     def start_cooldown(self, cooldown_reduction):
         if self.cooldown_on_finish:
           if self.skill_type == 'Combo':
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.common_delay
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.common_delay
           else:
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.actual_delay
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.actual_delay
         else:
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction)
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction)
     
     def update_remaining_cooldown(self, function):
         self.remaining_cooldown = max(0, function(self.remaining_cooldown))

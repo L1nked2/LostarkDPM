@@ -1,5 +1,5 @@
 """
-Base buff dictionary and buff bodies
+Base buff dictionary including actions & buff bodies
 """
 from re import S
 from src.layers.static.character_layer import CharacterLayer
@@ -86,6 +86,50 @@ COMMON_BUFF_DICT = {
     'buff_type': 'stat',
     'effect': 'synergy_head_back',
     'duration': 999999,
+    'priority': 7,
+  },
+  # 지배 기본 버프(각성기 뎀감)
+  'Dominion_Set_Enabled_1': {
+    'name': 'dominion_set_enabled_1',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_enabled_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Dominion_Set_Enabled_2': {
+    'name': 'dominion_set_enabled_2',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_enabled_2',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Dominion_Set_Enabled_3': {
+    'name': 'dominion_set_enabled_3',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_enabled_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 지배 각성 사용시 부여 버프
+  'Dominion_Set_1': {
+    'name': 'dominion_set',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_1',
+    'duration': 120,
+    'priority': 7,
+  },
+  'Dominion_Set_2': {
+    'name': 'dominion_set',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_2',
+    'duration': 120,
+    'priority': 7,
+  },
+  'Dominion_Set_3': {
+    'name': 'dominion_set',
+    'buff_type': 'stat',
+    'effect': 'dominion_set_3',
+    'duration': 120,
     'priority': 7,
   },
   # 사멸
@@ -197,10 +241,31 @@ COMMON_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  'Awakening_1': {
+    'name': 'awakening',
+    'buff_type': 'stat',
+    'effect': 'awakening_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Awakening_2': {
+    'name': 'awakening',
+    'buff_type': 'stat',
+    'effect': 'awakening_2',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Awakening_3': {
+    'name': 'awakening',
+    'buff_type': 'stat',
+    'effect': 'awakening_3',
+    'duration': 999999,
+    'priority': 7,
+  },
 }
 
 """
-Buff Bodies
+Actions & Buff Bodies
 """
 # System-based buffs
 def head_attack(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -214,8 +279,6 @@ def back_attack(character: CharacterLayer, skill: Skill, buff: Buff):
       s_acr = skill.get_attribute('additional_crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.05)
       skill.update_attribute('additional_crit_rate', s_acr + 0.10)
-
-# Rune derived buffs
 
 
 # Non-engraving buffs
@@ -233,7 +296,6 @@ def rage_legendary(character: CharacterLayer, skill: Skill, buff: Buff):
     character.update_attribute('attack_speed', c_as + 0.16)
     character.update_attribute('movement_speed', c_ms + 0.16)
     
-
 def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
@@ -241,11 +303,64 @@ def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
     character.update_attribute('movement_speed', c_ms + 0.12)
     
 
-# Artifact buffs
-# 환각, 구원 -> engraving layer
-# 지배
+# Artifact actions & buffs
+# 환각, 구원은 선처리 되어있음
+# 지배 등록 action, 지배 사용 캐릭터 각성 스킬에 적어두기 필요
+def activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if buff_manager.is_buff_exists('dominion_set_enabled_1'):
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'class')
+  elif buff_manager.is_buff_exists('dominion_set_enabled_2'):
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_2'], 'class')
+  elif buff_manager.is_buff_exists('dominion_set_enabled_3'):
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_3'], 'class')
+
+# 지배 기본 버프(각성기 뎀감)
+def dominion_set_enabled_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.20))
+      skill.update_attribute('damage_multiplier', s_dm * 0.50)
+
+def dominion_set_enabled_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.20))
+      skill.update_attribute('damage_multiplier', s_dm * 0.70)
+
+def dominion_set_enabled_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.20))
+      skill.update_attribute('damage_multiplier', s_dm * 0.90)
+
+# 지배 각성 사용시 버프
 def dominion_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    pass
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') != 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
+      skill.update_attribute('damage_multiplier', s_dm * 1.25)
+    skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
+def dominion_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') != 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
+      skill.update_attribute('damage_multiplier', s_dm * 1.28)
+    skill.update_attribute('damage_multiplier', s_dm * 1.18)
+
+def dominion_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') != 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
+      skill.update_attribute('damage_multiplier', s_dm * 1.31)
+    skill.update_attribute('damage_multiplier', s_dm * 1.20)
+
 # 사멸
 def entropy_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_cr = character.get_attribute('crit_rate')
@@ -375,7 +490,23 @@ def all_out_attack_3(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('damage_multiplier', s_dm * 1.20)
       skill.update_attribute('type_specific_delay', s_tsd / 1.20)
 
+def awakening_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.10))
 
+def awakening_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.25))
+
+def awakening_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_ac = skill.get_attribute('actual_cooldown')
+      skill.update_attribute('actual_cooldown', s_ac * (1 - 0.50))
+
+
+# Rune actions & buffs
 """
 Rune Actions
 1: uncommon
@@ -384,11 +515,11 @@ Rune Actions
 4: legendary
 """
 # 속행
-def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     pass
-def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     pass
-def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
@@ -400,7 +531,7 @@ def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager):
     if check_chance(0.10):
       skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
-def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
       it = skill.get_attribute('identity_type')
@@ -414,16 +545,16 @@ def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager):
       skill_manager.apply_function(cooldown_reduction)
 
 # 광분
-def rune_rg_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_rg_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.15) and not buff_manager.is_buff_exists('rage'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
-def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
     if check_chance(0.20):
       skill_manager.rune_ratio['rg'][1] += 1
@@ -431,31 +562,32 @@ def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager):
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')
 
 # 출혈
-def rune_bd_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_bd_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_bd_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_bd_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     if not buff_manager.is_buff_exists('bleed'):
       buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Epic'], 'base')
-def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'], 'base')
 
 
 # 심판
-def rune_jm_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_jm_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_jm_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_jm_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_jm_3(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_jm_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     raise NotImplementedError
-def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['jm'][0] += 1
     if not buff_manager.is_buff_exists('judgement_cooldown'):
       skill_manager.rune_ratio['jm'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'], 'base')
       buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'], 'base')
 
+# Rune derived buffs
 # 심판 버프 및 내부쿨 표시용 더미 버프
 def judgement(character: CharacterLayer, skill: Skill, buff: Buff):
     c_cr = character.get_attribute('cooldown_reduction')

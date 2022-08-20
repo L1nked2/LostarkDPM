@@ -61,6 +61,7 @@ ENGRAVINGS = {
   #질량증가
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
+  'Awakening_1': [('static_buff_queue', lambda x: x + ['Awakening_1'])],
   'Awakening_2': [('static_buff_queue', lambda x: x + ['Awakening_2'])],
   'Awakening_3': [('static_buff_queue', lambda x: x + ['Awakening_3'])],
   ## Dynamic ##

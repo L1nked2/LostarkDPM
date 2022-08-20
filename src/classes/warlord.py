@@ -73,20 +73,20 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 배쉬 공증 및 시너지
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 증오의 함성 시너지
-def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 대쉬 어퍼 파이어 공증
-def action_3(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
 
 # 파이어불릿 1트포 행운의 기회
-def action_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     n = skill.get_attribute('name')
     if n == '파이어 불릿':

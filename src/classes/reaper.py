@@ -43,6 +43,14 @@ CLASS_BUFF_DICT = {
     'duration': 4,
     'priority': 9,
   },
+  # 오류 출력 방지용 달소 버프(더미)
+  'Lunar_Voice_3': {
+    'name': 'lunar_voice',
+    'buff_type': 'stat',
+    'effect': None,
+    'duration': 999999,
+    'priority': 7,
+  },
   # 갈증 버프, 아덴 자체 효과도 통합되어있음
   'Hunger_3': {
     'name': 'hunger',
@@ -66,33 +74,33 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 페르소나 사용 가능 전환
-def grant_persona(buff_manager: BuffManager, skill_manager: SkillManager):
+def grant_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '페르소나 상태 진입':
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(cooldown_reduction)
 
 # 페르소나 사용
-def activate_persona(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Persona'], 'class')
 
 # 급습 사용시 페르소나 해제
-def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager):
+def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '어둠 게이지 체크':
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(cooldown_reduction)
 
 # 방깎 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 부식 독 데미지 버프 등록
-def activate_poison(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_poison(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Poison_Corrosion'], 'class')
 
 # 쉐도우 닷 급습 활성
-def swoop_activation(buff_manager: BuffManager, skill_manager: SkillManager):
+def swoop_activation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Swoop':
       rc = skill.get_attribute('remaining_cooldown')
@@ -100,7 +108,7 @@ def swoop_activation(buff_manager: BuffManager, skill_manager: SkillManager):
   skill_manager.apply_function(cooldown_reduction)
 
 # 트랩 그림자 활성
-def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager):
+def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Shadow':
       rc = skill.get_attribute('remaining_cooldown')
@@ -108,7 +116,7 @@ def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager):
   skill_manager.apply_function(cooldown_reduction)
 
 # 디스토션 순풍 버프 등록
-def activate_tailwind(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_tailwind(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Tailwind'], 'class')
 
 # Buff bodies

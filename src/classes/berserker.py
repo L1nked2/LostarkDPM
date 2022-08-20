@@ -71,23 +71,23 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 피증 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 레더 공증 버프 등록
-def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
 
 # 레더 치적 버프 등록
-def activate_crit_buff_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_crit_buff_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], 'class')
 
 # 체소 치적 버프 등록
-def activate_crit_buff_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_crit_buff_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_2'], 'class')
 
 # 소드 스톰 3트포 action
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Storm'], 'class')
 
 # Buff bodies

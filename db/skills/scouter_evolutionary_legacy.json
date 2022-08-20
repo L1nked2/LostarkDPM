@@ -70,7 +70,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_전설"
@@ -89,7 +89,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action_w"],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "출혈_전설"
@@ -108,7 +108,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action_e"],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_영웅"
@@ -127,7 +127,7 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action_r"],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -146,7 +146,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action_a"],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -165,7 +165,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action_s"],
+      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"

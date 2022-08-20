@@ -68,11 +68,11 @@ CLASS_BUFF_DICT = {
 
 # Actions
 # 맹호격, 파쇄의 강타 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 일망타진 쿨초
-def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager):
+def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '일망타진':
       skill.update_attribute('remaining_cooldown', seconds_to_ticks(1))
@@ -81,18 +81,18 @@ def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager):
     skill_manager.apply_function(cooldown_reduction)
 
 # 용의 강림 출혈 갱신, 출혈룬이 있을 때만 사용
-def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager):
+def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def duration_increase(buff: Buff):
     if buff.name == 'bleed':
       buff.duration += seconds_to_ticks(6)
   buff_manager.apply_function(duration_increase)
 
 # 용의 강림 2트포 등록 action
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Conflagration_Attack'], 'class')
 
 # 지진쇄 1트포 action
-def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Undying_Power'], 'class')
 
 # Buff bodies
