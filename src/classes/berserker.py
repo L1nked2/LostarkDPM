@@ -94,7 +94,7 @@ def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_us
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
-    s_bloody_rush_multiplier = s * SPEC_COEF_1
+    s_bloody_rush_multiplier = (1 + s * SPEC_COEF_1)
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
