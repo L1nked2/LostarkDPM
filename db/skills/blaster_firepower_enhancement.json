@@ -13,6 +13,7 @@
   "skill_preset": [
     {
       "name": "강화탄",
+      "tripod": "112",
       "default_damage": 779,
       "default_coefficient": 4.2,
       "base_damage_multiplier": 3.675,
@@ -25,12 +26,12 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "속행_전설"
     },
     {
       "name": "미사일 폭격",
+      "tripod": "232",
       "default_damage": 4044,
       "default_coefficient": 25.05,
       "base_damage_multiplier": 3.842,
@@ -43,12 +44,12 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "집중_전설"
     },
     {
       "name": "공중 폭격",
+      "tripod": "212",
       "default_damage": 2957,
       "default_coefficient": 18.19,
       "base_damage_multiplier": 4.10,
@@ -61,12 +62,12 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_flame_barrage"],
       "key_strokes" : 1,
       "rune": "집중_전설"
     },
     {
       "name": "고압열탄",
+      "tripod": "122",
       "default_damage": 2532,
       "default_coefficient": 15.68,
       "base_damage_multiplier": 7.6494,
@@ -79,12 +80,12 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_전설"
     },
     {
       "name": "다연장로켓포",
+      "tripod": "132",
       "default_damage": 2928,
       "default_coefficient": 18.09,
       "base_damage_multiplier": 4.6676,
@@ -97,12 +98,12 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "포탑 소환",
+      "tripod": "212",
       "default_damage": 551,
       "default_coefficient": 3.41,
       "base_damage_multiplier": 21.96,
@@ -115,7 +116,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["extend_bleed"],
       "key_strokes" : 1,
       "rune": "출혈_전설"
     },
@@ -133,7 +133,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "mana_cost": 0,
       "key_strokes" : 1
     }

@@ -34,7 +34,7 @@ class Skill:
                   skill_type, identity_type, cooldown,
                   common_delay, type_specific_delay,
                   head_attack, back_attack,
-                  triggered_actions, **kwargs):
+                  triggered_actions=list(), **kwargs):
         self.name = name
         self.default_damage = default_damage
         self.default_coefficient = default_coefficient
@@ -45,7 +45,9 @@ class Skill:
         self.base_type_specific_delay = constants.seconds_to_ticks(type_specific_delay)
         self.head_attack = head_attack
         self.back_attack = back_attack
-        self.triggered_actions = triggered_actions
+        self.triggered_actions = ['default_action'] + triggered_actions
+        if self.identity_type == 'Awakening':
+          self.triggered_actions += ['activate_dominion_set']
 
         # handle additional variables
         self._init_additional_variables(**kwargs)
@@ -85,6 +87,7 @@ class Skill:
 
     def _init_additional_variables(self, **kwargs):
         default_values = {
+          'tripod': '000',
           'base_damage_multiplier': 1.0,
           'jewel_cooldown_level': 0,
           'jewel_damage_level': 0,

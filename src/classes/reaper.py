@@ -72,7 +72,11 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 페르소나 사용 가능 전환
 def grant_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
@@ -119,7 +123,7 @@ def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager, sk
 def activate_tailwind(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Tailwind'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

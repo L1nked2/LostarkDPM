@@ -71,7 +71,11 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 배쉬 공증 및 시너지
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
@@ -95,7 +99,7 @@ def action_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_us
     return
   skill_manager.apply_function(cooldown_reduction)
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * SPEC_COEF)

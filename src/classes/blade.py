@@ -124,7 +124,11 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 이츠 사용가능 상태로 전환
 def grant_burst(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
@@ -195,7 +199,7 @@ def mael_storm_cooldown_indicator(buff_manager: BuffManager, skill_manager: Skil
   skill_manager.apply_function(cooldown_reduction)
 
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

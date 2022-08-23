@@ -68,7 +68,11 @@ CLASS_BUFF_DICT = {
   
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 유탄 출혈 시간 갱신 action
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def duration_increase(buff: Buff):
@@ -87,7 +91,7 @@ def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager, s
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
   
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

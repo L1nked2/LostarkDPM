@@ -83,7 +83,11 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 하이퍼 싱크 변신 사용 가능 전환
 def grant_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
@@ -141,8 +145,8 @@ def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillMa
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)
-
-# Buff bodies
+    
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

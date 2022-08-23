@@ -70,7 +70,11 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 데모닉 슬래쉬 피증 시너지 등록
 def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
@@ -116,8 +120,7 @@ def recover_human_form(buff_manager: BuffManager, skill_manager: SkillManager, s
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(recover_cooldown)
   
-
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

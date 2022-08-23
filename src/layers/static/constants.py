@@ -35,6 +35,7 @@ ENGRAVINGS = {
   ####### 공통각인 #######
   ## Static ##
   #원한
+  'Grudge_2': [('damage_multiplier', lambda x: x * 1.10)],
   'Grudge_3': [('damage_multiplier', lambda x: x * 1.20)],
   #저주받은인형
   'Cursed_Doll_2': [('additional_attack_power', lambda x: x + 0.08)],
@@ -117,6 +118,7 @@ ENGRAVINGS = {
   #화력강화
   'Firepower_Enhancement_3': [('static_buff_queue', lambda x: x + ['Firepower_Enhancement_3'])],
   #포격강화
+  'Barrage_Enhancement_3': [('static_buff_queue', lambda x: x + ['Barrage_Enhancement_3'])],
   #두번째동료
   #죽음의습격
   #아르데타인의기술

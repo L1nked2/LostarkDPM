@@ -1,6 +1,7 @@
 """
 Actions & Buff bodies of blaster
 """
+from src.layers.dynamic import skill
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
@@ -59,23 +60,57 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
-# 포탑 출혈 시간 갱신 action
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  extend_bleed(buff_manager, skill_manager, skill_on_use)
+  activate_barrage_mode(buff_manager, skill_manager, skill_on_use)
+  deactivate_barrage_mode(buff_manager, skill_manager, skill_on_use)
+  activate_synergy(buff_manager, skill_manager, skill_on_use)
+  activate_flame_barrage(buff_manager, skill_manager, skill_on_use)
+
+# 포탑, 강화탄 출혈 시간 갱신 action
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  def duration_increase(buff: Buff):
-    if buff.name == 'bleed':
-      buff.duration += seconds_to_ticks(13)
-  buff_manager.apply_function(duration_increase)
+  # 포탑 소환
+  if skill_on_use.get_attribute('name') == '포탑 소환' and skill_on_use.get_attribute('rune')[:2] == '출혈':
+    def duration_increase(buff: Buff):
+      if buff.name == 'bleed':
+        buff.duration += seconds_to_ticks(13)
+    buff_manager.apply_function(duration_increase)
+  # 강화탄
+  elif skill_on_use.get_attribute('name') == '강화탄' and skill_on_use.get_attribute('rune')[:2] == '출혈':
+    def duration_increase(buff: Buff):
+      if buff.name == 'bleed':
+        buff.duration += seconds_to_ticks(4)
+    buff_manager.apply_function(duration_increase)
 
-# 방깎 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+# 포격 모드 활성화
+def activate_barrage_mode(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '포격 모드 활성화':
+    def cooldown_reduction(skill: Skill):
+      if skill.get_attribute('name') == '포격 모드 해제':
+        skill.update_attribute('remaining_cooldown', 0)
+    skill_manager.apply_function(cooldown_reduction)
 
-# 화염 폭격 데미지 버프 등록
+# 포격 모드 해제
+def deactivate_barrage_mode(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '포격 모드 해제':
+    def cooldown_reduction(skill: Skill):
+      if skill.get_attribute('name') == '포격 모드 활성화':
+        skill.update_attribute('remaining_cooldown', 0)
+    skill_manager.apply_function(cooldown_reduction)
+
+# 강화탄 시너지 등록
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '강화탄' and skill_on_use.get_attribute('tripod')[0] == '1':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+
+# 화염 폭격 데미지 버프 등록(공폭 2트포)
 def activate_flame_barrage(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], 'class')
+  if skill_on_use.get_attribute('name') == '공중 폭격' and skill_on_use.get_attribute('tripod')[1] == '1':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

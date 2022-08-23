@@ -55,7 +55,11 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
+######## Actions #########
+# 통합 액션
+def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  pass
+
 # 버블 활성화
 def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if not buff_manager.is_buff_exists('esoteric_prepared'):
@@ -77,7 +81,7 @@ def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, 
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Explosion'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

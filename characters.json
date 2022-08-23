@@ -1,26 +1,26 @@
 {
   "character_settings": [
     {
-      "class_name": "blaster",
+      "class_name": "blade",
       "upgrade": 25,
-      "crit": 1600,
-      "specialization": 0,
-      "swiftness": 600,
-      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Cursed_Doll_3", "Hit_Master_3", "Firepower_Enhancement_3", "Adrenaline_1"],
+      "crit": 600,
+      "specialization": 1600,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Super_Charge_3", "Remaining_Energy_3", "Master_Of_Ambush_3", "Cursed_Doll_2", "Adrenaline_3"],
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
-      "artifact_set": ["악몽A_6_3"],
-      "skill_set": "./db/skills/blaster_firepower_enhancement.json"
+      "artifact_set": ["사멸_6_3"],
+      "skill_set": "./db/skills/blade_remaining_energy.json"
     },
     {
-      "class_name": "blaster",
+      "class_name": "blade",
       "upgrade": 25,
-      "crit": 1600,
-      "specialization": 600,
+      "crit": 600,
+      "specialization": 1600,
       "swiftness": 0,
-      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Cursed_Doll_3", "Hit_Master_3", "Firepower_Enhancement_3", "Adrenaline_1"],
+      "engravings": ["Grudge_2", "Super_Charge_3", "Remaining_Energy_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Adrenaline_3"],
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
-      "artifact_set": ["악몽A_6_3"],
-      "skill_set": "./db/skills/blaster_firepower_enhancement.json"
+      "artifact_set": ["사멸_6_3"],
+      "skill_set": "./db/skills/blade_remaining_energy.json"
     }
   ]
 }
