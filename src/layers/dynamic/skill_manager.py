@@ -27,7 +27,7 @@ class SkillManager:
             self.skill_pool[naive_skill['name']] = Skill(**naive_skill)
         self._validate_jewel()
         # dummy skill
-        self.dummy_skill = Skill('dummy', 0, 0, None, None, 0, 0, 0, False, False, list())
+        self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False)
         # 룬 통계
         self.rune_ratio = {'rg': [0,0], 'qr': [0,0], 'jm' : [0,0]}
 

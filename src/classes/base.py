@@ -312,7 +312,7 @@ def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # Artifact actions & buffs
 # 환각, 구원은 선처리 되어있음
-# 지배 등록 action, 지배 사용 캐릭터 각성 스킬에 적어두기 필요
+# 지배 등록 action, 각성기 사용시 자동 사용됨
 def activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if buff_manager.is_buff_exists('dominion_set_enabled_1'):
     buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'class')
@@ -462,10 +462,29 @@ def nig2_sal4_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
 
 # Engraving buffs
+# 돌격대장
+def raid_captain_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_dm = character.get_attribute('damage_multiplier')
+    c_ams = character.get_attribute('actual_movement_speed')
+    character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.10))
+
+def raid_captain_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_dm = character.get_attribute('damage_multiplier')
+    c_ams = character.get_attribute('actual_movement_speed')
+    character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.22))
+
 def raid_captain_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_dm = character.get_attribute('damage_multiplier')
     c_ams = character.get_attribute('actual_movement_speed')
     character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.45))
+
+# 슈퍼 차지
+def super_charge_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('skill_type') == 'Charge':
+      s_dm = skill.get_attribute('damage_multiplier')
+      s_tsd = skill.get_attribute('type_specific_delay')
+      skill.update_attribute('damage_multiplier', s_dm * 1.04)
+      skill.update_attribute('type_specific_delay', s_tsd / 1.08)
 
 def super_charge_2(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('skill_type') == 'Charge':
@@ -481,29 +500,86 @@ def super_charge_3(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('damage_multiplier', s_dm * 1.20)
       skill.update_attribute('type_specific_delay', s_tsd / 1.40)
 
+# 결투의 대가
+def master_brawler_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('head_attack') == True:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.05)
+
+def master_brawler_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('head_attack') == True:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+
 def master_brawler_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('head_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
+
+# 기습의 대가
+def master_of_ambush_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('back_attack') == True:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.05)
+
+def master_of_ambush_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('back_attack') == True:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
 
 def master_of_ambush_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('back_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
 
+# 타격의 대가
+def hit_master_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    if (skill.get_attribute('head_attack') == False 
+        and skill.get_attribute('back_attack') == False
+        and not skill.get_attribute('identity_type') == 'Awakening'):
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.3)
+
+def hit_master_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if (skill.get_attribute('head_attack') == False 
+        and skill.get_attribute('back_attack') == False
+        and not skill.get_attribute('identity_type') == 'Awakening'):
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.8)
+
 def hit_master_3(character: CharacterLayer, skill: Skill, buff: Buff):
-    if skill.get_attribute('head_attack') == False and skill.get_attribute('back_attack') == False:
+    if (skill.get_attribute('head_attack') == False 
+        and skill.get_attribute('back_attack') == False
+        and not skill.get_attribute('identity_type') == 'Awakening'):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.16)
 
+# 속전속결
+def all_out_attack_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_st = skill.get_attribute('skill_type')
+    if  s_st == 'Holding_A' or s_st == 'Holding_B' or s_st == 'Casting':
+      s_dm = skill.get_attribute('damage_multiplier')
+      s_tsd = skill.get_attribute('type_specific_delay')
+      skill.update_attribute('damage_multiplier', s_dm * 1.04)
+      skill.update_attribute('type_specific_delay', s_tsd / 1.05)
+
+def all_out_attack_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_st = skill.get_attribute('skill_type')
+    if  s_st == 'Holding_A' or s_st == 'Holding_B' or s_st == 'Casting':
+      s_dm = skill.get_attribute('damage_multiplier')
+      s_tsd = skill.get_attribute('type_specific_delay')
+      skill.update_attribute('damage_multiplier', s_dm * 1.10)
+      skill.update_attribute('type_specific_delay', s_tsd / 1.10)
+
 def all_out_attack_3(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_t = skill.get_attribute('skill_type')
-    if  s_t == 'Holding_A' or s_t == 'Holding_B' or s_t == 'Casting':
+    s_st = skill.get_attribute('skill_type')
+    if  s_st == 'Holding_A' or s_st == 'Holding_B' or s_st == 'Casting':
       s_dm = skill.get_attribute('damage_multiplier')
       s_tsd = skill.get_attribute('type_specific_delay')
       skill.update_attribute('damage_multiplier', s_dm * 1.20)
       skill.update_attribute('type_specific_delay', s_tsd / 1.20)
 
+# 각성
 def awakening_1(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Awakening':
       s_ac = skill.get_attribute('actual_cooldown')

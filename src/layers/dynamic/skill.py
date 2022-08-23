@@ -5,7 +5,9 @@ data example
 {
   "name": "버스트 캐넌",
   "default_damage": 3075,
-  "default_coefficient": 19.06,
+  "tripod": "312",
+  "level": 12,
+  "default_coefficient": 19.06, -> optional
   "base_damage_multiplier": 6.0512,
   "skill_type": "Charge",
   "identity_type": "Lance",
@@ -16,8 +18,11 @@ data example
   "jewel_damage_level": 7,
   "head_attack": true,
   "back_attack": false,
-  "triggered_actions": [],
+  'base_additional_crit_rate': 0.0, -> optional
+  'base_additional_crit_damage': 0.0, -> optional
+  "triggered_actions": [], -> optional
   "key_strokes" : 1,
+  'mana_cost': 1, -> optional
   "rune": "질풍_영웅"
 }
 """
@@ -28,16 +33,36 @@ from src.layers.utils import crit_to_multiplier
 
 DEFAULT_PRIORITY = 10
 SKILL_TYPES = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
+DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE = [
+  0.00000,
+  0.01640,
+  0.01020,
+  0.00832,
+  0.00732,
+  0.00671,
+  0.00632,
+  0.00601,
+  0.00576,
+  0.00559,
+  0.00543,
+  0.00591,
+  0.00620,
+]
 
 class Skill:
-    def __init__(self, name, default_damage, default_coefficient, 
+    def __init__(self, name, default_damage,
                   skill_type, identity_type, cooldown,
                   common_delay, type_specific_delay,
                   head_attack, back_attack,
+                  level=12, default_coefficient=0, 
                   triggered_actions=list(), **kwargs):
         self.name = name
         self.default_damage = default_damage
-        self.default_coefficient = default_coefficient
+        self.level = level
+        if default_coefficient <= 0:
+          self.default_coefficient = self.default_damage * DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE[level]
+        else:
+          self.default_coefficient = default_coefficient
         self.base_cooldown = constants.seconds_to_ticks(cooldown)
         self.skill_type = skill_type
         self.identity_type = identity_type

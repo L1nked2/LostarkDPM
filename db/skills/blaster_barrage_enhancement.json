@@ -11,7 +11,7 @@
   "skill_preset": [
     {
       "name": "강화탄",
-      "tripod": "112",
+      "tripod": "122",
       "default_damage": 779,
       "default_coefficient": 4.2,
       "base_damage_multiplier": 3.675,
