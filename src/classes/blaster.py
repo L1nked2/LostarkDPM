@@ -89,7 +89,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('damage_multiplier', s_dm * s_barrage_multiplier)
     # 화력 게이지 상시 풀 유지
     s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * (1.30 * s_firepower_buff_multiplier))
+    skill.update_attribute('damage_multiplier', s_dm * (1 + (0.30 * s_firepower_buff_multiplier)))
 
 def firepower_enhancement_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Common':

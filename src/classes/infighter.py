@@ -77,7 +77,7 @@ def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, sk
     if skill.get_attribute('name') == '일망타진':
       skill.update_attribute('remaining_cooldown', seconds_to_ticks(1))
     return
-  if check_chance(0.75):
+  if check_chance(0.75, 'swift_preperation'):
     skill_manager.apply_function(cooldown_reduction)
 
 # 용의 강림 출혈 갱신, 출혈룬이 있을 때만 사용

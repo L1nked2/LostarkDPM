@@ -37,6 +37,7 @@ ENGRAVINGS = {
   #원한
   'Grudge_3': [('damage_multiplier', lambda x: x * 1.20)],
   #저주받은인형
+  'Cursed_Doll_2': [('additional_attack_power', lambda x: x + 0.08)],
   'Cursed_Doll_3': [('additional_attack_power', lambda x: x + 0.16)],
   #정기흡수
   'Spirit_Absorption_2': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08)],
@@ -76,6 +77,7 @@ ENGRAVINGS = {
   #속전속결
   'All_Out_Attack_3': [('static_buff_queue', lambda x: x + ['All_Out_Attack_3'])],
   #슈퍼차지
+  'Super_Charge_2': [('static_buff_queue', lambda x: x + ['Super_Charge_2'])],
   'Super_Charge_3': [('static_buff_queue', lambda x: x + ['Super_Charge_3'])],
 
   ####### 직업각인 #######

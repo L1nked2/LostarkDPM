@@ -93,10 +93,7 @@ def action_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_us
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(4.9))
     return
-  if check_chance(0.50):
-    skill_manager.apply_function(cooldown_reduction)
-  if check_chance(0.50):
-    skill_manager.apply_function(cooldown_reduction)
+  skill_manager.apply_function(cooldown_reduction)
 
 # Buff bodies
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

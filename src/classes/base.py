@@ -206,6 +206,13 @@ COMMON_BUFF_DICT = {
     'duration': 999999,
     'priority': 1,
   },
+  'Super_Charge_2': {
+    'name': 'super_charge',
+    'buff_type': 'stat',
+    'effect': 'super_charge_2',
+    'duration': 999999,
+    'priority': 7,
+  },
   'Super_Charge_3': {
     'name': 'super_charge',
     'buff_type': 'stat',
@@ -460,6 +467,13 @@ def raid_captain_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ams = character.get_attribute('actual_movement_speed')
     character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.45))
 
+def super_charge_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('skill_type') == 'Charge':
+      s_dm = skill.get_attribute('damage_multiplier')
+      s_tsd = skill.get_attribute('type_specific_delay')
+      skill.update_attribute('damage_multiplier', s_dm * 1.10)
+      skill.update_attribute('type_specific_delay', s_tsd / 1.20)
+
 def super_charge_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('skill_type') == 'Charge':
       s_dm = skill.get_attribute('damage_multiplier')
@@ -528,7 +542,7 @@ def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc * 0.88)
       return
-    if check_chance(0.10):
+    if check_chance(0.10, 'qr_3'):
       skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -540,7 +554,7 @@ def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc * 0.84)
       return
-    if check_chance(0.10):
+    if check_chance(0.10, 'qr_4'):
       skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 
@@ -551,12 +565,12 @@ def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
     raise NotImplementedError
 def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
-    if check_chance(0.15) and not buff_manager.is_buff_exists('rage'):
+    if check_chance(0.15, 'rg_3') and not buff_manager.is_buff_exists('rage'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
 def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
-    if check_chance(0.20):
+    if check_chance(0.20, 'rg_4'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.unregister_buff('rage')
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')
