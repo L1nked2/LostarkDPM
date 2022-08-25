@@ -48,14 +48,14 @@ DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE = [
   0.00591,
   0.00620,
 ]
-
+# TODO: connect actions based on default infos
 class Skill:
     def __init__(self, name, default_damage,
                   skill_type, identity_type, cooldown,
                   common_delay, type_specific_delay,
                   head_attack, back_attack,
                   level=12, default_coefficient=0, 
-                  triggered_actions=list(), **kwargs):
+                  triggered_actions=None, **kwargs):
         self.name = name
         self.default_damage = default_damage
         self.level = level
@@ -70,7 +70,10 @@ class Skill:
         self.base_type_specific_delay = constants.seconds_to_ticks(type_specific_delay)
         self.head_attack = head_attack
         self.back_attack = back_attack
-        self.triggered_actions = ['default_action'] + triggered_actions
+        if triggered_actions is None:
+          self.triggered_actions = list()
+        else:
+          self.triggered_actions = triggered_actions
         if self.identity_type == 'Awakening':
           self.triggered_actions += ['activate_dominion_set']
 

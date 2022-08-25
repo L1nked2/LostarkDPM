@@ -55,11 +55,14 @@ CLASS_BUFF_DICT = {
   },
 }
 
-######## Actions #########
-# 통합 액션
-def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  pass
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
 
+######## Actions #########
 # 버블 활성화
 def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if not buff_manager.is_buff_exists('esoteric_prepared'):

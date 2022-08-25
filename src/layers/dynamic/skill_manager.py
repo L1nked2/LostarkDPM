@@ -18,7 +18,6 @@ class SkillManager:
             warnings.warn("Class of character and skill_set does not match", UserWarning)
         self.last_tick = 0
         self.blocked_until = -1
-        #TODO: import identity
         # import policy
         self._import_policy(skill_info['policy'])
         # import skills
@@ -26,6 +25,12 @@ class SkillManager:
         for naive_skill in skill_info['skill_preset']:
             self.skill_pool[naive_skill['name']] = Skill(**naive_skill)
         self._validate_jewel()
+        # finalize skill(tripod)
+        import_target = "src.classes." + class_name
+        class_module = importlib.import_module(import_target)
+        if hasattr(class_module, 'finalize_skill'):
+          for skill_name in self.skill_pool:
+            class_module.finalize_skill(self.skill_pool[skill_name])
         # dummy skill
         self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False)
         # 룬 통계

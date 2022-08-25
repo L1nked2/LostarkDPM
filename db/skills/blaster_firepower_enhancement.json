@@ -13,9 +13,9 @@
   "skill_preset": [
     {
       "name": "강화탄",
+      "level": 10,
       "tripod": "112",
       "default_damage": 779,
-      "default_coefficient": 4.2,
       "base_damage_multiplier": 3.675,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -31,9 +31,9 @@
     },
     {
       "name": "미사일 폭격",
+      "level": 12,
       "tripod": "232",
       "default_damage": 4044,
-      "default_coefficient": 25.05,
       "base_damage_multiplier": 3.842,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -49,6 +49,7 @@
     },
     {
       "name": "공중 폭격",
+      "level": 12,
       "tripod": "212",
       "default_damage": 2957,
       "default_coefficient": 18.19,
@@ -67,9 +68,9 @@
     },
     {
       "name": "고압열탄",
+      "level": 12,
       "tripod": "122",
       "default_damage": 2532,
-      "default_coefficient": 15.68,
       "base_damage_multiplier": 7.6494,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -85,9 +86,9 @@
     },
     {
       "name": "다연장로켓포",
+      "level": 12,
       "tripod": "132",
       "default_damage": 2928,
-      "default_coefficient": 18.09,
       "base_damage_multiplier": 4.6676,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -103,9 +104,9 @@
     },
     {
       "name": "포탑 소환",
+      "level": 12,
       "tripod": "212",
       "default_damage": 551,
-      "default_coefficient": 3.41,
       "base_damage_multiplier": 21.96,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -122,7 +123,7 @@
     {
       "name": "헤비 터렛",
       "default_damage": 65435,
-      "default_coefficient": 405.67,
+      "default_coefficient": 405.697,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Awakening",

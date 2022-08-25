@@ -124,11 +124,14 @@ CLASS_BUFF_DICT = {
   },
 }
 
-######## Actions #########
-# 통합 액션
-def default_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  pass
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
 
+######## Actions #########
 # 이츠 사용가능 상태로 전환
 def grant_burst(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):

@@ -8,7 +8,7 @@
       "swiftness": 0,
       "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "All_Out_Attack_3", "Hit_Master_3", "Barrage_Enhancement_3", "Adrenaline_1"],
       "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
-      "artifact_set": ["환각_6_3"],
+      "artifact_set": ["구원_6_3"],
       "skill_set": "./db/skills/blaster_barrage_enhancement.json"
     }
   ]
