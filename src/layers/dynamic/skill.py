@@ -48,7 +48,7 @@ DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE = [
   0.00591,
   0.00620,
 ]
-# TODO: connect actions based on default infos
+
 class Skill:
     def __init__(self, name, default_damage,
                   skill_type, identity_type, cooldown,
@@ -75,15 +75,12 @@ class Skill:
         else:
           self.triggered_actions = triggered_actions
         if self.identity_type == 'Awakening':
-          self.triggered_actions += ['activate_dominion_set']
+          self.triggered_actions += ['try_activate_dominion_set']
 
         # handle additional variables
         self._init_additional_variables(**kwargs)
         self._apply_jewel()
         self._apply_rune()
-        if self.skill_type == 'Chain':
-          for i in range(self.key_strokes-1):
-            self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
         self.actual_cooldown = self.base_cooldown

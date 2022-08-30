@@ -72,22 +72,41 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  if (name == '용의 강림' and tripod[1] == '2') and rune[:2] =='출혈':
+    skill.triggered_actions.append('extend_bleed')
+  # apply tripods
+  if name == '맹호격':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '파쇄의 강타_1타':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '일망 타진':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('swift_preparation')
+  elif name == '용의 강림':
+    if tripod[1] == '2':
+      skill.triggered_actions.append('action_1')
+  elif name == '지진쇄':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('action_2')
 
 ######## Actions #########
 # 맹호격, 파쇄의 강타 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
-# 일망타진 쿨초
+# 일망 타진 쿨초
 def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
-    if skill.get_attribute('name') == '일망타진':
-      skill.update_attribute('remaining_cooldown', seconds_to_ticks(1))
+    if skill.get_attribute('name') == '일망 타진':
+      skill.update_attribute('remaining_cooldown', 0)
     return
-  if check_chance(0.75, 'swift_preperation'):
+  if check_chance((1 - 0.54 * 0.54), 'swift_preperation'):
     skill_manager.apply_function(cooldown_reduction)
 
-# 용의 강림 출혈 갱신, 출혈룬이 있을 때만 사용
+# 용의 강림 출혈 갱신
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def duration_increase(buff: Buff):
     if buff.name == 'bleed':

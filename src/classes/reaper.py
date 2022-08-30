@@ -78,6 +78,30 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  if name == '어둠 게이지 체크':
+    skill.triggered_actions.append('grant_persona')
+  if name == '페르소나 상태 진입':
+    skill.triggered_actions.append('activate_persona')
+  if skill.get_attribute('identity_type') == 'Swoop':
+    skill.triggered_actions.append('deactivate_persona')
+  # apply tripods
+  if name == '나이트메어' or name == '나이트메어_1타':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_poison')
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '쉐도우 닷' or name == '쉐도우 닷_1타':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_poison')
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[2] == '2':
+      skill.triggered_actions.append('swoop_activation')
+  elif name == '디스토션':
+    if tripod[1] == '2':
+      skill.triggered_actions.append('activate_tailwind')
+  elif name == '쉐도우 트랩':
+    if tripod[2] == '2':
+      skill.triggered_actions.append('shadow_activation')
 
 ######## Actions #########
 # 페르소나 사용 가능 전환
@@ -99,7 +123,7 @@ def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager, s
   skill_manager.apply_function(cooldown_reduction)
 
 # 방깎 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 부식 독 데미지 버프 등록

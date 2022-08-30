@@ -77,23 +77,41 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  
+  # apply tripods
+  if name == '배쉬':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[1] == '1':
+      skill.triggered_actions.append('activate_ap_buff')
+  elif name == '대쉬 어퍼 파이어':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_ap_buff')
+  elif name == '증오의 함성':
+    if tripod[2] == '1':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '파이어 불릿':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('lucky_chance_action')
 
 ######## Actions #########
-# 배쉬 공증 및 시너지
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+# 배쉬, 대쉬 어퍼 파이어 공증
+def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '배쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '대쉬 어퍼 파이어':
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
 
-# 증오의 함성 시너지
-def action_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
-
-# 대쉬 어퍼 파이어 공증
-def action_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
+# 배쉬, 증오의 함성 시너지
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '배쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '증오의 함성':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 파이어불릿 1트포 행운의 기회
-def action_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def lucky_chance_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     n = skill.get_attribute('name')
     if n == '파이어 불릿':

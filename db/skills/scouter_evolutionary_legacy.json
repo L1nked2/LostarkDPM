@@ -19,6 +19,8 @@
   "skill_preset": [
     {
       "name": "명령 : 레이드 미사일",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 3206,
       "default_coefficient": 19.85,
       "base_damage_multiplier": 3.332,
@@ -31,13 +33,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["grant_hyper_sync"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "풍요_전설"
     },
     {
       "name": "명령 : 베이비 드론",
+      "level": 12,
+      "tripod": "232",
       "default_damage": 3319,
       "default_coefficient": 20.48,
       "base_damage_multiplier": 1.95,
@@ -70,7 +73,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_전설"
@@ -89,7 +91,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "출혈_전설"
@@ -108,7 +109,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_영웅"
@@ -127,7 +127,6 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -146,7 +145,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -165,7 +163,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["evolutionary_legacy_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
@@ -184,7 +181,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_hyper_sync", "activate_synergy_1"],
       "key_strokes" : 0,
       "mana_cost": 0
     },
@@ -202,7 +198,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["deactivate_hyper_sync"],
       "key_strokes" : 0,
       "mana_cost": 0
     },
@@ -220,7 +215,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["grant_hyper_sync"],
       "key_strokes" : 1,
       "mana_cost": 0
     }

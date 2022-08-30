@@ -313,7 +313,7 @@ def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
 # Artifact actions & buffs
 # 환각, 구원은 선처리 되어있음
 # 지배 등록 action, 각성기 사용시 자동 사용됨
-def activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def try_activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if buff_manager.is_buff_exists('dominion_set_enabled_1'):
     buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'class')
   elif buff_manager.is_buff_exists('dominion_set_enabled_2'):

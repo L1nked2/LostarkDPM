@@ -17,6 +17,8 @@
   "skill_preset": [
     {
       "name": "나선의 추적자",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 1024,
       "default_coefficient": 6.88,
       "base_damage_multiplier": 1.7,
@@ -29,12 +31,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "단죄_전설"
     },
     {
       "name": "AT02 유탄",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 595,
       "default_coefficient": 4.07,
       "base_damage_multiplier": 4.41,
@@ -47,12 +50,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1", "extend_bleed"],
       "key_strokes" : 1,
       "rune": "출혈_전설"
     },
     {
       "name": "메테오 스트림",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 1961,
       "default_coefficient": 13.37,
       "base_damage_multiplier": 4.10408,
@@ -65,12 +69,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "이퀄리브리엄",
+      "level": 12,
+      "tripod": "111",
       "default_damage": 1959,
       "default_coefficient": 13.38,
       "base_damage_multiplier": 1.952,
@@ -83,12 +88,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "심판_전설"
     },
     {
       "name": "퀵 샷",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 646,
       "default_coefficient": 4.41,
       "base_damage_multiplier": 11.94,
@@ -101,12 +107,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "질풍_전설"
     },
     {
       "name": "잔혹한 추적자",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 2632,
       "default_coefficient": 17.93,
       "base_damage_multiplier": 2.7975,
@@ -119,12 +126,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 3,
       "rune": "질풍_영웅"
     },
     {
       "name": "사형 집행",
+      "level": 7,
+      "tripod": "120",
       "default_damage": 893,
       "default_coefficient": 5.66,
       "base_damage_multiplier": 1.0,
@@ -137,12 +145,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "광분_전설"
     },
     {
       "name": "민첩한 사격",
+      "level": 9,
+      "tripod": "230",
       "default_damage": 684,
       "default_coefficient": 4.18,
       "base_damage_multiplier": 1.0,
@@ -155,7 +164,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "속행_전설"
     },
@@ -173,7 +181,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 0
     },
     {
@@ -190,7 +197,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

@@ -30,7 +30,13 @@ class SkillManager:
         class_module = importlib.import_module(import_target)
         if hasattr(class_module, 'finalize_skill'):
           for skill_name in self.skill_pool:
-            class_module.finalize_skill(self.skill_pool[skill_name])
+            skill = self.skill_pool[skill_name]
+            class_module.finalize_skill(skill)
+            if skill.skill_type == 'Chain':
+              for i in range(skill.key_strokes-1):
+                skill.triggered_actions.extend(skill.triggered_actions)
+        else:
+          warnings.warn(f'finalize_skill not exists, check {class_name}.py', UserWarning)
         # dummy skill
         self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False)
         # 룬 통계

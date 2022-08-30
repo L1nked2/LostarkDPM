@@ -16,6 +16,8 @@
   "skill_preset": [
     {
       "name": "버스트 캐넌",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 3075,
       "default_coefficient": 19.06,
       "base_damage_multiplier": 6.0512,
@@ -28,12 +30,13 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_전설"
     },
     {
       "name": "차지 스팅거",
+      "level": 12,
+      "tripod": "222",
       "default_damage": 2997,
       "default_coefficient": 18.59,
       "base_damage_multiplier": 6.32814,
@@ -46,12 +49,13 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "배쉬",
+      "level": 7,
+      "tripod": "110",
       "default_damage": 388,
       "default_coefficient": 2.4,
       "base_damage_multiplier": 1.0,
@@ -64,12 +68,13 @@
       "jewel_damage_level": 0,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["action_1"],
       "key_strokes" : 1,
-      "rune": "광분_전설"
+      "rune": "출혈_전설"
     },
     {
       "name": "증오의 함성",
+      "level": 12,
+      "tripod": "131",
       "default_damage": 810,
       "default_coefficient": 4.41,
       "base_damage_multiplier": 1.0,
@@ -82,12 +87,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["action_2"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "대쉬 어퍼 파이어",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 1227,
       "default_coefficient": 7.62,
       "base_damage_multiplier": 3.8692,
@@ -100,12 +106,13 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "None"
     },
     {
       "name": "파이어 불릿",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 561,
       "default_coefficient": 3.06,
       "base_damage_multiplier": 2.928,
@@ -118,12 +125,13 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["action_4"],
       "key_strokes" : 1,
       "rune": "속행_전설"
     },
     {
       "name": "스피어 샷",
+      "level": 12,
+      "tripod": "222",
       "default_damage": 1660,
       "default_coefficient": 10.24,
       "base_damage_multiplier": 4.2517,
@@ -136,7 +144,6 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
@@ -154,7 +161,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

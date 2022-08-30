@@ -17,6 +17,8 @@
   "skill_preset": [
     {
       "name": "종말의 전조",
+      "level": 12,
+      "tripod": "112",
       "default_damage": 1380,
       "default_coefficient": 9.43,
       "base_damage_multiplier": 9.9,
@@ -29,12 +31,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "샷건 연사",
+      "level": 12,
+      "tripod": "112",
       "default_damage": 2267,
       "default_coefficient": 15.43,
       "base_damage_multiplier": 9.9,
@@ -47,12 +50,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_전설"
     },
     {
       "name": "샷건의 지배자",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 1540,
       "default_coefficient": 10.42,
       "base_damage_multiplier": 11.22,
@@ -65,12 +69,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "최후의 만찬",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 3284,
       "default_coefficient": 22.41,
       "base_damage_multiplier": 3.1842,
@@ -83,12 +88,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "나선의 추적자",
+      "level": 4,
+      "tripod": "200",
       "default_damage": 689,
       "default_coefficient": 6.03,
       "base_damage_multiplier": 1,
@@ -101,12 +107,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "속행_전설"
     },
     {
       "name": "AT02 유탄",
+      "level": 10,
+      "tripod": "312",
       "default_damage": 595,
       "default_coefficient": 3.56,
       "base_damage_multiplier": 4.41,
@@ -119,12 +126,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1", "extend_bleed"],
       "key_strokes" : 1,
       "rune": "출혈_전설"
     },
     {
       "name": "퀵 샷",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 646,
       "default_coefficient": 4.41,
       "base_damage_multiplier": 11.94,
@@ -137,12 +145,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "질풍_희귀"
     },
     {
       "name": "잔혹한 추적자",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 2632,
       "default_coefficient": 17.93,
       "base_damage_multiplier": 2.7975,
@@ -155,7 +164,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 3,
       "rune": "질풍_희귀"
     },
@@ -173,7 +181,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

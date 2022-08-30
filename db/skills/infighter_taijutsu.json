@@ -17,6 +17,8 @@
   "skill_preset": [
     {
       "name": "전진의 일격",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 852,
       "default_coefficient": 5.33,
       "base_damage_multiplier": 3.672,
@@ -29,13 +31,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "파쇄의 강타_1타",
+      "level": 4,
+      "tripod": "300",
       "default_damage": 352,
       "default_coefficient": 2,
       "base_damage_multiplier": 1,
@@ -48,13 +51,14 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_전설"
     },
     {
       "name": "용의 강림",
+      "level": 12,
+      "tripod": "321",
       "default_damage": 2306,
       "default_coefficient": 14.3,
       "base_damage_multiplier": 3.12,
@@ -67,13 +71,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["extend_bleed", "action_1"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "출혈_전설"
     },
     {
       "name": "지진쇄",
+      "level": 12,
+      "tripod": "221",
       "default_damage": 2183,
       "default_coefficient": 13.54,
       "base_damage_multiplier": 2.748,
@@ -86,13 +91,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["action_2"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_희귀"
     },
     {
       "name": "난타연권",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 3070,
       "default_coefficient": 19.05,
       "base_damage_multiplier": 4.077,
@@ -105,13 +111,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "철포난격",
+      "level": 12,
+      "tripod": "331",
       "default_damage": 2269,
       "default_coefficient": 14.03,
       "base_damage_multiplier": 3.318,
@@ -124,13 +131,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "mana_cost": 0,
       "rune": "질풍_희귀"
     },
     {
       "name": "일망 타진",
+      "level": 12,
+      "tripod": "111",
       "default_damage": 1419,
       "default_coefficient": 8.42,
       "base_damage_multiplier": 1.69,
@@ -143,13 +151,14 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["swift_preparation"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "속행_전설"
     },
     {
       "name": "죽음의 선고",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 3583,
       "default_coefficient": 22.23,
       "base_damage_multiplier": 4.288,
@@ -162,7 +171,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
@@ -181,7 +189,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "mana_cost": 0,
       "key_strokes" : 1
     }

@@ -67,17 +67,19 @@ def finalize_skill(skill: Skill):
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
   # connect actions
-  if (name == '포탑 소환' or name == '강화탄') and rune[:2] =='출혈':
+  if ((name == '포탑 소환') or name == '강화탄' and tripod[2] == '2') and rune[:2] =='출혈':
     skill.triggered_actions.append('extend_bleed')
   if name == '포격 모드 활성화':
     skill.triggered_actions.append('activate_barrage_mode')
   if name == '포격 모드 해제':
     skill.triggered_actions.append('deactivate_barrage_mode')
-  if name == '강화탄' and tripod[0] == '1':
-    skill.triggered_actions.append('activate_synergy')
-  if name == '공중 폭격' and tripod[1] == '1':
-    skill.triggered_actions.append('activate_flame_barrage')
   # apply tripods
+  if name == '강화탄':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '공중 폭격':
+    if tripod[1] == '1':
+      skill.triggered_actions.append('activate_flame_barrage')
 
 
 ######## Actions #########

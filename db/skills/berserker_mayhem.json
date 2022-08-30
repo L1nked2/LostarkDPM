@@ -14,6 +14,8 @@
   "skill_preset": [
     {
       "name": "레드 더스트",
+      "level": 10,
+      "tripod": "111",
       "default_damage": 1595,
       "default_coefficient": 8.66,
       "base_damage_multiplier": 2.25,
@@ -26,12 +28,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_synergy_1", "activate_ap_buff", "activate_crit_buff_1"],
       "key_strokes" : 1,
       "rune": "출혈_전설"
     },
     {
       "name": "피니쉬 스트라이크",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 2608,
       "default_coefficient": 16.19,
       "base_damage_multiplier": 8.64,
@@ -44,12 +47,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "질풍_전설"
     },
     {
       "name": "스트라이크 웨이브",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 4709,
       "default_coefficient": 29.2,
       "base_damage_multiplier": 6.668,
@@ -62,12 +66,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "헬 블레이드",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 5184,
       "default_coefficient": 32.16,
       "base_damage_multiplier": 4.1844,
@@ -80,12 +85,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "소드 스톰",
+      "level": 12,
+      "tripod": "221",
       "default_damage": 3281,
       "default_coefficient": 20.33,
       "base_damage_multiplier": 3.2344,
@@ -98,12 +104,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["action_1"],
       "key_strokes" : 1,
       "rune": "질풍_희귀"
     },
     {
       "name": "템페스트 슬래쉬",
+      "level": 12,
+      "tripod": "331",
       "default_damage": 2893,
       "default_coefficient": 17.97,
       "base_damage_multiplier": 3.3184,
@@ -116,12 +123,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_희귀"
     },
     {
       "name": "체인 소드",
+      "level": 10,
+      "tripod": "121",
       "default_damage": 702,
       "default_coefficient": 3.78,
       "base_damage_multiplier": 0.5,
@@ -134,12 +142,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_crit_buff_2"],
       "key_strokes" : 1,
       "rune": "출혈_영웅"
     },
     {
       "name": "숄더 차지",
+      "level": 7,
+      "tripod": "310",
       "default_damage": 518,
       "default_coefficient": 3.13,
       "base_damage_multiplier": 2,
@@ -152,7 +161,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "속행_전설"
     },
@@ -170,9 +178,8 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
-      "key_strokes" : 1,
-      "mana_cost": 0
+      "mana_cost": 0,
+      "key_strokes" : 1
     },
     {
       "name": "버서크 퓨리",
@@ -188,7 +195,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "mana_cost": 0,
       "key_strokes" : 1
     }

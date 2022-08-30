@@ -17,6 +17,8 @@
   "skill_preset": [
     {
       "name": "데몬 비전",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 3286,
       "default_coefficient": 20.13,
       "base_damage_multiplier": 1.586,
@@ -29,12 +31,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "데시메이트",
+      "level": 12,
+      "tripod": "211",
       "default_damage": 2660,
       "default_coefficient": 16.37,
       "base_damage_multiplier": 4.2856,
@@ -47,12 +50,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "데몬 그랩",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 1744,
       "default_coefficient": 10.76,
       "base_damage_multiplier": 2.2,
@@ -65,12 +69,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "데모닉 슬래쉬",
+      "level": 10,
+      "tripod": "131",
       "default_damage": 940,
       "default_coefficient": 5.05,
       "base_damage_multiplier": 1,
@@ -83,12 +88,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_speed_buff", "activate_synergy_1", "grant_transform"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "하울링",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 1152,
       "default_coefficient": 7.04,
       "base_damage_multiplier": 2.45,
@@ -101,7 +107,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
@@ -119,7 +124,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "광분_전설"
@@ -138,7 +142,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "속행_전설"
@@ -157,7 +160,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "출혈_전설"
@@ -176,7 +178,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
@@ -195,7 +196,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -214,7 +214,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
@@ -233,7 +232,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["demon_transform"],
       "key_strokes" : 1,
       "mana_cost": 0
     },
@@ -251,7 +249,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["recover_human_form"],
       "key_strokes" : 1,
       "mana_cost": 0
     },
@@ -269,7 +266,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

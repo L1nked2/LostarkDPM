@@ -74,6 +74,19 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  if name == 'AT02 유탄' and tripod[2] == '2' and rune[:2] =='출혈':
+    skill.triggered_actions.append('extend_bleed')
+  # apply tripods
+  if name == '퀵 스텝':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_speed_buff')
+  elif name == '나선의 추적자':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '이퀄리브리엄':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy')
 
 
 ######## Actions #########
@@ -85,10 +98,10 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
   buff_manager.apply_function(duration_increase)
 
 # 치적 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
-  
-def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '나선의 추적자':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '이퀄리브리엄':
     buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
   
 # 퀵스텝 이속 버프 등록

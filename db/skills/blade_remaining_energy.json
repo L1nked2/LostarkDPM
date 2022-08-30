@@ -26,7 +26,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_burst"],
       "key_strokes" : 1,
       "rune": "None"
     },
@@ -44,12 +43,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["use_burst"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "블리츠 러시",
+      "level": 12,
+      "tripod": "321",
       "default_damage": 4214,
       "default_coefficient": 26.15,
       "base_damage_multiplier": 2.89,
@@ -63,12 +63,13 @@
       "head_attack": false,
       "back_attack": true,
       "base_additional_crit_rate": 0.4,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_전설"
     },
     {
       "name": "소울 앱소버",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 3179,
       "default_coefficient": 19.66,
       "base_damage_multiplier": 3.904,
@@ -81,12 +82,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["grant_burst"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "보이드 스트라이크",
+      "level": 12,
+      "tripod": "311",
       "default_damage": 3564,
       "default_coefficient": 22.05,
       "base_damage_multiplier": 1.6,
@@ -99,12 +101,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["action_1"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "문라이트 소닉",
+      "level": 12,
+      "tripod": "122",
       "default_damage": 3650,
       "default_coefficient": 22.56,
       "base_damage_multiplier": 5.166,
@@ -117,12 +120,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "어스 슬래쉬",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 1901,
       "default_coefficient": 11.78,
       "base_damage_multiplier": 2.6894,
@@ -135,12 +139,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "마엘스톰",
+      "level": 7,
+      "tripod": "210",
       "default_damage": 1023,
       "default_coefficient": 6.07,
       "base_damage_multiplier": 1,
@@ -153,12 +158,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_2", "mael_storm_cooldown_indicator"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "스핀 커터_1회",
+      "level": 10,
+      "tripod": "231",
       "default_damage": 641,
       "default_coefficient": 3.45,
       "base_damage_multiplier": 1,
@@ -171,12 +177,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "스핀 커터",
+      "level": 10,
+      "tripod": "231",
       "default_damage": 641,
       "default_coefficient": 3.45,
       "base_damage_multiplier": 3,
@@ -189,12 +196,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "다크 악셀",
+      "level": 10,
+      "tripod": "112",
       "default_damage": 1635,
       "default_coefficient": 8.93,
       "base_damage_multiplier": 1,
@@ -243,7 +251,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["grant_burst"],
       "key_strokes" : 1,
       "mana_cost": 0
     }

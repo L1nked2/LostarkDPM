@@ -16,6 +16,8 @@
   "skill_preset": [
     {
       "name": "나이트메어_1타",
+      "level": 10,
+      "tripod": "131",
       "default_damage": 1452,
       "default_coefficient": 7.88,
       "base_damage_multiplier": 1,
@@ -28,12 +30,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_poison", "activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "속행_영웅"
     },
     {
       "name": "쉐도우 닷_1타",
+      "level": 10,
+      "tripod": "112",
       "default_damage": 984,
       "default_coefficient": 5.34,
       "base_damage_multiplier": 0.2,
@@ -46,12 +49,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["swoop_activation"],
       "key_strokes" : 1,
       "rune": "속행_전설"
     },
     {
       "name": "쉐도우 스톰",
+      "level": 12,
+      "tripod": "322",
       "default_damage": 3071,
       "default_coefficient": 19.04,
       "base_damage_multiplier": 3.64752,
@@ -64,12 +68,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "라스트 그래피티",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 2618,
       "default_coefficient": 16.23,
       "base_damage_multiplier": 3.06,
@@ -82,13 +87,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["deactivate_persona"],
       "base_additional_crit_rate": 0.4,
       "key_strokes" : 1,
       "rune": "압도_전설"
     },
     {
       "name": "레이지 스피어",
+      "level": 12,
+      "tripod": "231",
       "default_damage": 2742,
       "default_coefficient": 16.99,
       "base_damage_multiplier": 3.145,
@@ -101,12 +107,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["deactivate_persona"],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "댄싱 오브 퓨리",
+      "level": 12,
+      "tripod": "212",
       "default_damage": 2922,
       "default_coefficient": 18.17,
       "base_damage_multiplier": 3.994,
@@ -119,12 +126,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["deactivate_persona"],
       "key_strokes" : 1,
       "rune": "질풍_전설"
     },
     {
       "name": "사일런트 스매셔",
+      "level": 12,
+      "tripod": "321",
       "default_damage": 2799,
       "default_coefficient": 17.35,
       "base_damage_multiplier": 1.95,
@@ -137,7 +145,6 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["deactivate_persona"],
       "key_strokes" : 1,
       "rune": "압도_전설"
     },    
@@ -155,7 +162,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["grant_persona"],
       "key_strokes" : 1,
       "mana_cost": 0
     }

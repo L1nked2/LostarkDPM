@@ -89,6 +89,26 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  if name == '명령 : 레이드 미사일' or name == '에어 스트라이크':
+    skill.triggered_actions.append('grant_hyper_sync')
+  if name == '하이퍼 싱크 변신':
+    skill.triggered_actions.append('activate_hyper_sync')
+    skill.triggered_actions.append('activate_synergy')
+  if name == '하이퍼 싱크 변신해제':
+    skill.triggered_actions.append('deactivate_hyper_sync')
+  if skill.get_attribute('identity_type') == 'Sync':
+    skill.triggered_actions.append('evolutionary_legacy_action')
+  # apply tripods
+  if name == '과충전 배터리':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '에너지 버스터':
+    if tripod[1] == '1':
+      skill.triggered_actions.append('activate_flame_buster')
+  elif name == '기동 타격':
+    if tripod[1] == '2':
+      skill.triggered_actions.append('activate_agility')
 
 ######## Actions #########
 # 하이퍼 싱크 변신 사용 가능 전환
@@ -114,16 +134,15 @@ def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager
   buff_manager.unregister_buff('evolutionary_legacy')
   buff_manager.unregister_buff('synergy_1')
 
-# 변신시 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
-
-# 과충전 배터리 시너지 등록
-def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+# 변신시, 과충전 배터리 시너지 등록
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '하이퍼 싱크 변신':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '과충전 배터리':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 기동 타격 버프 등록
-def agility_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+def activate_agility(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Agility'], 'class')
 
 # 플레임 버스터 데미지 버프 등록

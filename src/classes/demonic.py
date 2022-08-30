@@ -76,16 +76,33 @@ def finalize_skill(skill: Skill):
   name  = skill.get_attribute('name')
   tripod = skill.get_attribute('tripod')
   rune = skill.get_attribute('rune')
+  # connect actions
+  if name == '악마화 변신':
+    skill.triggered_actions.append('demon_transform')
+  if name == '악마화 해제':
+    skill.triggered_actions.append('recover_human_form')
+  if name == '루인 러쉬' or name == '데스 클로':
+    skill.triggered_actions.append('activate_synergy')
+  if name == '데모닉 슬래쉬':
+    skill.triggered_actions.append('grant_transform')
+  # apply tripods
+  if name == '데모닉 슬래쉬':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[1] == '3':
+      skill.triggered_actions.append('activate_speed_buff')
+  if name == '하울링':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_synergy')
 
 
 ######## Actions #########
-# 데모닉 슬래쉬 피증 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
-
-# 하울링 피증 시너지 등록
-def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+# 데모닉 슬래쉬, 하울링 피증 시너지 등록
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '데모닉 슬래쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '하울링':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 슬래쉬 이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
