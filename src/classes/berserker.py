@@ -69,32 +69,54 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
+  # connect actions
+  # apply tripods
+  if name == '레드 더스트':
+    skill.triggered_actions.append('activate_ap_buff')
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[1] == '1':
+      skill.triggered_actions.append('activate_crit_buff')
+  elif name == '체인 소드':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_crit_buff')
+  elif name == '소드 스톰':
+    if tripod[2] == '1':
+      skill.triggered_actions.append('action_1')
+
+######## Actions #########
 # 피증 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '레드 더스트':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 레더 공증 버프 등록
-def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '레드 더스트':
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
 
-# 레더 치적 버프 등록
-def activate_crit_buff_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], 'class')
-
-# 체소 치적 버프 등록
-def activate_crit_buff_2(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_2'], 'class')
+# 레더, 체소 치적 버프 등록
+def activate_crit_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '레드 더스트':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '체인 소드':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_2'], 'class')
 
 # 소드 스톰 3트포 action
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Storm'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
-    s_bloody_rush_multiplier = s * SPEC_COEF_1
+    s_bloody_rush_multiplier = (1 + s * SPEC_COEF_1)
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)

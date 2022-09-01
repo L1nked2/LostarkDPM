@@ -12,6 +12,8 @@
   "skill_preset": [
     {
       "name": "방패 밀치기",
+      "level": 12,
+      "tripod": "331",
       "default_damage": 478,
       "default_coefficient": 2.96,
       "base_damage_multiplier": 3.52,
@@ -24,12 +26,13 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "속행_영웅"
     },
     {
       "name": "가디언의 낙뢰A",
+      "level": 12,
+      "tripod": "321",
       "default_damage": 1568,
       "default_coefficient": 9.71,
       "base_damage_multiplier": 4.5,
@@ -42,12 +45,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "가디언의 낙뢰B",
+      "level": 12,
+      "tripod": "321",
       "default_damage": 1568,
       "default_coefficient": 9.71,
       "base_damage_multiplier": 3.6,
@@ -60,12 +64,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "배쉬",
+      "level": 7,
+      "tripod": "110",
       "default_damage": 388,
       "default_coefficient": 2.4,
       "base_damage_multiplier": 1.0,
@@ -78,12 +83,13 @@
       "jewel_damage_level": 0,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": ["action_1"],
       "key_strokes" : 1,
       "rune": "출혈_전설"
     },
     {
       "name": "증오의 함성",
+      "level": 10,
+      "tripod": "131",
       "default_damage": 810,
       "default_coefficient": 4.41,
       "base_damage_multiplier": 1.0,
@@ -96,12 +102,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["action_2"],
       "key_strokes" : 1,
       "rune": "광분_전설"
     },
     {
       "name": "리프 어택(직타)",
+      "level": 12,
+      "tripod": "121",
       "default_damage": 1099,
       "default_coefficient": 6.84,
       "base_damage_multiplier": 3.25,
@@ -114,12 +121,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "질풍_전설"
     },
     {
       "name": "리프 어택(빠준)",
+      "level": 12,
+      "tripod": "221",
       "default_damage": 1099,
       "default_coefficient": 6.84,
       "base_damage_multiplier": 2.85,
@@ -132,12 +140,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "질풍_전설"
     },
     {
       "name": "방패 돌진",
+      "level": 12,
+      "tripod": "332",
       "default_damage": 177,
       "default_coefficient": 1.08,
       "base_damage_multiplier": 22.96,
@@ -150,12 +159,13 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "질풍_영웅"
     },
     {
       "name": "방패 격동",
+      "level": 12,
+      "tripod": "131",
       "default_damage": 544,
       "default_coefficient": 3.38,
       "base_damage_multiplier": 2.45,
@@ -168,7 +178,6 @@
       "jewel_damage_level": 10,
       "head_attack": true,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 2,
       "rune": "속행_전설"
     },
@@ -186,7 +195,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

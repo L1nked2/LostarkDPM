@@ -40,19 +40,39 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Actions
+
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
+  # connect actions
+  if name == 'AT02 유탄' and tripod[2] == '2' and rune[:2] =='출혈':
+    skill.triggered_actions.append('extend_bleed')
+  # apply tripods
+  if name == 'AT02 유탄':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '나선의 추적자':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy')
+
+######## Actions #########
 # 유탄 출혈 시간 갱신 action
-def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager):
+def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def duration_increase(buff: Buff):
     if buff.name == 'bleed':
       buff.duration += seconds_to_ticks(3)
   buff_manager.apply_function(duration_increase)
 
 # 치적 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if (skill_on_use.get_attribute('name') == 'AT02 유탄' 
+      or skill_on_use.get_attribute('name') == '나선의 추적자'):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

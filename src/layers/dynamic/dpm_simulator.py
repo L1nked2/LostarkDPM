@@ -143,12 +143,12 @@ class DpmSimulator:
     self.buffs_manager.apply_stat_buffs(self.current_character, target_skill)
     dmg_stats = self.current_character.extract_dmg_stats()
     damage = round(target_skill.calc_damage(**dmg_stats))
-    is_awakening =  bool(target_skill.identity_type == "Awakening")
+    is_awakening = bool(target_skill.identity_type == "Awakening")
     if self.verbose:
       print(f'{target_skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
     # start cooldown and handle triggered_actions
     target_skill.start_cooldown(self.current_character.cooldown_reduction)
-    self._handle_triggered_actions(target_skill.triggered_actions)
+    self._handle_triggered_actions(target_skill)
     # block skill_manger until delay is over
     delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     self.skills_manager.block_until(self.elapsed_tick + delay)
@@ -169,14 +169,14 @@ class DpmSimulator:
     self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history, self.skills_manager.dummy_skill)
     self.skills_manager.dummy_skill.reset()
   
-  def _handle_triggered_actions(self, triggered_actions):
-    for action_name in triggered_actions:
+  def _handle_triggered_actions(self, target_skill):
+    for action_name in target_skill.triggered_actions:
       action_func = getattr(self.class_module, action_name, None)
       if action_func is None:
         action_func = getattr(self.base_module, action_name, None)
       if action_func is None:
         raise Exception(f'Wrong action {action_name} given')
-      action_func(self.buffs_manager, self.skills_manager)
+      action_func(self.buffs_manager, self.skills_manager, target_skill)
     return
   
   def _sync_tick(self):

@@ -5,7 +5,9 @@ data example
 {
   "name": "버스트 캐넌",
   "default_damage": 3075,
-  "default_coefficient": 19.06,
+  "tripod": "312",
+  "level": 12,
+  "default_coefficient": 19.06, -> optional
   "base_damage_multiplier": 6.0512,
   "skill_type": "Charge",
   "identity_type": "Lance",
@@ -16,8 +18,11 @@ data example
   "jewel_damage_level": 7,
   "head_attack": true,
   "back_attack": false,
-  "triggered_actions": [],
+  'base_additional_crit_rate': 0.0, -> optional
+  'base_additional_crit_damage': 0.0, -> optional
+  "triggered_actions": [], -> optional
   "key_strokes" : 1,
+  'mana_cost': 1, -> optional
   "rune": "질풍_영웅"
 }
 """
@@ -28,34 +33,57 @@ from src.layers.utils import crit_to_multiplier
 
 DEFAULT_PRIORITY = 10
 SKILL_TYPES = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
+DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE = [
+  0.00000,
+  0.01640,
+  0.01020,
+  0.00832,
+  0.00732,
+  0.00671,
+  0.00632,
+  0.00601,
+  0.00576,
+  0.00559,
+  0.00543,
+  0.00591,
+  0.00620,
+]
 
 class Skill:
-    def __init__(self, name, default_damage, default_coefficient, 
+    def __init__(self, name, default_damage,
                   skill_type, identity_type, cooldown,
                   common_delay, type_specific_delay,
                   head_attack, back_attack,
-                  triggered_actions, **kwargs):
+                  level=12, default_coefficient=0, 
+                  triggered_actions=None, **kwargs):
         self.name = name
         self.default_damage = default_damage
-        self.default_coefficient = default_coefficient
-        self.cooldown = constants.seconds_to_ticks(cooldown)
+        self.level = level
+        if default_coefficient <= 0:
+          self.default_coefficient = self.default_damage * DEFAULT_DAMAGE_TO_COEFF_BY_LEVEL_TABLE[level]
+        else:
+          self.default_coefficient = default_coefficient
+        self.base_cooldown = constants.seconds_to_ticks(cooldown)
         self.skill_type = skill_type
         self.identity_type = identity_type
         self.base_common_delay = constants.seconds_to_ticks(common_delay)
         self.base_type_specific_delay = constants.seconds_to_ticks(type_specific_delay)
         self.head_attack = head_attack
         self.back_attack = back_attack
-        self.triggered_actions = triggered_actions
+        if triggered_actions is None:
+          self.triggered_actions = list()
+        else:
+          self.triggered_actions = triggered_actions
+        if self.identity_type == 'Awakening':
+          self.triggered_actions += ['try_activate_dominion_set']
 
         # handle additional variables
         self._init_additional_variables(**kwargs)
         self._apply_jewel()
         self._apply_rune()
-        if self.skill_type == 'Chain':
-          for i in range(self.key_strokes-1):
-            self.triggered_actions.extend(self.triggered_actions)
 
         # simulation variables
+        self.actual_cooldown = self.base_cooldown
         self.remaining_cooldown = 0.0
         self.priority = DEFAULT_PRIORITY
 
@@ -74,6 +102,7 @@ class Skill:
     # cancel buffs
     def reset(self):
         self.buff_applied = False
+        self.actual_cooldown = self.base_cooldown
         self.common_delay = self.base_common_delay
         self.type_specific_delay = self.base_type_specific_delay
         self.damage_multiplier = self.base_damage_multiplier
@@ -83,6 +112,7 @@ class Skill:
 
     def _init_additional_variables(self, **kwargs):
         default_values = {
+          'tripod': '000',
           'base_damage_multiplier': 1.0,
           'jewel_cooldown_level': 0,
           'jewel_damage_level': 0,
@@ -145,7 +175,7 @@ class Skill:
     def _apply_jewel(self):
         cj = constants.COOLDOWN_JEWEL_LIST[self.jewel_cooldown_level]
         dj = constants.DAMAGE_JEWEL_LIST[self.jewel_damage_level]
-        self.cooldown = self.cooldown * (1 - cj)
+        self.base_cooldown = self.base_cooldown * (1 - cj)
         self.base_damage_multiplier = self.base_damage_multiplier * (1 + dj)
     
     def _apply_rune(self):
@@ -166,11 +196,11 @@ class Skill:
     def start_cooldown(self, cooldown_reduction):
         if self.cooldown_on_finish:
           if self.skill_type == 'Combo':
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.common_delay
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.common_delay
           else:
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction) + self.actual_delay
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.actual_delay
         else:
-            self.remaining_cooldown = self.cooldown * (1-cooldown_reduction)
+            self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction)
     
     def update_remaining_cooldown(self, function):
         self.remaining_cooldown = max(0, function(self.remaining_cooldown))

@@ -15,6 +15,8 @@
   "skill_preset": [
     {
       "name": "아발란체",
+      "level": 12,
+      "tripod": "331",
       "default_damage": 2634,
       "default_coefficient": 16.30,
       "base_damage_multiplier": 3.088,
@@ -27,13 +29,14 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "심판_전설"
     },
     {
       "name": "전술 사격",
+      "level": 12,
+      "tripod": "132",
       "default_damage": 1972,
       "default_coefficient": 12.29,
       "base_damage_multiplier": 5.376,
@@ -46,13 +49,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "명령 : 베이비 드론",
+      "level": 12,
+      "tripod": "111",
       "default_damage": 3319,
       "default_coefficient": 20.48,
       "base_damage_multiplier": 6.656,
@@ -65,13 +69,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "단죄_전설"
     },
     {
       "name": "명령 : 레이드 미사일",
+      "level": 12,
+      "tripod": "331",
       "default_damage": 3206,
       "default_coefficient": 19.85,
       "base_damage_multiplier": 5.3312,
@@ -84,13 +89,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "압도_전설"
     },
     {
       "name": "어나힐레이션 모드",
+      "level": 12,
+      "tripod": "211",
       "default_damage": 852,
       "default_coefficient": 5.27,
       "base_damage_multiplier": 21.0816,
@@ -103,13 +109,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "에너지 버스터",
+      "level": 12,
+      "tripod": "112",
       "default_damage": 5192,
       "default_coefficient": 32.18,
       "base_damage_multiplier": 4.7763,
@@ -122,13 +129,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_flame_buster"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
     },
     {
       "name": "기동 타격",
+      "level": 10,
+      "tripod": "321",
       "default_damage": 1056,
       "default_coefficient": 5.67,
       "base_damage_multiplier": 0.0,
@@ -141,13 +149,14 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["agility_action"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "속행_전설"
     },
     {
       "name": "과충전 배터리",
+      "level": 6,
+      "tripod": "200",
       "default_damage": 707,
       "default_coefficient": 4.53,
       "base_damage_multiplier": 1,
@@ -160,7 +169,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": ["activate_synergy_2"],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "출혈_전설"
@@ -179,7 +187,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0
     }

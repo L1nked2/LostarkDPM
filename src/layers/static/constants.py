@@ -35,13 +35,20 @@ ENGRAVINGS = {
   ####### 공통각인 #######
   ## Static ##
   #원한
+  'Grudge_1': [('damage_multiplier', lambda x: x * 1.04)],
+  'Grudge_2': [('damage_multiplier', lambda x: x * 1.10)],
   'Grudge_3': [('damage_multiplier', lambda x: x * 1.20)],
   #저주받은인형
+  'Cursed_Doll_1': [('additional_attack_power', lambda x: x + 0.03)],
+  'Cursed_Doll_2': [('additional_attack_power', lambda x: x + 0.08)],
   'Cursed_Doll_3': [('additional_attack_power', lambda x: x + 0.16)],
   #정기흡수
+  'Spirit_Absorption_1': [('attack_speed', lambda x: x + 0.03), ('movement_speed', lambda x: x + 0.03)],
   'Spirit_Absorption_2': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08)],
   'Spirit_Absorption_3': [('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #예리한둔기
+  'Keen_Blunt_Weapon_1': [('crit_damage', lambda x: x + 0.10), ('damage_multiplier', lambda x: x * 0.98)],
+  'Keen_Blunt_Weapon_2': [('crit_damage', lambda x: x + 0.25), ('damage_multiplier', lambda x: x * 0.98)],
   'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('damage_multiplier', lambda x: x * 0.98)],
   #아드레날린
   'Adrenaline_1': [('additional_attack_power', lambda x: x + 0.018), ('crit_rate', lambda x: x + 0.05)],
@@ -59,22 +66,37 @@ ENGRAVINGS = {
   #정밀단도
   'Precise_Dagger_3': [('crit_rate', lambda x: x + 0.20), ('crit_damage', lambda x: x - 0.12)],
   #질량증가
+  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.04), ('attack_speed', lambda x: x - 0.10)],
+  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.10), ('attack_speed', lambda x: x - 0.10)],
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
+  'Awakening_1': [('static_buff_queue', lambda x: x + ['Awakening_1'])],
   'Awakening_2': [('static_buff_queue', lambda x: x + ['Awakening_2'])],
   'Awakening_3': [('static_buff_queue', lambda x: x + ['Awakening_3'])],
   ## Dynamic ##
   #돌격대장
+  'Raid_Captain_1': [('static_buff_queue', lambda x: x + ['Raid_Captain_1'])],
+  'Raid_Captain_2': [('static_buff_queue', lambda x: x + ['Raid_Captain_2'])],
   'Raid_Captain_3': [('static_buff_queue', lambda x: x + ['Raid_Captain_3'])],
   #결투의대가
+  'Master_Brawler_1': [('static_buff_queue', lambda x: x + ['Master_Brawler_1'])],
+  'Master_Brawler_2': [('static_buff_queue', lambda x: x + ['Master_Brawler_2'])],
   'Master_Brawler_3': [('static_buff_queue', lambda x: x + ['Master_Brawler_3'])],
   #기습의대가
+  'Master_Of_Ambush_1': [('static_buff_queue', lambda x: x + ['Master_Of_Ambush_1'])],
+  'Master_Of_Ambush_2': [('static_buff_queue', lambda x: x + ['Master_Of_Ambush_2'])],
   'Master_Of_Ambush_3': [('static_buff_queue', lambda x: x + ['Master_Of_Ambush_3'])],
   #타격의대가
+  'Hit_Master_1': [('static_buff_queue', lambda x: x + ['Hit_Master_1'])],
+  'Hit_Master_2': [('static_buff_queue', lambda x: x + ['Hit_Master_2'])],
   'Hit_Master_3': [('static_buff_queue', lambda x: x + ['Hit_Master_3'])],
   #속전속결
+  'All_Out_Attack_1': [('static_buff_queue', lambda x: x + ['All_Out_Attack_1'])],
+  'All_Out_Attack_2': [('static_buff_queue', lambda x: x + ['All_Out_Attack_2'])],
   'All_Out_Attack_3': [('static_buff_queue', lambda x: x + ['All_Out_Attack_3'])],
   #슈퍼차지
+  'Super_Charge_1': [('static_buff_queue', lambda x: x + ['Super_Charge_1'])],
+  'Super_Charge_2': [('static_buff_queue', lambda x: x + ['Super_Charge_2'])],
   'Super_Charge_3': [('static_buff_queue', lambda x: x + ['Super_Charge_3'])],
 
   ####### 직업각인 #######
@@ -112,7 +134,9 @@ ENGRAVINGS = {
   #핸드거너
   'Pistoleer_3': [('static_buff_queue', lambda x: x + ['Pistoleer_3'])],
   #화력강화
+  'Firepower_Enhancement_3': [('static_buff_queue', lambda x: x + ['Firepower_Enhancement_3'])],
   #포격강화
+  'Barrage_Enhancement_3': [('static_buff_queue', lambda x: x + ['Barrage_Enhancement_3'])],
   #두번째동료
   #죽음의습격
   #아르데타인의기술

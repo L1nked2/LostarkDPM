@@ -70,28 +70,53 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
-# 데모닉 슬래쉬 피증 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
+  # connect actions
+  if name == '악마화 변신':
+    skill.triggered_actions.append('demon_transform')
+  if name == '악마화 해제':
+    skill.triggered_actions.append('recover_human_form')
+  if name == '루인 러쉬' or name == '데스 클로':
+    skill.triggered_actions.append('activate_synergy')
+  if name == '데모닉 슬래쉬':
+    skill.triggered_actions.append('grant_transform')
+  # apply tripods
+  if name == '데모닉 슬래쉬':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[1] == '3':
+      skill.triggered_actions.append('activate_speed_buff')
+  if name == '하울링':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_synergy')
 
-# 하울링 피증 시너지 등록
-def activate_synergy_2(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+
+######## Actions #########
+# 데모닉 슬래쉬, 하울링 피증 시너지 등록
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '데모닉 슬래쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '하울링':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 슬래쉬 이속 버프 등록
-def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
 
 # 악마화 변신 가능 action
-def grant_transform(buff_manager: BuffManager, skill_manager: SkillManager):
+def grant_transform(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
      if skill.get_attribute('name') == '악마화 변신':
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(cooldown_reduction)
 
 # 악마화 변신 action
-def demon_transform(buff_manager: BuffManager, skill_manager: SkillManager):
+def demon_transform(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   s_multiplier = 1 + buff_manager.character_specialization * SPEC_COEF_2
   transform_time_limit = DEFAULT_TRANSFORM_TIME_LIMIT * s_multiplier
   buff_manager.register_buff(CLASS_BUFF_DICT['Demon_State'], 'class')
@@ -109,15 +134,14 @@ def demon_transform(buff_manager: BuffManager, skill_manager: SkillManager):
     skill_manager.apply_function(cooldown_reduction)
 
 # 악마화 해제 action
-def recover_human_form(buff_manager: BuffManager, skill_manager: SkillManager):
+def recover_human_form(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('demon_state')
   def recover_cooldown(skill: Skill):
     if skill.get_attribute('identity_type') == 'Common':
       skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(recover_cooldown)
   
-
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

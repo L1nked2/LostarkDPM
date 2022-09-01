@@ -12,6 +12,8 @@
   "skill_preset": [
     {
       "name": "뇌호격",
+      "level": 12,
+      "tripod": "211",
       "default_damage": 3809,
       "default_coefficient": 23.6,
       "base_damage_multiplier": 5.236,
@@ -24,13 +26,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
     },
     {
       "name": "호왕출현",
+      "level": 12,
+      "tripod": "322",
       "default_damage": 4756,
       "default_coefficient": 29.47,
       "base_damage_multiplier": 3.4816,
@@ -43,13 +46,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "풍신초래",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 366,
       "default_coefficient": 2.28,
       "base_damage_multiplier": 38.124,
@@ -62,13 +66,14 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"
     },
     {
       "name": "붕천퇴",
+      "level": 11,
+      "tripod": "132",
       "default_damage": 714,
       "default_coefficient": 4.22,
       "base_damage_multiplier": 1,
@@ -81,12 +86,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["activate_speed_buff"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "번개의 속삭임",
+      "level": 12,
+      "tripod": "311",
       "default_damage": 2690,
       "default_coefficient": 16.66,
       "base_damage_multiplier": 1,
@@ -99,12 +105,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": ["prepare_esoteric", "activate_synergy_1"],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "격호각",
+      "level": 12,
+      "tripod": "211",
       "default_damage": 2178,
       "default_coefficient": 13.53,
       "base_damage_multiplier": 1.2,
@@ -117,12 +124,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "월섬각",
+      "level": 12,
+      "tripod": "312",
       "default_damage": 2529,
       "default_coefficient": 15.65,
       "base_damage_multiplier": 2.364,
@@ -135,12 +143,13 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
     {
       "name": "운룡각",
+      "level": 4,
+      "tripod": "100",
       "default_damage": 956,
       "default_coefficient": 7,
       "base_damage_multiplier": 1,
@@ -153,7 +162,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "rune": "None"
     },
@@ -171,7 +179,6 @@
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": false,
-      "triggered_actions": [],
       "mana_cost": 0,
       "key_strokes" : 1
     }

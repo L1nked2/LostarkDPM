@@ -21,6 +21,14 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  # 에러 출력 방지용 더미 일격필살 버프
+  'Deathblow_3': {
+    'name': 'deathblow',
+    'buff_type': 'stat',
+    'effect': None,
+    'duration': 999999,
+    'priority': 7,
+  },
   'Esoteric_Prepared_4': {
     'name': 'esoteric_prepared',
     'buff_type': 'stat',
@@ -55,29 +63,47 @@ CLASS_BUFF_DICT = {
   },
 }
 
-# Actions
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
+  # connect actions
+  if name == '번개의 속삭임':
+    skill.triggered_actions.append('prepare_esoteric')
+    skill.triggered_actions.append('activate_synergy')
+  # apply tripods
+  if name == '붕천퇴':
+    if tripod[1] == '3':
+      skill.triggered_actions.append('activate_speed_buff')
+  elif name == '폭쇄진':
+    if tripod[1] == '3':
+      skill.triggered_actions.append('action_1')
+
+######## Actions #########
 # 버블 활성화
-def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager):
+def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if not buff_manager.is_buff_exists('esoteric_prepared'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Esoteric_Prepared_4'], 'class')
 
 # 버블 사용
-def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager):
+def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('esoteric_prepared')
 
 # 번개의 속삭임 시너지 등록
-def activate_synergy_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
 
 # 붕천퇴 공이속 버프 등록
-def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager):
+def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
 
 # 폭쇄진 2트포 화염 폭발 action
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
+def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Explosion'], 'class')
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)

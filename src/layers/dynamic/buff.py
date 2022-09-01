@@ -48,7 +48,7 @@ class DamageBuff(Buff):
         tick_diff = current_tick - self.last_tick
         crit_multiplier = crit_to_multiplier(crit_rate, crit_damage)
         if tick_diff >= self.damage_interval:
-          damage_value = (tick_diff // self.damage_interval) * (self.base_damage + attack_power) * self.coefficient * crit_multiplier * total_multiplier
+          damage_value = (tick_diff // self.damage_interval) * (self.base_damage + attack_power * self.coefficient) * crit_multiplier * total_multiplier
           self.last_tick = current_tick
         return round(damage_value)
 

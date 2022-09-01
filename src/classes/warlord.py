@@ -71,34 +71,57 @@ CLASS_BUFF_DICT = {
   }
 }
 
-# Actions
-# 배쉬 공증 및 시너지
-def action_1(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+######## Finalize Skill #########
+# finalize skill by tripod and rune
+def finalize_skill(skill: Skill):
+  name  = skill.get_attribute('name')
+  tripod = skill.get_attribute('tripod')
+  rune = skill.get_attribute('rune')
+  # connect actions
+  
+  # apply tripods
+  if name == '배쉬':
+    if tripod[0] == '1':
+      skill.triggered_actions.append('activate_synergy')
+    if tripod[1] == '1':
+      skill.triggered_actions.append('activate_ap_buff')
+  elif name == '대쉬 어퍼 파이어':
+    if tripod[0] == '3':
+      skill.triggered_actions.append('activate_ap_buff')
+  elif name == '증오의 함성':
+    if tripod[2] == '1':
+      skill.triggered_actions.append('activate_synergy')
+  elif name == '파이어 불릿':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('lucky_chance_action')
 
-# 증오의 함성 시너지
-def action_2(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+######## Actions #########
+# 배쉬, 대쉬 어퍼 파이어 공증
+def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '배쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '대쉬 어퍼 파이어':
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
 
-# 대쉬 어퍼 파이어 공증
-def action_3(buff_manager: BuffManager, skill_manager: SkillManager):
-  buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
+# 배쉬, 증오의 함성 시너지
+def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '배쉬':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  elif skill_on_use.get_attribute('name') == '증오의 함성':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
 
 # 파이어불릿 1트포 행운의 기회
-def action_4(buff_manager: BuffManager, skill_manager: SkillManager):
+def lucky_chance_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     n = skill.get_attribute('name')
     if n == '파이어 불릿':
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(4.9))
     return
-  if check_chance(0.50):
-    skill_manager.apply_function(cooldown_reduction)
-  if check_chance(0.50):
+  if check_chance(0.75, '파이어 불릿'):
     skill_manager.apply_function(cooldown_reduction)
 
-# Buff bodies
+######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * SPEC_COEF)

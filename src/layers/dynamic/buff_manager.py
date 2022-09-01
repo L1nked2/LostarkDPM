@@ -12,6 +12,7 @@ class BuffManager():
         self.character_specialization = base_character.specialization
         self.verbose = verbose
         self.base_buff_module = importlib.import_module("src.classes.base")
+        self.base_buff_table = self.base_buff_module.COMMON_BUFF_DICT
         import_target = "src.classes." + self.base_character.class_name
         self.class_buff_module = importlib.import_module(import_target)
         self.class_buff_table = self.class_buff_module.CLASS_BUFF_DICT
@@ -34,8 +35,8 @@ class BuffManager():
         self.register_buff(self.class_buff_table['Specialization'], 'class')
 
         for buff_name in buffs_name_list:
-          if buff_name in self.base_buff_module.COMMON_BUFF_DICT:
-            self.register_buff(self.base_buff_module.COMMON_BUFF_DICT[buff_name], 'base')
+          if buff_name in self.base_buff_table:
+            self.register_buff(self.base_buff_table[buff_name], 'base')
           elif buff_name in self.class_buff_table:
             self.register_buff(self.class_buff_table[buff_name], 'class')
           else:
