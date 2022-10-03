@@ -155,6 +155,7 @@ ENGRAVINGS = {
   #황후의은총
   #황제의칙령
   #점화
+  'Igniter_3': [('static_buff_queue', lambda x: x + ['Igniter_Enabled_3'])],
   #환류  
   #잔재된기운
   'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],

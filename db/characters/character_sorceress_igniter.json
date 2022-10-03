@@ -1,0 +1,26 @@
+{
+  "character_settings": [
+    {
+      "class_name": "sorceress",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 1600,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Cursed_Doll_3", "All_Out_Attack_3", "Hit_Master_3", "Igniter_3", "Adrenaline_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["악몽A_6_3"],
+      "skill_set": "./db/skills/sorceress_igniter.json"
+    },
+    {
+      "class_name": "sorceress",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 1600,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "All_Out_Attack_3", "Hit_Master_3", "Igniter_3", "Adrenaline_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["환각_6_3"],
+      "skill_set": "./db/skills/sorceress_igniter.json"
+    }
+  ]
+}

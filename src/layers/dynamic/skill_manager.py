@@ -165,6 +165,7 @@ class SkillManager:
         tick = self.last_tick
         for skill_name in cycle:
           if not self._is_skill_available_on(skill_name, tick):
+            #print(skill_name, 'not available')
             return False
           tick += self.skill_pool[skill_name].prev_delay
         return True
