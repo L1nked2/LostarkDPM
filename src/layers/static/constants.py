@@ -112,6 +112,7 @@ ENGRAVINGS = {
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
   #분노의망치
+  'Rage_Hammer_3': [('static_buff_queue', lambda x: x + ['Rage_Hammer_3'])],
   #중력수련
   #오의강화
   #초심
@@ -154,6 +155,7 @@ ENGRAVINGS = {
   #황후의은총
   #황제의칙령
   #점화
+  'Igniter_3': [('static_buff_queue', lambda x: x + ['Igniter_Enabled_3'])],
   #환류  
   #잔재된기운
   'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
