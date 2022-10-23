@@ -1,0 +1,20 @@
+{
+	"character_settings": [
+		{
+			"class_name": "blaster",
+			"upgrade": 25,
+			"crit": 100,
+			"specialization": 100,
+			"swiftness": 2000,
+			"engravings": [
+				"Synergy_Damage_B",
+				"Spirit_Absorption_1",
+				"Synergy_Head_Back"
+			],
+			"artifact_set": [
+				"\uad6c\uc6d0_6_2"
+			],
+			"skill_set": "../db/skills/blaster_firepower_enhancement.json"
+		}
+	]
+}
