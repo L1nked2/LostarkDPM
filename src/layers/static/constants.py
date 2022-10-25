@@ -66,8 +66,8 @@ ENGRAVINGS = {
   #정밀단도
   'Precise_Dagger_3': [('crit_rate', lambda x: x + 0.20), ('crit_damage', lambda x: x - 0.12)],
   #질량증가
-  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.04), ('attack_speed', lambda x: x - 0.10)],
-  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.10), ('attack_speed', lambda x: x - 0.10)],
+  'Increase_Mass_1': [('additional_attack_power', lambda x: x + 0.04), ('attack_speed', lambda x: x - 0.10)],
+  'Increase_Mass_2': [('additional_attack_power', lambda x: x + 0.10), ('attack_speed', lambda x: x - 0.10)],
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
   'Awakening_1': [('static_buff_queue', lambda x: x + ['Awakening_1'])],
