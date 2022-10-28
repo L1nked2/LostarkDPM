@@ -24,16 +24,14 @@ class ResultWindowClass(QDialog, result_form_class) :
         self.display_result()
         #self.share_TW.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
 
-        def run_simulator(self):
-            return True
+    def run_simulator(self):
+        return True
 
-        def display_result(self):
-            dps = '0'
-            dps6 = '0'
-            dps8 = '0'
-            dps10 = '0'
+    def display_result(self):
+        dps, dps6, dps8, dps10 = list(map(str, self.result_simulator.get_DPS_results()))
 
-            self.dps_TB.append(dps)
-            self.dps6_TB.append(dps6)
-            self.dps8_TB.append(dps8)
-            self.dps10_TB.append(dps10)
+        self.dps_TB.append(dps)
+        self.dps6_TB.append(dps6)
+        self.dps8_TB.append(dps8)
+        self.dps10_TB.append(dps10)
+

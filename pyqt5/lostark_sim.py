@@ -26,9 +26,9 @@ class lostark_sim():
             load_json = json.load(load_file)
             return load_json["character_settings"][0]["class_name"]
 
-    def get_character_configs(self, character_file_name):
-        character_configs = import_character(characters_root_path + character_file_name)
-        return character_configs
+    #def get_character_configs(self, character_file_name):
+    #    character_configs = import_character(characters_root_path + character_file_name)
+    #    return character_configs
 
     def get_character_dict(self, character_dict):
         character_factory = CharacterFactory(**character_dict)
@@ -40,9 +40,6 @@ class lostark_sim():
     def get_engravings(self):
         return list(ENGRAVINGS.keys())
 
-    def get_stat_range(self):
-        return True
-
     def run_simulator(self, character_json):
         for setting in character_json['character_settings']:
             self.simulator = DpmSimulator(self.get_character_dict(setting), verbose=False)
@@ -51,3 +48,6 @@ class lostark_sim():
 
     def print_simulation_result(self):
         self.simulator.print_result()
+
+    def get_DPS_results(self):
+        return self.simulator.get_result()

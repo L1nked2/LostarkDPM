@@ -115,6 +115,7 @@ class SettingWindowClass(QDialog, setting_form_class):
 
     def init_stat_SB(self):
         self.stat_SB1.setRange(0, 25)
+        self.stat_SB1.setValue(25)
         for i in range(3):
             getattr(self, 'stat_SB'+str(i+2)).setRange(0, MAX_STAT_SUM)
         self.remain_stat_L.setText("Remaining Stat: 2200pt")
