@@ -9,6 +9,7 @@ from PyQt5 import uic
 
 from ResultWindow import ResultWindowClass
 from lostark_sim import lostark_sim
+from translator import translator
 
 CHARACTER_SETTING_FILEPATH = '../DB/character_settings.json'
 ui_path = os.path.dirname(os.path.abspath(__file__))
@@ -23,8 +24,10 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.setFixedHeight(254)
 
         self.lostark_sim = lostark_sim()
+        self.translator = translator()
         self.flag = False
         #self.remain_stat = MAX_STAT_SUM
+        self.is_kor = True
 
         with open(CHARACTER_SETTING_FILEPATH, 'r') as load_file:
             self.loaded_data = json.load(load_file)
@@ -96,8 +99,9 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.class_CB.addItem("Choose class")
         classnames = self.lostark_sim.get_character_file_names()
         for classname in classnames:
-            classname = classname[10:-5]
-            self.class_CB.addItem(classname)
+            classname = classname[10:]
+            self.class_CB.addItem(self.translator.translate_classname(classname, self.is_kor))
+            
 
     def generate_artifact_CB(self):
         self.artifact_CB.addItem("Choose artifact")
@@ -111,7 +115,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         for i in range(6):
             getattr(self, 'engraving_CB'+str(i+1)).addItem("Choose engraving")
             for engraving in engravings:
-                getattr(self, 'engraving_CB'+str(i+1)).addItem(engraving)
+                getattr(self, 'engraving_CB'+str(i+1)).addItem(self.translator.translate_engravings(engraving, self.is_kor))
 
     def init_stat_SB(self):
         self.stat_SB1.setRange(0, 25)
