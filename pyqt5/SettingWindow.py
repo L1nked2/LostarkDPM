@@ -26,6 +26,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.lostark_sim = lostark_sim()
         self.translator = translator()
         self.flag = False
+        self.engraving_flag = False
         #self.remain_stat = MAX_STAT_SUM
         self.is_kor = True
 
@@ -63,7 +64,7 @@ class SettingWindowClass(QDialog, setting_form_class):
     def class_selected_func(self):
         if self.class_CB.currentIndex() == 0:
             self.flag = False
-            self.set_elements_enable(False)
+            #self.set_elements_enable(False)
             self.clear_elements()
         else:
             self.flag = True
@@ -111,6 +112,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             self.artifact_CB.addItem(artifact)
 
     def generate_engraving_CB(self):
+        self.engraving_flag = True
         engravings = self.lostark_sim.get_engravings()
         for i in range(6):
             getattr(self, 'engraving_CB'+str(i+1)).addItem("Choose engraving")
@@ -121,7 +123,9 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.stat_SB1.setRange(0, 25)
         self.stat_SB1.setValue(25)
         for i in range(3):
-            getattr(self, 'stat_SB'+str(i+2)).setRange(0, MAX_STAT_SUM)
+            temp_attr = getattr(self, 'stat_SB'+str(i+2))
+            temp_attr.setRange(0, MAX_STAT_SUM)
+            temp_attr.setValue(0)
         self.remain_stat_L.setText("Remaining Stat: 2200pt")
 
     def update_artifact_CB(self):
@@ -131,7 +135,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             self.generate_artifact_CB()
 
     def update_engraving_CB(self, index = 0):
-        if self.engraving_CB1.count():
+        if self.engraving_flag:
             return True
         else:
             self.generate_engraving_CB()
@@ -150,16 +154,29 @@ class SettingWindowClass(QDialog, setting_form_class):
         current_engravings = []
         for i in range(6):
             if getattr(self, 'engraving_CB'+str(i+1)).currentIndex() != 0:
-                current_engravings.append(getattr(self, 'engraving_CB'+str(i+1)).currentText())
+                engraving_name = self.translator.get_filename_by_engravings(getattr(self, 'engraving_CB'+str(i+1)).currentText())
+                current_engravings.append(engraving_name)
         return current_engravings
 
     def clear_elements(self):
+        self.artifact_CB.clear()
+        for i in range(6):
+            getattr(self, 'engraving_CB'+str(i+1)).clear()
+        self.engraving_flag = False
+        self.init_stat_SB()
         print("element clear")
+        
+    def init(self):
+        self.class_CB.clear()
+        self.clear_elements()
+        self.set_elements_enable(False)
+        self.generate_class_CB()
         
     def accepted(self):
         if self.flag:
-            skill_set_path = f"../db/skills/{self.class_CB.currentText()}.json"
-            self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_one_character_name(f"character_{self.class_CB.currentText()}.json"))
+            character_filename = self.translator.get_filename_by_classname(self.class_CB.currentText())
+            skill_set_path = f"../db/skills/{character_filename}"
+            self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_one_character_name(f"character_{character_filename}"))
             for i in range(4):
                 self.add_character_setting(self.character_setting_keys[i+1], getattr(self, 'stat_SB'+str(i+1)).value())
             self.add_character_setting(self.character_setting_keys[5], self.get_current_engravings_list())
@@ -199,6 +216,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.hide()
         self.result_window = ResultWindowClass(self.lostark_sim)
         self.result_window.exec()
+        self.init()
         self.show()
 
     def test(self):
