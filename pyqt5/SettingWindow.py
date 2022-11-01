@@ -36,11 +36,13 @@ class SettingWindowClass(QDialog, setting_form_class):
 
         self.result_dict = dict()
 
-        self.set_elements_enable(False)
-        self.generate_class_CB()
+        self.init()
 
-        self.buttonBox.accepted.connect(self.accepted)
+        #Element function allocating
+        self.buttonBox.accepted.connect(self.accepted) # Forced window closs
         self.buttonBox.rejected.connect(self.rejected)
+        self.clear_Btn.clicked.connect(self.init)
+        self.add_Btn.clicked.connect(self.open_new_setting_window)
 
         self.class_CB.currentIndexChanged.connect(self.class_selected_func)
         self.artifact_CB.currentIndexChanged.connect(self.artifact_selected_func)
@@ -103,7 +105,6 @@ class SettingWindowClass(QDialog, setting_form_class):
             classname = classname[10:]
             self.class_CB.addItem(self.translator.translate_classname(classname, self.is_kor))
             
-
     def generate_artifact_CB(self):
         self.artifact_CB.addItem("Choose artifact")
         self.flag = False
@@ -213,13 +214,17 @@ class SettingWindowClass(QDialog, setting_form_class):
                 self.result_dict.setdefault(key, value)
 
     def open_result_window(self):
-        self.hide()
-        self.result_window = ResultWindowClass(self.lostark_sim)
-        self.result_window.exec()
+        # self.hide()
+        result_window = ResultWindowClass(self.lostark_sim)
+        result_window.exec()
         self.init()
-        self.show()
+        # self.show()
 
     def test(self):
         file_path = "./saved_json.json"
         with open(file_path, 'w', encoding='UTF-8') as makefile:
             json.dump(self.result_json, makefile, indent = '\t')
+            
+    def open_new_setting_window(self):
+        new_window = SettingWindowClass()
+        new_window.exec()

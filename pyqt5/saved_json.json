@@ -3,19 +3,11 @@
 		{
 			"class_name": "demonic",
 			"upgrade": 25,
-			"crit": 100,
+			"crit": 0,
 			"specialization": 0,
 			"swiftness": 0,
-			"engravings": [
-				"Synergy_Damage_A",
-				"Synergy_Crit_B",
-				"Synergy_Crit_B",
-				[
-					"Synergy_Damage_A"
-				]
-			],
+			"engravings": [],
 			"artifact_set": [
-				"\uc9c0\ubc30_6_2",
 				"\uc9c0\ubc30_6_3"
 			],
 			"skill_set": "../db/skills/demonic_demonic_impulse.json"
