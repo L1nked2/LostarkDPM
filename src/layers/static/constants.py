@@ -177,9 +177,9 @@ ENGRAVINGS = {
 # Artifact Sets
 ARTIFACT_TABLE = {
   #지배
-  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_1'])],
-  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_2'])],
-  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_3'])],
+  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_1'])],
+  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_2'])],
+  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_3'])],
   #악몽
   '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
   '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],

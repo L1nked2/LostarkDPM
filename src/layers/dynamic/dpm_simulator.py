@@ -78,8 +78,10 @@ class DpmSimulator:
   
   def print_damage_details(self):
     print(f'Damage_Details: {self.damage_history.get_damage_details()}')
+    
+  def print_dpct_details(self):
     print(f'DPCT_by_Percentage: {self.dpct_by_percentage_statistics}')
-  
+
   def print_delay_statistics(self):
     result = dict()
     for skill_name in self.delay_statistics:

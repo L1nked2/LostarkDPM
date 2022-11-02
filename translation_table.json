@@ -1,5 +1,6 @@
 {
   "class_trans_kor": {
+    "battlemaster_first_intention.json": "배틀마스터(초심)",
     "berserker_mayhem.json": "버서커(광기)",
     "blade_burst.json": "블레이드(버스트)",
     "blade_remaining_energy.json": "블레이드(잔재된 기운)",
@@ -7,6 +8,7 @@
     "blaster_firepower_enhancement.json": "블래스터(화력 강화)",
     "demonic_demonic_impulse.json": "데모닉(멈출수 없는 충동)",
     "demonic_perfect_suppression.json": "데모닉(완벽한 억제)",
+    "destroyer_rage_hammer.jsonn.json": "디스트로이어(분노의 망치)",
     "devilhunter_enhanced_weapon.json": "데빌헌터(강화 무기)",
     "devilhunter_pistoleer.json": "데빌헌터(핸드거너)",
     "gunslinger_peace_maker.json": "건슬링어(피스메이커)",
@@ -21,13 +23,14 @@
     "striker_deathblow_c1.json.json": "스트라이커(일격필살, 3오의 풍신초래)",
     "striker_deathblow_e2.json.json": "스트라이커(일격필살, 2오의 방천격)",
     "striker_deathblow.json.json": "스트라이커(일격필살, 3오의 폭쇄진)",
-    "warlord_combat_readiness_c1.jsonn": "워로드(전투태세, 피해행운 50% 적중)",
+    "warlord_combat_readiness_c1.json": "워로드(전투태세, 피해행운 50% 적중)",
     "warlord_combat_readiness_c2.json": "워로드(전투태세, 피해행운 50% 적중 & 리프어택 빠른 준비)",
     "warlord_combat_readiness.json": "워로드(전투태세, 피해행운 100% 적중)",
     "warlord_lone_knight_c1.json": "워로드(고독한 기사, 대쉬 어퍼 파이어 빠른 준비)",
     "warlord_lone_knight.json": "워로드(고독한 기사)"
   },
   "class_trans_eng": {
+    "battlemaster_first_intention.json": "Wardancer(first intention)",
     "berserker_mayhem.json": "Berserker(mayhem)",
     "blade_burst.json": "Deathblade(surge)",
     "blade_remaining_energy.json": "Deathblade(remaining energy)",
@@ -35,6 +38,7 @@
     "blaster_firepower_enhancement.json": "Artillerist(firepower enhancement)",
     "demonic_demonic_impulse.json": "Shadowhunter(demonic impulse)",
     "demonic_perfect_suppression.json": "Shadowhunter(perfect suppression)",
+    "destroyer_rage_hammer.jsonn.json": "Destroyer(rage hammer)",
     "devilhunter_enhanced_weapon.json": "Deadeye(enhanced weapon)",
     "devilhunter_pistoleer.json": "Deadeye(pistoleer)",
     "gunslinger_peace_maker.json": "Gunslinger(peace maker)",
@@ -135,6 +139,7 @@
     "Time_To_Hunt_1": "사냥의 시간 1레벨",
     "Time_To_Hunt_3": "사냥의 시간 3레벨",
     "Peace_Maker_1": "피스메이커 1레벨",
+    "Master_Summoner_3": "상급소환사 3레벨",
     "Igniter_3": "점화 3레벨",
     "Remaining_Energy_1": "잔재된 기운 1레벨",
     "Remaining_Energy_3": "잔재된 기운 3레벨",
