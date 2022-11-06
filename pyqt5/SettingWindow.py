@@ -7,13 +7,27 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
 
-from ResultWindow import ResultWindowClass
-from lostark_sim import lostark_sim
-from translator import translator
+from .ResultWindow import ResultWindowClass
+from .lostark_sim import lostark_sim
+from .translator import translator
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
-CHARACTER_SETTING_FILEPATH = '../DB/character_settings.json'
-ui_path = os.path.dirname(os.path.abspath(__file__))
-setting_form_class = uic.loadUiType(os.path.join(ui_path, "sample.ui"))[0]
+
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+  CHARACTER_SETTING_FILEPATH = resource_path('./db/character_settings.json')
+  ui_path = resource_path('sample.ui')
+else:
+  CHARACTER_SETTING_FILEPATH = './db/character_settings.json'
+  ui_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sample.ui")
+
+#ui_path = os.path.dirname(os.path.abspath(__file__))
+#setting_form_class = uic.loadUiType(os.path.join(ui_path, "sample.ui"))[0]
+
+ui_path = resource_path('sample.ui')
+setting_form_class = uic.loadUiType(ui_path)[0]
 
 MAX_STAT_SUM = 2200
 
@@ -176,7 +190,7 @@ class SettingWindowClass(QDialog, setting_form_class):
     def accepted(self):
         if self.flag:
             character_filename = self.translator.get_filename_by_classname(self.class_CB.currentText())
-            skill_set_path = f"../db/skills/{character_filename}"
+            skill_set_path = f"./db/skills/{character_filename}"
             self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_one_character_name(f"character_{character_filename}"))
             for i in range(4):
                 self.add_character_setting(self.character_setting_keys[i+1], getattr(self, 'stat_SB'+str(i+1)).value())
@@ -189,7 +203,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             temp = []
             temp.append(self.result_dict)
             self.result_json.setdefault('character_settings', temp)
-            self.test()
+            #self.test()
             self.lostark_sim.run_simulator(self.result_json)
             print("accepted")
             self.open_result_window()
@@ -220,10 +234,10 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.init()
         # self.show()
 
-    def test(self):
-        file_path = "./saved_json.json"
-        with open(file_path, 'w', encoding='UTF-8') as makefile:
-            json.dump(self.result_json, makefile, indent = '\t')
+    # def test(self):
+    #     file_path = "./saved_json.json"
+    #     with open(file_path, 'w', encoding='UTF-8') as makefile:
+    #         json.dump(self.result_json, makefile, indent = '\t')
             
     def open_new_setting_window(self):
         new_window = SettingWindowClass()

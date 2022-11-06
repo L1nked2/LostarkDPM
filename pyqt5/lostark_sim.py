@@ -11,11 +11,18 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.utils import CharacterFactory
 from src.layers.static.constants import ENGRAVINGS, ARTIFACT_TABLE
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 class lostark_sim():
     def __init__(self):
-        self.characters_root_path = '../db/characters/'
-        self.character_file_names = os.listdir(self.characters_root_path)
+      if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        self.characters_root_path = resource_path('./db/characters/')
+      else:
+        self.characters_root_path = './db/characters/'
+      self.character_file_names = os.listdir(self.characters_root_path)
 
     def get_character_file_names(self):
         return self.character_file_names
@@ -48,6 +55,9 @@ class lostark_sim():
 
     def print_simulation_result(self):
         self.simulator.print_result()
+        self.simulator.print_damage_details()
+        self.simulator.print_delay_statistics()
+        self.simulator.print_nuking_cycle()
 
     def get_DPS_results(self):
         return self.simulator.get_result()
