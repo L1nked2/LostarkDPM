@@ -12,8 +12,9 @@ from lostark_sim import lostark_sim
 from translator import translator
 
 CHARACTER_SETTING_FILEPATH = '../DB/character_settings.json'
+cwd = os.getcwd()
 ui_path = os.path.dirname(os.path.abspath(__file__))
-setting_form_class = uic.loadUiType(os.path.join(ui_path, "setting_window.ui"))[0]
+setting_form_class = uic.loadUiType(os.path.join(ui_path, "setting_window_alpha.ui"))[0]
 
 MAX_STAT_SUM = 2200
 
@@ -37,31 +38,15 @@ class SettingWindowClass(QDialog, setting_form_class):
 
         self.result_dict = dict()
 
+        self.set_widget_size()
+        self.allocate_function()
         self.init()
-
-        #Element function allocating
-        self.buttonBox.accepted.connect(self.accepted) # Forced window closs
-        self.buttonBox.rejected.connect(self.rejected)
-        self.clear_Btn.clicked.connect(self.accepted)
-        self.add_Btn.clicked.connect(self.open_new_setting_window)
-
-        self.class_CB.currentIndexChanged.connect(self.class_selected_func)
-        self.artifact_CB.currentIndexChanged.connect(self.artifact_selected_func)
-        self.engraving_CB1.currentIndexChanged.connect(lambda: self.engraving_selected_func('1'))
-        self.engraving_CB2.currentIndexChanged.connect(lambda: self.engraving_selected_func('2'))
-        self.engraving_CB3.currentIndexChanged.connect(lambda: self.engraving_selected_func('3'))
-        self.engraving_CB4.currentIndexChanged.connect(lambda: self.engraving_selected_func('4'))
-        self.engraving_CB5.currentIndexChanged.connect(lambda: self.engraving_selected_func('5'))
-        self.engraving_CB6.currentIndexChanged.connect(lambda: self.engraving_selected_func('6'))
-        self.stat_SB2.valueChanged.connect(lambda: self.stat_changed_func('2'))
-        self.stat_SB3.valueChanged.connect(lambda: self.stat_changed_func('3'))
-        self.stat_SB4.valueChanged.connect(lambda: self.stat_changed_func('4'))
 
     def set_elements_enable(self, bool):
         self.artifact_CB.setEnabled(bool)
         for i in range(4):
             getattr(self, 'stat_SB'+str(i+1)).setEnabled(bool)
-        for j in range(6):
+        for j in range(10):
             getattr(self, 'engraving_CB'+str(j+1)).setEnabled(bool)
 
     def class_selected_func(self):
@@ -116,7 +101,7 @@ class SettingWindowClass(QDialog, setting_form_class):
     def generate_engraving_CB(self):
         self.engraving_flag = True
         engravings = self.lostark_sim.get_engravings()
-        for i in range(6):
+        for i in range(10):
             getattr(self, 'engraving_CB'+str(i+1)).addItem("Choose engraving")
             for engraving in engravings:
                 getattr(self, 'engraving_CB'+str(i+1)).addItem(self.translator.translate_engravings(engraving, self.is_kor))
@@ -154,7 +139,7 @@ class SettingWindowClass(QDialog, setting_form_class):
 
     def get_current_engravings_list(self):
         current_engravings = []
-        for i in range(6):
+        for i in range(10):
             if getattr(self, 'engraving_CB'+str(i+1)).currentIndex() != 0:
                 engraving_name = self.translator.get_filename_by_engravings(getattr(self, 'engraving_CB'+str(i+1)).currentText())
                 current_engravings.append(engraving_name)
@@ -190,7 +175,6 @@ class SettingWindowClass(QDialog, setting_form_class):
             temp = []
             temp.append(self.result_dict)
             self.result_json.setdefault('character_settings', temp)
-            self.test()
             self.lostark_sim.run_simulator(self.result_json)
             print("accepted")
             self.open_result_window()
@@ -215,20 +199,41 @@ class SettingWindowClass(QDialog, setting_form_class):
                 self.result_dict.setdefault(key, value)
 
     def open_result_window(self):
-        # self.hide()
+        self.hide()
         result_window = ResultWindowClass(self.lostark_sim)
         result_window.is_display = True
-        result_window.show()
-        while not result_window.is_display:
-            print('result_window running')
-        # self.init()
-        # self.show()
-
-    def test(self):
-        file_path = "./saved_json.json"
-        with open(file_path, 'w', encoding='UTF-8') as makefile:
-            json.dump(self.result_json, makefile, indent = '\t')
+        result_window.exec()
+        self.init()
+        self.show()
             
     def open_new_setting_window(self):
         new_window = SettingWindowClass()
         new_window.show()
+        
+    def allocate_function(self):
+        #Widget function allocating
+        self.buttonBox.accepted.connect(self.accepted) # Forced window closs
+        self.buttonBox.rejected.connect(self.rejected)
+        self.clear_Btn.clicked.connect(self.init)
+        # self.add_Btn.clicked.connect(self.open_new_setting_window)
+
+        self.class_CB.currentIndexChanged.connect(self.class_selected_func)
+        self.artifact_CB.currentIndexChanged.connect(self.artifact_selected_func)
+        self.engraving_CB1.currentIndexChanged.connect(lambda: self.engraving_selected_func('1'))
+        self.engraving_CB2.currentIndexChanged.connect(lambda: self.engraving_selected_func('2'))
+        self.engraving_CB3.currentIndexChanged.connect(lambda: self.engraving_selected_func('3'))
+        self.engraving_CB4.currentIndexChanged.connect(lambda: self.engraving_selected_func('4'))
+        self.engraving_CB5.currentIndexChanged.connect(lambda: self.engraving_selected_func('5'))
+        self.engraving_CB6.currentIndexChanged.connect(lambda: self.engraving_selected_func('6'))
+        self.engraving_CB7.currentIndexChanged.connect(lambda: self.engraving_selected_func('7'))
+        self.engraving_CB8.currentIndexChanged.connect(lambda: self.engraving_selected_func('8'))
+        self.engraving_CB9.currentIndexChanged.connect(lambda: self.engraving_selected_func('9'))
+        self.engraving_CB10.currentIndexChanged.connect(lambda: self.engraving_selected_func('10'))
+        
+        self.stat_SB2.valueChanged.connect(lambda: self.stat_changed_func('2'))
+        self.stat_SB3.valueChanged.connect(lambda: self.stat_changed_func('3'))
+        self.stat_SB4.valueChanged.connect(lambda: self.stat_changed_func('4'))
+        
+    def set_widget_size(self):
+        self.class_CB.setFixedSize(170, 21)
+        self.artifact_CB.setFixedSize(170, 21)

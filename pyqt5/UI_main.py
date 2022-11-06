@@ -8,7 +8,7 @@ from PyQt5 import uic
 
 from SettingWindow import SettingWindowClass
 
-if __name__ == "__main__" :
+if __name__ == "__main__" :  
     app = QApplication(sys.argv) 
 
     myWindow = SettingWindowClass()

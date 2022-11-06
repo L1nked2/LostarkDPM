@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-import csv
 import json
 
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+PATH = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+sys.path.append(PATH)
 
 from src.layers.dynamic.dpm_simulator import DpmSimulator
 from src.layers.static.character_layer import CharacterLayer
