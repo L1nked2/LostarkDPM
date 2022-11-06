@@ -6,7 +6,7 @@ import json
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
-from SettingWindow import SettingWindowClass
+from pyqt5.SettingWindow import SettingWindowClass
 
 if __name__ == "__main__" :  
     app = QApplication(sys.argv) 

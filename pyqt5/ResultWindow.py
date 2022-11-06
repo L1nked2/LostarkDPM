@@ -6,11 +6,14 @@ import json
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
-from lostark_sim import lostark_sim
+from .lostark_sim import lostark_sim
 
-ui_path = os.path.dirname(os.path.abspath(__file__))
-result_form_class = uic.loadUiType(os.path.join(ui_path, "result_window_alpha.ui"))[0]
-
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+ui_path = resource_path('result_window.ui')
+result_form_class = uic.loadUiType(ui_path)[0]
 
 class ResultWindowClass(QDialog, result_form_class) :
     def __init__(self, simulator) :

@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
-JSON_FILE_PATH = './translation_table.json'
+import os
+import sys
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+JSON_FILE_PATH = resource_path('translation_table.json')
 import json
 
 class translator:
