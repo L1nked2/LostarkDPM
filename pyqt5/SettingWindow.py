@@ -18,15 +18,11 @@ def resource_path(relative_path):
 
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
   CHARACTER_SETTING_FILEPATH = resource_path('./db/character_settings.json')
-  ui_path = resource_path('sample.ui')
+  ui_path = resource_path('setting_window.ui')
 else:
   CHARACTER_SETTING_FILEPATH = './db/character_settings.json'
-  ui_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sample.ui")
+  ui_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "setting_window.ui")
 
-#ui_path = os.path.dirname(os.path.abspath(__file__))
-#setting_form_class = uic.loadUiType(os.path.join(ui_path, "sample.ui"))[0]
-
-ui_path = resource_path('sample.ui')
 setting_form_class = uic.loadUiType(ui_path)[0]
 
 MAX_STAT_SUM = 2200
