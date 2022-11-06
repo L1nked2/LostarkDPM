@@ -125,6 +125,7 @@ ENGRAVINGS = {
   #세맥타통
   #역천지체
   #절정
+  'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],
   #절제
   #일격필살
   'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],

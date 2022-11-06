@@ -1,5 +1,6 @@
 class,actual_dps,short_dps,long_dps,nuking_dps
-character_berserker_mayhem.json,13785684,30805052,26824942,21719306
+character_battlemaster_first_intention.json,16798803,28157129,25630525,23155886
+character_berserker_mayhem.json,13774050,30805052,26824942,21719306
 character_blade_burst.json,21356050,30396652,28291258,27019294
 character_blade_remaining_energy.json,20450275,24478969,24855014,23292749
 character_blaster_barrage_enhancement.json,17686168,22501357,27332226,33279902
@@ -13,6 +14,7 @@ character_gunslinger_peace_maker.json,14447554,29237264,26539772,26741921
 character_gunslinger_time_to_hunt.json,12500537,28855553,25834450,24687723
 character_infighter_shock_training.json,20114195,34114371,32243691,29690335
 character_infighter_taijutsu.json,18081335,22250159,21249861,20522643
+character_lancemaster_pinnacle.json,15781748,17746438,20648581,25108645
 character_reaper_hunger.json,18206896,26995095,24477704,26507981
 character_reaper_lunar_voice.json,15098724,28110345,21413893,29752312
 character_scouter_arthetinean_skill.json,14135157,23550286,22797261,23658878

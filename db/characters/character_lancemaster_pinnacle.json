@@ -1,0 +1,26 @@
+{
+  "character_settings": [
+    {
+      "class_name": "lancemaster",
+      "upgrade": 25,
+      "crit": 0,
+      "specialization": 1600,
+      "swiftness": 600,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Raid_Captain_3", "Increase_Mass_3", "Pinnacle_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["악몽A_6_3"],
+      "skill_set": "./db/skills/lancemaster_pinnacle.json"
+    },
+    {
+      "class_name": "lancemaster",
+      "upgrade": 25,
+      "crit": 0,
+      "specialization": 1600,
+      "swiftness": 600,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Raid_Captain_3", "Cursed_Doll_3", "Pinnacle_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["악몽A_6_3"],
+      "skill_set": "./db/skills/lancemaster_pinnacle.json"
+    }
+  ]
+}
