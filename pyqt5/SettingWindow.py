@@ -10,6 +10,9 @@ from PyQt5 import uic
 from .ResultWindow import ResultWindowClass
 from .lostark_sim import lostark_sim
 from .translator import translator
+
+UI_FILENAME = 'setting_window_alpha.ui'
+
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
@@ -18,10 +21,10 @@ def resource_path(relative_path):
 
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
   CHARACTER_SETTING_FILEPATH = resource_path('./db/character_settings.json')
-  ui_path = resource_path('setting_window.ui')
+  ui_path = resource_path(UI_FILENAME)
 else:
   CHARACTER_SETTING_FILEPATH = './db/character_settings.json'
-  ui_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "setting_window.ui")
+  ui_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), UI_FILENAME)
 
 setting_form_class = uic.loadUiType(ui_path)[0]
 
@@ -31,7 +34,7 @@ class SettingWindowClass(QDialog, setting_form_class):
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
-        self.setFixedHeight(254)
+        self.setFixedHeight(220)
         self.setWindowModality(0)
 
         self.lostark_sim = lostark_sim()
@@ -98,7 +101,11 @@ class SettingWindowClass(QDialog, setting_form_class):
         classnames = self.lostark_sim.get_character_file_names()
         for classname in classnames:
             classname = classname[10:]
-            self.class_CB.addItem(self.translator.translate_classname(classname, self.is_kor))
+            new_classname = self.translator.translate_classname(classname, self.is_kor)
+            if new_classname:
+                self.class_CB.addItem(new_classname)
+            else:
+                continue
             
     def generate_artifact_CB(self):
         self.artifact_CB.addItem("Choose artifact")
@@ -113,7 +120,11 @@ class SettingWindowClass(QDialog, setting_form_class):
         for i in range(10):
             getattr(self, 'engraving_CB'+str(i+1)).addItem("Choose engraving")
             for engraving in engravings:
-                getattr(self, 'engraving_CB'+str(i+1)).addItem(self.translator.translate_engravings(engraving, self.is_kor))
+                new_engraving = self.translator.translate_engravings(engraving, self.is_kor)
+                if new_engraving:
+                    getattr(self, 'engraving_CB'+str(i+1)).addItem(new_engraving)
+                else:
+                    continue
 
     def init_stat_SB(self):
         self.stat_SB1.setRange(0, 25)
@@ -156,7 +167,7 @@ class SettingWindowClass(QDialog, setting_form_class):
 
     def clear_elements(self):
         self.artifact_CB.clear()
-        for i in range(6):
+        for i in range(10):
             getattr(self, 'engraving_CB'+str(i+1)).clear()
         self.engraving_flag = False
         self.init_stat_SB()
@@ -170,7 +181,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         
     def accepted(self):
         if self.flag:
-            character_filename = self.translator.get_filename_by_classname(self.class_CB.currentText())
+            character_filename = self.translator.get_filename_by_classname(self.class_CB.currentText(), self.is_kor)
             skill_set_path = f"./db/skills/{character_filename}"
             self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_one_character_name(f"character_{character_filename}"))
             for i in range(4):
@@ -178,7 +189,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             self.add_character_setting(self.character_setting_keys[5], self.get_current_engravings_list())
             #self.add_character_setting(self.character_setting_keys[6], None)
             self.add_character_setting(self.character_setting_keys[7], self.artifact_CB.currentText())
-            self.add_character_setting(self.character_setting_keys[8],skill_set_path)
+            self.add_character_setting(self.character_setting_keys[8], skill_set_path)
 
             self.result_json = dict()
             temp = []
@@ -209,7 +220,7 @@ class SettingWindowClass(QDialog, setting_form_class):
 
     def open_result_window(self):
         self.hide()
-        result_window = ResultWindowClass(self.lostark_sim)
+        result_window = ResultWindowClass(self.lostark_sim, self.is_kor)
         result_window.is_display = True
         result_window.exec()
         self.init()
@@ -219,12 +230,23 @@ class SettingWindowClass(QDialog, setting_form_class):
         new_window = SettingWindowClass()
         new_window.show()
         
+    def translate(self):
+        self.is_kor = not self.is_kor
+        label = self.translator.get_label_keys(self.is_kor)
+        for i in range(8):
+            getattr(self, 'LB_' + str(i+1)).setText(self.translator.translate_label(label[i], self.is_kor))
+        self.clear_Btn.setText(self.translator.translate_label(label[8], self.is_kor))
+        self.translate_Btn.setText(self.translator.translate_label(label[9], self.is_kor))
+        self.buttonBox.button(self.buttonBox.Ok).setText(self.translator.translate_label(label[10], self.is_kor))
+        self.buttonBox.button(self.buttonBox.Cancel).setText(self.translator.translate_label(label[11], self.is_kor))
+        self.init()
+        
     def allocate_function(self):
         #Widget function allocating
         self.buttonBox.accepted.connect(self.accepted) # Forced window closs
         self.buttonBox.rejected.connect(self.rejected)
         self.clear_Btn.clicked.connect(self.init)
-        # self.add_Btn.clicked.connect(self.open_new_setting_window)
+        self.translate_Btn.clicked.connect(self.translate)
 
         self.class_CB.currentIndexChanged.connect(self.class_selected_func)
         self.artifact_CB.currentIndexChanged.connect(self.artifact_selected_func)

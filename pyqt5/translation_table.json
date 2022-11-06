@@ -9,6 +9,7 @@
     "demonic_perfect_suppression.json": "데모닉(완벽한 억제)",
     "devilhunter_enhanced_weapon.json": "데빌헌터(강화 무기)",
     "devilhunter_pistoleer.json": "데빌헌터(핸드거너)",
+    "destroyer_rage_hammer.json": "디스트로이어(분노의 망치)",
     "gunslinger_peace_maker.json": "건슬링어(피스메이커)",
     "gunslinger_time_to_hunt.json": "건슬링어(사냥의 시간)",
     "infighter_shock_training.json": "인파이터(충격 단련)",
@@ -33,6 +34,7 @@
     "blade_remaining_energy.json": "Deathblade(remaining energy)",
     "blaster_barrage_enhancement.json": "Artillerist(barrage enhancement)",
     "blaster_firepower_enhancement.json": "Artillerist(firepower enhancement)",
+    "destroyer_rage_hammer.json": "Destroyer(rage hammer)",
     "demonic_demonic_impulse.json": "Shadowhunter(demonic impulse)",
     "demonic_perfect_suppression.json": "Shadowhunter(perfect suppression)",
     "devilhunter_enhanced_weapon.json": "Deadeye(enhanced weapon)",
@@ -146,6 +148,40 @@
     "Lunar_Voice_3": "달의 소리 3레벨"
   },
   "engraving_trans_eng": {
-
+    "Lone_Knight_1": "Lone"
+  },
+  "label_trans_kor": {
+    "class": "클래스",
+    "artifacts": "유물 세트",
+    "stats": "스탯",
+    "upgrades": "평균 장비 강화",
+    "crit": "치명",
+    "specialization": "특화",
+    "swiftness": "신속",
+    "engravings": "각인",
+    "init": "초기화",
+    "translate": "Eng",
+    "accept": "확인",
+    "cancel": "취소",
+    "6s DPS": "순간 최대 DPS [6초]",
+    "8s DPS": "순간 최대 DPS [8초]",
+    "10s DPS": "순간 최대 DPS [10초]"
+  },
+  "label_trans_eng": {
+    "class": "Class",
+    "artifacts": "Artifacts",
+    "stats": "Stats",
+    "upgrades": "Upgrades",
+    "crit": "Crit",
+    "specialization": "Specialization",
+    "swiftness": "Swiftness",
+    "engravings": "Engravings",
+    "init": "Reset",
+    "translate": "한글",
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "6s DPS": "Instantaneous Maximum DPS [6s]",
+    "8s DPS": "Instantaneous Maximum DPS [8s]",
+    "10s DPS": "Instantaneous Maximum DPS [10s]"
   }
 }

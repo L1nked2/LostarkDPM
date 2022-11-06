@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>795</width>
-    <height>264</height>
+    <width>777</width>
+    <height>212</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,6 +20,15 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <property name="leftMargin">
+    <number>11</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <property name="spacing">
@@ -33,7 +42,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="add_Btn">
+      <widget class="QPushButton" name="translate_Btn">
        <property name="text">
         <string>Eng</string>
        </property>
@@ -54,12 +63,18 @@
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,3,6">
      <property name="topMargin">
-      <number>13</number>
+      <number>0</number>
      </property>
      <item row="0" column="2">
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>7</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="LB_3">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
            <horstretch>0</horstretch>
@@ -74,7 +89,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="LB_4">
            <property name="text">
             <string>평균 장비 강화</string>
            </property>
@@ -92,7 +107,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="LB_5">
            <property name="text">
             <string>치명</string>
            </property>
@@ -106,7 +121,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QLabel" name="label_9">
+          <widget class="QLabel" name="LB_6">
            <property name="text">
             <string>특화</string>
            </property>
@@ -120,7 +135,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="LB_7">
            <property name="text">
             <string>신속</string>
            </property>
@@ -136,15 +151,18 @@
      <item row="0" column="1">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <property name="spacing">
-        <number>7</number>
+        <number>0</number>
        </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetNoConstraint</enum>
        </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
+         <property name="bottomMargin">
+          <number>25</number>
+         </property>
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="LB_1">
            <property name="text">
             <string>직업</string>
            </property>
@@ -170,8 +188,11 @@
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="bottomMargin">
+          <number>25</number>
+         </property>
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="LB_2">
            <property name="text">
             <string>유물 세트</string>
            </property>
@@ -193,8 +214,11 @@
      </item>
      <item row="0" column="3">
       <layout class="QGridLayout" name="gridLayout_3">
+       <property name="topMargin">
+        <number>7</number>
+       </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="LB_8">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>

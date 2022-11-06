@@ -16,51 +16,93 @@ class translator:
         self.class_Eng = self.loaded_dict["class_trans_eng"]
         self.engravings_Kor = self.loaded_dict["engraving_trans_kor"]
         self.engravings_Eng = self.loaded_dict["engraving_trans_eng"]
+        self.label_Kor = self.loaded_dict["label_trans_kor"]
+        self.label_Eng = self.loaded_dict["label_trans_eng"]
 
     def get_kor_classname(self, classname):
         try:
-            return self.class_Kor[classname]
+            return True, self.class_Kor[classname]
         except:
-            return 'except ' + classname
+            return False, 'except ' + classname
 
     def get_eng_classname(self, classname):
         try:
-            return self.class_Eng[classname]
+            return True, self.class_Eng[classname]
         except:
-            return 'except ' + classname
+            return False, 'except ' + classname
 
     def get_kor_engravings(self, engravings):
         try:
-            return self.engravings_Kor[engravings]
+            return True, self.engravings_Kor[engravings]
         except:
-            return 'except ' + engravings
+            return False, 'except ' + engravings
     
     def get_eng_engravings(self, engravings):
         try:
-            return self.engravings_Eng[engravings]
+            return True, self.engravings_Eng[engravings]
         except:
-            return 'except ' + engravings
+            return False, 'except ' + engravings
+        
+    def get_label_keys(self, is_kor):
+        if is_kor:
+            return list(self.label_Kor.keys())
+        else:
+            return list(self.label_Eng.keys())
 
     def translate_classname(self, classname, is_kor = True):
         if is_kor:
-            return self.get_kor_classname(classname)
+            result = self.get_kor_classname(classname)
+            if result[0]:
+                return result[1]
+            else:
+                return False
         else:
-            return self.get_eng_classname(classname)
+            result = self.get_eng_classname(classname)
+            if result[0]:
+                return result[1]
+            else:
+                return False
 
     def translate_engravings(self, engravings, is_kor = True):
         if is_kor:
-            return self.get_kor_engravings(engravings)
+            result = self.get_kor_engravings(engravings)
+            if result[0]:
+                return result[1]
+            else:
+                return False
         else:
-            return self.get_eng_engravings(engravings)
+            result = self.get_eng_engravings(engravings)
+            if result[0]:
+                return result[1]
+            else:
+                return False
+            
+    def translate_label(self, lable, is_kor = True):
+        if is_kor:
+            return self.label_Kor[lable]
+        else:
+            return self.label_Eng[lable]
         
-    def get_filename_by_classname(self, classname):
-        for k, v in self.class_Kor.items():
-            if v == classname:
-                print(k)
-                return k
+    def get_filename_by_classname(self, classname, is_kor = True):
+        if is_kor:
+            for k, v in self.class_Kor.items():
+                if v == classname:
+                    print(k)
+                    return k
+        else:
+            for k, v in self.class_Eng.items():
+                if v == classname:
+                    print(k)
+                    return k
     
-    def get_filename_by_engravings(self, engravings):
-        for k, v in self.engravings_Kor.items():
-            if v == engravings:
-                print(k)
-                return k
+    def get_filename_by_engravings(self, engravings, is_kor = True):
+        if is_kor:
+            for k, v in self.engravings_Kor.items():
+                if v == engravings:
+                    print(k)
+                    return k
+        else:
+            for k, v in self.engravings_Eng.items():
+                if v == engravings:
+                    print(k)
+                    return k
