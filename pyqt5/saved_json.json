@@ -1,16 +1,16 @@
 {
 	"character_settings": [
 		{
-			"class_name": "demonic",
+			"class_name": "blaster",
 			"upgrade": 25,
 			"crit": 0,
 			"specialization": 0,
 			"swiftness": 0,
 			"engravings": [],
 			"artifact_set": [
-				"\uc9c0\ubc30_6_3"
+				"\uc545\ubabdA_6_3"
 			],
-			"skill_set": "../db/skills/demonic_demonic_impulse.json"
+			"skill_set": "../db/skills/blaster_barrage_enhancement.json"
 		}
 	]
 }

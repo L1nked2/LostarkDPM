@@ -24,16 +24,26 @@ class ResultWindowClass(QDialog, result_form_class) :
         self.setupUi(self)
         self.show()
         self.setFixedHeight(219)
+        self.setWindowModality(0)
+        
+        self.is_display = False
+        
+        self.ok_Btn.clicked.connect(self.close_window)
 
         self.result_simulator = simulator
         self.result_simulator.print_simulation_result()
         self.display_result()
         #self.share_TW.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
 
+    def closeEvent(self, event):
+        self.close_window()
+        return True
+
     def run_simulator(self):
         return True
 
     def display_result(self):
+        self.is_display = True
         dps, dps6, dps8, dps10 = list(map(str, self.result_simulator.get_DPS_results()))
 
         self.dps_TB.append(dps)
@@ -41,3 +51,7 @@ class ResultWindowClass(QDialog, result_form_class) :
         self.dps8_TB.append(dps8)
         self.dps10_TB.append(dps10)
 
+    def close_window(self):
+        self.hide()
+        self.is_display = False
+        return True
