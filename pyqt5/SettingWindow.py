@@ -13,7 +13,7 @@ from translator import translator
 
 CHARACTER_SETTING_FILEPATH = '../DB/character_settings.json'
 ui_path = os.path.dirname(os.path.abspath(__file__))
-setting_form_class = uic.loadUiType(os.path.join(ui_path, "sample.ui"))[0]
+setting_form_class = uic.loadUiType(os.path.join(ui_path, "setting_window.ui"))[0]
 
 MAX_STAT_SUM = 2200
 
@@ -22,6 +22,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         super().__init__()
         self.setupUi(self)
         self.setFixedHeight(254)
+        self.setWindowModality(0)
 
         self.lostark_sim = lostark_sim()
         self.translator = translator()
@@ -41,7 +42,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         #Element function allocating
         self.buttonBox.accepted.connect(self.accepted) # Forced window closs
         self.buttonBox.rejected.connect(self.rejected)
-        self.clear_Btn.clicked.connect(self.init)
+        self.clear_Btn.clicked.connect(self.accepted)
         self.add_Btn.clicked.connect(self.open_new_setting_window)
 
         self.class_CB.currentIndexChanged.connect(self.class_selected_func)
@@ -216,8 +217,11 @@ class SettingWindowClass(QDialog, setting_form_class):
     def open_result_window(self):
         # self.hide()
         result_window = ResultWindowClass(self.lostark_sim)
-        result_window.exec()
-        self.init()
+        result_window.is_display = True
+        result_window.show()
+        while not result_window.is_display:
+            print('result_window running')
+        # self.init()
         # self.show()
 
     def test(self):
@@ -227,4 +231,4 @@ class SettingWindowClass(QDialog, setting_form_class):
             
     def open_new_setting_window(self):
         new_window = SettingWindowClass()
-        new_window.exec()
+        new_window.show()
