@@ -3,8 +3,8 @@
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      ["스탠스 변경", "맹룡열파", "연가창식: 은하유성탄", "청룡진", "반월섬", "스탠스 변경", "회선창", "굉열파", "적룡포", "유성강천"],
-      ["스탠스 변경", "맹룡열파", "청룡진", "반월섬", "스탠스 변경", "회선창", "굉열파", "적룡포", "유성강천"]
+      ["스탠스 변경", "맹룡열파", "연가창식: 은하유성탄", "청룡진", "반월섬", "회선창", "스탠스 변경", "굉열파", "적룡포", "유성강천"],
+      ["스탠스 변경", "맹룡열파", "청룡진", "반월섬", "회선창", "스탠스 변경", "굉열파", "적룡포", "유성강천"]
     ]
   },
   "skill_preset": [
@@ -31,18 +31,18 @@
       "level": 12,
       "tripod": "332",
       "default_damage": 3455,
-      "base_damage_multiplier": 4.026,
+      "base_damage_multiplier": 3.1256,
       "cooldown": 16,
-      "skill_type": "Common",
+      "skill_type": "Combo",
       "identity_type": "Flurry",
-      "common_delay": 3.28,
-      "type_specific_delay": 0.0,
+      "common_delay": 1.51,
+      "type_specific_delay": 1.02,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
       "base_additional_crit_rate": 0.25,
-      "key_strokes" : 1,
+      "key_strokes" : 2,
       "rune": "질풍_전설"
     },
     {
