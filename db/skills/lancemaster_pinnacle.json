@@ -29,7 +29,7 @@
     {
       "name": "맹룡열파",
       "level": 12,
-      "tripod": "332",
+      "tripod": "312",
       "default_damage": 3455,
       "base_damage_multiplier": 3.1256,
       "cooldown": 16,
