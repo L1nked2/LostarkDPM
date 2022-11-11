@@ -174,6 +174,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         print("element clear")
         
     def init(self):
+        self.result_dict = dict()
         self.class_CB.clear()
         self.clear_elements()
         self.set_elements_enable(False)

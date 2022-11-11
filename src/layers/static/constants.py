@@ -146,7 +146,7 @@ ENGRAVINGS = {
   "Arthetinean_Skill_3": [('static_buff_queue', lambda x: x + ['Arthetinean_Skill_3'])],
   #진화의유산
   "Evolutionary_Legacy_1": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
-  "Evolutionary_Legacy_3": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
+  "Evolutionary_Legacy_3": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_3'])],
   #사냥의시간
   "Time_To_Hunt_1": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_1'])],
   "Time_To_Hunt_3": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_3'])],

@@ -20,9 +20,9 @@
     "scouter_arthetinean_skill.json": "스카우터(아르데타인의 기술)",
     "scouter_evolutionary_legacy.json": "스카우터(진화의 유산)",
     "sorceress_igniter.json": "소서리스(점화)",
-    "striker_deathblow_c1.json.json": "스트라이커(일격필살, 3오의 풍신초래)",
-    "striker_deathblow_e2.json.json": "스트라이커(일격필살, 2오의 방천격)",
-    "striker_deathblow.json.json": "스트라이커(일격필살, 3오의 폭쇄진)",
+    "striker_deathblow_c1.json": "스트라이커(일격필살, 3오의 풍신초래)",
+    "striker_deathblow_e2.json": "스트라이커(일격필살, 2오의 방천격)",
+    "striker_deathblow.json": "스트라이커(일격필살, 3오의 폭쇄진)",
     "warlord_combat_readiness_c1.json": "워로드(전투태세, 피해행운 50% 적중)",
     "warlord_combat_readiness_c2.json": "워로드(전투태세, 피해행운 50% 적중 & 리프어택 빠른 준비)",
     "warlord_combat_readiness.json": "워로드(전투태세, 피해행운 100% 적중)",
@@ -38,7 +38,7 @@
     "blaster_firepower_enhancement.json": "Artillerist(firepower enhancement)",
     "demonic_demonic_impulse.json": "Shadowhunter(demonic impulse)",
     "demonic_perfect_suppression.json": "Shadowhunter(perfect suppression)",
-    "destroyer_rage_hammer.jsonn.json": "Destroyer(rage hammer)",
+    "destroyer_rage_hammer.json": "Destroyer(rage hammer)",
     "devilhunter_enhanced_weapon.json": "Deadeye(enhanced weapon)",
     "devilhunter_pistoleer.json": "Deadeye(pistoleer)",
     "gunslinger_peace_maker.json": "Gunslinger(peace maker)",
@@ -154,6 +154,40 @@
     "Lunar_Voice_3": "달의 소리 3레벨"
   },
   "engraving_trans_eng": {
-
+    "Lone_Knight_1": "Lone"
+  },
+  "label_trans_kor": {
+    "class": "클래스",
+    "artifacts": "유물 세트",
+    "stats": "스탯",
+    "upgrades": "평균 장비 강화",
+    "crit": "치명",
+    "specialization": "특화",
+    "swiftness": "신속",
+    "engravings": "각인",
+    "init": "초기화",
+    "translate": "Eng",
+    "accept": "확인",
+    "cancel": "취소",
+    "6s DPS": "순간 최대 DPS [6초]",
+    "8s DPS": "순간 최대 DPS [8초]",
+    "10s DPS": "순간 최대 DPS [10초]"
+  },
+  "label_trans_eng": {
+    "class": "Class",
+    "artifacts": "Artifacts",
+    "stats": "Stats",
+    "upgrades": "Upgrades",
+    "crit": "Crit",
+    "specialization": "Specialization",
+    "swiftness": "Swiftness",
+    "engravings": "Engravings",
+    "init": "Reset",
+    "translate": "한글",
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "6s DPS": "Instantaneous Maximum DPS [6s]",
+    "8s DPS": "Instantaneous Maximum DPS [8s]",
+    "10s DPS": "Instantaneous Maximum DPS [10s]"
   }
 }

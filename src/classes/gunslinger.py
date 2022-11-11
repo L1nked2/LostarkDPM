@@ -30,15 +30,29 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-    'Peace_Maker_1': {
-    'name': 'peace_maker_1',
+  'Peace_Maker_1': {
+    'name': 'peace_maker',
     'buff_type': 'stat',
     'effect': 'peace_maker_1',
     'duration': 999999,
     'priority': 7,
   },
-    'Time_To_Hunt_3': {
-    'name': 'time_to_hunt_3',
+  'Peace_Maker_3': {
+    'name': 'peace_maker',
+    'buff_type': 'stat',
+    'effect': 'peace_maker_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Time_To_Hunt_1': {
+    'name': 'time_to_hunt',
+    'buff_type': 'stat',
+    'effect': 'time_to_hunt_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Time_To_Hunt_3': {
+    'name': 'time_to_hunt',
     'buff_type': 'stat',
     'effect': 'time_to_hunt_3',
     'duration': 999999,
@@ -158,7 +172,7 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
         skill.update_attribute('damage_multiplier', s_dm * 1.05)
         skill.update_attribute('additional_crit_rate', s_acr + 0.10)
 
-def Peace_Maker_3(character: CharacterLayer, skill: Skill, buff: Buff):  
+def peace_maker_3(character: CharacterLayer, skill: Skill, buff: Buff):  
     if skill.get_attribute('identity_type') == "Handgun":
       c_as = character.get_attribute('attack_speed')         
       character.update_attribute('attack_speed', c_as + 0.16)
@@ -183,6 +197,11 @@ def Peace_Maker_3(character: CharacterLayer, skill: Skill, buff: Buff):
         skill.update_attribute('additional_crit_rate', s_acr + 0.10)
       
 # 사냥의시간 각인
+def time_to_hunt_1(character: CharacterLayer, skill: Skill, buff: Buff):  
+    if skill.get_attribute('identity_type') == "Handgun" or skill.get_attribute('identity_type') == "Rifle":
+      s_acr = skill.get_attribute('additional_crit_rate')
+      skill.update_attribute('additional_crit_rate', s_acr + 0.22)
+
 def time_to_hunt_3(character: CharacterLayer, skill: Skill, buff: Buff):  
     if skill.get_attribute('identity_type') == "Handgun" or skill.get_attribute('identity_type') == "Rifle":
       s_acr = skill.get_attribute('additional_crit_rate')
