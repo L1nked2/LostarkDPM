@@ -1,0 +1,27 @@
+{
+	"character_settings": [
+		{
+			"class_name": "demonic",
+			"upgrade": 25,
+			"crit": 0,
+			"specialization": 0,
+			"swiftness": 0,
+			"engravings": [
+				"Synergy_Damage_B",
+				"Synergy_Crit_B",
+				"Synergy_Damage_B",
+				"Keen_Blunt_Weapon_3",
+				"Increase_Mass_3",
+				"Cursed_Doll_2",
+				"Master\u2019s_Tenacity_3",
+				"Adrenaline_3",
+				"Awakening_1",
+				"Super_Charge_2"
+			],
+			"artifact_set": [
+				"\uc9c0\ubc30_6_3"
+			],
+			"skill_set": "../db/skills/demonic_demonic_impulse.json"
+		}
+	]
+}

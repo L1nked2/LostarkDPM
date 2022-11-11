@@ -29,6 +29,13 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  'Evolutionary_Legacy_Enabled_3': {
+    'name': 'evolutionary_legacy_enabled_3',
+    'buff_type': 'stat',
+    'effect': None,
+    'duration': 999999,
+    'priority': 7,
+  },
   'Arthetinean_Skill_1': {
     'name': 'arthetinean_skill',
     'buff_type': 'stat',
@@ -130,6 +137,8 @@ def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, 
   buff_manager.register_buff(CLASS_BUFF_DICT['Hyper_Sync'], 'class')
   if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
+  elif buff_manager.is_buff_exists('evolutionary_legacy_enabled_3'):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], 'class')
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신해제':
       skill.update_attribute('remaining_cooldown', 0)
@@ -169,13 +178,12 @@ def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillMa
     if buff.name == 'evolutionary_legacy' and buff.stack < 3:
       buff.increase_stack()
   # 유산 버프 확인
+  # 유산 버프 갱신 후 쿨감 및 스택증가 적용
   if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)
   elif buff_manager.is_buff_exists('evolutionary_legacy_enabled_3'):
-    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], 'class')
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)

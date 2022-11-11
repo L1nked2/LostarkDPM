@@ -9,10 +9,20 @@ from .constants import seconds_to_ticks
 
 DEFAULT_LOOKUP_COOLDOWN = 5
 
+import os
+import sys
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
 class SkillManager:
 
     def __init__(self, character: CharacterLayer, **kwargs):
-        skill_info = json.load(open(character.skill_set, "r", encoding='utf-8'))
+        if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+          skill_info = json.load(open(resource_path(character.skill_set), "r", encoding='utf-8'))
+        else:
+          skill_info = json.load(open(character.skill_set, "r", encoding='utf-8'))
         class_name = skill_info['class_name']
         if character.class_name != class_name:
             warnings.warn("Class of character and skill_set does not match", UserWarning)
