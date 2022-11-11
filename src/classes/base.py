@@ -315,11 +315,11 @@ def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
 # 지배 등록 action, 각성기 사용시 자동 사용됨
 def try_activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if buff_manager.is_buff_exists('dominion_set_enabled_1'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'class')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'base')
   elif buff_manager.is_buff_exists('dominion_set_enabled_2'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_2'], 'class')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_2'], 'base')
   elif buff_manager.is_buff_exists('dominion_set_enabled_3'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_3'], 'class')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_3'], 'base')
 
 # 지배 기본 버프(각성기 뎀감)
 def dominion_set_enabled_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -345,27 +345,30 @@ def dominion_set_enabled_3(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 지배 각성 사용시 버프
 def dominion_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') != 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
       s_ac = skill.get_attribute('actual_cooldown')
       skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
+    s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
 def dominion_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') != 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
       s_ac = skill.get_attribute('actual_cooldown')
       skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
       skill.update_attribute('damage_multiplier', s_dm * 1.28)
+    s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.18)
 
 def dominion_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') != 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
       s_ac = skill.get_attribute('actual_cooldown')
       skill.update_attribute('actual_cooldown', s_ac * (1 - 0.18))
       skill.update_attribute('damage_multiplier', s_dm * 1.31)
+    s_dm = skill.get_attribute('damage_multiplier')
     skill.update_attribute('damage_multiplier', s_dm * 1.20)
 
 # 사멸

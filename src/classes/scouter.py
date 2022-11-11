@@ -71,6 +71,13 @@ CLASS_BUFF_DICT = {
     'duration': 6,
     'priority': 7,
   },
+  'Evolutionary_Legacy_3': {
+    'name': 'evolutionary_legacy',
+    'buff_type': 'stat',
+    'effect': 'evolutionary_legacy_3',
+    'duration': 6,
+    'priority': 7,
+  },
   'Flame_Buster': {
     'name': 'flame_buster',
     'buff_type': 'damage',
@@ -167,6 +174,11 @@ def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillMa
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)
+  elif buff_manager.is_buff_exists('evolutionary_legacy_enabled_3'):
+    # 유산 버프 갱신 후 쿨감 및 스택증가 적용
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], 'class')
+    buff_manager.apply_function(increase_legacy_buff_stack)
+    skill_manager.apply_function(cooldown_reduction)
     
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -193,6 +205,11 @@ def evolutionary_legacy_1(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * (1 + (0.02 * buff.stack)))
 
+def evolutionary_legacy_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    if skill.get_attribute('identity_type') == "Sync":
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * (1 + (0.06 * buff.stack)))
+
 # 아르데타인의 기술 버프
 def arthetinean_skill_1(character: CharacterLayer, skill: Skill, buff: Buff):
     # 재장전 풀스택 제공
@@ -205,6 +222,18 @@ def arthetinean_skill_1(character: CharacterLayer, skill: Skill, buff: Buff):
         or skill.get_attribute('identity_type') == "Joint"):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
+def arthetinean_skill_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    # 재장전 풀스택 제공
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.05)
+    character.update_attribute('movement_speed', c_ms + 0.05)
+    # 드론, 합작 스킬 피증
+    if (skill.get_attribute('identity_type') == "Drone" 
+        or skill.get_attribute('identity_type') == "Joint"):
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.25)
 
 # 공증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

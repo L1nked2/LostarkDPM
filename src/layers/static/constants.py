@@ -66,8 +66,8 @@ ENGRAVINGS = {
   #정밀단도
   'Precise_Dagger_3': [('crit_rate', lambda x: x + 0.20), ('crit_damage', lambda x: x - 0.12)],
   #질량증가
-  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.04), ('attack_speed', lambda x: x - 0.10)],
-  'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.10), ('attack_speed', lambda x: x - 0.10)],
+  'Increase_Mass_1': [('additional_attack_power', lambda x: x + 0.04), ('attack_speed', lambda x: x - 0.10)],
+  'Increase_Mass_2': [('additional_attack_power', lambda x: x + 0.10), ('attack_speed', lambda x: x - 0.10)],
   'Increase_Mass_3': [('additional_attack_power', lambda x: x + 0.18), ('attack_speed', lambda x: x - 0.10)],
   #각성
   'Awakening_1': [('static_buff_queue', lambda x: x + ['Awakening_1'])],
@@ -125,6 +125,7 @@ ENGRAVINGS = {
   #세맥타통
   #역천지체
   #절정
+  'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],
   #절제
   #일격필살
   'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
@@ -142,13 +143,16 @@ ENGRAVINGS = {
   #죽음의습격
   #아르데타인의기술
   "Arthetinean_Skill_1": [('static_buff_queue', lambda x: x + ['Arthetinean_Skill_1'])],
+  "Arthetinean_Skill_3": [('static_buff_queue', lambda x: x + ['Arthetinean_Skill_3'])],
   #진화의유산
   "Evolutionary_Legacy_1": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
+  "Evolutionary_Legacy_3": [('static_buff_queue', lambda x: x + ['Evolutionary_Legacy_Enabled_1'])],
   #사냥의시간
   "Time_To_Hunt_1": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_1'])],
   "Time_To_Hunt_3": [('static_buff_queue', lambda x: x + ['Time_To_Hunt_3'])],
   #피스메이커
   "Peace_Maker_1": [('static_buff_queue', lambda x: x + ['Peace_Maker_1'])],
+  "Peace_Maker_3": [('static_buff_queue', lambda x: x + ['Peace_Maker_3'])],
   #상급소환사
   'Master_Summoner_3': [('damage_multiplier', lambda x: x * 1.15)],
   #넘치는교감
@@ -177,9 +181,9 @@ ENGRAVINGS = {
 # Artifact Sets
 ARTIFACT_TABLE = {
   #지배
-  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_1'])],
-  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_2'])],
-  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_3'])],
+  '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_1'])],
+  '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_2'])],
+  '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_3'])],
   #악몽
   '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
   '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],

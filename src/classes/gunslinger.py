@@ -145,13 +145,37 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('additional_crit_rate', s_acr + 0.10)
     elif skill.get_attribute('identity_type') == "Rifle":
       s_dm = skill.get_attribute('damage_multiplier') 
-      skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0435)
+      skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0476)
     # 각성기 피메-샷건 적용, 사시는 피메-라이플 적용
     elif  skill.get_attribute('identity_type') == 'Awakening':
       if ('Time_To_Hunt_3' in character.static_buff_queue 
           or 'Time_To_Hunt_1' in character.static_buff_queue):
         s_dm = skill.get_attribute('damage_multiplier') 
-        skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0435)
+        skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0476)
+      else: 
+        s_dm = skill.get_attribute('damage_multiplier') 
+        s_acr = skill.get_attribute('additional_crit_rate')
+        skill.update_attribute('damage_multiplier', s_dm * 1.05)
+        skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+
+def Peace_Maker_3(character: CharacterLayer, skill: Skill, buff: Buff):  
+    if skill.get_attribute('identity_type') == "Handgun":
+      c_as = character.get_attribute('attack_speed')         
+      character.update_attribute('attack_speed', c_as + 0.16)
+    elif skill.get_attribute('identity_type') == "Shotgun":
+      s_dm = skill.get_attribute('damage_multiplier') 
+      s_acr = skill.get_attribute('additional_crit_rate')
+      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+      skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+    elif skill.get_attribute('identity_type') == "Rifle":
+      s_dm = skill.get_attribute('damage_multiplier') 
+      skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.1304)
+    # 각성기 피메-샷건 적용, 사시는 피메-라이플 적용
+    elif  skill.get_attribute('identity_type') == 'Awakening':
+      if ('Time_To_Hunt_3' in character.static_buff_queue 
+          or 'Time_To_Hunt_1' in character.static_buff_queue):
+        s_dm = skill.get_attribute('damage_multiplier') 
+        skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.1304)
       else: 
         s_dm = skill.get_attribute('damage_multiplier') 
         s_acr = skill.get_attribute('additional_crit_rate')
