@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>777</width>
+    <width>1200</width>
     <height>212</height>
    </rect>
   </property>
@@ -61,7 +61,7 @@
     </layout>
    </item>
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,3,6">
+    <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,6">
      <property name="topMargin">
       <number>0</number>
      </property>

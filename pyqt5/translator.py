@@ -14,6 +14,8 @@ class translator:
             self.loaded_dict = json.load(loaded_file)
         self.class_Kor = self.loaded_dict["class_trans_kor"]
         self.class_Eng = self.loaded_dict["class_trans_eng"]
+        self.artifact_Kor = self.loaded_dict["artifact_trans_kor"]
+        self.artifact_Eng = self.loaded_dict["artifact_trans_eng"]
         self.engravings_Kor = self.loaded_dict["engraving_trans_kor"]
         self.engravings_Eng = self.loaded_dict["engraving_trans_eng"]
         self.label_Kor = self.loaded_dict["label_trans_kor"]
@@ -30,6 +32,18 @@ class translator:
             return True, self.class_Eng[classname]
         except:
             return False, 'except ' + classname
+    
+    def get_kor_artifactname(self, artifactname):
+        try:
+            return True, self.artifact_Kor[artifactname]
+        except:
+            return False, 'except ' + artifactname
+
+    def get_eng_artifactname(self, artifactname):
+        try:
+            return True, self.artifact_Eng[artifactname]
+        except:
+            return False, 'except ' + artifactname
 
     def get_kor_engravings(self, engravings):
         try:
@@ -58,6 +72,20 @@ class translator:
                 return False
         else:
             result = self.get_eng_classname(classname)
+            if result[0]:
+                return result[1]
+            else:
+                return False
+      
+    def translate_artifact(self, artifactname, is_kor = True):
+        if is_kor:
+            result = self.get_kor_artifactname(artifactname)
+            if result[0]:
+                return result[1]
+            else:
+                return False
+        else:
+            result = self.get_eng_artifactname(artifactname)
             if result[0]:
                 return result[1]
             else:
@@ -92,6 +120,18 @@ class translator:
         else:
             for k, v in self.class_Eng.items():
                 if v == classname:
+                    print(k)
+                    return k
+    
+    def get_filename_by_artifact(self, artifact, is_kor = True):
+        if is_kor:
+            for k, v in self.artifact_Kor.items():
+                if v == artifact:
+                    print(k)
+                    return k
+        else:
+            for k, v in self.artifact_Eng.items():
+                if v == artifact:
                     print(k)
                     return k
     
