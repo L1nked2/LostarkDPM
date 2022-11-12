@@ -98,9 +98,8 @@ class SettingWindowClass(QDialog, setting_form_class):
 
     def generate_class_CB(self):
         self.class_CB.addItem("Choose class")
-        classnames = self.lostark_sim.get_character_file_names()
+        classnames = self.lostark_sim.get_skill_file_names()
         for classname in classnames:
-            classname = classname[10:]
             new_classname = self.translator.translate_classname(classname, self.is_kor)
             if new_classname:
                 self.class_CB.addItem(new_classname)
@@ -112,7 +111,12 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.flag = False
         artifacts = self.lostark_sim.get_artifacts()
         for artifact in artifacts:
-            self.artifact_CB.addItem(artifact)
+            new_artifactname = self.translator.translate_artifact(artifact, self.is_kor)
+            if new_artifactname:
+                self.artifact_CB.addItem(new_artifactname)
+            else:
+                self.artifact_CB.addItem(artifacts)
+                continue
 
     def generate_engraving_CB(self):
         self.engraving_flag = True
@@ -161,7 +165,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         current_engravings = []
         for i in range(10):
             if getattr(self, 'engraving_CB'+str(i+1)).currentIndex() != 0:
-                engraving_name = self.translator.get_filename_by_engravings(getattr(self, 'engraving_CB'+str(i+1)).currentText())
+                engraving_name = self.translator.get_filename_by_engravings(getattr(self, 'engraving_CB'+str(i+1)).currentText(), self.is_kor)
                 current_engravings.append(engraving_name)
         return current_engravings
 
@@ -182,14 +186,15 @@ class SettingWindowClass(QDialog, setting_form_class):
         
     def accepted(self):
         if self.flag:
-            character_filename = self.translator.get_filename_by_classname(self.class_CB.currentText(), self.is_kor)
-            skill_set_path = f"./db/skills/{character_filename}"
-            self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_one_character_name(f"character_{character_filename}"))
+            skillset_filename = self.translator.get_filename_by_classname(self.class_CB.currentText(), self.is_kor)
+            skill_set_path = f"./db/skills/{skillset_filename}"
+            self.add_character_setting(self.character_setting_keys[0], self.lostark_sim.get_class_from_skillset(skillset_filename))
             for i in range(4):
                 self.add_character_setting(self.character_setting_keys[i+1], getattr(self, 'stat_SB'+str(i+1)).value())
             self.add_character_setting(self.character_setting_keys[5], self.get_current_engravings_list())
             #self.add_character_setting(self.character_setting_keys[6], None)
-            self.add_character_setting(self.character_setting_keys[7], self.artifact_CB.currentText())
+            artifact_name = self.translator.get_filename_by_artifact(self.artifact_CB.currentText(), self.is_kor)
+            self.add_character_setting(self.character_setting_keys[7], artifact_name)
             self.add_character_setting(self.character_setting_keys[8], skill_set_path)
 
             self.result_json = dict()
@@ -267,5 +272,11 @@ class SettingWindowClass(QDialog, setting_form_class):
         self.stat_SB4.valueChanged.connect(lambda: self.stat_changed_func('4'))
         
     def set_widget_size(self):
-        self.class_CB.setFixedSize(170, 21)
-        self.artifact_CB.setFixedSize(170, 21)
+        self.class_CB.setFixedSize(400, 21)
+        self.artifact_CB.setFixedSize(400, 21)
+        self.stat_SB1.setFixedSize(70, 21)
+        self.stat_SB2.setFixedSize(70, 21)
+        self.stat_SB3.setFixedSize(70, 21)
+        self.stat_SB4.setFixedSize(70, 21)
+        #self.class_CB.setFixedSize(170, 21)
+        #self.artifact_CB.setFixedSize(170, 21)
