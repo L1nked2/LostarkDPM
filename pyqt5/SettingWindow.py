@@ -44,7 +44,7 @@ class SettingWindowClass(QDialog, setting_form_class):
         #self.remain_stat = MAX_STAT_SUM
         self.is_kor = True
 
-        with open(CHARACTER_SETTING_FILEPATH, 'r') as load_file:
+        with open(CHARACTER_SETTING_FILEPATH, 'r', encoding='utf-8') as load_file:
             self.loaded_data = json.load(load_file)
         self.character_setting_keys = list(self.loaded_data['character_settings'][0].keys())
 
