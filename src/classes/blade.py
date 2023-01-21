@@ -264,7 +264,7 @@ def remaining_energy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
-    character.update_attribute('additional_attack_power', c_aap + 0.25 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.33 * (1 + c_aap))
     character.update_attribute('attack_speed', c_as + 0.06)
     character.update_attribute('movement_speed', c_ms + 0.06)
 
@@ -272,7 +272,7 @@ def remaining_energy_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
-    character.update_attribute('additional_attack_power', c_aap + 0.36 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.48 * (1 + c_aap))
     character.update_attribute('attack_speed', c_as + 0.12)
     character.update_attribute('movement_speed', c_ms + 0.12)
 
@@ -301,9 +301,9 @@ def burst_full_3(character: CharacterLayer, skill: Skill, buff: Buff):
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
-      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      skill.update_attribute('damage_multiplier', s_dm * 1.09)
     else:
-      skill.update_attribute('damage_multiplier', s_dm * 1.03)
+      skill.update_attribute('damage_multiplier', s_dm * 1.04)
 
 # 마엘스톰 시너지
 def dark_order(character: CharacterLayer, skill: Skill, buff: Buff):

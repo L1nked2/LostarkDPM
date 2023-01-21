@@ -293,9 +293,9 @@ def back_attack(character: CharacterLayer, skill: Skill, buff: Buff):
 def synergy_head_back(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
-      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      skill.update_attribute('damage_multiplier', s_dm * 1.09)
     else:
-      skill.update_attribute('damage_multiplier', s_dm * 1.03)
+      skill.update_attribute('damage_multiplier', s_dm * 1.04)
 # 광분
 def rage_legendary(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')

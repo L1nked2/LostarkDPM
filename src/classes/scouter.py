@@ -142,8 +142,10 @@ def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, 
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신해제':
       skill.update_attribute('remaining_cooldown', 0)
+    if skill.get_attribute('identity_type') == 'Sync':
+      skill.update_attribute('remaining_cooldown', 0)
   skill_manager.apply_function(cooldown_reduction)
-
+    
 # 변신 해제
 def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('hyper_sync')
@@ -226,7 +228,8 @@ def arthetinean_skill_1(character: CharacterLayer, skill: Skill, buff: Buff):
     character.update_attribute('attack_speed', c_as + 0.05)
     character.update_attribute('movement_speed', c_ms + 0.05)
     # 드론, 합작 스킬 피증
-    if (skill.get_attribute('identity_type') == "Drone" 
+    if (skill.get_attribute('identity_type') == "Common" 
+        or skill.get_attribute('identity_type') == "Drone" 
         or skill.get_attribute('identity_type') == "Joint"):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
@@ -237,8 +240,9 @@ def arthetinean_skill_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ms = character.get_attribute('movement_speed')
     character.update_attribute('attack_speed', c_as + 0.05)
     character.update_attribute('movement_speed', c_ms + 0.05)
-    # 드론, 합작 스킬 피증
-    if (skill.get_attribute('identity_type') == "Drone" 
+    # 일반, 드론, 합작 스킬 피증
+    if (skill.get_attribute('identity_type') == "Common" 
+        or skill.get_attribute('identity_type') == "Drone" 
         or skill.get_attribute('identity_type') == "Joint"):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.25)
