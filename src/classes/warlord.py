@@ -20,13 +20,6 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  'Combat_Readiness_Full_1': {
-    'name': 'combat_readiness',
-    'buff_type': 'stat',
-    'effect': 'combat_readiness_full_1',
-    'duration': 999999,
-    'priority': 7,
-  },
   'Combat_Readiness_1': {
     'name': 'combat_readiness',
     'buff_type': 'stat',

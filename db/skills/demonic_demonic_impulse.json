@@ -20,7 +20,6 @@
       "level": 12,
       "tripod": "231",
       "default_damage": 3286,
-      "default_coefficient": 20.13,
       "base_damage_multiplier": 1.586,
       "skill_type": "Common",
       "identity_type": "Intrude",
@@ -39,7 +38,6 @@
       "level": 12,
       "tripod": "211",
       "default_damage": 2660,
-      "default_coefficient": 16.37,
       "base_damage_multiplier": 4.2856,
       "skill_type": "Common",
       "identity_type": "Intrude",
@@ -58,7 +56,6 @@
       "level": 12,
       "tripod": "122",
       "default_damage": 1744,
-      "default_coefficient": 10.76,
       "base_damage_multiplier": 2.2,
       "skill_type": "Common",
       "identity_type": "Intrude",
@@ -77,7 +74,6 @@
       "level": 10,
       "tripod": "131",
       "default_damage": 940,
-      "default_coefficient": 5.05,
       "base_damage_multiplier": 1,
       "skill_type": "Common",
       "identity_type": "Common",
@@ -96,7 +92,6 @@
       "level": 12,
       "tripod": "122",
       "default_damage": 1152,
-      "default_coefficient": 7.04,
       "base_damage_multiplier": 2.45,
       "skill_type": "Common",
       "identity_type": "Intrude",
@@ -113,7 +108,6 @@
     {
       "name": "루인 러쉬",
       "default_damage": 1996,
-      "default_coefficient": 12.45,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -131,7 +125,6 @@
     {
       "name": "데스 클로",
       "default_damage": 2767,
-      "default_coefficient": 17.19,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -149,7 +142,6 @@
     {
       "name": "디스트럭션",
       "default_damage": 4330,
-      "default_coefficient": 26.87,
       "base_damage_multiplier": 1,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -167,7 +159,6 @@
     {
       "name": "고어 블리딩",
       "default_damage": 5334,
-      "default_coefficient": 33.3,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -185,7 +176,6 @@
     {
       "name": "리프 블로우",
       "default_damage": 6738,
-      "default_coefficient": 41.77,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -203,7 +193,6 @@
     {
       "name": "블러드 매서커",
       "default_damage": 8886,
-      "default_coefficient": 55.14,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Demon",
@@ -255,7 +244,6 @@
     {
       "name": "폴른 루인",
       "default_damage": 53081,
-      "default_coefficient": 329.32,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Awakening",
