@@ -12,7 +12,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 급습 스킬 피해량 특화 계수
-SPEC_COEF_1 = 1 / 24.11 / 100
+SPEC_COEF_1 = 1 / 24.103 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

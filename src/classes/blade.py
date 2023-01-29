@@ -1,5 +1,5 @@
 """
-Actions & Buff bodies of blade
+Actions & Buff bodies of blade(deathblade)
 """
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
@@ -11,9 +11,9 @@ from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 버스트 특화 계수
-SPEC_COEF_1 = 1 / 8.7383 / 100
+SPEC_COEF_1 = 1 / 8.738 / 100
 # 아츠 쿨감 특화 계수
-SPEC_COEF_2 = 1 / 34.9655 / 100
+SPEC_COEF_2 = 1 / 34.95 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

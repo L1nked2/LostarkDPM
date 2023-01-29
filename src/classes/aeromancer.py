@@ -1,5 +1,5 @@
 """
-Actions & Buff bodies of lancemaster(Graivier)
+Actions & Buff bodies of aeromancer
 """
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.buff_manager import BuffManager
@@ -11,8 +11,8 @@ from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
-# 난무/집중 버프 효과 증가 특화 계수
-SPEC_COEF_1 = 1 / 13.706 / 100
+# 기상 스킬 피해량 증가 특화 계수
+SPEC_COEF_1 = 1 / 13.98 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

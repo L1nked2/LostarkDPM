@@ -12,7 +12,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 폭주 지속 시간 특화 계수
-SPEC_COEF_1 = 1 / 5.5922 / 100
+SPEC_COEF_1 = 1 / 5.592 / 100
 # 블러디 러쉬 피해량 특화 계수
 SPEC_COEF_2 = 1 / 5.825 / 100
 

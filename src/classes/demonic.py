@@ -14,9 +14,9 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 DEFAULT_TRANSFORM_TIME_LIMIT = 20
 
 # 악마 스킬 데미지 특화 계수
-SPEC_COEF_1 = 1 / 11.6507 / 100
+SPEC_COEF_1 = 1 / 11.65 / 100
 # 변신 시간 특화 계수
-SPEC_COEF_2 = 1 / 23.3031 / 100
+SPEC_COEF_2 = 1 / 23.3 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

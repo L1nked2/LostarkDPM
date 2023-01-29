@@ -10,7 +10,8 @@ from src.layers.dynamic.constants import seconds_to_ticks
 from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
-SPEC_COEF = 1 / 6.3591 / 100
+# 일반 스킬의 피해량 특화 계수
+SPEC_COEF = 1 / 6.355 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
