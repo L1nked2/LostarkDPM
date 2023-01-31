@@ -42,11 +42,18 @@ class BuffManager():
           else:
             warnings.warn(f'Not implemented buff detected, {buff_name}', UserWarning)
     
-    def is_buff_exists(self, name):
+    def is_buff_exists(self, buff_name):
         for buff in self.current_buffs:
-          if buff.name == name:
+          if buff.name == buff_name:
             return True
         return False
+    
+    def get_buff(self, buff_name) -> StatBuff | DamageBuff | None:
+        if self.is_buff_exists(buff_name):
+          for buff in self.current_buffs:
+            if buff.name == buff_name:
+              return buff
+        return None
     
     def apply_function(self, func):
         for buff in self.current_buffs:

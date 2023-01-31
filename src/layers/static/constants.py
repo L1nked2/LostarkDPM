@@ -4,11 +4,11 @@ Constants for static part of simulator
 
 # Data for character_layer
 # Combat Stats Related
-CRITICAL_RATE_PER_CRIT = 1 / 27.944 / 100
-AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.3020 / 100
-COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.5731 / 100
-ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.2449 / 100
-MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
+CRITICAL_RATE_PER_CRIT = 1 / 27.945 / 100
+AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.298 / 100
+COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.569 / 100
+ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
+MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
 
 # Capping
 MAX_MOVEMENT_SPEED = 1.4
@@ -55,7 +55,7 @@ ENGRAVINGS = {
   'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
-  'Master’s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
+  'Master\'s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
   #바리케이드 -> TODO: move to buff layer(class specific)
   'Barricade_3': [('damage_multiplier', lambda x: x * 1.16)],
   #안정된상태
@@ -104,7 +104,8 @@ ENGRAVINGS = {
   'Mayhem_1': [('damage_multiplier', lambda x: x * 1.03), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
-
+  #처단자
+  #포식자
   #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
   'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
@@ -174,6 +175,9 @@ ENGRAVINGS = {
   "Hunger_3": [('static_buff_queue', lambda x: x + ['Hunger_3'])],
   #달의소리
   "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
+  #이슬비
+  #질풍노도
+  "Gale_Rage_3": [('static_buff_queue', lambda x: x + ['Gale_Rage_3'])],
 }
 
 # Data for equipment_layer

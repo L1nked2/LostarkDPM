@@ -130,7 +130,7 @@ class Skill:
             self.__setattr__(variable, default_values[variable])
 
         # cooldown_on_finish
-        cooldown_on_finish_types = ['Combo', 'Chain', 'Casting', 'Holding_B']
+        cooldown_on_finish_types = ['Chain', 'Casting', 'Holding_B']
         if self.skill_type in cooldown_on_finish_types:
             self.cooldown_on_finish = True
         # rune parsing
@@ -195,7 +195,7 @@ class Skill:
 
     def start_cooldown(self, cooldown_reduction):
         if self.cooldown_on_finish:
-          if self.skill_type == 'Combo':
+          if self.skill_type == 'Chain':
             self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.common_delay
           else:
             self.remaining_cooldown = self.actual_cooldown * (1-cooldown_reduction) + self.actual_delay
@@ -216,7 +216,10 @@ class Skill:
         return damage
     
     def calc_delay(self, attack_speed):
-        delay = self.actual_delay / attack_speed
+        self.common_delay = self.common_delay / attack_speed
+        self.type_specific_delay = self.type_specific_delay / attack_speed
+        self._refresh_skill()
+        delay = self.actual_delay
         self.prev_delay = delay
         return delay
 
@@ -225,6 +228,6 @@ class Skill:
         return info
 
     def print_skill_info(self):
-        targets = ['name', 'damage_multiplier', 'additional_crit_rate', 'additional_crit_damage', 'actual_delay']
+        targets = ['name', 'default_damage', 'default_coefficient', 'damage_multiplier', 'additional_crit_rate', 'additional_crit_damage', 'actual_delay']
         for target in targets:
             print(f'{target}: {self.__getattribute__(target)}')

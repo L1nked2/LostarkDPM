@@ -48,7 +48,7 @@ class SkillManager:
         else:
           warnings.warn(f'finalize_skill not exists, check {class_name}.py', UserWarning)
         # dummy skill
-        self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False)
+        self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False, mana_cost=0)
         # 룬 통계
         self.rune_ratio = {'rg': [0,0], 'qr': [0,0], 'jm' : [0,0]}
 
