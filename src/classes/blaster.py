@@ -13,9 +13,9 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 포격 스킬 피해량 특화 계수
-SPEC_COEF_1 = 1 / 13.9806 / 100
+SPEC_COEF_1 = 1 / 13.98 / 100
 # 화력 버프 효율 특화 계수
-SPEC_COEF_2 = 1 / 11.2746 / 100
+SPEC_COEF_2 = 1 / 11.274 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -141,7 +141,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 def firepower_enhancement_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Common':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.20)
+      skill.update_attribute('damage_multiplier', s_dm * 1.25)
 
 def barrage_enhancement_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Barrage':

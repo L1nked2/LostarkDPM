@@ -11,7 +11,7 @@ from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 충격 뎀증 특화 계수
-SPEC_COEF_1 = 1 / 17.5355 / 100
+SPEC_COEF_1 = 1 / 17.475 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

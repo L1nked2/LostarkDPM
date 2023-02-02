@@ -12,7 +12,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 폭주 지속 시간 특화 계수
-SPEC_COEF_1 = 1 / 5.5922 / 100
+SPEC_COEF_1 = 1 / 5.592 / 100
 # 블러디 러쉬 피해량 특화 계수
 SPEC_COEF_2 = 1 / 5.825 / 100
 
@@ -62,7 +62,7 @@ CLASS_BUFF_DICT = {
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 591,
-    'coefficient': 3.66,
+    'coefficient': 3.664,
     'damage_interval': 1,
     'duration': 6,
     'priority': 7,
@@ -120,7 +120,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
-    elif skill.get_attribute('identity_type') == "Berserk":
+    if skill.get_attribute('name') == "블러디 러쉬":
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_bloody_rush_multiplier)      
 
@@ -137,7 +137,7 @@ def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
 # 체소 치적 버프
 def crit_buff_2(character: CharacterLayer, skill: Skill, buff: Buff):
     s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.276)
+    skill.update_attribute('additional_crit_rate', s_acr + 0.332)
 
 # 피증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

@@ -4,11 +4,11 @@ Constants for static part of simulator
 
 # Data for character_layer
 # Combat Stats Related
-CRITICAL_RATE_PER_CRIT = 1 / 27.944 / 100
-AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.3020 / 100
-COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.5731 / 100
-ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.2449 / 100
-MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.2211 / 100
+CRITICAL_RATE_PER_CRIT = 1 / 27.945 / 100
+AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.298 / 100
+COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.569 / 100
+ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
+MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
 
 # Capping
 MAX_MOVEMENT_SPEED = 1.4
@@ -55,7 +55,7 @@ ENGRAVINGS = {
   'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
-  'Master’s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
+  'Master\'s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
   #바리케이드 -> TODO: move to buff layer(class specific)
   'Barricade_3': [('damage_multiplier', lambda x: x * 1.16)],
   #안정된상태
@@ -104,10 +104,10 @@ ENGRAVINGS = {
   'Mayhem_1': [('damage_multiplier', lambda x: x * 1.03), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
-
+  #처단자
+  #포식자
   #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
-  'Combat_Readiness_Full_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_Full_1'])],
   'Combat_Readiness_3': [('static_buff_queue', lambda x: x + ['Combat_Readiness_3'])],
   #고독한기사
   'Lone_Knight_3': [('static_buff_queue', lambda x: x + ['Lone_Knight_3'])],
@@ -175,6 +175,9 @@ ENGRAVINGS = {
   "Hunger_3": [('static_buff_queue', lambda x: x + ['Hunger_3'])],
   #달의소리
   "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
+  #이슬비
+  #질풍노도
+  "Gale_Rage_3": [('static_buff_queue', lambda x: x + ['Gale_Rage_3'])],
 }
 
 # Data for equipment_layer
@@ -216,34 +219,34 @@ ARTIFACT_TABLE = {
 }
 
 # Data for StatFactory
-# abrelshud, ancient equipment is base for this table
+# 일리아칸(Akkan) is base for this table
 # 0~25 for ancient, 26,27,28 -> sidereal(에스더) 6, 7, 8
-# base level is 1390, 10 for each upgrade 1~20, 5 for each upgrade 21~25
-# until upgrade 14(< level 1540), relic accessories take part in stat. after that, ancient accessories take part
+# base level is 1525, 5 for each upgrade
+# until upgrade 2(< level 1540), relic accessories take part in stat. after that, ancient accessories take part
 STAT_BY_UPGRAGE_TABLE = {
     'armor': [
-        55530,
-        56653, 57797, 60086, 63657, 67436,
-        71440, 75683, 80175, 88057, 92032,
-        96186, 100527, 105062, 109803, 114757,
-        119934, 125344, 130997, 136904, 143076,
-        147882, 152851, 157985, 163290, 168774,
-        168774, 168774, 168774,
+        107407,
+        109803, 112253, 114757, 117317, 119934,
+        122608, 125344, 128139, 130997, 133917,
+        136904, 139956, 143076, 147882, 152851,
+        157985, 163290, 168774, 174442, 180300,
+        186355, 192613, 199078, 205762, 212668,
+        212668, 212668, 212668,
     ],
     'weapon': [
-        19607,
-        20001, 20403, 21207, 22461, 23790,
-        25196, 26686, 28264, 31033, 32430, 
-        33889, 35414, 37008, 38673, 40413,
-        42232, 44132, 46118, 48194, 50362,
-        52051, 53796, 55599, 57463, 59390,
-        61800, 63160, 64519,
+        37831,
+        38673, 39534, 40413, 41313, 42232,
+        43172, 44132, 45114, 46118, 47145, 
+        48194, 49266, 50362, 52051, 53796,
+        55599, 57463, 59390, 61381, 63439,
+        65566, 67764, 70036, 72384, 74811,
+        75185, 78084, 81095,
     ],
     'accessories' : [
         39488,
-        39488, 39488, 39488, 39488, 39488,
-        39488, 39488, 39488, 39488, 39488, 
-        39488, 39488, 39488, 39488, 50184,
+        39488, 39488, 50184, 50184, 50184,
+        50184, 50184, 50184, 50184, 50184, 
+        50184, 50184, 50184, 50184, 50184,
         50184, 50184, 50184, 50184, 50184,
         50184, 50184, 50184, 50184, 50184, 
         50184, 50184, 50184,

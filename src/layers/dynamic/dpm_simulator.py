@@ -144,15 +144,21 @@ class DpmSimulator:
     target_skill = self.skills_manager.get_next_skill()
     self.buffs_manager.apply_stat_buffs(self.current_character, target_skill)
     dmg_stats = self.current_character.extract_dmg_stats()
+    ########## Test parts for debugging ###########
+    # print(dmg_stats)
+    # target_skill.print_skill_info()
+    # self.buffs_manager.print_buffs()
+    ###############################################
     damage = round(target_skill.calc_damage(**dmg_stats))
     is_awakening = bool(target_skill.identity_type == "Awakening")
     if self.verbose:
       print(f'{target_skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
-    # start cooldown and handle triggered_actions
+    # calculate delay and start cooldown based on new delay
+    delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     target_skill.start_cooldown(self.current_character.cooldown_reduction)
+    # handle triggered_actions
     self._handle_triggered_actions(target_skill)
     # block skill_manger until delay is over
-    delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
     self.skills_manager.block_until(self.elapsed_tick + delay)
     # update average delay
     if delay > 0:

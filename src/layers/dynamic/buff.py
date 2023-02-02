@@ -22,8 +22,8 @@ class Buff:
     def is_expired(self, current_tick) -> bool:
         return self.begin_tick + self.duration < current_tick
     
-    def increase_stack(self):
-        self.stack += 1
+    def increase_stack(self, inc=1):
+        self.stack += inc
         
     def __repr__(self):
         return str({'name': self.name, 'begin_tick': self.begin_tick, 'duration': ticks_to_seconds(self.duration), 'is_shadowed': self.is_shadowed})

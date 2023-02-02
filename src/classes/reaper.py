@@ -12,7 +12,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 급습 스킬 피해량 특화 계수
-SPEC_COEF_1 = 1 / 24.11 / 100
+SPEC_COEF_1 = 1 / 24.103 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -164,6 +164,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 페르소나 버프
 def persona(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_as = character.get_attribute('attack_speed')
+    character.update_attribute('attack_speed', c_as + 0.1)
     if skill.get_attribute('identity_type') == "Swoop":
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 2.6)
@@ -187,4 +189,4 @@ def hunger_3(character: CharacterLayer, skill: Skill, buff: Buff):
     character.update_attribute('attack_speed', c_as + 0.1)
     character.update_attribute('movement_speed', c_ms + 0.1)
     character.update_attribute('crit_rate', c_cr + 0.15)
-    character.update_attribute('additional_attack_power', c_aap + 0.25 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.30 * (1 + c_aap))

@@ -10,20 +10,14 @@ from src.layers.dynamic.constants import seconds_to_ticks
 from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
-SPEC_COEF = 1 / 6.3591 / 100
+# 일반 스킬의 피해량 특화 계수
+SPEC_COEF = 1 / 6.355 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
     'name': 'specialization',
     'buff_type': 'stat',
     'effect': 'specialization',
-    'duration': 999999,
-    'priority': 7,
-  },
-  'Combat_Readiness_Full_1': {
-    'name': 'combat_readiness',
-    'buff_type': 'stat',
-    'effect': 'combat_readiness_full_1',
     'duration': 999999,
     'priority': 7,
   },
@@ -45,7 +39,7 @@ CLASS_BUFF_DICT = {
     'name': 'ap_buff',
     'buff_type': 'stat',
     'effect': 'ap_buff_1',
-    'duration': 5,
+    'duration': 6,
     'priority': 9,
   },
   'AP_Buff_2': {
@@ -133,17 +127,19 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_2)
 
-def combat_readiness_full_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
-    if skill.get_attribute('identity_type') == 'Common':
-      skill.update_attribute('damage_multiplier', s_dm * 1.20 * 1.12)
-    else:
-      skill.update_attribute('damage_multiplier', s_dm * 1.12)
-
 def combat_readiness_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('identity_type') == 'Common':
-      skill.update_attribute('damage_multiplier', s_dm * 1.20)
+      skill.update_attribute('damage_multiplier', s_dm * 1.25 * 1.06)
+    else:
+      skill.update_attribute('damage_multiplier', s_dm * 1.06)
+
+def combat_readiness_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_dm = skill.get_attribute('damage_multiplier')
+    if skill.get_attribute('identity_type') == 'Common':
+      skill.update_attribute('damage_multiplier', s_dm * 1.30 * 1.12)
+    else:
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
 
 def lone_knight_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Lance':
@@ -171,6 +167,6 @@ def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
 def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
     if skill.get_attribute('back_attack') == True or skill.get_attribute('head_attack') == True:
-      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      skill.update_attribute('damage_multiplier', s_dm * 1.09)
     else:
-      skill.update_attribute('damage_multiplier', s_dm * 1.03)
+      skill.update_attribute('damage_multiplier', s_dm * 1.04)

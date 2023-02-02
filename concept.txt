@@ -3,6 +3,7 @@
   1) https://www.inven.co.kr/board/lostark/4821/77877
   2) https://www.inven.co.kr/board/lostark/4821/9927
   3) https://www.inven.co.kr/board/lostark/4821/89074
+특화 계수는 699 기준 표시되는 값으로 구한다.
 ================================================================
 refresh의 목적 -> 최종 status를 계산해내는 것(attack_power, damage_mutiplier, crit_rate, cooldown, moving_speed, attack_speed)
 static한 부분에서 할 수 있는 최대한의 status를 만들어내고 이를 dynamic에서 핸들링 하는것이 합리적인듯
@@ -161,9 +162,10 @@ skill_manager는 남은 쿨다운과 이전 딜레이 정보를 바탕으로 사
 
 일단은 type_specific_delay에 대한 설명부터 드리면 이건 Combo, Chain, Holding_A, Holding_B, Casting, Charge를 위한 딜레이라고 보시면 됩니다.
 각 스킬 타입별로 역할이 살짝 다른데,
-Combo의 경우 스킬 쿨타임 시작 시점을 조절하는 역할 입니다. 만약 2번 눌러서 쓰는 스킬이라면 스킬 쿨타임이 두번째 키입력부터 돌아가기 때문에
-pre딜레이에 첫 키입력의 딜레이, type_specific에 두번째 키 입력부터  마무리까지를 입력하면 됩니다. Chain도 동일한데 룬이나 triggered_action이 key_strokes만큼 시행되는 차이점이 있습니다.
+Combo의 경우 pre딜레이에 첫 키입력의 딜레이, type_specific에 두번째 키 입력부터 마무리까지를 입력하면 됩니다. 
+Chain은 스킬 쿨타임이 마지막 키입력부터 돌아가기 때문에 type_specific딜레이의 영향을 받으며 룬이나 triggered_action이 key_strokes만큼 시행됩니다.
 Holding의 경우 Holding_A는 스킬을 누를 때 쿨이 도는 스킬입니다. Holding_B는 스킬의 시전이 끝날 때 쿨이 도는 스킬입니다.
 두 스킬 모두 선딜-홀딩 게이지 차오름-풀로 채우고 후딜이 나옴 구조인데 여기서 순서대로 pre, t, post에 입력하면 됩니다. 홀딩 스킬은 게이지가 차오르는 부분만 속속 적용이 되는데 type_specific_delay를 줄여주는 방식으로 작동합니다. 엑셀에서 pre와 post 즉 선딜과 후딜은 common으로 들어가고 홀딩 구간만 type으로 들어갑니다.
 Casting은 Holding_B와 유사하게 작동한다고 보시면 되고(캔슬시 쿨이 아예 돌지 않는다는 차이점이 있지만 계산기는 스킬을 끊지 않으므로)
-Charge도 마찬가지로 선딜-차지 게이지 차오름(게이지가 반짝거리는 시점을 오버차지로 판단)-후딜 순서대로 pre, t, post로 입력합니다. Holding_A처럼 작동한다고 보시면 됩니다. 
+Charge도 마찬가지로 선딜-차지 게이지 차오름(게이지가 반짝거리는 시점을 오버차지로 판단)-후딜 순서대로 pre, t, post로 입력합니다. Holding_A처럼 작동한다고 보시면 됩니다.
+Chain은 마지막 스킬을 누르는 시점(Common delay종료 이후)에 쿨타임이 돌아가며, Holding_B, Casting은 모든 딜레이(Common Delay + Type Specific delay) 종료 이후, 즉 스킬이 온전히 시전된 후 쿨타임이 돌아갑니다.

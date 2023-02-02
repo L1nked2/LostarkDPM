@@ -12,9 +12,9 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 핸드건 치명타 피해량 특화 계수
-SPEC_COEF_1 = 1 / 9.3206 / 100
+SPEC_COEF_1 = 1 / 9.32 / 100
 # 샷건 스킬 피해량 특화 계수
-SPEC_COEF_2 = 1 / 27.9663 / 100
+SPEC_COEF_2 = 1 / 27.96 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -92,10 +92,10 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.3)
+      skill.update_attribute('damage_multiplier', s_dm * 1.40)
     elif skill.get_attribute('identity_type') == "Handgun":
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.7)
+      skill.update_attribute('damage_multiplier', s_dm * 1.85)
 
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

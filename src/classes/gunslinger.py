@@ -16,11 +16,11 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 핸드건 치명타 피해량 특화 계수
-SPEC_COEF_1 = 1 / 9.3206 / 100
+SPEC_COEF_1 = 1 / 9.32 / 100
 # 샷건 스킬 물/마방관 특화 계수
-SPEC_COEF_2 = 1 / 27.9663 / 100
+SPEC_COEF_2 = 1 / 27.96 / 100
 # 라이플 스킬 피해량 특화 계수
-SPEC_COEF_3 = 1 / 27.9663 / 100
+SPEC_COEF_3 = 1 / 27.96 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -198,14 +198,12 @@ def peace_maker_3(character: CharacterLayer, skill: Skill, buff: Buff):
       
 # 사냥의시간 각인
 def time_to_hunt_1(character: CharacterLayer, skill: Skill, buff: Buff):  
-    if skill.get_attribute('identity_type') == "Handgun" or skill.get_attribute('identity_type') == "Rifle":
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.22)
+    s_acr = skill.get_attribute('additional_crit_rate')
+    skill.update_attribute('additional_crit_rate', s_acr + 0.22)
 
 def time_to_hunt_3(character: CharacterLayer, skill: Skill, buff: Buff):  
-    if skill.get_attribute('identity_type') == "Handgun" or skill.get_attribute('identity_type') == "Rifle":
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.45)
+    s_acr = skill.get_attribute('additional_crit_rate')
+    skill.update_attribute('additional_crit_rate', s_acr + 0.45)
      
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
