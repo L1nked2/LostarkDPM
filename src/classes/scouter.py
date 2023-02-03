@@ -43,6 +43,13 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 9,
   },
+  'Arthetinean_Skill_3': {
+    'name': 'arthetinean_skill',
+    'buff_type': 'stat',
+    'effect': 'arthetinean_skill_3',
+    'duration': 999999,
+    'priority': 9,
+  },
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',

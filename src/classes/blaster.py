@@ -88,13 +88,13 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
   # 포탑 소환
   if skill_on_use.get_attribute('name') == '포탑 소환':
     def duration_increase(buff: Buff):
-      if buff.name == 'bleed':
+      if buff.name == '출혈':
         buff.duration += seconds_to_ticks(13)
     buff_manager.apply_function(duration_increase)
   # 강화탄
   elif skill_on_use.get_attribute('name') == '강화탄':
     def duration_increase(buff: Buff):
-      if buff.name == 'bleed':
+      if buff.name == '출혈':
         buff.duration += seconds_to_ticks(4)
     buff_manager.apply_function(duration_increase)
 

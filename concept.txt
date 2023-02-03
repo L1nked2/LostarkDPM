@@ -51,9 +51,9 @@ trigger related: buff manager를 modify하는 skill들의 처리와 다른 skill
 simulation variables: skill manager가 활용하는 변수들, policy에서 참고하여 다음 스킬 계획 및 데미지 계산
 -import시 추가
 
-Common, Charge, Holding_A(일반 홀딩 or 퍼펙트 존) -> 시작시 쿨이 돌음
+Common, Combo, Charge, Holding_A(일반 홀딩 or 퍼펙트 존) -> 시작시 쿨이 돌음
 Casting, Holding_B(캔슬 가능한 홀딩) -> 끝날 시 쿨이 돌음
-Combo, Chain -> 마지막 스킬 모션 시작부터 쿨이 돌음
+Chain -> 마지막 스킬 모션 시작부터 쿨이 돌음
 
 action은 buff_manager, skill_manager에서 제공하는 메소드를 활용하여 버프를 발동, 제거하거나 스킬의 쿨다운을 증가, 감소 시키는 식으로 작동한다.
 더미 스킬에 action을 부여하여 원하는 동작을 하도록 사용할 수도 있다(identity 처리)
