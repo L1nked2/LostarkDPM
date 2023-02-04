@@ -5,7 +5,7 @@ from src.layers.utils import import_character
 
 if __name__ == '__main__':
     #character_path = './characters.json'
-    character_path = './db/characters/character_summoner_master_summoner.json'
+    character_path = './db/characters/character_blaster_barrage_enhancement.json'
     character_configs = import_character(character_path)
 
     for character_config in character_configs:
