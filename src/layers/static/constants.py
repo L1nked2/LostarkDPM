@@ -154,7 +154,7 @@ ENGRAVINGS = {
   "Peace_Maker_1": [('static_buff_queue', lambda x: x + ['Peace_Maker_1'])],
   "Peace_Maker_3": [('static_buff_queue', lambda x: x + ['Peace_Maker_3'])],
   #상급소환사
-  'Master_Summoner_3': [('damage_multiplier', lambda x: x * 1.15)],
+  'Master_Summoner_3': [('static_buff_queue', lambda x: x + ['Master_Summoner_3'])],
   #넘치는교감
   #황후의은총
   #황제의칙령

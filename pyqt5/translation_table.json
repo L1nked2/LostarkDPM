@@ -1,7 +1,8 @@
 {
   "class_trans_kor": {
+    "aeromancer_gale_rage.json": "기상술사(질풍, 2기4역)",
     "battlemaster_first_intention.json": "배틀마스터(초심)",
-    "berserker_mayhem.json": "버서커(광기)",
+    "berserker_mayhem.json": "버서커(광기, 혼일휘몰24초)",
     "blade_burst.json": "블레이드(버스트)",
     "blade_remaining_energy.json": "블레이드(잔재된 기운)",
     "blaster_barrage_enhancement.json": "블래스터(포격 강화)",
@@ -18,19 +19,19 @@
     "lancemaster_pinnacle.json": "창술사(절정, 4난무3집중)",
     "reaper_hunger.json": "리퍼(갈증)",
     "reaper_lunar_voice.json": "리퍼(달의 소리)",
-    "scouter_arthetinean_skill.json": "스카우터(아르데타인의 기술)",
+    "scouter_arthetinean_skill.json": "스카우터(아르데타인의 기술, 422)",
     "scouter_evolutionary_legacy.json": "스카우터(진화의 유산)",
     "sorceress_igniter.json": "소서리스(점화)",
     "striker_deathblow_c1.json": "스트라이커(일격필살, 3오의 풍신초래)",
     "striker_deathblow_e2.json": "스트라이커(일격필살, 2오의 방천격)",
     "striker_deathblow.json": "스트라이커(일격필살, 3오의 폭쇄진)",
-    "warlord_combat_readiness_c1.json": "워로드(전투태세, 피해행운 50% 적중 & 리프어택 직접타격)",
-    "warlord_combat_readiness_c2.json": "워로드(전투태세, 피해행운 50% 적중 & 리프어택 빠른 준비)",
-    "warlord_combat_readiness.json": "워로드(전투태세, 피해행운 100% 적중)",
+    "summoner_master_summoner.json": "서머너(상급 소환사, 마질 채용)",
+    "warlord_combat_readiness.json": "워로드(전투태세, 방격채용)",
     "warlord_lone_knight_c1.json": "워로드(고독한 기사, 대쉬 어퍼 파이어 빠른 준비)",
     "warlord_lone_knight.json": "워로드(고독한 기사)"
   },
   "class_trans_eng": {
+    "aeromancer_gale_rage.json": "Aeromancer(gale rage)",
     "battlemaster_first_intention.json": "Wardancer(first intention)",
     "berserker_mayhem.json": "Berserker(mayhem)",
     "blade_burst.json": "Deathblade(surge)",
@@ -55,9 +56,8 @@
     "striker_deathblow_c1.json.json": "Striker(deathblow, 3 esotheric call the wind god)",
     "striker_deathblow_e2.json.json": "Striker(deathblow, 2 esotheric sweeping kick)",
     "striker_deathblow.json.json": "Striker(deathblow, 3 esotheric blast formation)",
-    "warlord_combat_readiness_c1.json": "Gunlancer(combat readiness, DL 50% hit & leap attack DH)",
-    "warlord_combat_readiness_c2.json": "Gunlancer(combat readiness, DL 50% hit & leap attack QP)",
-    "warlord_combat_readiness.json": "Gunlancer(combat readiness, DL 100% hit & leap attack DH)",
+    "summoner_master_summoner.json": "Summoner(master summoner)",
+    "warlord_combat_readiness.json": "Gunlancer(combat readiness)",
     "warlord_lone_knight_c1.json": "Gunlancer(solo knight, dash upper fire quick prep)",
     "warlord_lone_knight.json": "Gunlancer(solo knight)"
   },
@@ -67,7 +67,7 @@
     "Synergy_Crit_B": "시너지(치명타 적중률 상시 18%)",
     "Synergy_Damage_A": "시너지(데미지 상시 6%)",
     "Synergy_Damage_B": "시너지(방어력 감소 상시 12%)",
-    "Synergy_Head_Back": "시너지(데미지 상시 3%, 헤드백 데미지 상시 12%)",
+    "Synergy_Head_Back": "시너지(데미지 상시 4%, 헤드백 데미지 상시 9%)",
     "Card_세구_18": "카드(세상을 구하는 빛, 18각성)",
     "Card_세구_30": "카드(세상을 구하는 빛, 30각성)",
     "갈망_1": "갈망세트 1레벨",
@@ -121,9 +121,8 @@
 
     "Mayhem_1": "광기 1레벨",
     "Mayhem_3": "광기 3레벨",
-    "Combat_Readiness_1": "전투태세 1레벨, 상시 0스택",
-    "Combat_Readiness_Full_1": "전투태세 1레벨, 상시 풀스택",
-    "Combat_Readiness_3": "전투태세 3레벨, 상시 0스택",
+    "Combat_Readiness_1": "전투태세 1레벨, 상시 풀스택",
+    "Combat_Readiness_3": "전투태세 3레벨, 상시 풀스택",
     "Lone_Knight_3": "고독한 기사 3레벨",
     "Rage_Hammer_3": "분노의 망치 3레벨",
     "First_Intention_1": "초심 1레벨",
@@ -154,7 +153,8 @@
     "Perfect_Suppression_1": "완벽한 억제 1레벨",
     "Demonic_Impulse_3": "멈출 수 없는 충동 3레벨",
     "Hunger_3": "갈증 3레벨",
-    "Lunar_Voice_3": "달의 소리 3레벨"
+    "Lunar_Voice_3": "달의 소리 3레벨",
+    "Gale_Rage_3": "질풍노도 3레벨"
   },
   "engraving_trans_eng": {
     "Hell": "Hell(additional damage 0)",
@@ -162,7 +162,7 @@
     "Synergy_Crit_B": "Synergy(additional crit rate 18%)",
     "Synergy_Damage_A": "Synergy(dmg 6%)",
     "Synergy_Damage_B": "Synergy(defence reduction 12%)",
-    "Synergy_Head_Back": "Synergy(dmg 3% or head/back dmg 12%)",
+    "Synergy_Head_Back": "Synergy(dmg 4% or head/back dmg 9%)",
     "Card_세구_18": "Card(light of salavation, lv18)",
     "Card_세구_30": "Card(light of salavation, lv30)",
     "갈망_1": "Yearning relic set lv1(swiftness & dexterity)",
@@ -216,9 +216,8 @@
 
     "Mayhem_1": "Mayhem lv1",
     "Mayhem_3": "Mayhem lv3",
-    "Combat_Readiness_1": "Combat readiness lv1, 0 stack",
-    "Combat_Readiness_Full_1": "Combat readiness lv1, 3 stack",
-    "Combat_Readiness_3": "Combat readiness lv3, 0 stack",
+    "Combat_Readiness_1": "Combat readiness lv1, 3 stack",
+    "Combat_Readiness_3": "Combat readiness lv3, 3 stack",
     "Lone_Knight_3": "Solo knight lv3",
     "Rage_Hammer_3": "Rage hammer lv3",
     "First_Intention_1": "First intention lv1",
@@ -248,7 +247,8 @@
     "Perfect_Suppression_1": "Perfect suppression lv1",
     "Demonic_Impulse_3": "Demonic impulse lv3",
     "Hunger_3": "Hunger lv3",
-    "Lunar_Voice_3": "Lunar voice lv3"
+    "Lunar_Voice_3": "Lunar voice lv3",
+    "Gale_Rage_3": "Gale rage lv3"
   },
   "artifact_trans_kor": {
     "지배_6_1": "지배6 lv1",

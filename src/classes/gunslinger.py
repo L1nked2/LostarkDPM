@@ -107,7 +107,7 @@ def finalize_skill(skill: Skill):
 # 유탄 출혈 시간 갱신 action
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def duration_increase(buff: Buff):
-    if buff.name == 'bleed':
+    if buff.name == '출혈':
       buff.duration += seconds_to_ticks(3)
   buff_manager.apply_function(duration_increase)
 

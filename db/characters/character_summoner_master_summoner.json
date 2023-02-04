@@ -1,0 +1,26 @@
+{
+  "character_settings": [
+    {
+      "class_name": "summoner",
+      "upgrade": 25,
+      "crit": 0,
+      "specialization": 1600,
+      "swiftness": 600,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Master_Summoner_3", "Hit_Master_3", "Adrenaline_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["환각_6_3"],
+      "skill_set": "./db/skills/summoner_master_summoner.json"
+    },
+    {
+      "class_name": "summoner",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 1600,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Master_Summoner_3", "Hit_Master_3", "Adrenaline_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["구원_6_3"],
+      "skill_set": "./db/skills/summoner_master_summoner.json"
+    }
+  ]
+}

@@ -6,8 +6,9 @@
       ["과충전 배터리"],
       ["기동 타격"],
       ["명령 : 베이비 드론", "아발란체"],
+      ["명령 : 레이드 미사일"],
       ["어나힐레이션 모드"],
-      ["명령 : 레이드 미사일", "전술 사격"],
+      ["명령 : 플레어빔"],
       ["에너지 버스터"],
       ["명령 : 파이널 익스플로전"]
     ]
@@ -25,7 +26,7 @@
       "common_delay": 0.56,
       "type_specific_delay": 1.26,
       "jewel_cooldown_level": 0,
-      "jewel_damage_level": 0,
+      "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
       "key_strokes" : 1,
@@ -71,6 +72,26 @@
       "rune": "단죄_전설"
     },
     {
+      "name": "명령 : 플레어빔",
+      "level": 12,
+      "tripod": "222",
+      "default_damage": 2326,
+      "base_damage_multiplier": 3.9788,
+      "skill_type": "Common",
+      "identity_type": "Drone",
+      "cooldown": 16,
+      "common_delay": 0.52,
+      "type_specific_delay": 0.0,
+      "jewel_cooldown_level": 0,
+      "jewel_damage_level": 10,
+      "head_attack": false,
+      "back_attack": false,
+      "base_additional_crit_damage":0.5,
+      "key_strokes" : 1,
+      "mana_cost": 0,
+      "rune": "속행_영웅"
+    },
+    {
       "name": "명령 : 레이드 미사일",
       "level": 12,
       "tripod": "331",
@@ -87,13 +108,14 @@
       "back_attack": false,
       "key_strokes" : 1,
       "mana_cost": 0,
-      "rune": "압도_전설"
+      "rune": "심판_전설"
     },
     {
       "name": "어나힐레이션 모드",
       "level": 12,
       "tripod": "211",
       "default_damage": 852,
+      "default_coefficient": 5.27,
       "base_damage_multiplier": 21.0816,
       "skill_type": "Holding_A",
       "identity_type": "Joint",
@@ -106,7 +128,7 @@
       "back_attack": true,
       "key_strokes" : 1,
       "mana_cost": 0,
-      "rune": "질풍_영웅"
+      "rune": "질풍_전설"
     },
     {
       "name": "에너지 버스터",
@@ -168,7 +190,6 @@
     {
       "name": "명령 : 파이널 익스플로전",
       "default_damage": 35823,
-      "default_coefficient": 222.1026,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Awakening",
