@@ -129,8 +129,8 @@ class BuffManager():
           return True
       return False
 
-
-    # shadows buffs with name, except highest priority buff
+    # if buff has same name but different effect, check priority and use hightest one only
+    # buffs that are not used are marked with shadowed flag (is_shadowed as True) 
     def _shadow_buffs(self, buff_name):
       max_buff_priority = 0
       alive_buff_count = 0

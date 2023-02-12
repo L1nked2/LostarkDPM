@@ -83,7 +83,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
-      "base_additional_crit_damage": 1.8,
+      "base_additional_crit_damage": 1.5228,
       "key_strokes" : 2,
       "rune": "질풍_영웅"
     },

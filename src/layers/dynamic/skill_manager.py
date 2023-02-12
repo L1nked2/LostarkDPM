@@ -33,7 +33,7 @@ class SkillManager:
         # import skills
         self.skill_pool = dict()
         for naive_skill in skill_info['skill_preset']:
-            self.skill_pool[naive_skill['name']] = Skill(**naive_skill)
+            self.skill_pool[naive_skill['name']] = Skill(class_name=class_name, **naive_skill)
         self._validate_jewel()
         # finalize skill(tripod)
         import_target = "src.classes." + class_name
@@ -47,8 +47,8 @@ class SkillManager:
                 skill.triggered_actions.extend(skill.triggered_actions)
         else:
           warnings.warn(f'finalize_skill not exists, check {class_name}.py', UserWarning)
-        # dummy skill
-        self.dummy_skill = Skill('dummy', 0, None, None, 0, 0, 0, False, False, mana_cost=0)
+        # dummy skill initialization
+        self.dummy_skill = Skill(class_name=class_name, name='dummy')
         # 룬 통계
         self.rune_ratio = {'rg': [0,0], 'qr': [0,0], 'jm' : [0,0]}
 
