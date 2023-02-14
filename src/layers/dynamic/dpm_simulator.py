@@ -117,12 +117,12 @@ class DpmSimulator:
     # synchronize tick
     self._sync_tick()
     # check if skill_manager is blocked
-    flag = self.skills_manager.is_next_cycle_available()
+    is_character_available, is_skill_available = self.skills_manager.is_next_cycle_available()
     # main task
-    if flag[0] == False:
+    if is_character_available == False:
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
-    elif flag[1] == False:
+    elif is_skill_available == False:
       self.idle_streak += 1
       self.idle_tick += DEFAULT_TICK_INTERVAL
     else:

@@ -58,6 +58,17 @@ CLASS_BUFF_DICT = {
     'duration': 5,
     'priority': 7,
   },
+  # 헤비터렛(각성기, 20초)
+  'Heavy_Turret': {
+    'name': 'heavy_turret',
+    'buff_type': 'damage',
+    'effect': None,
+    'base_damage': 3271.75,
+    'coefficient': 20.28485,
+    'damage_interval': 1,
+    'duration': 20,
+    'priority': 7,
+  },
 }
 
 ######## Finalize Skill #########
@@ -73,6 +84,8 @@ def finalize_skill(skill: Skill):
     skill.triggered_actions.append('activate_barrage_mode')
   if name == '포격 모드 해제':
     skill.triggered_actions.append('deactivate_barrage_mode')
+  if name == '헤비 터렛':
+    skill.triggered_actions.append('activate_heavy_turret')
   # apply tripods
   if name == '강화탄':
     if tripod[0] == '1':
@@ -121,6 +134,11 @@ def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, ski
 def activate_flame_barrage(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '공중 폭격' and skill_on_use.get_attribute('tripod')[1] == '1':
     buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], 'class')
+
+# 헤비 터렛 데미지 버프 등록(각성기, 2각)
+def activate_heavy_turret(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if skill_on_use.get_attribute('name') == '헤비 터렛':
+    buff_manager.register_buff(CLASS_BUFF_DICT['Heavy_Turret'], 'class')
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

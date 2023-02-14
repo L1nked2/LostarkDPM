@@ -122,8 +122,8 @@
     },
     {
       "name": "헤비 터렛",
-      "default_damage": 65435,
-      "default_coefficient": 405.697,
+      "default_damage": 0,
+      "default_coefficient": 0,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Awakening",

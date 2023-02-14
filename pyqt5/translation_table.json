@@ -1,5 +1,6 @@
 {
   "class_trans_kor": {
+    "aeromancer_drizzle.json": "기상술사(이슬비)",
     "aeromancer_gale_rage.json": "기상술사(질풍, 2기4역)",
     "battlemaster_first_intention.json": "배틀마스터(초심)",
     "berserker_mayhem.json": "버서커(광기, 혼일휘몰24초)",
@@ -31,6 +32,7 @@
     "warlord_lone_knight.json": "워로드(고독한 기사)"
   },
   "class_trans_eng": {
+    "aeromancer_drizzle.json": "Aeromancer(drizzle)",
     "aeromancer_gale_rage.json": "Aeromancer(gale rage)",
     "battlemaster_first_intention.json": "Wardancer(first intention)",
     "berserker_mayhem.json": "Berserker(mayhem)",
@@ -154,6 +156,7 @@
     "Demonic_Impulse_3": "멈출 수 없는 충동 3레벨",
     "Hunger_3": "갈증 3레벨",
     "Lunar_Voice_3": "달의 소리 3레벨",
+    "Drizzle_3": "이슬비 3레벨",
     "Gale_Rage_3": "질풍노도 3레벨"
   },
   "engraving_trans_eng": {
@@ -248,6 +251,7 @@
     "Demonic_Impulse_3": "Demonic impulse lv3",
     "Hunger_3": "Hunger lv3",
     "Lunar_Voice_3": "Lunar voice lv3",
+    "Drizzle_3": "Drizzle lv3",
     "Gale_Rage_3": "Gale rage lv3"
   },
   "artifact_trans_kor": {
