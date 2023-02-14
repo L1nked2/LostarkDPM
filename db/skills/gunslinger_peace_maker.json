@@ -171,7 +171,7 @@
       "skill_type": "Common",
       "identity_type": "Rifle",
       "cooldown": 27,
-      "common_delay": 3.65,
+      "common_delay": 3.03,
       "type_specific_delay": 0.0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,

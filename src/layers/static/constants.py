@@ -176,6 +176,7 @@ ENGRAVINGS = {
   #달의소리
   "Lunar_Voice_3": [('static_buff_queue', lambda x: x + ['Lunar_Voice_3'])],
   #이슬비
+  "Drizzle_3": [('static_buff_queue', lambda x: x + ['Drizzle_Enabled_3'])],
   #질풍노도
   "Gale_Rage_3": [('static_buff_queue', lambda x: x + ['Gale_Rage_3'])],
 }

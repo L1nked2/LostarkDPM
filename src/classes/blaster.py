@@ -63,8 +63,8 @@ CLASS_BUFF_DICT = {
     'name': 'heavy_turret',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 65435,
-    'coefficient': 405.697,
+    'base_damage': 3271.75,
+    'coefficient': 20.28485,
     'damage_interval': 1,
     'duration': 20,
     'priority': 7,
@@ -135,7 +135,7 @@ def activate_flame_barrage(buff_manager: BuffManager, skill_manager: SkillManage
   if skill_on_use.get_attribute('name') == '공중 폭격' and skill_on_use.get_attribute('tripod')[1] == '1':
     buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], 'class')
 
-# 헤비 터렛 데미지 버프 등록(공폭 2트포)
+# 헤비 터렛 데미지 버프 등록(각성기, 2각)
 def activate_heavy_turret(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '헤비 터렛':
     buff_manager.register_buff(CLASS_BUFF_DICT['Heavy_Turret'], 'class')
