@@ -7,7 +7,6 @@ from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
 from src.layers.dynamic.constants import seconds_to_ticks, ticks_to_seconds
-from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 

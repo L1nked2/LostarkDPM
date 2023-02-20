@@ -7,7 +7,6 @@ from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
 from src.layers.dynamic.constants import seconds_to_ticks
-from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 충격 뎀증 특화 계수
@@ -103,7 +102,7 @@ def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, sk
     if skill.get_attribute('name') == '일망 타진':
       skill.update_attribute('remaining_cooldown', 0)
     return
-  if check_chance((1 - 0.54 * 0.54), 'swift_preperation'):
+  if skill_manager.check_chance((1 - 0.54 * 0.54), 'swift_preperation'):
     skill_manager.apply_function(cooldown_reduction)
 
 # 용의 강림 출혈 갱신
