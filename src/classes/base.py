@@ -7,7 +7,6 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.utils import check_chance
 
 # Buff Dictionary
 BASE_BUFF_DICT = {
@@ -621,7 +620,7 @@ def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc * 0.88)
       return
-    if check_chance(0.10, 'qr_3'):
+    if skill_manager.check_chance(0.10, 'qr_3'):
       skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -633,7 +632,7 @@ def rune_qr_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc * 0.84)
       return
-    if check_chance(0.10, 'qr_4'):
+    if skill_manager.check_chance(0.10, 'qr_4'):
       skill_manager.rune_ratio['qr'][1] += 1
       skill_manager.apply_function(cooldown_reduction)
 
@@ -644,12 +643,12 @@ def rune_rg_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
     raise NotImplementedError
 def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
-    if check_chance(0.15, 'rg_3') and not buff_manager.is_buff_exists('rage'):
+    if skill_manager.check_chance(0.15, 'rg_3') and not buff_manager.is_buff_exists('rage'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
 def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
-    if check_chance(0.20, 'rg_4'):
+    if skill_manager.check_chance(0.20, 'rg_4'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.unregister_buff('rage')
       buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')

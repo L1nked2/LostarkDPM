@@ -16,9 +16,33 @@ def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
-class SkillManager:
+"""
+Random function for probability
+pseudo_random_generator
+"""
+import random
+class PseudoRandomGenerator:
+  def __init__(self):
+    self.chance_value = dict()
 
+  def _check_chance(self, probability, key=None):
+    if key is None:
+      if random.random() < probability:
+        return True
+      return False
+    else:
+      if key in self.chance_value:
+        self.chance_value[key] += probability
+        if self.chance_value[key] > 1:
+          self.chance_value[key] -= 1
+          return True
+      else:
+        self.chance_value[key] = probability
+      return False
+
+class SkillManager:
     def __init__(self, character: CharacterLayer, **kwargs):
+        # import file
         if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
           skill_info = json.load(open(resource_path(character.skill_set), "r", encoding='utf-8'))
         else:
@@ -34,6 +58,7 @@ class SkillManager:
         self.skill_pool = dict()
         for naive_skill in skill_info['skill_preset']:
             self.skill_pool[naive_skill['name']] = Skill(class_name=class_name, **naive_skill)
+            self.skill_pool[naive_skill['name']].calc_delay(character.get_attribute("actual_attack_speed"))
         self._validate_jewel()
         # finalize skill(tripod)
         import_target = "src.classes." + class_name
@@ -47,6 +72,8 @@ class SkillManager:
                 skill.triggered_actions.extend(skill.triggered_actions)
         else:
           warnings.warn(f'finalize_skill not exists, check {class_name}.py', UserWarning)
+        # rand generator init
+        self.pseudo_random_generator = PseudoRandomGenerator()
         # dummy skill initialization
         self.dummy_skill = Skill(class_name=class_name, name='dummy')
         # 룬 통계
@@ -96,6 +123,9 @@ class SkillManager:
             print(skill[0], end=', ')
         print(skills[-1][0], end='')
         print(')')
+    
+    def check_chance(self, probability, key=None):
+        return self.pseudo_random_generator._check_chance(probability, key)
 
     def _import_policy(self, policy_contents):
         self.policy = dict()

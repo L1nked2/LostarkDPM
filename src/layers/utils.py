@@ -115,27 +115,3 @@ def import_character(file_path):
     character = CharacterFactory(**setting)
     characters.append(character)
   return characters
-
-
-"""
-Random function for probability
-"""
-chance_value = dict()
-def check_chance(probability, key=None):
-  if key is None:
-    if random.random() < probability:
-      return True
-    return False
-  else:
-    if key in chance_value:
-      chance_value[key] += probability
-      if chance_value[key] > 1:
-        chance_value[key] -= 1
-        return True
-    else:
-      chance_value[key] = probability
-    return False
-
-
-
-

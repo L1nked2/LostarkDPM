@@ -11,7 +11,6 @@ from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
 from src.layers.dynamic.constants import seconds_to_ticks
-from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -141,11 +140,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       skill.update_attribute('damage_multiplier', s_dm * s_rifle_multiplier)
     elif skill.get_attribute('identity_type') == 'Shotgun':
       s_dm = skill.get_attribute('damage_multiplier')
-      if skill.get_attribute('name') == '마탄의 사수':
-        # 마탄의 사수 가디언의 숨결 특화 미적용
-        skill.update_attribute('damage_multiplier', s_dm * (1 + (s_shotgun_multiplier - 1) * 0.495))
-      else:
-        skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
+      skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
       
 # 피스메이커 각인
 def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):  

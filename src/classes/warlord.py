@@ -7,7 +7,6 @@ from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
 from src.layers.dynamic.constants import seconds_to_ticks
-from src.layers.utils import check_chance
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 일반 스킬의 피해량 특화 계수
@@ -112,7 +111,7 @@ def lucky_chance_action(buff_manager: BuffManager, skill_manager: SkillManager, 
       rc = skill.get_attribute('remaining_cooldown')
       skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(4.9))
     return
-  if check_chance(0.75, '파이어 불릿'):
+  if skill_manager.check_chance(0.75, '파이어 불릿'):
     skill_manager.apply_function(cooldown_reduction)
 
 ######## Buff bodies ########
