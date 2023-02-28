@@ -53,6 +53,14 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  # 절제 버프
+  'Control_3': {
+    'name': 'control_3',
+    'buff_type': 'stat',
+    'effect': 'control_3',
+    'duration': 999999,
+    'priority': 7,
+  },
 }
 
 ######## Finalize Skill #########
@@ -135,3 +143,9 @@ def stance_buff_pinnacle_3(character: CharacterLayer, skill: Skill, buff: Buff):
     skill.update_attribute('damage_multiplier', s_dm * (1 + (0.22 * buff_multiplier)))
     skill.update_attribute('additional_crit_damage', s_acd + 0.50 * buff_multiplier)
     character.update_attribute('movement_speed', c_ms + 0.15 * buff_multiplier)
+
+# 절제 적용 버프
+def control_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  s_dm = skill.get_attribute('damage_multiplier')
+  if skill.get_attribute('identity_type') == 'Flurry':
+    skill.update_attribute('damage_multiplier', s_dm * 1.40)

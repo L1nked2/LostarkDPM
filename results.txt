@@ -450,6 +450,32 @@ Nuking_Cycle: [('파쇄의 강타_1타', 2390788), ('철포난격', 64294888), ('난타연권'
 ##### Done Initialization of BuffsManager #####
 ##### Done Initialization of SkillsManager #####
 LostArkDpmSimulator is now ready to run
+target_character: character_lancemaster_control.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19658555
+Nuking_W/O_Awaking_Short_DPS: 26120013
+Nuking_W/O_Awaking_Long_DPS: 22201744
+Nuking_DPS: 23311337
+DPCT_by_Percentage: 68794543.468
+Idle_Ratio: 5.3 %
+Idle_Score: 19.35
+Delay_Score: 1.027
+Delay_Score_by_Percentage: 0.987
+Total_Damage: 76568598554
+Elapsed_Time: 1557.98 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [181, 18], 'jm': [174, 44]}
+==========================
+Damage_Details: {'청룡진': 830941902, '반월섬': 16022202894, '맹룡열파': 12765644662, '연환섬': 15572598528, '열공참': 13901076588, '일섬각': 5613428251, '회선창': 9447030576, '출혈': 853474592, '철량추': 848272360, '연가창식: 적룡질풍격': 713928201}
+Delay_Statistics: {'청룡진': 0.692, '반월섬': 0.763, '맹룡열파': 1.02, '연환섬': 0.994, '열공참': 1.133, '일섬각': 0.72, '회선창': 1.222, '철량추': 0.713, '연가창식: 적룡질풍격': 3.223}
+Nuking_W/O_Awaking_Cycle_Short: [('청룡진', 5129271), ('반월섬', 98902487), ('맹룡열파', 73803918), ('연환섬', 60457671), ('열공참', 54819610), ('일섬각', 33296023), ('회선창', 59436048), ('출혈', 856431), ('철량추', 5098729)]
+Nuking_W/O_Awaking_Cycle_Long: [('연환섬', 53147488), ('출혈', 760219), ('청룡진', 5129271), ('출혈', 856431), ('반월섬', 98902487), ('열공참', 54819610), ('출혈', 856431), ('출혈', 856431), ('회선창', 59436048), ('출혈', 856431), ('맹룡열파', 73803918), ('일섬각', 33296023), ('연환섬', 60457671), ('출혈', 856431)]
+Nuking_Cycle: [('청룡진', 5129271), ('반월섬', 98902487), ('맹룡열파', 73803918), ('연환섬', 60457671), ('열공참', 54819610), ('일섬각', 33296023), ('회선창', 59436048), ('출혈', 856431), ('철량추', 5098729), ('연가창식: 적룡질풍격', 85747283), ('출혈', 856431), ('출혈', 760219), ('출혈', 760219), ('연환섬', 53147488), ('출혈', 760219), ('열공참', 48191148), ('출혈', 760219)]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
 target_character: character_lancemaster_pinnacle.json
 ==========================
 DPS stabilized, terminating simulation

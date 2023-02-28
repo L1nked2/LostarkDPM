@@ -127,6 +127,7 @@ ENGRAVINGS = {
   #절정
   'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],
   #절제
+  'Control_3': [('static_buff_queue', lambda x: x + ['Control_3'])],
   #일격필살
   'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
   #오의난무
