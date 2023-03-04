@@ -105,6 +105,7 @@ ENGRAVINGS = {
   'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
   #처단자
+  'Punisher_3': [('static_buff_queue', lambda x: x + ['Punisher_Enabled_3'])],
   #포식자
   #전투태세
   'Combat_Readiness_1': [('static_buff_queue', lambda x: x + ['Combat_Readiness_1'])],
