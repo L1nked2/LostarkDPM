@@ -607,6 +607,32 @@ Nuking_Cycle: [('버스트 블로우', 37511808), ('출혈', 1208111), ('코멧 스트라이크
 ##### Done Initialization of BuffsManager #####
 ##### Done Initialization of SkillsManager #####
 LostArkDpmSimulator is now ready to run
+target_character: character_slayer_punisher.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 22039242
+Nuking_W/O_Awaking_Short_DPS: 66589548
+Nuking_W/O_Awaking_Long_DPS: 59536787
+Nuking_DPS: 61451975
+DPCT_by_Percentage: 153420726.727
+Idle_Ratio: 33.54 %
+Idle_Score: 101.62
+Delay_Score: 0.884
+Delay_Score_by_Percentage: 1.72
+Total_Damage: 87646759264
+Elapsed_Time: 1590.75 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [58, 5], 'jm': [0, 0]}
+==========================
+Damage_Details: {'와일드 스톰프': 746227234, '스피닝 소드': 1187098404, '플래시 블레이드': 941661467, '퓨리어스 클로': 10687462300, '출혈': 1263198443, '와일드 러시': 191474414, '폭주 활성화': 0, '길로틴': 13187130500, '브루탈 임팩트': 15842211524, '볼케이노 이럽션': 10596559284, '블러드러스트': 30946493050, '라그나 브레이크': 2057242644}
+Delay_Statistics: {'와일드 스톰프': 0.649, '스피닝 소드': 1.02, '플래시 블레이드': 0.797, '퓨리어스 클로': 0.933, '와일드 러시': 0.57, '폭주 활성화': 0.449, '길로틴': 0.693, '브루탈 임팩트': 2.106, '볼케이노 이럽션': 1.724, '블러드러스트': 2.332, '라그나 브레이크': 2.56}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈', 1344931), ('브루탈 임팩트', 273141578), ('볼케이노 이럽션', 182699298), ('플래시 블레이드', 5407322), ('블러드러스트', 533560225), ('출혈', 1344931), ('출혈', 1344931)]
+Nuking_W/O_Awaking_Cycle_Long: [('출혈', 640241), ('폭주 활성화', 0), ('길로틴', 114670700), ('출혈', 1344931), ('퓨리어스 클로', 75236650), ('출혈', 1344931), ('브루탈 임팩트', 273141578), ('볼케이노 이럽션', 182699298), ('플래시 블레이드', 5407322), ('블러드러스트', 533560225), ('출혈', 1344931), ('출혈', 1344931)]
+Nuking_Cycle: [('출혈', 640241), ('폭주 활성화', 0), ('길로틴', 114670700), ('출혈', 1344931), ('퓨리어스 클로', 75236650), ('출혈', 1344931), ('브루탈 임팩트', 273141578), ('볼케이노 이럽션', 182699298), ('플래시 블레이드', 5407322), ('블러드러스트', 533560225), ('출혈', 1344931), ('출혈', 1344931), ('라그나 브레이크', 342873774), ('출혈', 1344931), ('출혈', 1344931)]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
 target_character: character_sorceress_igniter.json
 ==========================
 DPS stabilized, terminating simulation

@@ -42,7 +42,7 @@ class DamageBuff(Buff):
         self.last_tick = self.begin_tick
         self.damage_interval = seconds_to_ticks(damage_interval)
     
-    #TODO:is shadowd needed
+    #TODO:is shadowed needed
     def calc_damage_buff(self, attack_power, crit_rate, crit_damage, total_multiplier, current_tick) -> int:
         damage_value = 0
         tick_diff = current_tick - self.last_tick

@@ -135,6 +135,7 @@ class Skill:
             warnings.warn("Delay cannot be negative", UserWarning)
         if self.jewel_cooldown_level < 0 or self.jewel_damage_level < 0:
             warnings.warn("Jewel level cannot be negative", UserWarning)
+        #TODO: check skill identity_type is in predefined identity types in specific class.py
         
     def _refresh_skill(self):
         self.actual_delay = self.common_delay + self.type_specific_delay

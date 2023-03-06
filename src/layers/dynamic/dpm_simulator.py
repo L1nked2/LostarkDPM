@@ -2,6 +2,7 @@ import importlib
 import math
 from re import T
 from ..static.character_layer import CharacterLayer
+from .skill import Skill
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
 from .damage_history import DamageHistory
@@ -12,7 +13,10 @@ MAX_TICK = 360000
 DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
-  def __init__(self, character_dict, verbose=False, max_tick=MAX_TICK,tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
+  def __init__(self, character_dict, verbose=0, max_tick=MAX_TICK, tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
+    # verbose 0: default
+    # verbose 1: print damage info
+    # verbose 2: print damage info, damage stats, skill info, buff info
     self.verbose = verbose
     self.max_tick = max_tick
     self.tick_interval = tick_interval
@@ -25,7 +29,7 @@ class DpmSimulator:
     # damage history manager
     self.damage_history = DamageHistory()
     # buff manager
-    self.buffs_manager = BuffManager(self.base_character, self.verbose)
+    self.buffs_manager = BuffManager(self.base_character, self.verbose>0)
     # skill manager
     self.skills_manager = SkillManager(self.base_character)
     # initialize tick
@@ -112,49 +116,68 @@ class DpmSimulator:
     self.idle_tick = 0
     self.delay_tick = 0
     self.idle_streak = 0
-
-  def _main_loop(self):
-    # synchronize tick
-    self._sync_tick()
-    # check if skill_manager is blocked
-    is_character_available, is_skill_available = self.skills_manager.is_next_cycle_available()
-    # main task
+  
+  def _increase_elapsed_tick(self, tick):
+    self.elapsed_tick += tick
+  
+  def _update_delay_and_idle_info(self, is_character_available, is_skill_available):
+    # case1: character is using skill
     if is_character_available == False:
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
+    # case2: character is idle but skill is not available
     elif is_skill_available == False:
-      self.idle_streak += 1
+      self.idle_streak += DEFAULT_TICK_INTERVAL
       self.idle_tick += DEFAULT_TICK_INTERVAL
+    # case3: skill is available, end idle streak
     else:
-      if self.verbose and self.idle_streak > 0:
+      if self.verbose > 0 and self.idle_streak > 0:
         print(f'idle streak ended with {ticks_to_seconds(self.idle_streak)}s')
       self._update_idle_statistics(self.idle_streak)
       self.idle_streak = 0
       self.delay_tick += DEFAULT_TICK_INTERVAL
+
+  def _main_loop(self):
+    # synchronize tick
+    self._sync_tick()
+    # update character and skill availability from skills_manager
+    is_character_available, is_skill_available = self.skills_manager.is_next_cycle_available()
+    self._update_delay_and_idle_info(is_character_available, is_skill_available)
+    # check character and skill availability and use skill
+    if is_character_available and is_skill_available:
       self._use_skill()
+    # calc damages from buffs
     self._calc_damage_from_buffs()
-    self.elapsed_tick += DEFAULT_TICK_INTERVAL
+    self._increase_elapsed_tick(DEFAULT_TICK_INTERVAL)
 
   def _freeze_character(self):
     self.current_character = self.base_character.copy()
   
+  def _calc_skill_damage(self, skill: Skill):
+    self.buffs_manager.apply_stat_buffs(self.current_character, skill)
+    dmg_stats = self.current_character.extract_dmg_stats()
+    damage = round(skill.calc_damage(**dmg_stats))
+    # print damage, skill, buff details if verbose is set
+    if self.verbose > 1:
+      print(dmg_stats)
+      skill.print_skill_info()
+      self.buffs_manager.print_buffs()
+    if self.verbose > 0:
+      print(f'{skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
+    return damage
+
+  def _update_skill_delay(self, skill: Skill):
+    delay = skill.calc_delay(self.current_character.actual_attack_speed)
+    return delay
+
   def _use_skill(self):
     self._freeze_character()
-    # get skill and calculate damage
+    # get skill 
     target_skill = self.skills_manager.get_next_skill()
-    self.buffs_manager.apply_stat_buffs(self.current_character, target_skill)
-    dmg_stats = self.current_character.extract_dmg_stats()
-    ########## Test parts for debugging ###########
-    # print(dmg_stats)
-    # target_skill.print_skill_info()
-    # self.buffs_manager.print_buffs()
-    ###############################################
-    damage = round(target_skill.calc_damage(**dmg_stats))
-    is_awakening = bool(target_skill.identity_type == "Awakening")
-    if self.verbose:
-      print(f'{target_skill} dealt {damage} on {ticks_to_seconds(self.elapsed_tick)}s')
-    # calculate delay and start cooldown based on new delay
-    delay = target_skill.calc_delay(self.current_character.actual_attack_speed)
+    # calculate damage and delay
+    damage = self._calc_skill_damage(target_skill)
+    delay = self._update_skill_delay(target_skill)
+    # start cooldown based on new delay
     target_skill.start_cooldown(self.current_character.cooldown_reduction)
     # handle triggered_actions
     self._handle_triggered_actions(target_skill)
@@ -164,8 +187,9 @@ class DpmSimulator:
     if delay > 0:
       self._update_delay_statistics(target_skill.name, delay)
     # register damage info
+    is_awakening = bool(target_skill.identity_type == "Awakening")
     self.damage_history.register_damage(target_skill.name, damage, delay, is_awakening, self.elapsed_tick)
-    # reset skill
+    # reset skill to undo buffs
     target_skill.reset()
     self.used_skill_count += 1
     return
@@ -177,14 +201,14 @@ class DpmSimulator:
     self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history, self.skills_manager.dummy_skill)
     self.skills_manager.dummy_skill.reset()
   
-  def _handle_triggered_actions(self, target_skill):
-    for action_name in target_skill.triggered_actions:
+  def _handle_triggered_actions(self, skill: Skill):
+    for action_name in skill.triggered_actions:
       action_func = getattr(self.class_module, action_name, None)
       if action_func is None:
         action_func = getattr(self.base_module, action_name, None)
       if action_func is None:
         raise Exception(f'Wrong action {action_name} given')
-      action_func(self.buffs_manager, self.skills_manager, target_skill)
+      action_func(self.buffs_manager, self.skills_manager, skill)
     return
   
   def _sync_tick(self):
@@ -217,8 +241,8 @@ class DpmSimulator:
         self.dpct_by_percentage += self.dpct_by_percentage_statistics[name]
         self.delay_score_by_percentage += self.delay_statistics[name]['avg_delay'] * self.damage_history.damage_details[name] / self.damage_history.total_damage
     
-  def test(self):
-    print('test infos')
+  def print_test_info(self):
+    print('test info')
     print(self.base_character.get_stat_detail())
     self.buffs_manager.print_buffs()
 

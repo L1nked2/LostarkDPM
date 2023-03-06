@@ -31,9 +31,9 @@ class BuffManager():
         # register base buffs(default buffs)
         for buff_name in self.base_buff_module.BASE_BUFF_DICT:
             self.register_buff(self.base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
-        # specialization buff(class specific) added
+        # specialization buff(class specific) is always added
         self.register_buff(self.class_buff_table['Specialization'], 'class')
-
+        # add buffs in static_buff_queue, mostly engraving related buffs
         for buff_name in buffs_name_list:
           if buff_name in self.base_buff_table:
             self.register_buff(self.base_buff_table[buff_name], 'base')

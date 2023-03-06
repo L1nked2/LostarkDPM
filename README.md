@@ -91,11 +91,11 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
 > main_lk.py
 ``` python
     # max_tick에 최대 틱수(기본적으로 100tick = 1s) 입력
-    # verbose=True로 지정시 모든 로그 확인 가능
+    # verbose=1 또는 2로 지정시 추가적인 로그 확인 가능
     # 출력된 데미지는 방어력 적용 전으로, 0.4를 곱하면 실제 데미지
     for character_config in character_configs:
       character_dict = character_config.build_dict()
-      simulator = DpmSimulator(character_dict, max_tick=9000, verbose=True)
+      simulator = DpmSimulator(character_dict, max_tick=9000, verbose=1)
 ```
 ------------
 * 이외 다른 필드를 변경하는 것도 가능하나 의도치 않은 동작을 보일 수 있으므로 추천드리지 않습니다.
