@@ -147,7 +147,7 @@ class DpmSimulator:
     if is_character_available and is_skill_available:
       self._use_skill()
     # calc damages from buffs
-    self._calc_damage_from_buffs()
+    self.buffs_manager.calc_damage_from_buffs(self.damage_history, self.skills_manager)
     self._increase_elapsed_tick(DEFAULT_TICK_INTERVAL)
 
   def _freeze_character(self):
@@ -194,13 +194,6 @@ class DpmSimulator:
     self.used_skill_count += 1
     return
 
-  def _calc_damage_from_buffs(self):
-    self._freeze_character()
-    self.buffs_manager.apply_stat_buffs(self.current_character, self.skills_manager.dummy_skill)
-    # get damage buffs and caclulate damage
-    self.buffs_manager.apply_damage_buffs(self.current_character, self.damage_history, self.skills_manager.dummy_skill)
-    self.skills_manager.dummy_skill.reset()
-  
   def _handle_triggered_actions(self, skill: Skill):
     for action_name in skill.triggered_actions:
       action_func = getattr(self.class_module, action_name, None)

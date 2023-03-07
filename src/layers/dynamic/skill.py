@@ -176,6 +176,9 @@ class Skill:
             effect = constants.get_rune_effect(self.rune, self.rune_level)
             if effect is not None:
               self.triggered_actions.append(effect)
+    
+    def set_buff_applied(self):
+       self.buff_applied = True
 
     def update_priority(self, new_priority):
         self.priority = new_priority

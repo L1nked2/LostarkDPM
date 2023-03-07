@@ -41,18 +41,18 @@ CLASS_BUFF_DICT = {
     'duration': 8,
     'priority': 7,
   },
-  # 화신출격(5렙), 10멸
+  # 화신출격(5렙)
   'Conflagration_Attack': {
     'name': 'conflagration_attack',
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 309,
-    'coefficient': 2.674,
+    'coefficient': 1.91,
     'damage_interval': 1,
     'duration': 6,
     'priority': 7,
   },
-  # 불굴의 힘(1렙), 보석 적용x 버프
+  # 불굴의 힘(1렙), 보석 적용x
   'Undying_Power': {
     'name': 'undying_power',
     'buff_type': 'damage',
@@ -94,7 +94,7 @@ def finalize_skill(skill: Skill):
 ######## Actions #########
 # 맹호격, 파쇄의 강타 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 일망 타진 쿨초
 def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -114,11 +114,11 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
 
 # 용의 강림 2트포 등록 action
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Conflagration_Attack'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Conflagration_Attack'], skill_on_use)
 
 # 지진쇄 1트포 action
 def action_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Undying_Power'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Undying_Power'], None)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

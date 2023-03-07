@@ -21,21 +21,27 @@ class Subhistory():
       self.awakening_in_max_dps_cycle = awakening_in_max_dps_cycle
       self.is_awakening_included_in_cycle = False
     
+    def _refresh_flags(self):
+      for damage in self.damages:
+        if damage['is_awakening']:
+          self.is_awakening_included_in_cycle = True
+          return
+      self.is_awakening_included_in_cycle = False
+      return
+    
     def add_damage_event(self, damage_event):
       damage_value = damage_event['damage_value']
       delay = damage_event['delay']
-      is_awakening = damage_event['is_awakening']
       tick = damage_event['tick']
       self.damages.append(damage_event)
       self.total_damage += damage_value
-      if is_awakening == True:
-        self.is_awakening_included_in_cycle = True
       while ((tick + delay) - self.damages[0]['tick']) > self.max_tick:
         old_damage_info = self.damages.popleft()
         self.total_damage -= old_damage_info['damage_value']
-        if old_damage_info['is_awakening'] == True:
-          self.is_awakening_included_in_cycle = False
       self.cur_dps = self.total_damage / ticks_to_seconds(self.max_tick)
+
+      self._refresh_flags()
+      # self._update_max_dps_cycle()
 
       if self.max_dps < self.cur_dps:
         if self.awakening_in_max_dps_cycle == True:
@@ -73,7 +79,7 @@ class DamageHistory:
         self.nuking_subhistory_awakening = Subhistory(AWAKENING_NUKING_SECONDS, True)
         self.max_nuking_dps_awakening = 0
 
-    def register_damage(self, name, damage_value, delay, is_awakening, tick):
+    def register_damage(self, name, damage_value, delay, is_awakening: bool, tick):
         damage_event = dict(name=name, damage_value=damage_value, delay=delay, is_awakening=is_awakening, tick=tick)
         self.history.append(damage_event)
         self.total_damage += damage_value

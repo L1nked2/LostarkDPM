@@ -113,13 +113,13 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
 # 치적 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '나선의 추적자':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '이퀄리브리엄':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
   
 # 퀵스텝 이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], skill_on_use)
   
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

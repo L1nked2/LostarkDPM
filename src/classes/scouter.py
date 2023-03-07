@@ -91,6 +91,7 @@ CLASS_BUFF_DICT = {
     'duration': 6,
     'priority': 7,
   },
+  # 에너지 버스터 - 플레임 버스터 데미지 버프, 보석 적용x
   'Flame_Buster': {
     'name': 'flame_buster',
     'buff_type': 'damage',
@@ -140,11 +141,11 @@ def grant_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, ski
 
 # 하이퍼 싱크 사용
 def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Hyper_Sync'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Hyper_Sync'], skill_on_use)
   if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], skill_on_use)
   elif buff_manager.is_buff_exists('evolutionary_legacy_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], skill_on_use)
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신해제':
       skill.update_attribute('remaining_cooldown', 0)
@@ -161,17 +162,17 @@ def deactivate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager
 # 변신시, 과충전 배터리 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '하이퍼 싱크 변신':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '과충전 배터리':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
 
 # 기동 타격 버프 등록
 def activate_agility(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Agility'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Agility'], skill_on_use)
 
 # 플레임 버스터 데미지 버프 등록
 def activate_flame_buster(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Buster'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Buster'], None)
 
 # 진화의 유산 쿨감 및 버프 스택, 각 스킬별로 제공
 def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -188,11 +189,11 @@ def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillMa
   # 유산 버프 확인
   # 유산 버프 갱신 후 쿨감 및 스택증가 적용
   if buff_manager.is_buff_exists('evolutionary_legacy_enabled_1'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_1'], skill_on_use)
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)
   elif buff_manager.is_buff_exists('evolutionary_legacy_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], skill_on_use)
     buff_manager.apply_function(increase_legacy_buff_stack)
     skill_manager.apply_function(cooldown_reduction)
     

@@ -53,7 +53,7 @@ CLASS_BUFF_DICT = {
     'duration': 28,
     'priority': 7,
   },
-  # 폭풍의 질주 데미지 버프, 멸화x
+  # 폭풍의 질주 데미지 버프, 보석 적용x
   'Stormlike_Gallop': {
     'name': 'stormlike_gallop',
     'buff_type': 'damage',
@@ -64,7 +64,7 @@ CLASS_BUFF_DICT = {
     'duration': 5,
     'priority': 7,
   },
-  # 엘씨드 데미지 버프, 멸화x
+  # 엘씨드 데미지 버프
   'Elite_Elcid': {
     'name': 'elite_elcid',
     'buff_type': 'damage',
@@ -75,7 +75,7 @@ CLASS_BUFF_DICT = {
     'duration': 10,
     'priority': 7,
   },
-  # 슈르디(허영이) 데미지 버프, 멸화x
+  # 슈르디(허영이) 데미지 버프
   'Faltering_Shurdi': {
     'name': 'faltering_shurdi',
     'buff_type': 'damage',
@@ -130,33 +130,33 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
 # 이끼늪 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '끈적이는 이끼늪' and skill_on_use.get_attribute('tripod')[1] == '1':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 이끼늪, 엘씨드 공증 등록
 def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if ((skill_on_use.get_attribute('name') == '끈적이는 이끼늪'and skill_on_use.get_attribute('tripod')[0] == '3')
     or (skill_on_use.get_attribute('name') == '엘씨드'and skill_on_use.get_attribute('tripod')[0] == '2')):
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], skill_on_use)
 
 # 슈르디 - 빛의 성장 치적 버프 등록
 def activate_crit_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '슈르디' and skill_on_use.get_attribute('tripod')[1] == '3':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], skill_on_use)
 
 # 폭풍의 질주 데미지 버프 등록(마력의 질주 1트포)
 def activate_stormlike_gallop(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '마력의 질주' and skill_on_use.get_attribute('tripod')[0] == '2':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Stormlike_Gallop'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Stormlike_Gallop'], None)
 
 # 엘시드 데미지 버프 등록
 def activate_elcid(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '엘씨드' and skill_on_use.get_attribute('tripod')[2] == '2':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Elite_Elcid'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Elite_Elcid'], skill_on_use)
 
 # 슈르디 데미지 버프 등록
 def activate_faltering_shurdi(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '슈르디' and skill_on_use.get_attribute('tripod')[1] == '3':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Faltering_Shurdi'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Faltering_Shurdi'], skill_on_use)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

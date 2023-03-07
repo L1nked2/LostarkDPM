@@ -99,24 +99,24 @@ CLASS_BUFF_DICT = {
     'duration': 6,
     'priority': 7,
   },
-  # 블랙 익스플로젼(10멸, 5렙)
+  # 블랙 익스플로젼(5렙)
   'Black_Explosion': {
     'name': 'black_explosion',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 3564,
-    'coefficient': 51.8616,
+    'base_damage': 3564 * 1.68,
+    'coefficient': 22.0968 * 1.68,
     'damage_interval': 1,
     'duration': 1,
     'priority': 7,
   },
-  # 공허 지대(10멸, 5렙)
+  # 공허 지대(5렙)
   'Void_Zone': {
     'name': 'void_zone',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 3564,
-    'coefficient': 1.4175,
+    'base_damage': 3564 * 0.45 / 5,
+    'coefficient': 22.0968 * 0.45 / 5,
     'damage_interval': 1,
     'duration': 5,
     'priority': 7,
@@ -185,7 +185,7 @@ def grant_burst(buff_manager: BuffManager, skill_manager: SkillManager, skill_on
 # 아츠 활성화
 def activate_burst(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('remaining_energy')
-  buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Art'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Art'], None)
   reduction_percentage = 0.5 * (1 + buff_manager.character_specialization * SPEC_COEF_2)
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Common':
@@ -208,34 +208,34 @@ def burst_increase_stack(buff_manager: BuffManager, skill_manager: SkillManager,
 # 버스트 풀 스택 달성
 def burst_full(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if buff_manager.is_buff_exists('burst_enabled_1'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Full_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Full_1'], skill_on_use)
   elif buff_manager.is_buff_exists('burst_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Full_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Burst_Full_3'], skill_on_use)
 
 # 버스트 사용, 아츠 종료
 def use_burst(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   buff_manager.unregister_buff('burst_art')
   buff_manager.unregister_buff('burst_full')
   if buff_manager.is_buff_exists('remaining_energy_enabled_1'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Remaining_Energy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Remaining_Energy_1'], skill_on_use)
   elif buff_manager.is_buff_exists('remaining_energy_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Remaining_Energy_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Remaining_Energy_3'], skill_on_use)
 
 # 스핀 커터 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 마엘스톰 시너지 등록
 def activate_dark_order(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Dark_Order'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Dark_Order'], skill_on_use)
 
 # 보이드 스트라이크 3트포 블랙 디멘션 action
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Black_Explosion'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Black_Explosion'], skill_on_use)
 
 # 보이드 스트라이크 2트포 공허 지대 action
 def action_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Void_Zone'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Void_Zone'], skill_on_use)
 
 def mael_storm_cooldown_indicator(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):

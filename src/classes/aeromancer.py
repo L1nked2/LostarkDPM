@@ -82,13 +82,13 @@ CLASS_BUFF_DICT = {
     'duration': DEFAULT_SUNSHOWER_TIME_LIMIT,
     'priority': 7,
   },
-  # 여우비 데미지 버프(10멸 기준)
+  # 여우비 데미지 버프
   'Sunshower_Damage': {
     'name': 'sunshower_damage',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 632 * 1.4,
-    'coefficient': 3.918 * 1.4,
+    'base_damage': 632,
+    'coefficient': 3.918,
     'damage_interval': 1,
     'duration': DEFAULT_SUNSHOWER_TIME_LIMIT,
     'priority': 7,
@@ -123,7 +123,7 @@ def finalize_skill(skill: Skill):
 # 치적 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '돌개바람':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 빗방울 게이지 스택 관리 및 여우비 사용 가능 전환
 def check_rain_gauge(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -140,7 +140,7 @@ def check_rain_gauge(buff_manager: BuffManager, skill_manager: SkillManager, ski
       buff.stack = 0
     return
   if not buff_manager.is_buff_exists('rain_gauge'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Rain_Gauge'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Rain_Gauge'])
   if not buff_manager.is_buff_exists('sunshower'):
     buff_manager.apply_function(increase_rain_gauge_stack)
     rain_gauge_buff = buff_manager.get_buff('rain_gauge')
@@ -154,46 +154,28 @@ def activate_sunshower(buff_manager: BuffManager, skill_manager: SkillManager, s
   sunshower_gale_rage_dict = CLASS_BUFF_DICT['Sunshower_Gale_Rage'].copy()
   sunshower_damage_dict = CLASS_BUFF_DICT['Sunshower_Damage'].copy()
   sunshower_duration = DEFAULT_SUNSHOWER_TIME_LIMIT
-  is_sunshower_default = True
-  if buff_manager.is_buff_exists('drizzle_enabled_1') or buff_manager.is_buff_exists('drizzle_enabled_3'):
-    is_drizzle_enabled = True
-  else:
-    is_drizzle_enabled = False
   if buff_manager.is_buff_exists('drizzle_enabled_3'):
       drizzle_dict = CLASS_BUFF_DICT['Drizzle_3']
+  is_drizzle_enabled = buff_manager.is_buff_exists('drizzle_enabled_1') or buff_manager.is_buff_exists('drizzle_enabled_3')
   is_gale_rage_enabled = buff_manager.is_buff_exists('gale_rage')
 
   if skill_on_use.get_attribute('name') == '여우비 활성화':
     # 여우비 지속 시간 조절 및 질풍노도 적용
-    if is_gale_rage_enabled and is_drizzle_enabled:
-      is_sunshower_default = False
-    elif is_gale_rage_enabled:
+    if is_gale_rage_enabled and not is_drizzle_enabled:
       sunshower_duration = sunshower_duration / 1.50
-      is_sunshower_default = False
-    elif is_drizzle_enabled:
-      sunshower_duration = sunshower_duration * 2.00
-    # 질풍노도 없을 시 여우비에 기상 스킬 딜증 적용
-    # 이슬비 채용시 딜증 적용
-    if is_sunshower_default:
-      s = buff_manager.character_specialization
-      s_multiplier = (1 + s * SPEC_COEF_1)
-      if buff_manager.is_buff_exists('drizzle_enabled_3'):
-        s_multiplier = s_multiplier * 1.30
-      sunshower_damage_dict['base_damage'] = sunshower_damage_dict['base_damage'] * s_multiplier
-      sunshower_damage_dict['coefficient'] = sunshower_damage_dict['coefficient'] * s_multiplier
-    # 질풍노도 있을 시 추가 공이속 버프 등록
-    else:
       sunshower_gale_rage_dict['duration'] = sunshower_duration
-      buff_manager.register_buff(sunshower_gale_rage_dict, 'class')
+      buff_manager.register_buff(sunshower_gale_rage_dict, skill_on_use)
     # 기본 여우비 버프 및 여우비 데미지 버프 등록
+    elif is_drizzle_enabled and not is_gale_rage_enabled:
+      sunshower_duration = sunshower_duration * 2.00
     sunshower_dict['duration'] = sunshower_duration
     sunshower_damage_dict['duration'] = sunshower_duration
-    buff_manager.register_buff(sunshower_dict, 'class')
-    buff_manager.register_buff(sunshower_damage_dict, 'class')
+    buff_manager.register_buff(sunshower_dict, skill_on_use)
+    buff_manager.register_buff(sunshower_damage_dict, skill_on_use)
     # 이슬비 활성화시 이슬비 버프 등록
     if is_drizzle_enabled:
       drizzle_dict['duration'] = sunshower_duration
-      buff_manager.register_buff(drizzle_dict, 'class')
+      buff_manager.register_buff(drizzle_dict, skill_on_use)
 
 # 여우비 끄기, 이슬비 소용돌이/소나기 이슬비 버프 미적용 구현용 -> 개선필요
 def deactivate_sunshower(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):

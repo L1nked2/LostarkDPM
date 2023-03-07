@@ -99,13 +99,13 @@ def finalize_skill(skill: Skill):
 # 데모닉 슬래쉬, 하울링 피증 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '데모닉 슬래쉬':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '하울링':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
 
 # 슬래쉬 이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], skill_on_use)
 
 # 악마화 변신 가능 action
 def grant_transform(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -118,7 +118,7 @@ def grant_transform(buff_manager: BuffManager, skill_manager: SkillManager, skil
 def demon_transform(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   s_multiplier = 1 + buff_manager.character_specialization * SPEC_COEF_2
   transform_time_limit = DEFAULT_TRANSFORM_TIME_LIMIT * s_multiplier
-  buff_manager.register_buff(CLASS_BUFF_DICT['Demon_State'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Demon_State'], skill_on_use)
   def set_time_limit(skill: Skill):
     if skill.get_attribute('identity_type') == 'Common':
       skill.update_attribute('remaining_cooldown', 999999)

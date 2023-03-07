@@ -93,23 +93,23 @@ def finalize_skill(skill: Skill):
 # 피증 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '레드 더스트':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 레더 공증 버프 등록
 def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '레드 더스트':
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], skill_on_use)
 
 # 레더, 체소 치적 버프 등록
 def activate_crit_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '레드 더스트':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '체인 소드':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_2'], skill_on_use)
 
 # 소드 스톰 3트포 action
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Storm'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Storm'], None)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

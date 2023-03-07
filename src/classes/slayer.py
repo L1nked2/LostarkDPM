@@ -90,24 +90,24 @@ def finalize_skill(skill: Skill):
 # 피증 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '플래시 블레이드':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 와일드 스톰프 공속 버프 등록
 def activate_swift_attack_prep(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '와일드 스톰프':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Swift_Attck_Prep'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Swift_Attck_Prep'], skill_on_use)
 
 # 폭주 켜기
 def activate_berserk(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   berserk_time = DEFAULT_BERSERK_TIME_LIMIT
   # 처단자 버프 확인 및 등록
   if buff_manager.is_buff_exists('punisher_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Punisher_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Punisher_3'], skill_on_use)
     berserk_time = berserk_time / 2.0
   # 폭주 버프 등록
   berserk_dict = CLASS_BUFF_DICT['Berserk'].copy()
   berserk_dict['duration'] = berserk_time
-  buff_manager.register_buff(berserk_dict, 'class')
+  buff_manager.register_buff(berserk_dict, skill_on_use)
   # 블러드러스트 쿨타임 초기화
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '블러드러스트':

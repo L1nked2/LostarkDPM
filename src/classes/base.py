@@ -314,11 +314,11 @@ def rage_epic(character: CharacterLayer, skill: Skill, buff: Buff):
 # 지배 등록 action, 각성기 사용시 자동 사용됨
 def try_activate_dominion_set(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if buff_manager.is_buff_exists('dominion_set_enabled_1'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'], 'base')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_1'])
   elif buff_manager.is_buff_exists('dominion_set_enabled_2'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_2'], 'base')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_2'])
   elif buff_manager.is_buff_exists('dominion_set_enabled_3'):
-    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_3'], 'base')
+    buff_manager.register_buff(COMMON_BUFF_DICT['Dominion_Set_3'])
 
 # 지배 기본 버프(각성기 뎀감)
 def dominion_set_enabled_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -645,13 +645,13 @@ def rune_rg_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
     skill_manager.rune_ratio['rg'][0] += 1
     if skill_manager.check_chance(0.15, 'rg_3') and not buff_manager.is_buff_exists('rage'):
       skill_manager.rune_ratio['rg'][1] += 1
-      buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Epic'])
 def rune_rg_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['rg'][0] += 1
     if skill_manager.check_chance(0.20, 'rg_4'):
       skill_manager.rune_ratio['rg'][1] += 1
       buff_manager.unregister_buff('rage')
-      buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Rage_Legendary'])
 
 # 출혈
 def rune_bd_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -660,9 +660,9 @@ def rune_bd_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
     raise NotImplementedError
 def rune_bd_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     if not buff_manager.is_buff_exists('bleed'):
-      buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Epic'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Epic'])
 def rune_bd_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-    buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'], 'base')
+    buff_manager.register_buff(RUNE_BUFF_DICT['Bleed_Legendary'])
 
 
 # 심판
@@ -676,8 +676,8 @@ def rune_jm_4(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_u
     skill_manager.rune_ratio['jm'][0] += 1
     if not buff_manager.is_buff_exists('judgement_cooldown'):
       skill_manager.rune_ratio['jm'][1] += 1
-      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'], 'base')
-      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'], 'base')
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement_Cooldown'])
+      buff_manager.register_buff(RUNE_BUFF_DICT['Judgement'])
 
 # Rune derived buffs
 # 심판 버프 및 내부쿨 표시용 더미 버프
