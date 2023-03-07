@@ -49,7 +49,7 @@ CLASS_BUFF_DICT = {
     'duration': 4,
     'priority': 7,
   },
-  # 화염 폭발(5렙)
+  # 화염 폭발(5렙), 보석 적용x
   'Flame_Explosion': {
     'name': 'flame_explosion',
     'buff_type': 'damage',
@@ -84,7 +84,7 @@ def finalize_skill(skill: Skill):
 # 버블 활성화
 def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if not buff_manager.is_buff_exists('esoteric_prepared'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Esoteric_Prepared_4'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Esoteric_Prepared_4'], skill_on_use)
 
 # 버블 사용
 def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -92,15 +92,15 @@ def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager, skill_
 
 # 번개의 속삭임 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 붕천퇴 공이속 버프 등록
 def activate_speed_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Speed_Buff_1'], skill_on_use)
 
 # 폭쇄진 2트포 화염 폭발 action
 def action_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Explosion'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Explosion'], None)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

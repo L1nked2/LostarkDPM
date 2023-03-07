@@ -50,18 +50,18 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  # 천벌-방전 데미지 버프, 10멸
+  # 천벌-방전 데미지 버프
   'Electric_Discharge': {
     'name': 'electric_discharge',
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 552,
-    'coefficient': 3.4202,
+    'coefficient': 2.443,
     'damage_interval': 1,
     'duration': 3,
     'priority': 7,
   },
-  # 종말-발화 데미지 버프
+  # 종말-발화 데미지 버프, 보석 적용x
   'Ignite': {
     'name': 'ignite',
     'buff_type': 'damage',
@@ -107,7 +107,7 @@ def finalize_skill(skill: Skill):
 # 방깎 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '블레이즈':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 블레이즈 출혈 시간 갱신 action
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -118,11 +118,11 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
 
 # 천벌-방전 데미지 버프 등록 action
 def activate_electric_discharge(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Electric_Discharge'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Electric_Discharge'], skill_on_use)
 
-# 종말-점화 데미지 버프 등록 action
+# 종말-발화 데미지 버프 등록 action
 def activate_ignite(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Ignite'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Ignite'], None)
 
 # 마력 해방 사용 가능 전환
 def grant_magic_release_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -144,7 +144,7 @@ def activate_magic_release(buff_manager: BuffManager, skill_manager: SkillManage
   reduction_percentage = 0.25
   # 점화 각인 채용시 추가효과 및 점화 버프
   if buff_manager.is_buff_exists('igniter_enabled_3'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Igniter_3'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Igniter_3'], skill_on_use)
     reduction_percentage = 0.5
   # 스킬 쿨감
   def cooldown_reduction(skill: Skill):      
@@ -154,7 +154,7 @@ def activate_magic_release(buff_manager: BuffManager, skill_manager: SkillManage
     return
   skill_manager.apply_function(cooldown_reduction)
   # 마력 해방 버프 등록
-  buff_manager.register_buff(CLASS_BUFF_DICT['Magic_Release'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Magic_Release'], skill_on_use)
 
 # 마력 해방 종료 action
 def deactivate_magic_release(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):

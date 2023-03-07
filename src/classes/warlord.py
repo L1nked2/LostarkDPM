@@ -92,16 +92,16 @@ def finalize_skill(skill: Skill):
 # 배쉬, 대쉬 어퍼 파이어 공증
 def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '배쉬':
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '대쉬 어퍼 파이어':
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], skill_on_use)
 
 # 배쉬, 증오의 함성 시너지
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '배쉬':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '증오의 함성':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
 
 # 파이어불릿 1트포 행운의 기회
 def lucky_chance_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):

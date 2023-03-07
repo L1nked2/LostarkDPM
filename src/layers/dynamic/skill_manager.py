@@ -8,6 +8,7 @@ from .skill import Skill
 from .constants import seconds_to_ticks
 
 DEFAULT_LOOKUP_COOLDOWN = 5
+POLICY_MODES = ['scheduler', 'fixed']
 
 import os
 import sys
@@ -130,7 +131,7 @@ class SkillManager:
     def _import_policy(self, policy_contents):
         self.policy = dict()
         self.mode = policy_contents['mode']
-        if not self.mode in ['scheduler', 'fixed']:
+        if not self.mode in POLICY_MODES:
             warnings.warn("Invalid mode given", UserWarning)
         if self.mode == 'scheduler':
             scheduler_parameters = ['priorities', 'bindings','lookup_cooldown']
@@ -151,6 +152,7 @@ class SkillManager:
         self.skill_queue = deque()
 
     def _validate_jewel(self):
+        #TODO: more precise jewel count by checking actual skills on cycle
         jewel_count = 0
         for skill_name in self.skill_pool:
             if self.skill_pool[skill_name].jewel_cooldown_level > 0:
@@ -161,12 +163,6 @@ class SkillManager:
             print(f"Too many jewels, {jewel_count} > 11")
         elif jewel_count < 11:
             print(f"Not enough jewels, {jewel_count} < 11")
-        
-    """def _is_awakening_skill_available(self):
-        for skill_name in self.skill_pool:
-          if self.skill_pool[skill_name].identity_type == 'Awakening':
-            return bool(self.skill_pool[skill_name].remaining_cooldown <= 0)
-        return False"""
     
     def _is_skill_available(self, target_skill_name):
         return self._is_skill_available_on(target_skill_name, self.last_tick)
@@ -205,13 +201,6 @@ class SkillManager:
         tick = self.last_tick
         for skill_name in cycle:
           if not self._is_skill_available_on(skill_name, tick):
-            #print(skill_name, 'not available')
             return False
           tick += self.skill_pool[skill_name].prev_delay
         return True
-    
-    def _block_awakening_skill(self):
-        for skill_name in self.skill_pool:
-          if self.skill_pool[skill_name].identity_type == 'Awakening':
-            return bool(self.skill_pool[skill_name].remaining_cooldown <= 0)
-        return False

@@ -18,7 +18,7 @@ if __name__ == '__main__':
       character_configs = import_character(characters_root_path + character_file_name)
       for character_config in character_configs:
         character_dict = character_config.build_dict()
-        simulator = DpmSimulator(character_dict, verbose=False)
+        simulator = DpmSimulator(character_dict, verbose=0)
         print(f'target_character: {character_file_name}')
         print('==========================')
         simulator.run_simulation()

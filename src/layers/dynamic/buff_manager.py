@@ -3,6 +3,7 @@ import warnings
 from src.layers.dynamic.buff import StatBuff, DamageBuff
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
+from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.damage_history import DamageHistory
 from src.layers.dynamic.constants import ticks_to_seconds, seconds_to_ticks
 
@@ -30,15 +31,15 @@ class BuffManager():
     def _import_buffs(self, buffs_name_list):
         # register base buffs(default buffs)
         for buff_name in self.base_buff_module.BASE_BUFF_DICT:
-            self.register_buff(self.base_buff_module.BASE_BUFF_DICT[buff_name], 'base')
-        # specialization buff(class specific) added
-        self.register_buff(self.class_buff_table['Specialization'], 'class')
-
+            self.register_buff(self.base_buff_module.BASE_BUFF_DICT[buff_name])
+        # specialization buff(class specific) is always added
+        self.register_buff(self.class_buff_table['Specialization'])
+        # add buffs in static_buff_queue, mostly engraving related buffs
         for buff_name in buffs_name_list:
           if buff_name in self.base_buff_table:
-            self.register_buff(self.base_buff_table[buff_name], 'base')
+            self.register_buff(self.base_buff_table[buff_name])
           elif buff_name in self.class_buff_table:
-            self.register_buff(self.class_buff_table[buff_name], 'class')
+            self.register_buff(self.class_buff_table[buff_name])
           else:
             warnings.warn(f'Not implemented buff detected, {buff_name}', UserWarning)
     
@@ -59,7 +60,7 @@ class BuffManager():
         for buff in self.current_buffs:
           func(buff)
 
-    def register_buff(self, buff_dict, buff_origin):
+    def register_buff(self, buff_dict, buff_origin: Skill|None=None):
         if self.is_buff_exists(buff_dict['name']):
             buff_name = buff_dict['name']
             if self.verbose:
@@ -85,28 +86,37 @@ class BuffManager():
         for buff in self.current_buffs:
             if not buff.buff_type =='stat' or buff.is_shadowed or buff.effect is None:
                 continue
-            if buff.buff_origin == 'base':
-                buff_body = getattr(self.base_buff_module, buff.effect)
-            elif buff.buff_origin == 'class':
-                buff_body = getattr(self.class_buff_module, buff.effect)
-            buff_body(character, skill, buff)
-        skill.buff_applied = True
+            # get buff's effect and apply to character and skill
+            buff_effect = self._get_buff_effect(buff)
+            buff_effect(character, skill, buff)
+        skill.set_buff_applied()
     
-    def apply_damage_buffs(self, character: CharacterLayer, damage_history: DamageHistory, dummy_skill: Skill):
+    def calc_damage_from_buffs(self, damage_history: DamageHistory, skill_manager: SkillManager):
         for buff in self.current_buffs:
-            if buff.buff_type == 'damage':
-                damage = buff.calc_damage_buff(character.actual_attack_power, 
-                                               character.actual_crit_rate + dummy_skill.additional_crit_rate,
-                                               character.crit_damage + dummy_skill.additional_crit_damage, 
-                                               character.total_multiplier * dummy_skill.damage_multiplier, self.current_tick)
-                if damage > 0:
-                  if self.verbose:
-                    print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')
-                  damage_history.register_damage(buff.name, damage, 0, False, self.current_tick)
+          if buff.buff_type == 'damage':
+            character = self.base_character.copy()
+            dummy_skill = skill_manager.dummy_skill.copy()
+            is_awakening = False
+            if buff.buff_origin is not None:
+              dummy_skill.identity_type = buff.buff_origin.identity_type
+              is_awakening = bool(dummy_skill.identity_type == 'Awakening')
+            self.apply_stat_buffs(character, dummy_skill)
+            damage = buff.calc_damage(character, dummy_skill, self.current_tick)
+            if damage > 0:
+              if self.verbose:
+                print(f'{buff.name} dealt {damage} on {ticks_to_seconds(self.current_tick)}s')
+                print(f'{buff.name}, {is_awakening}')
+              damage_history.register_damage(buff.name, damage, 0, is_awakening, self.current_tick)
 
     def print_buffs(self):
         print(self.current_buffs)
-
+    
+    def _get_buff_effect(self, buff: StatBuff):
+        buff_body = getattr(self.base_buff_module, buff.effect, None)
+        if buff_body is None:
+          buff_body = getattr(self.class_buff_module, buff.effect)
+        return buff_body
+    
     # sort buffs by priority, decending order
     def _sort_buffs(self):
         self.current_buffs = sorted(self.current_buffs, key=lambda x: x.priority, reverse=True)

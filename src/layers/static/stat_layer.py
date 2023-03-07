@@ -3,6 +3,9 @@ from src.layers.static.constants import MAX_MOVEMENT_SPEED, MAX_ATTACK_SPEED
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 import copy
 
+DEFAULT_ADDITIONAL_DAMAGE = 0.30
+DEFUALT_CRIT_DAMAGE = 2.0
+
 class StatLayer:
     """
     Base layer of static part of simulator
@@ -31,21 +34,23 @@ class StatLayer:
             self.combat_stat = self.character_stat['combat_stat']
         else:
             raise_attribute_error('StatLayer','missing field in combat_stat')
+    
+    def _calc_attack_power(self):
+        return (self.stat * self.weapon_power / 6.0) ** 0.5
 
     # Reset status using given stat and combat_stat
     def reset_stat(self):
         # attack_power
-        self.attack_power_base = (
-            self.stat * self.weapon_power / 6.0) ** 0.5  # 기본 상태 스탯창 공격력
+        self.attack_power_base = self._calc_attack_power() # 기본 상태 스탯창 공격력
         # dynamic terms, refresh needed
         # set these terms in bottom layer first, and run refresh_character_layer()
         self.additional_attack_power = 0.0  # 추가 공격력(저받&질증&아드&에포)
-        self.additional_damage = 0.30  # 추가피해(equipment(구원,악몽,갈망,파괴), 무품100 -> 0.3 default)
+        self.additional_damage = DEFAULT_ADDITIONAL_DAMAGE  # 추가피해(equipment(구원,악몽,갈망,파괴), 무품100 -> 0.3 default)
         self.damage_multiplier = 1.00  # 피해증가
         # crit
         crit = self.combat_stat['crit']
         self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
-        self.crit_damage = 2.0
+        self.crit_damage = DEFUALT_CRIT_DAMAGE
         # spec -> TODO: init on where?
         specialization = self.combat_stat['specialization']
         self.specialization = specialization
@@ -124,7 +129,7 @@ class StatLayer:
         self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
         # crit_rate cannot exceed 1
         self.actual_crit_rate = min(self.crit_rate, 1.0)
-        # movement_speed and attack_speed cannot exceed 1.4
+        # movement_speed and attack_speed cannot exceed max values
         self.actual_movement_speed = min(self.movement_speed, MAX_MOVEMENT_SPEED)
         self.actual_attack_speed = min(self.attack_speed, MAX_ATTACK_SPEED)
 

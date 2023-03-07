@@ -58,7 +58,7 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 9,
   },
-  # 독: 부식, 상시 3중첩
+  # 독: 부식, 상시 3중첩, 보석 적용x
   'Poison_Corrosion': {
     'name': 'poison_corrosion',
     'buff_type': 'damage',
@@ -112,7 +112,7 @@ def grant_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_
 
 # 페르소나 사용
 def activate_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Persona'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Persona'], None)
 
 # 급습 사용시 페르소나 해제
 def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -123,11 +123,11 @@ def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager, s
 
 # 방깎 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 부식 독 데미지 버프 등록
 def activate_poison(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Poison_Corrosion'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Poison_Corrosion'], None)
 
 # 쉐도우 닷 급습 활성
 def swoop_activation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -147,7 +147,7 @@ def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager, sk
 
 # 디스토션 순풍 버프 등록
 def activate_tailwind(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Tailwind'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Tailwind'], skill_on_use)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

@@ -1,7 +1,6 @@
 """
 Utilization functions for static and dynamic part of simulator
 """
-
 import sys
 import io
 import random
@@ -9,9 +8,6 @@ from src.layers.static.constants import STAT_BY_UPGRAGE_TABLE
 import json
 import warnings
 from functools import wraps
-
-#sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
-#sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 def initialize_wrapper(name, enable_start=True, enable_end=True):
     def wrapper(func):

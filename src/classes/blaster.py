@@ -127,17 +127,17 @@ def deactivate_barrage_mode(buff_manager: BuffManager, skill_manager: SkillManag
 
 # 강화탄 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 화염 폭격 데미지 버프 등록(공폭 2트포)
 def activate_flame_barrage(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '공중 폭격' and skill_on_use.get_attribute('tripod')[1] == '1':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Flame_Barrage'], None)
 
 # 헤비 터렛 데미지 버프 등록(각성기, 2각)
 def activate_heavy_turret(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '헤비 터렛':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Heavy_Turret'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Heavy_Turret'], skill_on_use)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

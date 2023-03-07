@@ -80,15 +80,15 @@ def finalize_skill(skill: Skill):
 # 치적 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '청룡진':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 # 치적 시너지 등록
 def activate_stance_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '스탠스 변경':
     if buff_manager.is_buff_exists('pinnacle_enabled_3'):
-      buff_manager.register_buff(CLASS_BUFF_DICT['Stance_Buff_Pinnacle_3'], 'class')
+      buff_manager.register_buff(CLASS_BUFF_DICT['Stance_Buff_Pinnacle_3'], skill_on_use)
     else:
-      buff_manager.register_buff(CLASS_BUFF_DICT['Stance_Buff_Default'], 'class')
+      buff_manager.register_buff(CLASS_BUFF_DICT['Stance_Buff_Default'], skill_on_use)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):

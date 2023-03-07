@@ -53,35 +53,35 @@ CLASS_BUFF_DICT = {
     'duration': 3,
     'priority': 7,
   },
-  # 내공연소 틱 데미지 버프, 10멸
+  # 내공연소 틱 데미지 버프
   'Energy_Combustion': {
     'name': 'energy_combustion',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 332,
-    'coefficient': 3.6787 * 1.4,
+    'base_damage': 332 * 1.7875,
+    'coefficient': 2.0584 * 1.7875,
     'damage_interval': 1,
     'duration': 20,
     'priority': 7,
   },
-  # 내공연소 최후의 속삭임 데미지, 10멸
+  # 내공연소 최후의 속삭임 데미지
   'Last_Whisper': {
     'name': 'last_whisper',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 3523,
-    'coefficient': 58.1024 * 1.4,
+    'base_damage': 6640 * 2.66,
+    'coefficient': 41.168 * 2.66,
     'damage_interval': 1,
     'duration': 1,
     'priority': 7,
   },
-  # 월섬각 강렬한 전격 데미지, 10멸
+  # 월섬각 강렬한 전격 데미지
   'Intense_Shock': {
     'name': 'intense_shock',
     'buff_type': 'damage',
     'effect': None,
     'base_damage': 271,
-    'coefficient': 1.68 * 1.4,
+    'coefficient': 1.68,
     'damage_interval': 1,
     'duration': 4,
     'priority': 7,
@@ -117,27 +117,27 @@ def finalize_skill(skill: Skill):
 # 치적 및 공이속 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '용맹의 포효':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '바람의 속삭임':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
 
 # 공격력 증가 버프 등록 action
 def activate_ap_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '바람의 속삭임':
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_1'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '붕천퇴':
-    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['AP_Buff_2'], skill_on_use)
   
 # 데미지 버프 등록 action
 def activate_damage_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '월섬각':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Intense_Shock'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Intense_Shock'], skill_on_use)
   elif skill_on_use.get_attribute('name') == '내공연소':
-    buff_manager.register_buff(CLASS_BUFF_DICT['Last_Whisper'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Last_Whisper'], skill_on_use)
 
 # 내공연소 기본 틱 데미지 버프 등록 action
 def activate_energy_combustion(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.register_buff(CLASS_BUFF_DICT['Energy_Combustion'], 'class')
+  buff_manager.register_buff(CLASS_BUFF_DICT['Energy_Combustion'], skill_on_use)
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '내공연소 버프 체크':
       skill.update_attribute('remaining_cooldown', seconds_to_ticks(20))

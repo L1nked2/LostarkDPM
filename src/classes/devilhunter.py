@@ -69,7 +69,7 @@ def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_o
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if (skill_on_use.get_attribute('name') == 'AT02 유탄' 
       or skill_on_use.get_attribute('name') == '나선의 추적자'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], 'class')
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
