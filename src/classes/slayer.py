@@ -34,12 +34,28 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+   # 포식자 확인용 버프
+  'Devourer_Enabled_3': {
+    'name': 'devourer_enabled_3',
+    'buff_type': 'stat',
+    'effect': None,
+    'duration': 999999,
+    'priority': 7,
+  },
   # 처단자 버프, 폭주시 같이 켜짐
   'Punisher_3': {
     'name': 'punisher',
     'buff_type': 'stat',
     'effect': 'punisher_3',
     'duration': DEFAULT_BERSERK_TIME_LIMIT * 0.50,
+    'priority': 7,
+  },
+  # 포식자 버프, 폭주시 같이 켜짐
+  'Devourer_3': {
+    'name': 'devourer',
+    'buff_type': 'stat',
+    'effect': 'devourer_3',
+    'duration': DEFAULT_BERSERK_TIME_LIMIT * 3.00,
     'priority': 7,
   },
   # 폭주 버프
@@ -100,8 +116,18 @@ def activate_swift_attack_prep(buff_manager: BuffManager, skill_manager: SkillMa
 # 폭주 켜기
 def activate_berserk(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   berserk_time = DEFAULT_BERSERK_TIME_LIMIT
+  # 포식자 버프 확인 및 등록
+  if buff_manager.is_buff_exists('devourer_enabled_3'):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Devourer_3'], skill_on_use)
+    berserk_time = berserk_time * 3.00
+    # 포식자 각인 활성화시 폭주 리필 시간 조정
+    def cooldown_increase(skill: Skill):
+      if skill.get_attribute('name') == '폭주 활성화':
+        skill.update_attribute('remaining_cooldown', seconds_to_ticks(90))
+      return
+    skill_manager.apply_function(cooldown_increase)
   # 처단자 버프 확인 및 등록
-  if buff_manager.is_buff_exists('punisher_enabled_3'):
+  elif buff_manager.is_buff_exists('punisher_enabled_3'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Punisher_3'], skill_on_use)
     berserk_time = berserk_time / 2.0
   # 폭주 버프 등록
@@ -156,6 +182,12 @@ def punisher_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('name') == '블러드러스트':
     s_acr = skill.get_attribute('additional_crit_rate')
     skill.update_attribute('additional_crit_rate', s_acr + 0.20)
+
+# 포식자
+def devourer_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  # 폭주시 치피증 파트
+  s_acd = skill.get_attribute('additional_crit_damage')
+  skill.update_attribute('additional_crit_damage', s_acd + 0.40)
 
 # 와일드 스톰프 속공 준비 공속 버프
 def swift_attck_prep(character: CharacterLayer, skill: Skill, buff: Buff):
