@@ -228,7 +228,7 @@
       "base_damage_multiplier": 1.0,
       "cooldown": 999999,
       "skill_type": "Point",
-      "identity_type": "Common",
+      "identity_type": "Awakening",
       "common_delay": 0.0,
       "type_specific_delay": 0.0,
       "jewel_cooldown_level": 0,
