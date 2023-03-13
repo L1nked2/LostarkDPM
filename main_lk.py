@@ -4,14 +4,14 @@ from src.layers.utils import import_character
 
 
 if __name__ == '__main__':
-    character_path = './db/characters/character_slayer_devourer.json'
+    character_path = './db/characters/character_summoner_communication_overflow.json'
     character_configs = import_character(character_path)
 
     for character_config in character_configs:
       character_dict = character_config.build_dict()
       #character_dict['artifact_set'] = ['악몽A_6_3']
       simulator = DpmSimulator(character_dict, verbose=0)
-      #simulator = DpmSimulator(character_dict, max_tick=15000, verbose=1)
+      #simulator = DpmSimulator(character_dict, max_tick=10000, verbose=1)
       simulator.print_test_info()
       print('==========================')
       simulator.run_simulation()
