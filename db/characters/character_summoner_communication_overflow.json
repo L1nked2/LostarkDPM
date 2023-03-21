@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "summoner",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 0,
+      "swiftness": 1600,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Raid_Captain_3", "Communication_Overflow_3", "Adrenaline_3", "Ether_Predator_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "artifact_set": ["환각_6_3"],
+      "skill_set": "./db/skills/summoner_communication_overflow.json"
+    }
+  ]
+}

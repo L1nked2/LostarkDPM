@@ -1,35 +1,36 @@
-class,actual_dps,short_dps,long_dps,nuking_dps
-character_aeromancer_drizzle.json,16732150,41305058,32329532,34304359
-character_aeromancer_gale_rage.json,16721784,27596264,26643913,23659885
-character_battlemaster_first_intention.json,17204716,32101802,27563491,24774488
-character_berserker_mayhem.json,20042097,39660994,37427389,31557729
-character_blade_burst.json,23058410,31892271,32357131,28752947
-character_blade_remaining_energy.json,22162551,26629322,26317527,24760851
-character_blaster_barrage_enhancement.json,18196069,23687417,28419173,37417507
-character_blaster_firepower_enhancement.json,16803248,31692796,30506169,30763001
-character_demonic_demonic_impulse.json,14942728,22196892,19902671,28510659
-character_demonic_perfect_suppression.json,18648739,30507491,23373650,23383142
-character_destroyer_rage_hammer.json,21342567,38096447,34868232,28263943
-character_devilhunter_enhanced_weapon.json,18964485,40731593,41859354,34372736
-character_devilhunter_pistoleer.json,15263120,29791407,25201635,25628673
-character_gunslinger_peace_maker.json,17486507,36610204,39818605,35718442
-character_gunslinger_time_to_hunt.json,16180206,37542601,33992882,32364559
-character_infighter_shock_training.json,19624413,33159294,34354552,29655158
-character_infighter_taijutsu.json,19511998,24979527,22537573,24010701
-character_lancemaster_control.json,19658555,26120013,22201744,23311337
-character_lancemaster_pinnacle.json,18740176,28863933,25642091,31291097
-character_reaper_hunger.json,19013179,28200743,26158758,27317784
-character_reaper_lunar_voice.json,18890501,33794899,25666112,33656821
-character_scouter_arthetinean_skill.json,16103841,30101083,29578589,28619742
-character_scouter_evolutionary_legacy.json,17588874,19354909,19489851,21627210
-character_slayer_devourer.json,20568843,40739207,37228286,29871020
-character_slayer_punisher.json,22039242,66589548,59536787,61451975
-character_sorceress_igniter.json,14961509,74555642,56529890,45439515
-character_sorceress_igniter.json,15048038,75457994,57214081,45989441
-character_striker_deathblow.json,19931895,45293239,36570876,35207989
-character_striker_deathblow_c1.json,20725898,36730761,27657006,28774259
-character_striker_deathblow_e2.json,17134698,38517486,29204721,28229774
-character_summoner_master_summoner.json,19062650,48490543,41950173,48477363
-character_summoner_master_summoner.json,18898908,53742881,46590165,53670540
-character_warlord_combat_readiness.json,16015859,26362710,20584264,21138660
-character_warlord_lone_knight.json,17261291,41343995,31115909,26501806
+classname_kor,classname_eng,actual_dps,short_dps,long_dps,nuking_dps
+기상술사(이슬비),Aeromancer(drizzle),16732150,41305058,32329532,34304359
+"기상술사(질풍, 2기4역)",Aeromancer(gale rage),16721784,27596264,26643913,23659885
+배틀마스터(초심),Wardancer(first intention),17204716,32101802,27563491,24774488
+"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),20042097,39660994,37427389,31557729
+블레이드(버스트),Deathblade(surge),23058410,31892271,32357131,28752947
+블레이드(잔재된 기운),Deathblade(remaining energy),22162551,26629322,26317527,24760851
+블래스터(포격 강화),Artillerist(barrage enhancement),18196069,23687417,28419173,37417507
+블래스터(화력 강화),Artillerist(firepower enhancement),16803248,31692796,30506169,30763001
+데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),14942728,22196892,19902671,28510659
+데모닉(완벽한 억제),Shadowhunter(perfect suppression),18648739,30507491,23373650,23383142
+디스트로이어(분노의 망치),Destroyer(rage hammer),21342567,38096447,34868232,28263943
+데빌헌터(강화 무기),Deadeye(enhanced weapon),18964485,40731593,41859354,34372736
+데빌헌터(핸드거너),Deadeye(pistoleer),15263120,29791407,25201635,25628673
+건슬링어(피스메이커),Gunslinger(peace maker),17486507,36610204,39818605,35718442
+건슬링어(사냥의 시간),Gunslinger(time to hunt),16180206,37542601,33992882,32364559
+인파이터(충격 단련),Scrapper(shock training),19624413,33159294,34354552,29655158
+인파이터(극의 : 체술),Scrapper(taijutsu),19511998,24979527,22537573,24010701
+창술사(절제),Graivier(control),19658555,26120013,22201744,23311337
+"창술사(절정, 4난무3집중)","Graivier(pinnacle, 4 Flurry & 3 Focus)",18740176,28863933,25642091,31291097
+리퍼(갈증),Reaper(hunger),19013179,28200743,26158758,27317784
+리퍼(달의 소리),Reaper(lunar voice),18890501,33794899,25666112,33656821
+"스카우터(아르데타인의 기술, 422)","Machinist(arthetinean skill, 422)",16103841,30101083,29578589,28619742
+except scouter_evolutionary_legacy_c1.json,except scouter_evolutionary_legacy_c1.json,17588874,19354909,19489851,21627210
+"슬레이어(포식자, 페소채용7딜)",slayer(devourer),20568843,40739207,37228286,29871020
+"슬레이어(처단자, 1.5사이클2길2퓨)",slayer(punisher),22039242,66589548,59536787,61451975
+소서리스(점화),Sorceress(igniter),14961509,74555642,56529890,45439515
+소서리스(점화),Sorceress(igniter),15048038,75457994,57214081,45989441
+"스트라이커(일격필살, 3오의 폭쇄진)",except striker_deathblow.json,19931895,45293239,36570876,35207989
+"스트라이커(일격필살, 3오의 풍신초래)",except striker_deathblow_c1.json,20725898,36730761,27657006,28774259
+"스트라이커(일격필살, 2오의 방천격)",except striker_deathblow_e2.json,17134698,38517486,29204721,28229774
+서머너(넘치는 교감),Summoner(communication overflow),19323873,28863573,25770386,29248169
+"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),19062808,48489787,41949967,48477338
+"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18899058,53742048,46589834,53670512
+"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),16015859,26362710,20584264,21138660
+워로드(고독한 기사),Gunlancer(solo knight),17261291,41343995,31115909,26501806

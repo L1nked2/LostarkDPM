@@ -31,6 +31,7 @@
     "striker_deathblow_e2.json": "스트라이커(일격필살, 2오의 방천격)",
     "striker_deathblow.json": "스트라이커(일격필살, 3오의 폭쇄진)",
     "summoner_master_summoner.json": "서머너(상급 소환사, 마질 채용)",
+    "summoner_communication_overflow.json": "서머너(넘치는 교감)",
     "warlord_combat_readiness.json": "워로드(전투태세, 방격채용)",
     "warlord_lone_knight_c1.json": "워로드(고독한 기사, 대쉬 어퍼 파이어 빠른 준비)",
     "warlord_lone_knight.json": "워로드(고독한 기사)"
@@ -67,6 +68,7 @@
     "striker_deathblow_e2.json.json": "Striker(deathblow, 2 esotheric sweeping kick)",
     "striker_deathblow.json.json": "Striker(deathblow, 3 esotheric blast formation)",
     "summoner_master_summoner.json": "Summoner(master summoner)",
+    "summoner_communication_overflow.json": "Summoner(communication overflow)",
     "warlord_combat_readiness.json": "Gunlancer(combat readiness)",
     "warlord_lone_knight_c1.json": "Gunlancer(solo knight, dash upper fire quick prep)",
     "warlord_lone_knight.json": "Gunlancer(solo knight)"
@@ -157,7 +159,8 @@
     "Time_To_Hunt_3": "사냥의 시간 3레벨",
     "Peace_Maker_1": "피스메이커 1레벨",
     "Peace_Maker_3": "피스메이커 3레벨",
-    "Master_Summoner_3": "상급소환사 3레벨",
+    "Master_Summoner_3": "상급 소환사 3레벨",
+    "Communication_Overflow_3": "넘치는 교감 3레벨",
     "Igniter_3": "점화 3레벨",
     "Remaining_Energy_1": "잔재된 기운 1레벨",
     "Remaining_Energy_3": "잔재된 기운 3레벨",
@@ -257,6 +260,7 @@
     "Peace_Maker_1": "Peace maker lv1",
     "Peace_Maker_3": "Peace maker lv3",
     "Master_Summoner_3": "Master summoner lv3",
+    "Communication_Overflow_3": "Communication overflow lv3",
     "Igniter_3": "Igniter lv3",
     "Remaining_Energy_1": "Remaining energy lv1",
     "Remaining_Energy_3": "Remaining energy lv3",

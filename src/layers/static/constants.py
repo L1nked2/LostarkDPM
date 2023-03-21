@@ -135,7 +135,7 @@ ENGRAVINGS = {
   #일격필살
   'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
   #오의난무
-  #강화무기
+  #강화무기 # TODO: move to devilhunter.py
   'Enhanced_Weapon_1': [('crit_rate', lambda x: x + 0.20)],
   'Enhanced_Weapon_3': [('crit_rate', lambda x: x + 0.30)],
   #핸드거너
@@ -161,6 +161,7 @@ ENGRAVINGS = {
   #상급소환사
   'Master_Summoner_3': [('static_buff_queue', lambda x: x + ['Master_Summoner_3'])],
   #넘치는교감
+  'Communication_Overflow_3': [('static_buff_queue', lambda x: x + ['Communication_Overflow_3'])],
   #황후의은총
   #황제의칙령
   #점화

@@ -180,13 +180,15 @@ def magic_release(character: CharacterLayer, skill: Skill, buff: Buff):
   s_dm = skill.get_attribute('damage_multiplier')
   skill.update_attribute('damage_multiplier', s_dm * (1 + (0.18 * (1 + c_s * SPEC_COEF_1))))
   # 시전시간(캐스팅 시간만) 1초 적용, 조정 후 질풍 재적용
-  if skill.get_attribute('skill_type') == 'Casting' and skill.get_attribute('rune') == '질풍':
-    if skill.get_attribute('rune_level') == '전설':
-      skill.update_attribute('type_specific_delay', seconds_to_ticks(1) / 1.14)
-    elif skill.get_attribute('rune_level') == '영웅':
-      skill.update_attribute('type_specific_delay', seconds_to_ticks(1) / 1.12)
+  if skill.get_attribute('skill_type') == 'Casting':
+    if skill.get_attribute('rune') == '질풍':
+      if skill.get_attribute('rune_level') == '전설':
+        skill.update_attribute('type_specific_delay', seconds_to_ticks(1) / 1.14)
+      elif skill.get_attribute('rune_level') == '영웅':
+        skill.update_attribute('type_specific_delay', seconds_to_ticks(1) / 1.12)
     else:
-      skill.update_attribute('type_specific_delay', seconds_to_ticks(1))
+      if skill.get_attribute('type_specific_delay') > 0:
+        skill.update_attribute('type_specific_delay', seconds_to_ticks(1))
   # 마력 증폭 트포 적용
   s_n = skill.get_attribute('name')
   if s_n == '종말의 날_데미지' or s_n == '익스플로전' or s_n == '천벌':
