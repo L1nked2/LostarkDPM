@@ -5,7 +5,7 @@ from tqdm import tqdm
 from src.layers.dynamic.dpm_simulator import DpmSimulator
 from src.layers.static.character_layer import CharacterLayer
 from pyqt5.translator import translator
-from src.layers.utils import import_character
+from src.layers.utils import import_character, CharacterFactory
 
 
 if __name__ == '__main__':
@@ -20,6 +20,7 @@ if __name__ == '__main__':
     for character_file_name in (progress_bar := tqdm(character_file_names)):
       progress_bar.desc = character_file_name
       character_configs = import_character(characters_root_path + character_file_name)
+      character_config: CharacterFactory
       for character_config in character_configs:
         character_dict = character_config.build_dict()
         simulator = DpmSimulator(character_dict, verbose=0)

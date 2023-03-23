@@ -5,12 +5,11 @@ from ..static.character_layer import CharacterLayer
 from .skill import Skill
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
-from .damage_history import DamageHistory
+from .damage_history import DamageHistory, EDPS_LINSPACE
 from .constants import *
 
 DEFAULT_TICK_INTERVAL = 1
 MAX_TICK = 360000
-DPS_CORRECTION_CONSTANT = 0.4
 
 class DpmSimulator:
   def __init__(self, character_dict, verbose=0, max_tick=MAX_TICK, tick_interval=DEFAULT_TICK_INTERVAL, **kwargs):
@@ -60,17 +59,17 @@ class DpmSimulator:
     self._finalize_statistics()
 
   def get_result(self):
-    result = [round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT),
-                  round(self.damage_history.max_nuking_dps_short * DPS_CORRECTION_CONSTANT),
-                  round(self.damage_history.max_nuking_dps_long * DPS_CORRECTION_CONSTANT),
-                  round(self.damage_history.max_nuking_dps_awakening * DPS_CORRECTION_CONSTANT)]
+    result = [round(self.damage_history.current_dps),
+                  round(self.damage_history.max_nuking_dps_short),
+                  round(self.damage_history.max_nuking_dps_long),
+                  round(self.damage_history.max_nuking_dps_awakening)]
     return result
 
   def print_result(self):
-    print(f'Actual_DPS: {round(self.damage_history.current_dps * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_W/O_Awaking_Short_DPS: {round(self.damage_history.max_nuking_dps_short * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_W/O_Awaking_Long_DPS: {round(self.damage_history.max_nuking_dps_long * DPS_CORRECTION_CONSTANT)}')
-    print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps_awakening * DPS_CORRECTION_CONSTANT)}')
+    print(f'Actual_DPS: {round(self.damage_history.current_dps)}')
+    print(f'Nuking_W/O_Awaking_Short_DPS: {round(self.damage_history.max_nuking_dps_short)}')
+    print(f'Nuking_W/O_Awaking_Long_DPS: {round(self.damage_history.max_nuking_dps_long)}')
+    print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps_awakening)}')
     print(f'DPCT_by_Percentage: {round(self.dpct_by_percentage, 3)}')
     print(f'Idle_Ratio: {round(self.idle_tick / self.elapsed_tick * 100, 2)} %')
     print(f'Idle_Score: {round(self.idle_score, 2)}')

@@ -1,14 +1,19 @@
 import csv
+import numpy as np
+import pandas as pd
+import math
 from collections import deque
 from .constants import ticks_to_seconds, seconds_to_ticks
-
 
 STABILIZATION_THRESHOLD = 0.01 / 100 # 0.01% threshold
 MINIMUM_RUNNING_SECONDS = 1500
 RECENT_SECONDS = 300
 NUKING_SECONDS_SHORT = 6
 NUKING_SECONDS_LONG = 8
-AWAKENING_NUKING_SECONDS = 10
+NUKING_WITH_AWAKENING_SECONDS = 10
+EDPS_MIN_SECONDS = 6
+EDPS_MAX_SECONDS = 16
+EDPS_LINSPACE = np.linspace(EDPS_MIN_SECONDS, EDPS_MAX_SECONDS, math.floor((EDPS_MAX_SECONDS-EDPS_MIN_SECONDS)*10+1))
 
 class Subhistory():
     def __init__(self, max_seconds, awakening_in_max_dps_cycle=False):
@@ -67,17 +72,22 @@ class DamageHistory:
         self.damage_details = dict()
         self.skill_counts = dict()
 
+        # add sub_histories for dps statistics
+        self.sub_histories = list()
+        for i in EDPS_LINSPACE:
+          self.sub_histories.append(Subhistory(i))
+        self.max_nuking_dps_short = 0
+        self.max_nuking_dps_long = 0
+        self.max_nuking_dps_awakening = 0
+
         # recent statistics
         self.recent_subhistory = Subhistory(RECENT_SECONDS)
         self.recent_dps = 0
 
         # nuking statistics
         self.nuking_subhistory_short = Subhistory(NUKING_SECONDS_SHORT)
-        self.max_nuking_dps_short = 0
         self.nuking_subhistory_long = Subhistory(NUKING_SECONDS_LONG)
-        self.max_nuking_dps_long = 0
-        self.nuking_subhistory_awakening = Subhistory(AWAKENING_NUKING_SECONDS, True)
-        self.max_nuking_dps_awakening = 0
+        self.nuking_subhistory_awakening = Subhistory(NUKING_WITH_AWAKENING_SECONDS, True)
 
     def register_damage(self, name, damage_value, delay, is_awakening: bool, tick):
         damage_event = dict(name=name, damage_value=damage_value, delay=delay, is_awakening=is_awakening, tick=tick)
@@ -94,12 +104,24 @@ class DamageHistory:
         self.dps_ratio = self.recent_dps / self.current_dps
         if (self.recent_dps < self.current_dps * (1-STABILIZATION_THRESHOLD) 
             or self.recent_dps > self.current_dps * (1+STABILIZATION_THRESHOLD)):
-            return False
-        self.stablization_flag = True
-        return True
+          return False
+        else:
+          self.stablization_flag = True
+          return True
+    
+    # get subhistory by seconds
+    def get_subhistory(self, seconds) -> Subhistory:
+        return self.sub_histories[math.floor((seconds-EDPS_MIN_SECONDS)*10)]
 
     def get_damage_details(self):
         return self.damage_details
+    
+    def get_edps_statistics(self):
+        edps_list = list()
+        for second in EDPS_LINSPACE:
+          sh = self.get_subhistory(second)
+          edps_list.append(sh.max_dps)
+        return edps_list
 
     def get_history(self):
         return self.history
@@ -111,9 +133,23 @@ class DamageHistory:
         for damage in self.get_damage_details():
             wr.writerow([damage['name'], damage['damage_value']])
     
+    def save_edps_statistics(self, path):
+        f = open(path,'w', newline='')
+        wr = csv.writer(f)
+        wr.writerow(list(i for i in EDPS_LINSPACE))
+        edps_list = list()
+        for second in EDPS_LINSPACE:
+          sh = self.get_subhistory(second)
+          edps_list.append(sh.max_dps)
+        wr.writerow(edps_list)
+    
     def _update_damage_statistics(self, damage_event):
         # damage_details
         self._update_damage_details(damage_event)
+        # add damage event to all subhistory
+        sh: Subhistory
+        for sh in self.sub_histories:
+          sh.add_damage_event(damage_event)
         # recent_dps
         self.recent_subhistory.add_damage_event(damage_event)
         self.recent_dps = self.recent_subhistory.cur_dps

@@ -29,7 +29,7 @@ data example
 import copy
 import warnings
 import src.layers.dynamic.constants as constants
-from src.layers.utils import crit_to_multiplier
+from src.layers.utils import crit_to_multiplier, defense_reduction_to_multiplier
 
 DEFAULT_PRIORITY = 10
 SKILL_TYPES = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
@@ -94,6 +94,7 @@ class Skill:
         self.damage_multiplier = self.base_damage_multiplier
         self.additional_crit_rate = self.base_additional_crit_rate
         self.additional_crit_damage = self.base_additional_crit_damage
+        self.additional_defense_reduction_rate = self.base_defense_reduction_rate
         self._refresh_skill()
 
     def _init_additional_variables(self, **kwargs):
@@ -106,6 +107,7 @@ class Skill:
           'key_strokes': 0,
           'base_additional_crit_rate': 0.0,
           'base_additional_crit_damage': 0.0,
+          'base_defense_reduction_rate': 0.0,
           'rune': None,
           'mana_cost': 1,
         }
@@ -201,8 +203,9 @@ class Skill:
         if not self.buff_applied:
           warnings.warn("Damage calculation before buff applied", UserWarning)
         crit_multiplier = crit_to_multiplier(crit_rate + self.additional_crit_rate, crit_damage + self.additional_crit_damage)
+        defense_multiplier = defense_reduction_to_multiplier(self.additional_defense_reduction_rate)
         damage = ((self.default_damage + attack_power * self.default_coefficient)
-                   * self.damage_multiplier * crit_multiplier * total_multiplier)
+                   * self.damage_multiplier * crit_multiplier * defense_multiplier * total_multiplier)
         return damage
     
     def calc_delay(self, attack_speed):
