@@ -1,7 +1,5 @@
 import csv
 import numpy as np
-import pandas as pd
-import math
 from collections import deque
 from .constants import ticks_to_seconds, seconds_to_ticks
 
@@ -11,9 +9,12 @@ RECENT_SECONDS = 300
 NUKING_SECONDS_SHORT = 6
 NUKING_SECONDS_LONG = 8
 NUKING_WITH_AWAKENING_SECONDS = 10
-EDPS_MIN_SECONDS = 6
+SUBHISTORY_MIN_SECONDS = 6
+SUBHISTORY_MAX_SECONDS = 120
+TIME_LINSPACE = [round(i,1) for i in np.linspace(SUBHISTORY_MIN_SECONDS, SUBHISTORY_MAX_SECONDS, round((SUBHISTORY_MAX_SECONDS-SUBHISTORY_MIN_SECONDS)*10+1))]
+EDPS_MIN_SECONDS = 8
 EDPS_MAX_SECONDS = 16
-EDPS_LINSPACE = np.linspace(EDPS_MIN_SECONDS, EDPS_MAX_SECONDS, math.floor((EDPS_MAX_SECONDS-EDPS_MIN_SECONDS)*10+1))
+EDPS_LINSPACE = [round(i,1) for i in np.linspace(EDPS_MIN_SECONDS, EDPS_MAX_SECONDS, round((EDPS_MAX_SECONDS-EDPS_MIN_SECONDS)*10+1))]
 
 class Subhistory():
     def __init__(self, max_seconds, awakening_in_max_dps_cycle=False):
@@ -46,7 +47,6 @@ class Subhistory():
       self.cur_dps = self.total_damage / ticks_to_seconds(self.max_tick)
 
       self._refresh_flags()
-      # self._update_max_dps_cycle()
 
       if self.max_dps < self.cur_dps:
         if self.awakening_in_max_dps_cycle == True:
@@ -74,7 +74,7 @@ class DamageHistory:
 
         # add sub_histories for dps statistics
         self.sub_histories = list()
-        for i in EDPS_LINSPACE:
+        for i in TIME_LINSPACE:
           self.sub_histories.append(Subhistory(i))
         self.max_nuking_dps_short = 0
         self.max_nuking_dps_long = 0
@@ -111,16 +111,18 @@ class DamageHistory:
     
     # get subhistory by seconds
     def get_subhistory(self, seconds) -> Subhistory:
-        return self.sub_histories[math.floor((seconds-EDPS_MIN_SECONDS)*10)]
+        return self.sub_histories[round((seconds-SUBHISTORY_MIN_SECONDS)*10)]
 
     def get_damage_details(self):
         return self.damage_details
     
-    def get_edps_statistics(self):
+    def get_edps_statistics(self, min_sec=EDPS_MIN_SECONDS, max_sec=EDPS_MAX_SECONDS):
+        assert(TIME_LINSPACE[0] <= min_sec and max_sec <= TIME_LINSPACE[-1])
         edps_list = list()
-        for second in EDPS_LINSPACE:
-          sh = self.get_subhistory(second)
-          edps_list.append(sh.max_dps)
+        for sec in TIME_LINSPACE:
+          if min_sec <= sec and sec <= max_sec:
+            sh = self.get_subhistory(sec)
+            edps_list.append(sh.max_dps)
         return edps_list
 
     def get_history(self):
@@ -136,9 +138,9 @@ class DamageHistory:
     def save_edps_statistics(self, path):
         f = open(path,'w', newline='')
         wr = csv.writer(f)
-        wr.writerow(list(i for i in EDPS_LINSPACE))
+        wr.writerow(list(i for i in TIME_LINSPACE))
         edps_list = list()
-        for second in EDPS_LINSPACE:
+        for second in TIME_LINSPACE:
           sh = self.get_subhistory(second)
           edps_list.append(sh.max_dps)
         wr.writerow(edps_list)

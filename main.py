@@ -1,8 +1,10 @@
 import os
 import sys
 import csv
+import pandas as pd
 from tqdm import tqdm
 from src.layers.dynamic.dpm_simulator import DpmSimulator
+from src.layers.dynamic.damage_history import TIME_LINSPACE, EDPS_LINSPACE
 from src.layers.static.character_layer import CharacterLayer
 from pyqt5.translator import translator
 from src.layers.utils import import_character, CharacterFactory
@@ -11,12 +13,16 @@ from src.layers.utils import import_character, CharacterFactory
 if __name__ == '__main__':
     std_out_temp = sys.stdout
     sys.stdout = open('results.txt', 'w')
-    result_csv = open('results.csv', 'w', newline='')
-    csv_wrt = csv.writer(result_csv)
-    csv_wrt.writerow(['classname_kor', 'classname_eng', 'actual_dps', 'short_dps', 'long_dps', 'nuking_dps'])
+    dps_csv = open('results.csv', 'w', newline='')
+    dps_csv_wrt = csv.writer(dps_csv)
+    edps_csv = open('edps_kor.csv', 'w', newline='')
     characters_root_path = './db/characters/'
     character_file_names = os.listdir(characters_root_path)
     translator_instance = translator()
+
+    dps_csv_wrt.writerow(['classname_kor', 'classname_eng', 'actual_dps', 'short_dps', 'long_dps', 'nuking_dps'])
+    edps_kor_df = pd.DataFrame(columns=TIME_LINSPACE)
+
     for character_file_name in (progress_bar := tqdm(character_file_names)):
       progress_bar.desc = character_file_name
       character_configs = import_character(characters_root_path + character_file_name)
@@ -32,9 +38,14 @@ if __name__ == '__main__':
         classname_kor = translator_instance.get_kor_classname(skill_set)[1]
         classname_eng = translator_instance.get_eng_classname(skill_set)[1]
         result = [classname_kor, classname_eng] + simulator.get_result()
-        csv_wrt.writerow(result)
+        dps_csv_wrt.writerow(result)
         print('==========================')
         simulator.print_damage_details()
         simulator.print_delay_statistics()
         simulator.print_nuking_cycle()
         print('==========================')
+        edps_kor_df.loc[classname_kor] = simulator.damage_history.get_edps_statistics(6, 120)
+
+    edps_kor_df.to_csv(edps_csv)
+      
+        
