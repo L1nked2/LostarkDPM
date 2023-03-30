@@ -33,6 +33,7 @@
     "summoner_master_summoner.json": "서머너(상급 소환사, 마질 채용)",
     "summoner_communication_overflow.json": "서머너(넘치는 교감)",
     "warlord_combat_readiness.json": "워로드(전투태세, 방격채용)",
+    "warlord_combat_readiness_v1.json": "워로드(전투태세, 대어파채용)",
     "warlord_lone_knight_c1.json": "워로드(고독한 기사, 대쉬 어퍼 파이어 빠른 준비)",
     "warlord_lone_knight.json": "워로드(고독한 기사)"
   },
@@ -70,6 +71,7 @@
     "summoner_master_summoner.json": "Summoner(master summoner)",
     "summoner_communication_overflow.json": "Summoner(communication overflow)",
     "warlord_combat_readiness.json": "Gunlancer(combat readiness)",
+    "warlord_combat_readiness_v1.json": "Gunlancer(combat readiness, dash upper fire)",
     "warlord_lone_knight_c1.json": "Gunlancer(solo knight, dash upper fire quick prep)",
     "warlord_lone_knight.json": "Gunlancer(solo knight)"
   },
