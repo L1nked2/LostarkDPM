@@ -64,7 +64,19 @@ class Skill:
           self.triggered_actions += ['try_activate_dominion_set']
 
         # handle additional variables
-        self._init_additional_variables(**kwargs)
+        # default values
+        self.tripod = '000'
+        self.base_damage_multiplier = 1.0
+        self.jewel_cooldown_level = 0
+        self.jewel_damage_level = 0
+        self.cooldown_on_finish = False
+        self.base_additional_crit_rate = 0.0
+        self.base_additional_crit_damage = 0.0
+        self.base_defense_reduction_rate = 0.0
+        self.key_strokes = 0
+        self.rune = None
+        self.mana_cost = 1
+        self._set_additional_variables(**kwargs)
         self._apply_jewel()
         self._apply_rune()
 
@@ -97,25 +109,23 @@ class Skill:
         self.additional_defense_reduction_rate = self.base_defense_reduction_rate
         self._refresh_skill()
 
-    def _init_additional_variables(self, **kwargs):
-        default_values = {
-          'tripod': '000',
-          'base_damage_multiplier': 1.0,
-          'jewel_cooldown_level': 0,
-          'jewel_damage_level': 0,
-          'cooldown_on_finish': False,
-          'key_strokes': 0,
-          'base_additional_crit_rate': 0.0,
-          'base_additional_crit_damage': 0.0,
-          'base_defense_reduction_rate': 0.0,
-          'rune': None,
-          'mana_cost': 1,
-        }
-        for variable in default_values:
+    def _set_additional_variables(self, **kwargs):
+        additional_variables = [
+          'tripod',
+          'base_damage_multiplier',
+          'jewel_cooldown_level',
+          'jewel_damage_level',
+          'cooldown_on_finish',
+          'key_strokes',
+          'base_additional_crit_rate',
+          'base_additional_crit_damage',
+          'base_defense_reduction_rate',
+          'rune',
+          'mana_cost',
+        ]
+        for variable in additional_variables:
           if variable in kwargs:
             self.__setattr__(variable, kwargs[variable])
-          else:
-            self.__setattr__(variable, default_values[variable])
 
         # cooldown_on_finish
         cooldown_on_finish_types = ['Chain', 'Casting', 'Holding_B']
@@ -197,6 +207,7 @@ class Skill:
     def update_remaining_cooldown(self, function):
         self.remaining_cooldown = max(0, function(self.remaining_cooldown))
 
+    # TODO: change multipliers as plugin
     def calc_damage(self, attack_power, crit_rate, crit_damage, total_multiplier):
         if not self.remaining_cooldown <= 0:
           warnings.warn(f"Damage calculation before cooldown finished, check skill {self.name}", UserWarning)

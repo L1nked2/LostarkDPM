@@ -7,7 +7,7 @@
       "specialization": 0,
       "swiftness": 600,
       "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Cursed_Doll_3", "Hit_Master_3", "Firepower_Enhancement_3", "Adrenaline_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["악몽A_6_3"],
       "skill_set": "./db/skills/blaster_firepower_enhancement.json"
     }

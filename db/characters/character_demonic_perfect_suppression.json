@@ -7,7 +7,7 @@
       "specialization": 0,
       "swiftness": 1400,
       "engravings": ["Grudge_3", "Master_Of_Ambush_3", "Cursed_Doll_3", "Raid_Captain_3", "Adrenaline_3", "Perfect_Suppression_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
       "skill_set": "./db/skills/demonic_perfect_suppression.json"
     }

@@ -5,23 +5,23 @@ classname_kor,classname_eng,actual_dps,short_dps,long_dps,nuking_dps
 "버서커(광기, 혼일휘몰24초)",Berserker(mayhem),20042097,39660994,37427389,31557730
 블레이드(버스트),Deathblade(surge),23058410,31892270,32357131,28752947
 블레이드(잔재된 기운),Deathblade(remaining energy),22162551,26629322,26317527,24760852
-블래스터(포격 강화),Artillerist(barrage enhancement),18196069,23687417,28419173,37417507
-블래스터(화력 강화),Artillerist(firepower enhancement),16803248,31692796,30506169,30763000
+블래스터(포격 강화),Artillerist(barrage enhancement),18170924,23639193,28390091,37351205
+블래스터(화력 강화),Artillerist(firepower enhancement),16769338,31628274,30445911,30700372
 데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),14942728,22196892,19902671,28510659
 데모닉(완벽한 억제),Shadowhunter(perfect suppression),18648739,30507492,23373650,23383142
-디스트로이어(분노의 망치),Destroyer(rage hammer),21342567,38096447,34868232,28263943
+디스트로이어(분노의 망치),Destroyer(rage hammer),20934099,37353974,34190866,27722050
 데빌헌터(강화 무기),Deadeye(enhanced weapon),18964485,40731593,41859355,34372737
 데빌헌터(핸드거너),Deadeye(pistoleer),15263119,29791406,25201634,25628673
-건슬링어(피스메이커),Gunslinger(peace maker),17486507,36610204,39818605,35718442
+건슬링어(피스메이커),Gunslinger(peace maker),17549645,36859399,40005500,35867959
 건슬링어(사냥의 시간),Gunslinger(time to hunt),16180206,37542601,33992882,32364559
-인파이터(충격 단련),Scrapper(shock training),19624413,33159293,34354552,29655158
+인파이터(충격 단련),Scrapper(shock training),18749867,30590844,32428214,28114088
 인파이터(극의 : 체술),Scrapper(taijutsu),19511998,24979527,22537573,24010701
 창술사(절제),Graivier(control),19658555,26120012,22201744,23311336
 "창술사(절정, 4난무3집중)","Graivier(pinnacle, 4 Flurry & 3 Focus)",18740177,28863933,25642091,31291097
-리퍼(갈증),Reaper(hunger),19013179,28200744,26158758,27317785
-리퍼(달의 소리),Reaper(lunar voice),18890501,33794899,25666112,33656821
+리퍼(갈증),Reaper(hunger),18974474,28143331,26105504,27262170
+리퍼(달의 소리),Reaper(lunar voice),18852367,33726098,25613860,33588301
 "스카우터(아르데타인의 기술, 422)","Machinist(arthetinean skill, 422)",16103841,30101083,29578589,28619742
-except scouter_evolutionary_legacy_c1.json,except scouter_evolutionary_legacy_c1.json,17588874,19354908,19489850,21627210
+스카우터(진화의 유산),Machinist(evolutionary legacy),17588874,19354908,19489850,21627210
 "슬레이어(포식자, 페소채용7딜)",slayer(devourer),20568843,40739206,37228286,29871020
 "슬레이어(처단자, 1.5사이클2길2퓨)",slayer(punisher),22039242,66589548,59536787,61451975
 소서리스(점화),Sorceress(igniter),14961509,74555642,56529890,45439515
@@ -32,5 +32,5 @@ except scouter_evolutionary_legacy_c1.json,except scouter_evolutionary_legacy_c1
 서머너(넘치는 교감),Summoner(communication overflow),19323873,28863573,25770386,29248169
 "서머너(상급 소환사, 마질 채용)",Summoner(master summoner),19062808,48489787,41949967,48477337
 "서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18899058,53742048,46589834,53670512
-"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),16015859,26362710,20584264,21138660
-워로드(고독한 기사),Gunlancer(solo knight),17261291,41343995,31115909,26501805
+"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),15983836,26309040,20544011,21106458
+워로드(고독한 기사),Gunlancer(solo knight),17226169,41260073,31052562,26451452

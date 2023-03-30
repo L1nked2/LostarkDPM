@@ -126,7 +126,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
     s_handgun_additional_crit_damage = s * SPEC_COEF_1
-    s_shotgun_multiplier = (1 + s * SPEC_COEF_2 * 0.55)
+    s_shotgun_defense_reduction_rate = s * SPEC_COEF_2
     s_rifle_multiplier = (1 + s * SPEC_COEF_3)
     
     if skill.get_attribute('identity_type') == 'Awakening':
@@ -139,8 +139,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_rifle_multiplier)
     elif skill.get_attribute('identity_type') == 'Shotgun':
-      s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
+      s_adrr = skill.get_attribute('additional_defense_reduction_rate')
+      skill.update_attribute('additional_defense_reduction_rate', s_adrr + s_shotgun_defense_reduction_rate)
       
 # 피스메이커 각인
 def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):  

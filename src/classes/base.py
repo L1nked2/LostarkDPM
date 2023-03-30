@@ -79,6 +79,22 @@ RUNE_BUFF_DICT = {
 
 COMMON_BUFF_DICT = {
   ###### non-engraving buffs ######
+  # 뎀증 시너지
+  'Synergy_Damage': {
+    'name': 'synergy_damage',
+    'buff_type': 'stat',
+    'effect': 'synergy_damage',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 방감 시너지
+  'Synergy_Defense_Reduction': {
+    'name': 'synergy_defense_reduction',
+    'buff_type': 'stat',
+    'effect': 'synergy_defense_reduction',
+    'duration': 999999,
+    'priority': 7,
+  },
   # 헤드백 시너지
   'Synergy_Head_Back': {
     'name': 'synergy_head_back',
@@ -288,6 +304,16 @@ def back_attack(character: CharacterLayer, skill: Skill, buff: Buff):
 
 
 # Non-engraving buffs
+# 뎀증 시너지
+def synergy_damage(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_dm = skill.get_attribute('damage_multiplier')
+    skill.update_attribute('damage_multiplier', s_dm * 1.06)
+
+# 방감 시너지
+def synergy_defense_reduction(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
+    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+
 # 헤드백 시너지
 def synergy_head_back(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')

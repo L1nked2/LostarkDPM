@@ -19,14 +19,15 @@ MAX_ATTACK_SPEED = 1.4
 
 # Data for engraving_layer
 # Static Engravings
+# TODO: move all to base.py and each {class}.py, care duplicated buffs
 ENGRAVINGS = {
   ####### Helper각인 #######
   #헬모드
   'Hell': [('additional_damage', lambda x: x - 0.30)],
   'Synergy_Crit_A': [('crit_rate', lambda x: x + 0.10)],
   'Synergy_Crit_B': [('crit_rate', lambda x: x + 0.18)],
-  'Synergy_Damage_A': [('damage_multiplier', lambda x: x * 1.06)],
-  'Synergy_Damage_B': [('damage_multiplier', lambda x: x * 1.072)],
+  'Synergy_Damage': [('damage_multiplier', lambda x: x * 1.06)],
+  'Synergy_Defense_Reduction': [('static_buff_queue', lambda x: x + ['Synergy_Defense_Reduction'])],
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
   'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
   'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],

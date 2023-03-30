@@ -7,7 +7,7 @@
       "specialization": 1400,
       "swiftness": 300,
       "engravings": ["Grudge_3", "Deathblow_3", "Master_Of_Ambush_3", "Keen_Blunt_Weapon_3", "Adrenaline_3", "Ether_Predator_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
       "skill_set": "./db/skills/striker_deathblow_e2.json"
     }
