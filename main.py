@@ -46,7 +46,7 @@ if __name__ == '__main__':
         edps_statistics = simulator.damage_history.get_edps_statistics(EDPS_MIN_SECONDS, EDPS_MAX_SECONDS)
         result += [max(edps_statistics), EDPS_LINSPACE[edps_statistics.index(max(edps_statistics))]]
         result_dps_table.loc[classname_kor] = result[1:]
-        result_dps_table = result_dps_table.sort_values(by=['actual_dps'])
+        result_dps_table = result_dps_table.sort_values(by=['actual_dps'], ascending=False)
 
         dps_all_df.loc[classname_kor] = simulator.damage_history.get_edps_statistics(6, 120)
 

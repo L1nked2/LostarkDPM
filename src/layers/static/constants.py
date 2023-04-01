@@ -15,6 +15,7 @@ DEFENSE_CORRECTION = 0.8
 # Capping
 MAX_MOVEMENT_SPEED = 1.4
 MAX_ATTACK_SPEED = 1.4
+MAX_COOLDOWN_REDUCTION = 0.8
 
 
 # Data for engraving_layer
@@ -130,6 +131,8 @@ ENGRAVINGS = {
   #충격단련
   'Shock_Training_3': [('static_buff_queue', lambda x: x + ['Shock_Training_3'])],
   #세맥타통
+  'Energy_Overflow_1': [('static_buff_queue', lambda x: x + ['Energy_Overflow_1'])],
+  'Energy_Overflow_3': [('static_buff_queue', lambda x: x + ['Energy_Overflow_3'])],
   #역천지체
   #절정
   'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],

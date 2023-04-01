@@ -1,5 +1,5 @@
 from src.layers.static.constants import CRITICAL_RATE_PER_CRIT, COOLDOWN_REDUCTION_PER_SWIFTNESS, ATTACK_SPEED_PER_SWIFTNESS, MOVEMENT_SPEED_PER_SWIFTNESS, AWAKENING_DAMAGE_PER_SPECIALIZATION
-from src.layers.static.constants import MAX_MOVEMENT_SPEED, MAX_ATTACK_SPEED
+from src.layers.static.constants import MAX_MOVEMENT_SPEED, MAX_ATTACK_SPEED, MAX_COOLDOWN_REDUCTION
 from src.layers.utils import initialize_wrapper, print_info_wrapper, raise_attribute_error
 import copy
 
@@ -129,9 +129,10 @@ class StatLayer:
         self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
         # crit_rate cannot exceed 1
         self.actual_crit_rate = min(self.crit_rate, 1.0)
-        # movement_speed and attack_speed cannot exceed max values
+        # movement_speed, attack_speed, cooldown_reduction cannot exceed max values
         self.actual_movement_speed = min(self.movement_speed, MAX_MOVEMENT_SPEED)
         self.actual_attack_speed = min(self.attack_speed, MAX_ATTACK_SPEED)
+        self.actual_cooldown_reduction = min(self.cooldown_reduction, MAX_COOLDOWN_REDUCTION) # need to apply for all modules
 
     @print_info_wrapper(layer_name)
     def print_stat_info(self):
