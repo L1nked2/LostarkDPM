@@ -3,9 +3,9 @@
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      ["죽음의 선고", "맹호격"],
-      ["죽음의 선고", "파쇄의 강타_1타"],
-      ["죽음의 선고", "전진의 일격"],
+      ["맹호격", "죽음의 선고"],
+      ["파쇄의 강타_1타", "죽음의 선고"],
+      ["전진의 일격", "죽음의 선고"],
       ["맹호격", "초신성 폭발"],
       ["파쇄의 강타_1타", "초신성 폭발"],
       ["전진의 일격", "초신성 폭발"],
@@ -157,7 +157,7 @@
       "level": 12,
       "tripod": "312",
       "default_damage": 4901,
-      "base_damage_multiplier": 2.7265,
+      "base_damage_multiplier": 2.05,
       "skill_type": "Common",
       "identity_type": "Shock",
       "cooldown": 19,
@@ -167,6 +167,7 @@
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
+      "base_additional_defense_reduction_rate": 0.60,
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_영웅"

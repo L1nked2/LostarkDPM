@@ -9,22 +9,26 @@ AWAKENING_DAMAGE_PER_SPECIALIZATION = 1 / 18.298 / 100
 COOLDOWN_REDUCTION_PER_SWIFTNESS = 1 / 46.569 / 100
 ATTACK_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
 MOVEMENT_SPEED_PER_SWIFTNESS = 1 / 58.250 / 100
+DEFAULT_DEFENSE = 6500
+DEFENSE_CORRECTION = 0.8
 
 # Capping
 MAX_MOVEMENT_SPEED = 1.4
 MAX_ATTACK_SPEED = 1.4
+MAX_COOLDOWN_REDUCTION = 0.8
 
 
 # Data for engraving_layer
 # Static Engravings
+# TODO: move all to base.py and each {class}.py, care duplicated buffs
 ENGRAVINGS = {
   ####### Helper각인 #######
   #헬모드
   'Hell': [('additional_damage', lambda x: x - 0.30)],
   'Synergy_Crit_A': [('crit_rate', lambda x: x + 0.10)],
   'Synergy_Crit_B': [('crit_rate', lambda x: x + 0.18)],
-  'Synergy_Damage_A': [('damage_multiplier', lambda x: x * 1.06)],
-  'Synergy_Damage_B': [('damage_multiplier', lambda x: x * 1.072)],
+  'Synergy_Damage': [('damage_multiplier', lambda x: x * 1.06)],
+  'Synergy_Defense_Reduction': [('static_buff_queue', lambda x: x + ['Synergy_Defense_Reduction'])],
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
   'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
   'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
@@ -127,6 +131,8 @@ ENGRAVINGS = {
   #충격단련
   'Shock_Training_3': [('static_buff_queue', lambda x: x + ['Shock_Training_3'])],
   #세맥타통
+  'Energy_Overflow_1': [('static_buff_queue', lambda x: x + ['Energy_Overflow_1'])],
+  'Energy_Overflow_3': [('static_buff_queue', lambda x: x + ['Energy_Overflow_3'])],
   #역천지체
   #절정
   'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],

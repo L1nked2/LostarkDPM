@@ -4,10 +4,10 @@
       "class_name": "destroyer",
       "upgrade": 25,
       "crit": 1200,
-      "specialization": 1100,
+      "specialization": 1000,
       "swiftness": 0,
       "engravings": ["Grudge_3", "Super_Charge_3", "Rage_Hammer_3", "Cursed_Doll_3", "Master_Brawler_3", "Ether_Predator_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
       "skill_set": "./db/skills/destroyer_rage_hammer.json"
     }

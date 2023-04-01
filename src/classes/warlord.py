@@ -159,8 +159,8 @@ def ap_buff_2(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 배쉬 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * 1.066)
+    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
+    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
 
 # 증오의 함성 시너지
 def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):

@@ -7,7 +7,7 @@
       "specialization": 0,
       "swiftness": 1600,
       "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Raid_Captain_3", "Increase_Mass_3", "First_Intention_3", "Awakening_1"],
-      "options": ["Synergy_Damage_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Damage", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["지배_6_3"],
       "skill_set": "./db/skills/battlemaster_first_intention.json"
     }

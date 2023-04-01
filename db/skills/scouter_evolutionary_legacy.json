@@ -4,15 +4,11 @@
     "mode": "fixed",
     "main_cycle": [
       ["하이퍼 싱크 변신해제", "에어 스트라이크"],
-      ["하이퍼 싱크 변신", "코멧 스트라이크", "레이저 블레이드", "크림슨 브레이커",
-        "코멧 스트라이크", "엑셀리온 빔", "버스트 블로우", "슬러그 샷", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷",
-        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "크림슨 브레이커", "코멧 스트라이크", "레이저 블레이드",
-        "버스트 블로우", "슬러그 샷", "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷",
-        "크림슨 브레이커", "코멧 스트라이크", "엑셀리온 빔"],
-      ["하이퍼 싱크 변신", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷", "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷",
-        "크림슨 브레이커", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷",
-        "코멧 스트라이크", "레이저 블레이드", "슬러그 샷", "크림슨 브레이커",
-        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷", "코멧 스트라이크", "엑셀리온 빔"],
+      ["하이퍼 싱크 변신",
+        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "레이저 블레이드", "크림슨 브레이커",
+        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "레이저 블레이드", "슬러그 샷",
+        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "레이저 블레이드", "크림슨 브레이커",
+        "코멧 스트라이크", "엑셀리온 빔", "슬러그 샷", "버스트 블로우", "코멧 스트라이크", "레이저 블레이드"],
       ["하이퍼 싱크 변신해제", "명령 : 레이드 미사일", "명령 : 베이비 드론"]
     ]
   },
@@ -22,6 +18,7 @@
       "level": 12,
       "tripod": "231",
       "default_damage": 3206,
+      "default_coefficient": 19.85,
       "base_damage_multiplier": 3.332,
       "skill_type": "Common",
       "identity_type": "Drone",
@@ -41,6 +38,7 @@
       "level": 12,
       "tripod": "232",
       "default_damage": 3319,
+      "default_coefficient": 20.48,
       "base_damage_multiplier": 1.95,
       "skill_type": "Point",
       "identity_type": "Drone",
@@ -60,6 +58,7 @@
     {
       "name": "코멧 스트라이크",
       "default_damage": 1891,
+      "default_coefficient": 11.18,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -77,6 +76,7 @@
     {
       "name": "슬러그 샷",
       "default_damage": 478,
+      "default_coefficient": 2.84,
       "base_damage_multiplier": 4,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -94,6 +94,7 @@
     {
       "name": "레이저 블레이드",
       "default_damage": 3876,
+      "default_coefficient": 22.93,
       "base_damage_multiplier": 1.2,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -111,6 +112,7 @@
     {
       "name": "엑셀리온 빔",
       "default_damage": 4815,
+      "default_coefficient": 28.45,
       "base_damage_multiplier": 1,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -128,6 +130,7 @@
     {
       "name": "버스트 블로우",
       "default_damage": 3636,
+      "default_coefficient": 21.52,
       "base_damage_multiplier": 1,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -145,6 +148,7 @@
     {
       "name": "크림슨 브레이커",
       "default_damage": 7540,
+      "default_coefficient": 44.5,
       "base_damage_multiplier": 1,
       "skill_type": "Common",
       "identity_type": "Sync",
@@ -196,6 +200,7 @@
     {
       "name": "에어 스트라이크",
       "default_damage": 59585,
+      "default_coefficient": 352.03,
       "base_damage_multiplier": 0.5,
       "skill_type": "Common",
       "identity_type": "Awakening",

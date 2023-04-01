@@ -21,6 +21,7 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
+  # 방감 시너지
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
@@ -171,8 +172,8 @@ def persona(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 방깎 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * 1.066)
+    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
+    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
 
 # 디스토션 순풍
 def tailwind(character: CharacterLayer, skill: Skill, buff: Buff):

@@ -7,7 +7,7 @@
       "specialization": 0,
       "swiftness": 1600,
       "engravings": ["Grudge_3", "Raid_Captain_3", "Gale_Rage_3", "Hit_Master_3", "Adrenaline_3", "Ether_Predator_1"],
-      "options": ["Synergy_Crit_A", "Synergy_Damage_A", "갈망_3"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["환각_6_3"],
       "skill_set": "./db/skills/aeromancer_gale_rage.json"
     }
