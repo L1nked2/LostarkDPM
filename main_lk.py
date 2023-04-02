@@ -4,7 +4,8 @@ from src.layers.utils import import_character, CharacterFactory
 from src.layers.dynamic.damage_history import EDPS_LINSPACE
 
 if __name__ == '__main__':
-    character_path = './db/characters/character_soulfist_energy_overflow.json'
+    character_path = './db/characters/character_soulfist_robust_spirit.json'
+    #character_path = './db/characters/character_sorceress_igniter.json'
     character_configs = import_character(character_path)
     character_config: CharacterFactory
     for character_config in character_configs:

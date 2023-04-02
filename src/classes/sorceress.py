@@ -203,6 +203,13 @@ def igniter_3(character: CharacterLayer, skill: Skill, buff: Buff):
   skill.update_attribute('additional_crit_rate', s_acr + 0.25)
   skill.update_attribute('additional_crit_damage', s_acd + 0.50)
 
+# 환류 버프
+def reflux_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  s_dm = skill.get_attribute('damage_multiplier')
+  skill.update_attribute('damage_multiplier', s_dm * 1.20)
+  c_cr = character.get_attribute('cooldown_reduction')
+  character.update_attribute('cooldown_reduction', c_cr + ((1 - c_cr) / 1.10))
+
 # 피증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')

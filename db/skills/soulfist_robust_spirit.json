@@ -3,18 +3,14 @@
   "policy": {
     "mode": "fixed",
     "main_cycle": [
-      ["금강선공 1단계 활성화"],
-      ["금강선공 2단계 활성화", "극상마섬광_캔슬", "회선격추", 
-      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", "회선격추", "순보_1회", "순보_2회", "순보_3회", "기공장"],
-      ["금강선공 2단계 활성화",
-      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", "회선격추", "순보_1회", "순보_2회", "순보_3회", "기공장"],
-      ["금강선공 3단계 활성화", 
-      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", "회선격추", "기공장",
-      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", "회선격추", "기공장",
-      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", "회선격추", "기공장"],
-      ["내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬"],
-      ["회선격추", "순보_1회", "순보_2회", "순보_3회", "기공장"]
-      
+      ["순보_1회", "순보_2회", "회선격추", "금강선공 3단계 활성화", "순보_3회", "섬열파", "난화격",
+      "내공 방출", "기공장", "천하섬멸옥",
+      "순보_1회", "순보_2회", "순보_3회", "회선격추", "여래신장", "기공장", "섭물진기_캔슬",
+      "내공 방출", "난화격", "섬열파", "기공장"],
+      ["순보_1회", "순보_2회", "회선격추", "금강선공 3단계 활성화",
+      "내공 방출", "섬열파", "난화격", "여래신장", "기공장", "섭물진기_캔슬", 
+      "순보_1회", "순보_2회", "순보_3회", "회선격추", "기공장",
+      "내공 방출", "섭물진기_캔슬", "여래신장", "난화격", "섬열파", "기공장"]
     ]
   },
   "skill_preset": [
@@ -54,7 +50,7 @@
       "back_attack": false,
       "mana_cost": 0,
       "key_strokes" : 1,
-      "rune": "심판_전설"
+      "rune": "압도_전설"
     },
     {
       "name": "순보_1회",
@@ -130,7 +126,7 @@
       "back_attack": false,
       "mana_cost": 0,
       "key_strokes" : 1,
-      "rune": "단죄_전설"
+      "rune": "압도_전설"
     },
     {
       "name": "섭물진기_캔슬",
@@ -209,38 +205,6 @@
       "rune": "질풍_영웅"
     },
     {
-      "name": "금강선공 1단계 활성화",
-      "default_damage": 0,
-      "base_damage_multiplier": 1.0,
-      "skill_type": "Common",
-      "identity_type": "Common",
-      "cooldown": 999999,
-      "common_delay": 0.55,
-      "type_specific_delay": 0.0,
-      "jewel_cooldown_level": 0,
-      "jewel_damage_level": 0,
-      "head_attack": false,
-      "back_attack": false,
-      "mana_cost": 0,
-      "key_strokes" : 1
-    },
-    {
-      "name": "금강선공 2단계 활성화",
-      "default_damage": 0,
-      "base_damage_multiplier": 1.0,
-      "skill_type": "Common",
-      "identity_type": "Common",
-      "cooldown": 999999,
-      "common_delay": 0.609,
-      "type_specific_delay": 0.0,
-      "jewel_cooldown_level": 0,
-      "jewel_damage_level": 0,
-      "head_attack": false,
-      "back_attack": false,
-      "mana_cost": 0,
-      "key_strokes" : 1
-    },
-    {
       "name": "금강선공 3단계 활성화",
       "default_damage": 0,
       "base_damage_multiplier": 1.0,
@@ -257,14 +221,14 @@
       "key_strokes" : 1
     },
     {
-      "name": "극상마섬광_캔슬",
-      "default_damage": 25630,
-      "base_damage_multiplier": 0.68,
-      "skill_type": "Holding_A",
+      "name": "천하섬멸옥",
+      "default_damage": 34912,
+      "base_damage_multiplier": 1.0,
+      "skill_type": "Point",
       "identity_type": "Awakening",
       "cooldown": 300,
-      "common_delay": 4.15,
-      "type_specific_delay": 0.28,
+      "common_delay": 6.05,
+      "type_specific_delay": 0.0,
       "jewel_cooldown_level": 0,
       "jewel_damage_level": 0,
       "head_attack": false,

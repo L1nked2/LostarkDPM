@@ -134,6 +134,7 @@ ENGRAVINGS = {
   'Energy_Overflow_1': [('static_buff_queue', lambda x: x + ['Energy_Overflow_1'])],
   'Energy_Overflow_3': [('static_buff_queue', lambda x: x + ['Energy_Overflow_3'])],
   #역천지체
+  'Robust_Spirit_3': [('static_buff_queue', lambda x: x + ['Robust_Spirit_Enabled_3'])],
   #절정
   'Pinnacle_3': [('static_buff_queue', lambda x: x + ['Pinnacle_Enabled_3'])],
   #절제
@@ -172,7 +173,7 @@ ENGRAVINGS = {
   #황제의칙령
   #점화
   'Igniter_3': [('static_buff_queue', lambda x: x + ['Igniter_Enabled_3'])],
-  #환류  
+  #환류
   #잔재된기운
   'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
   'Remaining_Energy_3': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_3'])],
@@ -200,10 +201,14 @@ ARTIFACT_TABLE = {
   '지배_6_1': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_1'])],
   '지배_6_2': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_2'])],
   '지배_6_3': [('static_buff_queue', lambda x: x + ['Dominion_Set_Enabled_3'])],
-  #악몽
-  '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_1'])],
-  '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_2'])],
-  '악몽A_6_3': [('static_buff_queue', lambda x: x + ['Nightmare_Set_3'])],
+  #악몽(마중)
+  '악몽A_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Addiction_1'])],
+  '악몽A_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Addiction_2'])],
+  '악몽A_6_3': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Addiction_3'])],
+  #악몽(끝마)
+  '악몽B_6_1': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Boundless_1'])],
+  '악몽B_6_2': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Boundless_2'])],
+  '악몽B_6_3': [('static_buff_queue', lambda x: x + ['Nightmare_Set_Boundless_3'])],
   #구원
   '구원_6_1': [('additional_damage', lambda x: x + 0.42),
                ('attack_speed', lambda x: x + 0.10),

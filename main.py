@@ -38,6 +38,7 @@ if __name__ == '__main__':
         simulator.print_damage_details()
         simulator.print_delay_statistics()
         simulator.print_nuking_cycle()
+        print('eDPS info: ', [max(edps_statistics), EDPS_LINSPACE[edps_statistics.index(max(edps_statistics))]])
         print('==========================')
         skill_set = os.path.basename(character_dict['skill_set'])
         classname_kor = translator_instance.get_kor_classname(skill_set)[1]
