@@ -1,0 +1,37 @@
+,classname_kor,classname_eng,name_normal,damage_normal,name_awakening,damage_awakening
+0,기상술사(이슬비),Aeromancer(drizzle),뙤약볕,56892611,나르가의 칼날,97216114
+1,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),바람송곳,60223563,나르가의 칼날,60285293
+2,배틀마스터(초심),Wardancer(first intention),last_whisper|내공연소,74136104,극의 : 일순난격,22164189
+3,"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),오버드라이브,72124856,버서크 퓨리,76423433
+4,블레이드(버스트),Deathblade(surge),버스트,168403784,플래시 블링크,63699016
+5,블레이드(잔재된 기운),Deathblade(remaining energy),버스트,61054830,플래시 블링크,57942945
+6,블래스터(포격 강화),Artillerist(barrage enhancement),포격 : 에너지 포,136929172,heavy_turret|헤비 터렛,12606901
+7,블래스터(화력 강화),Artillerist(firepower enhancement),고압열탄,67831291,heavy_turret|헤비 터렛,5798706
+8,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),블러드 매서커,44865352,폴른 루인,145011850
+9,데모닉(완벽한 억제),Shadowhunter(perfect suppression),크루얼 커터,52462682,게이트 오브 이럽션,34951812
+10,디스트로이어(분노의 망치),Destroyer(rage hammer),퍼펙트 스윙,162429048,빅뱅,85561568
+11,데빌헌터(강화 무기),Deadeye(enhanced weapon),샷건 연사,100341320,클레이 폭격,78775836
+12,데빌헌터(핸드거너),Deadeye(pistoleer),메테오 스트림,46950033,클레이 폭격,98818986
+13,건슬링어(피스메이커),Gunslinger(peace maker),마탄의 사수,80303967,황혼의 눈,78339410
+14,건슬링어(사냥의 시간),Gunslinger(time to hunt),타겟 다운,84871070,황혼의 눈,85777329
+15,인파이터(충격 단련),Scrapper(shock training),연환파신권,102830091,진 : 극멸권,111531564
+16,인파이터(극의 : 체술),Scrapper(taijutsu),난타연권,49870078,진 : 극멸권,56529577
+17,창술사(절제),Graivier(control),반월섬,42680894,연가창식: 적룡질풍격,38952676
+18,"창술사(절정, 4난무3집중)","Graivier(pinnacle, 4 Flurry & 3 Focus)",굉열파,55949794,연가창식: 은하유성탄,143295531
+19,리퍼(갈증),Reaper(hunger),댄싱 오브 퓨리,57713040,월식 : 카덴차,85307262
+20,리퍼(달의 소리),Reaper(lunar voice),레이지 스피어,99679491,월식 : 카덴차,80539970
+21,"스카우터(아르데타인의 기술, 422)","Machinist(arthetinean skill, 422)",에너지 버스터,62008241,명령 : 파이널 익스플로전,57156711
+22,스카우터(진화의 유산),Machinist(evolutionary legacy),크림슨 브레이커,40423739,에어 스트라이크,74280586
+23,"슬레이어(포식자, 페소채용7딜)",Slayer(devourer),브루탈 임팩트,74089499,라그나 브레이크,61832967
+24,"슬레이어(처단자, 1.5사이클2길2퓨)",Slayer(punisher),블러드러스트,215045265,라그나 브레이크,165543268
+25,소서리스(점화),Sorceress(igniter),종말의 날_데미지,116249670,엔비스카의 권능,63581418
+26,기공사(세맥타통),Soulfist(energy overflow),난화격,81277120,극상마섬광_캔슬,31041305
+27,기공사(역천지체),Soulfist(robust spirit),난화격,79654402,천하섬멸옥,285160140
+28,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",뇌호격,120796752,진천각,68998336
+29,"스트라이커(일격필살, 3오의 풍신초래)","Striker(deathblow, 3 esotheric call the wind god)",뇌호격,120796752,진천각,68998336
+30,"스트라이커(일격필살, 2오의 방천격)","Striker(deathblow, 2 esotheric sweeping kick)",뇌호격,109728490,진천각,61648782
+31,서머너(넘치는 교감),Summoner(communication overflow),고대의 창,51958463,켈시온_체인,20589257
+32,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),아키르(상소)_데미지,126273188,바그론의 분노,104610278
+33,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),가디언의 낙뢰,98604563,심판의 창,67036484
+34,"워로드(전투태세, 대어파채용)","Gunlancer(combat readiness, dash upper fire)",가디언의 낙뢰,98604563,심판의 창,67036484
+35,워로드(고독한 기사),Gunlancer(solo knight),차지 스팅거,99130364,심판의 창,27384361

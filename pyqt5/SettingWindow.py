@@ -104,6 +104,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             if new_classname:
                 self.class_CB.addItem(new_classname)
             else:
+                self.class_CB.addItem(classname)
                 continue
             
     def generate_artifact_CB(self):
@@ -115,7 +116,7 @@ class SettingWindowClass(QDialog, setting_form_class):
             if new_artifactname:
                 self.artifact_CB.addItem(new_artifactname)
             else:
-                self.artifact_CB.addItem(artifacts)
+                self.artifact_CB.addItem(artifact)
                 continue
 
     def generate_engraving_CB(self):

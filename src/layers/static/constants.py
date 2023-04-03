@@ -174,6 +174,7 @@ ENGRAVINGS = {
   #점화
   'Igniter_3': [('static_buff_queue', lambda x: x + ['Igniter_Enabled_3'])],
   #환류
+  'Reflux_3': [('static_buff_queue', lambda x: x + ['Reflux_3'])],
   #잔재된기운
   'Remaining_Energy_1': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_1'])],
   'Remaining_Energy_3': [('static_buff_queue', lambda x: x + ['Remaining_Energy_Enabled_3'])],

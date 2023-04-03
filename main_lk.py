@@ -4,15 +4,15 @@ from src.layers.utils import import_character, CharacterFactory
 from src.layers.dynamic.damage_history import EDPS_LINSPACE
 
 if __name__ == '__main__':
-    character_path = './db/characters/character_soulfist_robust_spirit.json'
-    #character_path = './db/characters/character_sorceress_igniter.json'
+    character_path = './db/characters/character_soulfist_energy_overflow.json'
+    character_path = './db/characters/character_infighter_shock_training.json'
     character_configs = import_character(character_path)
     character_config: CharacterFactory
     for character_config in character_configs:
       character_dict = character_config.build_dict()
       #character_dict['artifact_set'] = ['악몽A_6_3']
       simulator = DpmSimulator(character_dict, verbose=0)
-      #simulator = DpmSimulator(character_dict, max_seconds=120, verbose=1)
+      #simulator = DpmSimulator(character_dict, max_seconds=150, verbose=1)
       simulator.print_test_info()
       print('==========================')
       simulator.run_simulation()
