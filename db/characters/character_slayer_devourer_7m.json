@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "slayer",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 0,
+      "swiftness": 1600,
+      "engravings": ["Grudge_3", "Raid_Captain_3", "Master_Of_Ambush_3", "Devourer_3", "Increase_Mass_3", "Adrenaline_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
+      "artifact_set": ["사멸_6_3"],
+      "skill_set": "./db/skills/slayer_devourer_v1.json"
+    }
+  ]
+}

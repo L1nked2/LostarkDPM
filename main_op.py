@@ -46,7 +46,7 @@ if __name__ == '__main__':
         classname_kor = translator_instance.get_kor_classname(skill_set)[1]
         classname_eng = translator_instance.get_eng_classname(skill_set)[1]
         max_damage_values = get_max_damage_values(simulator.damage_history.get_history())
-      max_damages_df.loc[len(max_damages_df.index)] = [classname_kor, classname_eng] + max_damage_values
+      max_damages_df.loc[character_file_name] = [classname_kor, classname_eng] + max_damage_values
     
     max_damages_df.to_csv(max_damages_csv_path)
       

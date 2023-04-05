@@ -67,7 +67,7 @@ if __name__ == '__main__':
         result_dps_table.loc[character_file_name] = result
         max_damage_values = get_max_damage_values(simulator.damage_history.get_history())
         dps_all_df.loc[character_file_name] = [classname_kor, classname_eng] + simulator.damage_history.get_edps_statistics(6, 120)
-        max_damages_df.loc[len(max_damages_df.index)] = [classname_kor, classname_eng] + max_damage_values
+        max_damages_df.loc[character_file_name] = [classname_kor, classname_eng] + max_damage_values
     
     result_dps_table = result_dps_table.sort_values(by=['actual_dps'], ascending=False)
     dps_all_df.to_csv(edps_csv_path)
