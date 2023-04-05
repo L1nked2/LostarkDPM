@@ -68,8 +68,9 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
 ``` json
 {
       "name": "뇌호격",
+      "level": 12,
+      "tripod": "211",
       "default_damage": 3809,
-      "default_coefficient": 23.6,
       "base_damage_multiplier": 5.236,
       "skill_type": "Charge",
       "identity_type": "Esoteric",
@@ -80,7 +81,6 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": true,
-      "triggered_actions": [],
       "key_strokes" : 1,
       "mana_cost": 0,
       "rune": "질풍_전설"
@@ -90,12 +90,11 @@ result.csv와 result.txt를 확인하여 정보를 확인합니다.
 * 시뮬레이션 로그 확인 및 최대 시간 지정도 가능합니다. DpmSimulator Class에 원하는 argument를 넘겨주면 됩니다.
 > main_lk.py
 ``` python
-    # max_tick에 최대 틱수(기본적으로 100tick = 1s) 입력
+    # max_seconds에 원하는 시간(s) 입력
     # verbose=1 또는 2로 지정시 추가적인 로그 확인 가능
-    # 출력된 데미지는 방어력 적용 전으로, 0.4를 곱하면 실제 데미지
     for character_config in character_configs:
       character_dict = character_config.build_dict()
-      simulator = DpmSimulator(character_dict, max_tick=9000, verbose=1)
+      simulator = DpmSimulator(character_dict, max_seconds=150, verbose=1)
 ```
 ------------
 * 이외 다른 필드를 변경하는 것도 가능하나 의도치 않은 동작을 보일 수 있으므로 추천드리지 않습니다.
