@@ -169,25 +169,47 @@ COMMON_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  # 악몽
-  'Nightmare_Set_1': {
+  # 악몽(마나중독)
+  'Nightmare_Set_Addiction_1': {
     'name': 'nightmare_set',
     'buff_type': 'stat',
-    'effect': 'nightmare_set_1',
+    'effect': 'nightmare_set_addiction_1',
     'duration': 999999,
     'priority': 7,
   },
-  'Nightmare_Set_2': {
+  'Nightmare_Set_Addiction_2': {
     'name': 'nightmare_set',
     'buff_type': 'stat',
-    'effect': 'nightmare_set_2',
+    'effect': 'nightmare_set_addiction_2',
     'duration': 999999,
     'priority': 7,
   },
-  'Nightmare_Set_3': {
+  'Nightmare_Set_Addiction_3': {
     'name': 'nightmare_set',
     'buff_type': 'stat',
-    'effect': 'nightmare_set_3',
+    'effect': 'nightmare_set_addiction_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 악몽(끝없는 마나)
+  'Nightmare_Set_Boundless_1': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_boundless_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nightmare_Set_Boundless_2': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_boundless_2',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'Nightmare_Set_Boundless_3': {
+    'name': 'nightmare_set',
+    'buff_type': 'stat',
+    'effect': 'nightmare_set_boundless_3',
     'duration': 999999,
     'priority': 7,
   },
@@ -253,6 +275,20 @@ COMMON_BUFF_DICT = {
     'name': 'hit_master',
     'buff_type': 'stat',
     'effect': 'hit_master_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'All_Out_Attack_1': {
+    'name': 'all_out_attack',
+    'buff_type': 'stat',
+    'effect': 'all_out_attack_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'All_Out_Attack_2': {
+    'name': 'all_out_attack',
+    'buff_type': 'stat',
+    'effect': 'all_out_attack_2',
     'duration': 999999,
     'priority': 7,
   },
@@ -439,8 +475,8 @@ def entropy_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
       character.update_attribute('crit_damage', c_cd + 0.22)
       skill.update_attribute('damage_multiplier', s_dm * 1.09)
 
-# 악몽
-def nightmare_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
+# 악몽(마나중독)
+def nightmare_set_addiction_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.15)
@@ -449,7 +485,7 @@ def nightmare_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
       
-def nightmare_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
+def nightmare_set_addiction_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.18)
@@ -458,11 +494,45 @@ def nightmare_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
-def nightmare_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
+def nightmare_set_addiction_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
     c_dm = character.get_attribute('damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.20)
     character.update_attribute('damage_multiplier', c_dm * 1.20)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.17)
+
+# 악몽(끝없는 마나)
+def nightmare_set_boundless_1(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_ac = skill.get_attribute('actual_cooldown')
+    skill.update_attribute('actual_cooldown', s_ac * (1 - 0.35))
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.15)
+    character.update_attribute('movement_speed', c_ms + 0.15)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.12)
+      
+def nightmare_set_boundless_2(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_ac = skill.get_attribute('actual_cooldown')
+    skill.update_attribute('actual_cooldown', s_ac * (1 - 0.40))
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.15)
+    character.update_attribute('movement_speed', c_ms + 0.15)
+    if skill.get_attribute('mana_cost') > 0:
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+
+def nightmare_set_boundless_3(character: CharacterLayer, skill: Skill, buff: Buff):
+    s_ac = skill.get_attribute('actual_cooldown')
+    skill.update_attribute('actual_cooldown', s_ac * (1 - 0.43))
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    character.update_attribute('attack_speed', c_as + 0.15)
+    character.update_attribute('movement_speed', c_ms + 0.15)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.17)

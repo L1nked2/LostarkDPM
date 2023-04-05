@@ -36,6 +36,7 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 9,
   },
+  # 점화 각인
   'Igniter_Enabled_3': {
     'name': 'igniter_enabled_3',
     'buff_type': 'stat',
@@ -47,6 +48,14 @@ CLASS_BUFF_DICT = {
     'name': 'igniter',
     'buff_type': 'stat',
     'effect': 'igniter_3',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 환류 각인
+  'Reflux_3': {
+    'name': 'reflux',
+    'buff_type': 'stat',
+    'effect': 'reflux_3',
     'duration': 999999,
     'priority': 7,
   },
@@ -202,6 +211,14 @@ def igniter_3(character: CharacterLayer, skill: Skill, buff: Buff):
   s_acd = skill.get_attribute('additional_crit_damage')
   skill.update_attribute('additional_crit_rate', s_acr + 0.25)
   skill.update_attribute('additional_crit_damage', s_acd + 0.50)
+
+# 환류 버프
+def reflux_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  if skill.get_attribute('identity_type') != 'Awakening':
+    s_dm = skill.get_attribute('damage_multiplier')
+    skill.update_attribute('damage_multiplier', s_dm * 1.20)
+    s_ac = skill.get_attribute('actual_cooldown')
+    skill.update_attribute('actual_cooldown', s_ac * (1 - 0.10))
 
 # 피증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

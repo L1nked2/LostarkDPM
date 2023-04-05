@@ -89,8 +89,8 @@ CLASS_BUFF_DICT = {
     'name': 'pauru',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 411 * 1.4531413,
-    'coefficient': 2.548 * 1.4531413,
+    'base_damage': 411 * 0.9251587,
+    'coefficient': 2.548 * 0.9251587,
     'damage_interval': 1,
     'duration': 18,
     'priority': 7,
@@ -100,8 +100,8 @@ CLASS_BUFF_DICT = {
     'name': 'maririn',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 587 * 0.59305,
-    'coefficient': 3.639 * 0.59305,
+    'base_damage': 587 * 0.42775,
+    'coefficient': 3.639 * 0.42775,
     'damage_interval': 1,
     'duration': 44,
     'priority': 7,
@@ -259,7 +259,7 @@ def grant_summon_chain(buff_manager: BuffManager, skill_manager: SkillManager, s
   maririn_cooldown = 12.0 * base_cooldown_reduction
   kelsion_cooldown = 8.0 * base_cooldown_reduction
   # 각 체인 스킬별 스킬 쿨감
-  starting_cooldown = 999999 * (1 - buff_manager.base_character.cooldown_reduction)
+  starting_cooldown = 999999 * base_cooldown_reduction
   
   def cooldown_reduction_pauru(skill: Skill):
     if skill.get_attribute('name') == SKILL_NAME_DICT['파우루_체인']:
