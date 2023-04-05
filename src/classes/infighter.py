@@ -100,10 +100,15 @@ def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, ski
 def swift_preparation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '일망 타진':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.update_attribute('remaining_cooldown', seconds_to_ticks(0.5))
     return
-  if skill_manager.check_chance((1 - 0.54 * 0.54), 'swift_preperation'):
-    skill_manager.apply_function(cooldown_reduction)
+  # 충단의 경우 게이지 관리를 위해 의도적으로 낮은 확률 부여
+  if buff_manager.is_buff_exists('shock_training'):
+    if skill_manager.check_chance((0.65), 'swift_preperation'):
+      skill_manager.apply_function(cooldown_reduction)
+  else:
+    if skill_manager.check_chance((1 - 0.46 * 0.46), 'swift_preperation'):
+      skill_manager.apply_function(cooldown_reduction)
 
 # 용의 강림 출혈 갱신
 def extend_bleed(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):

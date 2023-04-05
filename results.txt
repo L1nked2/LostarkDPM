@@ -413,25 +413,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_infighter_shock_training.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 18686158
-Nuking_W/O_Awaking_Short_DPS: 31315420
-Nuking_W/O_Awaking_Long_DPS: 29583269
-Nuking_DPS: 28399361
-DPCT_by_Percentage: 32620400.985
-Idle_Ratio: 11.46 %
-Idle_Score: 169.53
-Delay_Score: 0.774
-Delay_Score_by_Percentage: 1.742
-Total_Damage: 28498072954
-Elapsed_Time: 1525.1 s
-Rune_Ratio: {'rg': [192, 38], 'qr': [228, 22], 'jm': [0, 0]}
+Actual_DPS: 17879060
+Nuking_W/O_Awaking_Short_DPS: 28825344
+Nuking_W/O_Awaking_Long_DPS: 27632101
+Nuking_DPS: 27756767
+DPCT_by_Percentage: 32436160.347
+Idle_Ratio: 11.03 %
+Idle_Score: 137.15
+Delay_Score: 0.803
+Delay_Score_by_Percentage: 1.74
+Total_Damage: 28572884048
+Elapsed_Time: 1598.13 s
+Rune_Ratio: {'rg': [215, 42], 'qr': [238, 23], 'jm': [0, 0]}
 ==========================
-Damage_Details: {'맹호격': 186718880, '죽음의 선고': 7565633943, '파쇄의 강타_1타': 52252226, '초신성 폭발': 4389714460, '출혈|None': 211445832, '전진의 일격': 431243832, '연환파신권': 5081326002, '진 용출권': 4501393397, '진 : 극멸권': 501023952, '일망 타진': 5577320430}
-Delay_Statistics: {'맹호격': 0.85, '죽음의 선고': 1.331, '파쇄의 강타_1타': 0.527, '초신성 폭발': 1.802, '전진의 일격': 0.883, '연환파신권': 3.133, '진 용출권': 2.093, '진 : 극멸권': 3.286, '일망 타진': 0.736}
-Nuking_W/O_Awaking_Cycle_Short: [('죽음의 선고', 71412039), ('출혈|None', 314184), ('전진의 일격', 1891890), ('출혈|None', 314184), ('진 용출권', 63399907), ('출혈|None', 314184), ('일망 타진', 16748710), ('일망 타진', 16748710), ('일망 타진', 16748710)]
-Nuking_W/O_Awaking_Cycle_Long: [('진 용출권', 63399907), ('출혈|None', 314184), ('일망 타진', 16748710), ('출혈|None', 314184), ('전진의 일격', 1891890), ('출혈|None', 314184), ('죽음의 선고', 71412039), ('출혈|None', 314184), ('연환파신권', 81956871)]
-Nuking_Cycle: [('초신성 폭발', 46699090), ('출혈|None', 314184), ('출혈|None', 314184), ('진 용출권', 63399907), ('출혈|None', 314184), ('일망 타진', 16748710), ('출혈|None', 314184), ('전진의 일격', 1891890), ('출혈|None', 314184), ('죽음의 선고', 71412039), ('출혈|None', 314184), ('연환파신권', 81956871)]
-eDPS info:  [30079551.235955056, 8.9]
+Damage_Details: {'파쇄의 강타_1타': 98999618, '죽음의 선고': 7641088173, '출혈|None': 401212968, '맹호격': 210638725, '전진의 일격': 450269820, '초신성 폭발': 4156219010, '연환파신권': 5409153486, '진 : 극멸권': 501023952, '진 용출권': 4311193676, '일망 타진': 5393084620}
+Delay_Statistics: {'파쇄의 강타_1타': 0.529, '죽음의 선고': 1.336, '맹호격': 0.85, '전진의 일격': 0.883, '초신성 폭발': 1.79, '연환파신권': 3.126, '진 : 극멸권': 3.008, '진 용출권': 2.103, '일망 타진': 0.736}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 314184), ('죽음의 선고', 71412039), ('출혈|None', 314184), ('전진의 일격', 1891890), ('출혈|None', 314184), ('연환파신권', 81956871), ('일망 타진', 16748710)]
+Nuking_W/O_Awaking_Cycle_Long: [('죽음의 선고', 71412039), ('출혈|None', 314184), ('출혈|None', 314184), ('전진의 일격', 1891890), ('연환파신권', 81956871), ('출혈|None', 314184), ('파쇄의 강타_1타', 463105), ('초신성 폭발', 46699090), ('출혈|None', 314184), ('출혈|None', 314184), ('일망 타진', 16748710), ('출혈|None', 314184)]
+Nuking_Cycle: [('초신성 폭발', 46699090), ('출혈|None', 314184), ('연환파신권', 81956871), ('출혈|None', 314184), ('출혈|None', 314184), ('진 : 극멸권', 83503992), ('파쇄의 강타_1타', 436892), ('진 용출권', 63399907), ('출혈|None', 314184), ('출혈|None', 314184)]
+eDPS info:  [28666820.674157303, 8.9]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
@@ -440,25 +440,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_infighter_taijutsu.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 19511998
+Actual_DPS: 19656661
 Nuking_W/O_Awaking_Short_DPS: 24979527
-Nuking_W/O_Awaking_Long_DPS: 22537573
+Nuking_W/O_Awaking_Long_DPS: 22462116
 Nuking_DPS: 24010701
-DPCT_by_Percentage: 23130364.474
-Idle_Ratio: 0.59 %
-Idle_Score: 47.7
-Delay_Score: 1.105
-Delay_Score_by_Percentage: 1.045
-Total_Damage: 35910856999
-Elapsed_Time: 1840.46 s
-Rune_Ratio: {'rg': [290, 57], 'qr': [459, 45], 'jm': [0, 0]}
+DPCT_by_Percentage: 23185243.539
+Idle_Ratio: 0.6 %
+Idle_Score: 43.95
+Delay_Score: 1.103
+Delay_Score_by_Percentage: 1.043
+Total_Damage: 31518472868
+Elapsed_Time: 1603.46 s
+Rune_Ratio: {'rg': [249, 49], 'qr': [383, 38], 'jm': [0, 0]}
 ==========================
-Damage_Details: {'파쇄의 강타_1타': 293825468, '철포난격': 7770407073, '난타연권': 8384362616, '용의 강림': 4770260600, '지진쇄': 3895279110, '출혈|None': 620709733, 'conflagration_attack|용의 강림': 645808701, '전진의 일격': 3645933312, '죽음의 선고': 4239062546, '진 : 극멸권': 463089336, '일망 타진': 1172602264, 'undying_power|None': 9516240}
-Delay_Statistics: {'파쇄의 강타_1타': 0.437, '철포난격': 0.869, '난타연권': 1.617, '용의 강림': 1.016, '지진쇄': 0.716, '전진의 일격': 0.812, '죽음의 선고': 1.08, '진 : 극멸권': 2.634, '일망 타진': 0.609}
+Damage_Details: {'파쇄의 강타_1타': 252149256, '철포난격': 6844074637, '난타연권': 7314837906, '용의 강림': 4180165972, '지진쇄': 3464983951, '출혈|None': 539930462, 'conflagration_attack|용의 강림': 564763016, '전진의 일격': 3196890144, '죽음의 선고': 3803418004, '진 : 극멸권': 370383968, '일망 타진': 978417144, 'undying_power|None': 8458408}
+Delay_Statistics: {'파쇄의 강타_1타': 0.437, '철포난격': 0.869, '난타연권': 1.617, '용의 강림': 1.016, '지진쇄': 0.716, '전진의 일격': 0.812, '죽음의 선고': 1.08, '진 : 극멸권': 2.616, '일망 타진': 0.609}
 Nuking_W/O_Awaking_Cycle_Short: [('파쇄의 강타_1타', 956315), ('철포난격', 25717955), ('난타연권', 42756746), ('용의 강림', 24577599), ('지진쇄', 20492551), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('전진의 일격', 10687296), ('죽음의 선고', 22903030), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080)]
-Nuking_W/O_Awaking_Cycle_Long: [('파쇄의 강타_1타', 956315), ('철포난격', 25717955), ('conflagration_attack|용의 강림', 555080), ('출혈|None', 337755), ('난타연권', 42756746), ('conflagration_attack|용의 강림', 555080), ('출혈|None', 337755), ('출혈|None', 337755), ('죽음의 선고', 22903030), ('출혈|None', 337755), ('지진쇄', 20492551), ('출혈|None', 337755), ('용의 강림', 24577599), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('전진의 일격', 10687296), ('출혈|None', 337755), ('파쇄의 강타_1타', 1013694), ('conflagration_attack|용의 강림', 555080), ('철포난격', 25717955), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080)]
+Nuking_W/O_Awaking_Cycle_Long: [('죽음의 선고', 22903030), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('출혈|None', 337755), ('철포난격', 25717955), ('conflagration_attack|용의 강림', 555080), ('파쇄의 강타_1타', 1013694), ('출혈|None', 338553), ('conflagration_attack|용의 강림', 556392), ('undying_power|None', 50446), ('난타연권', 42857756), ('출혈|None', 338553), ('출혈|None', 338553), ('전진의 일격', 10712544), ('용의 강림', 24635662), ('출혈|None', 338553), ('conflagration_attack|용의 강림', 556392), ('지진쇄', 20540963), ('출혈|None', 338553), ('철포난격', 25778712), ('conflagration_attack|용의 강림', 556392), ('출혈|None', 338553)]
 Nuking_Cycle: [('파쇄의 강타_1타', 956315), ('철포난격', 25717955), ('난타연권', 42756746), ('용의 강림', 24577599), ('지진쇄', 20492551), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('전진의 일격', 10687296), ('죽음의 선고', 22903030), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('진 : 극멸권', 46297996), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('일망 타진', 2553480), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('파쇄의 강타_1타', 1013694), ('철포난격', 25717955), ('undying_power|None', 50328), ('출혈|None', 337755), ('conflagration_attack|용의 강림', 555080), ('전진의 일격', 10687296), ('출혈|None', 337755)]
-eDPS info:  [22986402.289156623, 8.3]
+eDPS info:  [22942125.903614458, 8.3]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
@@ -875,31 +875,31 @@ LostArkDpmSimulator is now ready to run
 target_character: character_summoner_communication_overflow.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 19323873
-Nuking_W/O_Awaking_Short_DPS: 28863573
-Nuking_W/O_Awaking_Long_DPS: 25770386
-Nuking_DPS: 29248169
-DPCT_by_Percentage: 9932630.901
-Idle_Ratio: 26.59 %
-Idle_Score: 107.11
-Delay_Score: 0.851
-Delay_Score_by_Percentage: 0.848
-Total_Damage: 30345243643
-Elapsed_Time: 1570.36 s
-Rune_Ratio: {'rg': [0, 0], 'qr': [692, 68], 'jm': [157, 44]}
+Actual_DPS: 18598032
+Nuking_W/O_Awaking_Short_DPS: 28052808
+Nuking_W/O_Awaking_Long_DPS: 24929908
+Nuking_DPS: 28459291
+DPCT_by_Percentage: 10324614.218
+Idle_Ratio: 26.53 %
+Idle_Score: 106.8
+Delay_Score: 0.85
+Delay_Score_by_Percentage: 0.883
+Total_Damage: 30651975188
+Elapsed_Time: 1648.14 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [724, 71], 'jm': [165, 47]}
 ==========================
-Damage_Details: {'슈르디': 0, '파우루': 223929382, '마리린': 0, '출혈|None': 956257980, 'shurdi|슈르디': 828215482, 'thrilling_light|슈르디': 738488382, '켈시온': 72098928, 'pauru|파우루': 2237957173, 'maririn|마리린': 1344566388, 'kelsion|켈시온': 548923399, '끈적이는 이끼늪': 94745354, '파우루_체인': 2351353494, '마리린_체인': 2014450135, '켈시온_체인': 745635964, '고대의 창': 8004296941, '엘씨드': 0, '대지 붕괴': 3605340620, 'elcid|엘씨드': 3843659054, '물의 정령': 297509622, '아키르': 2437815345}
-Delay_Statistics: {'슈르디': 0.676, '파우루': 0.662, '마리린': 0.675, '켈시온': 1.819, '끈적이는 이끼늪': 0.663, '고대의 창': 2.158, '엘씨드': 0.734, '대지 붕괴': 1.226, '물의 정령': 0.585, '아키르': 1.445}
-Nuking_W/O_Awaking_Cycle_Short: [('elcid|엘씨드', 2782053), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('파우루_체인', 8390968), ('대지 붕괴', 29380522), ('pauru|파우루', 1598477), ('elcid|엘씨드', 2782053), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('고대의 창', 48236151), ('pauru|파우루', 1598477), ('elcid|엘씨드', 2782053), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1598477), ('elcid|엘씨드', 2782053), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1598477), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1107801), ('elcid|엘씨드', 1928062), ('마리린_체인', 6673265), ('끈적이는 이끼늪', 511186), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1598477), ('파우루_체인', 8390968)]
-Nuking_W/O_Awaking_Cycle_Long: [('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('마리린_체인', 9629052), ('파우루_체인', 8390968), ('물의 정령', 1899226), ('elcid|엘씨드', 2782053), ('슈르디', 0), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('끈적이는 이끼늪', 737579), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('대지 붕괴', 29380522), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('파우루', 2806448), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('파우루_체인', 8390968), ('고대의 창', 48236151), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('마리린_체인', 9629052)]
-Nuking_Cycle: [('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('켈시온_체인', 19114240), ('대지 붕괴', 29380522), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('파우루_체인', 8390968), ('kelsion|켈시온', 2731523), ('파우루', 2806448), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('마리린_체인', 9629052), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1107801), ('kelsion|켈시온', 1893042), ('끈적이는 이끼늪', 511186), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('켈시온_체인', 19114240), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('고대의 창', 48236151), ('kelsion|켈시온', 2731523), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('파우루_체인', 8390968), ('물의 정령', 1899226), ('maririn|마리린', 931692), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1598477), ('kelsion|켈시온', 2731523), ('maririn|마리린', 645696), ('출혈|None', 458973), ('shurdi|슈르디', 397624), ('thrilling_light|슈르디', 354546), ('elcid|엘씨드', 1928062), ('pauru|파우루', 1107801), ('kelsion|켈시온', 1893042), ('켈시온_체인', 13246828), ('마리린_체인', 6673265), ('maririn|마리린', 645696), ('출혈|None', 458973), ('shurdi|슈르디', 397624), ('thrilling_light|슈르디', 354546)]
-eDPS info:  [25770385.75, 8.0]
+Damage_Details: {'슈르디': 0, '파우루': 234293691, '마리린': 0, '출혈|None': 1003251199, 'shurdi|슈르디': 868916699, 'thrilling_light|슈르디': 774780115, '켈시온': 82171126, 'pauru|파우루': 1495291832, 'maririn|마리린': 1017469268, 'kelsion|켈시온': 598306893, '끈적이는 이끼늪': 99514021, '파우루_체인': 2447557388, '마리린_체인': 2115219824, '켈시온_체인': 822092924, '고대의 창': 8423615466, '엘씨드': 0, '대지 붕괴': 3783947856, 'elcid|엘씨드': 4023251006, '물의 정령': 311537140, '아키르': 2550758740}
+Delay_Statistics: {'슈르디': 0.677, '파우루': 0.662, '마리린': 0.676, '켈시온': 1.825, '끈적이는 이끼늪': 0.663, '고대의 창': 2.158, '엘씨드': 0.734, '대지 붕괴': 1.226, '물의 정령': 0.585, '아키르': 1.445}
+Nuking_W/O_Awaking_Cycle_Short: [('elcid|엘씨드', 2782053), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('파우루_체인', 8390968), ('대지 붕괴', 29380522), ('pauru|파우루', 1017688), ('elcid|엘씨드', 2782053), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('고대의 창', 48236151), ('pauru|파우루', 1017688), ('elcid|엘씨드', 2782053), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1017688), ('elcid|엘씨드', 2782053), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1017688), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 705294), ('elcid|엘씨드', 1928062), ('마리린_체인', 6673265), ('끈적이는 이끼늪', 511186), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('pauru|파우루', 1017688), ('파우루_체인', 8390968)]
+Nuking_W/O_Awaking_Cycle_Long: [('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('마리린_체인', 9629052), ('파우루_체인', 8390968), ('물의 정령', 1899226), ('elcid|엘씨드', 2782053), ('슈르디', 0), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('끈적이는 이끼늪', 737579), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('대지 붕괴', 29380522), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('파우루', 2806448), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('파우루_체인', 8390968), ('고대의 창', 48236151), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('마리린_체인', 9629052)]
+Nuking_Cycle: [('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('켈시온_체인', 19114240), ('대지 붕괴', 29380522), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('파우루_체인', 8390968), ('kelsion|켈시온', 2731523), ('파우루', 2806448), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('마리린_체인', 9629052), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 705294), ('kelsion|켈시온', 1893042), ('끈적이는 이끼늪', 511186), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('켈시온_체인', 19114240), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('고대의 창', 48236151), ('kelsion|켈시온', 2731523), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('파우루_체인', 8390968), ('물의 정령', 1899226), ('maririn|마리린', 672003), ('출혈|None', 662488), ('shurdi|슈르디', 573743), ('thrilling_light|슈르디', 511585), ('아키르', 30582816), ('elcid|엘씨드', 2782053), ('pauru|파우루', 1017688), ('kelsion|켈시온', 2731523), ('maririn|마리린', 465722), ('출혈|None', 458973), ('shurdi|슈르디', 397624), ('thrilling_light|슈르디', 354546), ('elcid|엘씨드', 1928062), ('pauru|파우루', 705294), ('kelsion|켈시온', 1893042), ('켈시온_체인', 13246828), ('마리린_체인', 6673265), ('maririn|마리린', 465722), ('출혈|None', 458973), ('shurdi|슈르디', 397624), ('thrilling_light|슈르디', 354546)]
+eDPS info:  [24929907.75, 8.0]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
 ##### Done Initialization of SkillsManager #####
 LostArkDpmSimulator is now ready to run
-target_character: character_summoner_master_summoner.json
+target_character: character_summoner_master_summoner_spcr.json
 ==========================
 DPS stablization failed, ratio is 0.9875773276519743
 Actual_DPS: 18899058
@@ -926,7 +926,7 @@ eDPS info:  [46589833.875, 8.0]
 ##### Done Initialization of BuffsManager #####
 ##### Done Initialization of SkillsManager #####
 LostArkDpmSimulator is now ready to run
-target_character: character_summoner_master_summoner.json
+target_character: character_summoner_master_summoner_spsw.json
 ==========================
 DPS stabilized, terminating simulation
 Actual_DPS: 19062808
