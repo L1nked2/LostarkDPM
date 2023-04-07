@@ -56,7 +56,7 @@ class SkillManager:
         # import policy
         self._import_policy(skill_info['policy'])
         # import skills
-        self.skill_pool = dict()
+        self.skill_pool:dict[str, Skill] = dict()
         for naive_skill in skill_info['skill_preset']:
             self.skill_pool[naive_skill['name']] = Skill(class_name=class_name, **naive_skill)
             self.skill_pool[naive_skill['name']].calc_delay(character.get_attribute("actual_attack_speed"))
@@ -101,6 +101,7 @@ class SkillManager:
     def block_until(self, tick):
         self.blocked_until = tick
     
+    @property
     def is_next_cycle_available(self):
       # (is character available, is next skill available)
       # True, True -> use_skill
