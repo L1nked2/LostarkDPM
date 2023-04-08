@@ -11,7 +11,7 @@ Nuking_W/O_Awaking_Long_DPS: 32329532
 Nuking_DPS: 34304359
 DPCT_by_Percentage: 34539757.078
 Idle_Ratio: 45.19 %
-Idle_Score: 414.28
+Idle_Score: 413.4
 Delay_Score: 1.013
 Delay_Score_by_Percentage: 0.926
 Total_Damage: 25131856758
@@ -38,7 +38,7 @@ Nuking_W/O_Awaking_Long_DPS: 26643913
 Nuking_DPS: 23659885
 DPCT_by_Percentage: 27478632.43
 Idle_Ratio: 15.52 %
-Idle_Score: 115.31
+Idle_Score: 116.39
 Delay_Score: 1.076
 Delay_Score_by_Percentage: 1.221
 Total_Damage: 27339950322
@@ -65,7 +65,7 @@ Nuking_W/O_Awaking_Long_DPS: 27563491
 Nuking_DPS: 24774488
 DPCT_by_Percentage: 17015237.999
 Idle_Ratio: 14.08 %
-Idle_Score: 120.47
+Idle_Score: 120.04
 Delay_Score: 0.989
 Delay_Score_by_Percentage: 1.055
 Total_Damage: 37895451964
@@ -92,7 +92,7 @@ Nuking_W/O_Awaking_Long_DPS: 37427389
 Nuking_DPS: 31557730
 DPCT_by_Percentage: 30048562.046
 Idle_Ratio: 22.05 %
-Idle_Score: 391.01
+Idle_Score: 390.06
 Delay_Score: 0.668
 Delay_Score_by_Percentage: 1.544
 Total_Damage: 31094913291
@@ -119,7 +119,7 @@ Nuking_W/O_Awaking_Long_DPS: 32357131
 Nuking_DPS: 28752947
 DPCT_by_Percentage: 80334735.412
 Idle_Ratio: 0.42 %
-Idle_Score: 5.14
+Idle_Score: 4.15
 Delay_Score: 0.896
 Delay_Score_by_Percentage: 1.158
 Total_Damage: 34738878603
@@ -147,7 +147,7 @@ Nuking_W/O_Awaking_Long_DPS: 26317527
 Nuking_DPS: 24760852
 DPCT_by_Percentage: 32998494.46
 Idle_Ratio: 5.62 %
-Idle_Score: 49.28
+Idle_Score: 48.28
 Delay_Score: 1.037
 Delay_Score_by_Percentage: 1.07
 Total_Damage: 40179818226
@@ -175,7 +175,7 @@ Nuking_W/O_Awaking_Long_DPS: 28390091
 Nuking_DPS: 37351205
 DPCT_by_Percentage: 24629324.512
 Idle_Ratio: 13.86 %
-Idle_Score: 308.33
+Idle_Score: 307.37
 Delay_Score: 0.548
 Delay_Score_by_Percentage: 2.605
 Total_Damage: 28753851642
@@ -202,7 +202,7 @@ Nuking_W/O_Awaking_Long_DPS: 30445911
 Nuking_DPS: 30700372
 DPCT_by_Percentage: 34284340.12
 Idle_Ratio: 40.24 %
-Idle_Score: 220.81
+Idle_Score: 219.97
 Delay_Score: 0.759
 Delay_Score_by_Percentage: 1.259
 Total_Damage: 26398962751
@@ -230,7 +230,7 @@ Nuking_W/O_Awaking_Long_DPS: 19902671
 Nuking_DPS: 28510659
 DPCT_by_Percentage: 21208115.91
 Idle_Ratio: 11.83 %
-Idle_Score: 106.78
+Idle_Score: 106.16
 Delay_Score: 1.014
 Delay_Score_by_Percentage: 1.022
 Total_Damage: 23329782145
@@ -257,7 +257,7 @@ Nuking_W/O_Awaking_Long_DPS: 23373650
 Nuking_DPS: 23383142
 DPCT_by_Percentage: 41686407.928
 Idle_Ratio: 27.1 %
-Idle_Score: 128.29
+Idle_Score: 127.92
 Delay_Score: 1.042
 Delay_Score_by_Percentage: 1.018
 Total_Damage: 31982586660
@@ -284,7 +284,7 @@ Nuking_W/O_Awaking_Long_DPS: 34190866
 Nuking_DPS: 27722050
 DPCT_by_Percentage: 39076216.79
 Idle_Ratio: 4.06 %
-Idle_Score: 112.3
+Idle_Score: 111.57
 Delay_Score: 0.502
 Delay_Score_by_Percentage: 2.863
 Total_Damage: 31410777953
@@ -311,7 +311,7 @@ Nuking_W/O_Awaking_Long_DPS: 41859355
 Nuking_DPS: 34372737
 DPCT_by_Percentage: 35209551.701
 Idle_Ratio: 30.71 %
-Idle_Score: 192.06
+Idle_Score: 191.79
 Delay_Score: 0.725
 Delay_Score_by_Percentage: 1.717
 Total_Damage: 34894083574
@@ -338,7 +338,7 @@ Nuking_W/O_Awaking_Long_DPS: 25201634
 Nuking_DPS: 25628673
 DPCT_by_Percentage: 22574268.214
 Idle_Ratio: 12.54 %
-Idle_Score: 97.06
+Idle_Score: 97.22
 Delay_Score: 0.811
 Delay_Score_by_Percentage: 1.202
 Total_Damage: 24352612242
@@ -365,7 +365,7 @@ Nuking_W/O_Awaking_Long_DPS: 39537618
 Nuking_DPS: 35493653
 DPCT_by_Percentage: 32181141.738
 Idle_Ratio: 30.65 %
-Idle_Score: 165.42
+Idle_Score: 165.1
 Delay_Score: 0.767
 Delay_Score_by_Percentage: 1.79
 Total_Damage: 26879425980
@@ -392,7 +392,7 @@ Nuking_W/O_Awaking_Long_DPS: 33446881
 Nuking_DPS: 31909349
 DPCT_by_Percentage: 30686764.387
 Idle_Ratio: 31.94 %
-Idle_Score: 189.47
+Idle_Score: 189.24
 Delay_Score: 0.772
 Delay_Score_by_Percentage: 1.766
 Total_Damage: 25336874959
@@ -419,7 +419,7 @@ Nuking_W/O_Awaking_Long_DPS: 27632101
 Nuking_DPS: 27756767
 DPCT_by_Percentage: 32436160.347
 Idle_Ratio: 11.03 %
-Idle_Score: 137.15
+Idle_Score: 136.78
 Delay_Score: 0.803
 Delay_Score_by_Percentage: 1.74
 Total_Damage: 28572884048
@@ -446,7 +446,7 @@ Nuking_W/O_Awaking_Long_DPS: 22462116
 Nuking_DPS: 24010701
 DPCT_by_Percentage: 23185243.539
 Idle_Ratio: 0.6 %
-Idle_Score: 43.95
+Idle_Score: 43.07
 Delay_Score: 1.103
 Delay_Score_by_Percentage: 1.043
 Total_Damage: 31518472868
@@ -473,7 +473,7 @@ Nuking_W/O_Awaking_Long_DPS: 22201744
 Nuking_DPS: 23311336
 DPCT_by_Percentage: 27517817.569
 Idle_Ratio: 5.3 %
-Idle_Score: 56.22
+Idle_Score: 56.35
 Delay_Score: 1.027
 Delay_Score_by_Percentage: 0.987
 Total_Damage: 30627439261
@@ -500,7 +500,7 @@ Nuking_W/O_Awaking_Long_DPS: 25642091
 Nuking_DPS: 31291097
 DPCT_by_Percentage: 25762208.196
 Idle_Ratio: 21.36 %
-Idle_Score: 286.58
+Idle_Score: 285.6
 Delay_Score: 0.671
 Delay_Score_by_Percentage: 1.57
 Total_Damage: 31437395699
@@ -527,7 +527,7 @@ Nuking_W/O_Awaking_Long_DPS: 26105504
 Nuking_DPS: 27262170
 DPCT_by_Percentage: 34681626.988
 Idle_Ratio: 29.48 %
-Idle_Score: 102.95
+Idle_Score: 102.49
 Delay_Score: 1.311
 Delay_Score_by_Percentage: 1.006
 Total_Damage: 31933470896
@@ -554,7 +554,7 @@ Nuking_W/O_Awaking_Long_DPS: 25613860
 Nuking_DPS: 33588301
 DPCT_by_Percentage: 66555788.578
 Idle_Ratio: 16.27 %
-Idle_Score: 100.55
+Idle_Score: 99.84
 Delay_Score: 1.187
 Delay_Score_by_Percentage: 1.219
 Total_Damage: 28895211693
@@ -581,7 +581,7 @@ Nuking_W/O_Awaking_Long_DPS: 29578589
 Nuking_DPS: 28619742
 DPCT_by_Percentage: 36209002.866
 Idle_Ratio: 28.42 %
-Idle_Score: 210.53
+Idle_Score: 210.95
 Delay_Score: 0.747
 Delay_Score_by_Percentage: 1.534
 Total_Damage: 24459962812
@@ -636,7 +636,7 @@ Nuking_W/O_Awaking_Long_DPS: 33617091
 Nuking_DPS: 33304676
 DPCT_by_Percentage: 39469231.877
 Idle_Ratio: 32.17 %
-Idle_Score: 356.15
+Idle_Score: 355.26
 Delay_Score: 0.957
 Delay_Score_by_Percentage: 1.156
 Total_Damage: 32854257504
@@ -663,7 +663,7 @@ Nuking_W/O_Awaking_Long_DPS: 37011881
 Nuking_DPS: 35593539
 DPCT_by_Percentage: 36057719.836
 Idle_Ratio: 22.94 %
-Idle_Score: 266.09
+Idle_Score: 265.27
 Delay_Score: 0.794
 Delay_Score_by_Percentage: 1.282
 Total_Damage: 33746493231
@@ -690,7 +690,7 @@ Nuking_W/O_Awaking_Long_DPS: 59536787
 Nuking_DPS: 61451975
 DPCT_by_Percentage: 61368291.567
 Idle_Ratio: 33.54 %
-Idle_Score: 157.11
+Idle_Score: 156.34
 Delay_Score: 0.884
 Delay_Score_by_Percentage: 1.72
 Total_Damage: 35058703167
@@ -717,7 +717,7 @@ Nuking_W/O_Awaking_Long_DPS: 56529890
 Nuking_DPS: 45439515
 DPCT_by_Percentage: 16430815.11
 Idle_Ratio: 49.29 %
-Idle_Score: 504.96
+Idle_Score: 504.13
 Delay_Score: 0.797
 Delay_Score_by_Percentage: 0.86
 Total_Damage: 24060799247
@@ -744,7 +744,7 @@ Nuking_W/O_Awaking_Long_DPS: 57214081
 Nuking_DPS: 45989441
 DPCT_by_Percentage: 16419252.096
 Idle_Ratio: 49.5 %
-Idle_Score: 505.11
+Idle_Score: 504.28
 Delay_Score: 0.796
 Delay_Score_by_Percentage: 0.866
 Total_Damage: 23875367042
@@ -771,7 +771,7 @@ Nuking_W/O_Awaking_Long_DPS: 32409111
 Nuking_DPS: 34706620
 DPCT_by_Percentage: 30561123.476
 Idle_Ratio: 22.6 %
-Idle_Score: 156.68
+Idle_Score: 158.01
 Delay_Score: 1.162
 Delay_Score_by_Percentage: 1.032
 Total_Damage: 28068513836
@@ -798,7 +798,7 @@ Nuking_W/O_Awaking_Long_DPS: 35392634
 Nuking_DPS: 45378163
 DPCT_by_Percentage: 49635814.743
 Idle_Ratio: 48.44 %
-Idle_Score: 595.13
+Idle_Score: 594.4
 Delay_Score: 1.183
 Delay_Score_by_Percentage: 1.066
 Total_Damage: 35512623333
@@ -826,7 +826,7 @@ Nuking_W/O_Awaking_Long_DPS: 36570876
 Nuking_DPS: 35207989
 DPCT_by_Percentage: 52936252.986
 Idle_Ratio: 28.54 %
-Idle_Score: 280.14
+Idle_Score: 279.31
 Delay_Score: 0.862
 Delay_Score_by_Percentage: 1.124
 Total_Damage: 31599229874
@@ -853,7 +853,7 @@ Nuking_W/O_Awaking_Long_DPS: 27657006
 Nuking_DPS: 28774259
 DPCT_by_Percentage: 59703025.33
 Idle_Ratio: 14.39 %
-Idle_Score: 110.33
+Idle_Score: 109.38
 Delay_Score: 0.746
 Delay_Score_by_Percentage: 1.627
 Total_Damage: 34099284450
@@ -880,7 +880,7 @@ Nuking_W/O_Awaking_Long_DPS: 29204721
 Nuking_DPS: 28229774
 DPCT_by_Percentage: 67220182.748
 Idle_Ratio: 36.18 %
-Idle_Score: 408.3
+Idle_Score: 407.41
 Delay_Score: 0.879
 Delay_Score_by_Percentage: 1.259
 Total_Damage: 28384998140
@@ -908,7 +908,7 @@ Nuking_W/O_Awaking_Long_DPS: 24929908
 Nuking_DPS: 28459291
 DPCT_by_Percentage: 10324614.218
 Idle_Ratio: 26.53 %
-Idle_Score: 106.8
+Idle_Score: 107.24
 Delay_Score: 0.85
 Delay_Score_by_Percentage: 0.883
 Total_Damage: 30651975188
@@ -935,7 +935,7 @@ Nuking_W/O_Awaking_Long_DPS: 46589834
 Nuking_DPS: 53670512
 DPCT_by_Percentage: 6722557.904
 Idle_Ratio: 36.2 %
-Idle_Score: 523.26
+Idle_Score: 522.35
 Delay_Score: 0.729
 Delay_Score_by_Percentage: 0.554
 Total_Damage: 68021490095
@@ -962,7 +962,7 @@ Nuking_W/O_Awaking_Long_DPS: 41949967
 Nuking_DPS: 48477337
 DPCT_by_Percentage: 6083239.619
 Idle_Ratio: 29.08 %
-Idle_Score: 400.01
+Idle_Score: 399.11
 Delay_Score: 0.73
 Delay_Score_by_Percentage: 0.551
 Total_Damage: 31739193632
@@ -990,7 +990,7 @@ Nuking_W/O_Awaking_Long_DPS: 20544011
 Nuking_DPS: 21106458
 DPCT_by_Percentage: 25198344.179
 Idle_Ratio: 12.57 %
-Idle_Score: 144.44
+Idle_Score: 150.87
 Delay_Score: 0.655
 Delay_Score_by_Percentage: 1.627
 Total_Damage: 24076132122
@@ -1017,7 +1017,7 @@ Nuking_W/O_Awaking_Long_DPS: 18363100
 Nuking_DPS: 19657179
 DPCT_by_Percentage: 26709822.29
 Idle_Ratio: 23.56 %
-Idle_Score: 219.07
+Idle_Score: 220.69
 Delay_Score: 0.67
 Delay_Score_by_Percentage: 1.61
 Total_Damage: 21630648195
@@ -1045,7 +1045,7 @@ Nuking_W/O_Awaking_Long_DPS: 31052562
 Nuking_DPS: 26451452
 DPCT_by_Percentage: 37057751.592
 Idle_Ratio: 11.13 %
-Idle_Score: 171.41
+Idle_Score: 170.71
 Delay_Score: 0.913
 Delay_Score_by_Percentage: 1.433
 Total_Damage: 32887684429

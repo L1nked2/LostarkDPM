@@ -8,7 +8,7 @@ from .skill import Skill
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
 from .damage_history import DamageHistory, TIME_LINSPACE, EDPS_MIN_SECONDS, EDPS_MAX_SECONDS
-from .constants import *
+from ..core.utils import *
 
 
 MAX_SECONDS = ticks_to_seconds(DEFAULT_MAX_TICK)

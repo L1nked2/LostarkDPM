@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 일반 스킬의 피해량 특화 계수
@@ -106,10 +106,9 @@ def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, ski
 # 파이어불릿 1트포 행운의 기회
 def lucky_chance_action(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
-    n = skill.get_attribute('name')
-    if n == '파이어 불릿':
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(4.9))
+    s_n = skill.get_attribute('name')
+    if s_n == '파이어 불릿':
+      skill.remaining_cooldown = skill.remaining_cooldown - seconds_to_ticks(4.9)
     return
   if skill_manager.check_chance(0.75, '파이어 불릿'):
     skill_manager.apply_function(cooldown_reduction)

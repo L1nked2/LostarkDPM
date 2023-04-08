@@ -5,7 +5,7 @@ from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.damage_history import DamageHistory
-from src.layers.dynamic.constants import ticks_to_seconds, seconds_to_ticks
+from src.layers.core.utils import ticks_to_seconds, seconds_to_ticks
 
 class BuffManager():
     def __init__(self, base_character: CharacterLayer, verbose=False, **kwargs):
@@ -89,7 +89,7 @@ class BuffManager():
             # get buff's effect and apply to character and skill
             buff_effect = self._get_buff_effect(buff)
             buff_effect(character, skill, buff)
-        skill.set_buff_applied()
+        skill._buff_applied = True
     
     def calc_damage_from_buffs(self, damage_history: DamageHistory, skill_manager: SkillManager):
         for buff in self.current_buffs:

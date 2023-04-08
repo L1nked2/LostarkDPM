@@ -5,7 +5,7 @@ import warnings
 from collections import deque
 from src.layers.static.character_layer import CharacterLayer
 from .skill import Skill
-from .constants import seconds_to_ticks
+from ..core.utils import seconds_to_ticks
 
 DEFAULT_LOOKUP_COOLDOWN = 5
 POLICY_MODES = ['scheduler', 'fixed']
@@ -84,7 +84,7 @@ class SkillManager:
     
     def update_tick(self, current_tick):
         tick_diff = current_tick - self.last_tick
-        cooldown_func = lambda x: x - tick_diff
+        cooldown_func = lambda x: max(0, x - tick_diff)
         for skill_name in self.skill_pool:
           self.skill_pool[skill_name].update_remaining_cooldown(cooldown_func)
         # update block status
@@ -111,7 +111,7 @@ class SkillManager:
       if len(self.skill_queue) == 0:
         return (not self.is_blocked, False)
       target_name = self.skill_queue[0]
-      return (not self.is_blocked, bool(self.skill_pool[target_name].remaining_cooldown <= 0))
+      return (not self.is_blocked, bool(self.skill_pool[target_name]._remaining_cooldown <= 0))
 
     def get_next_skill(self) -> Skill:
         self._fetch_next_skills()
@@ -172,7 +172,7 @@ class SkillManager:
         tick_diff = target_tick - self.last_tick
         for skill_name in self.skill_pool:
             if self.skill_pool[skill_name].name == target_skill_name:
-              return bool(self.skill_pool[skill_name].remaining_cooldown <= tick_diff)
+              return bool(self.skill_pool[skill_name]._remaining_cooldown <= tick_diff)
         return False
     
     def _fetch_next_skills(self):
