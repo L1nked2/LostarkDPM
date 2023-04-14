@@ -417,9 +417,9 @@ def master_summoner_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if (skill.get_attribute('identity_type') == 'Common' 
       or skill.get_attribute('identity_type') == 'Ancient'):
       s_dm = skill.get_attribute('damage_multiplier')
-      s_acr = skill.get_attribute('additional_crit_rate')
+      s_acr = skill.get_attribute('crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
-      skill.update_attribute('additional_crit_rate', s_acr + 0.16)
+      skill.update_attribute('crit_rate', s_acr + 0.16)
 
 # 넘치는 교감 각인
 def communication_overflow_3(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -431,8 +431,8 @@ def communication_overflow_3(character: CharacterLayer, skill: Skill, buff: Buff
 
 # 슈르디 - 빛의 성장 치적 증가 
 def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.118)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.118)
 
 # 이끼늪, 엘시드 공증
 def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -441,5 +441,5 @@ def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 방깎 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)

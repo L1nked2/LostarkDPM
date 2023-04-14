@@ -141,10 +141,10 @@ def combat_readiness_3(character: CharacterLayer, skill: Skill, buff: Buff):
 
 def lone_knight_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Lance':
-      s_acr = skill.get_attribute('additional_crit_rate')
-      s_acd = skill.get_attribute('additional_crit_damage')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.15)
-      skill.update_attribute('additional_crit_damage', s_acd + 0.50)
+      s_acr = skill.get_attribute('crit_rate')
+      s_acd = skill.get_attribute('crit_damage')
+      skill.update_attribute('crit_rate', s_acr + 0.15)
+      skill.update_attribute('crit_damage', s_acd + 0.50)
 
 # 배쉬 공증
 def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -158,8 +158,8 @@ def ap_buff_2(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 배쉬 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)
 
 # 증오의 함성 시너지
 def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):

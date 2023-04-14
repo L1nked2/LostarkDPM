@@ -176,5 +176,5 @@ def perfect_suppression_1(character: CharacterLayer, skill: Skill, buff: Buff):
 # 멈출 수 없는 충동 버프
 def demonic_impulse_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Demon':
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.3)
+      s_acr = skill.get_attribute('crit_rate')
+      skill.update_attribute('crit_rate', s_acr + 0.3)

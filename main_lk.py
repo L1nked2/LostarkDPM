@@ -5,7 +5,8 @@ from src.layers.dynamic.damage_history import EDPS_LINSPACE
 
 if __name__ == '__main__':
     character_path = './db/characters/character_soulfist_energy_overflow.json'
-    character_path = './db/characters/character_slayer_devourer_7m.json'
+    character_path = './db/characters/character_aeromancer_gale_rage_dom.json'
+    character_path = './db/characters/character_battlemaster_first_intention.json'
     character_configs = import_character(character_path)
     character_config: CharacterFactory
     for character_config in character_configs:
@@ -23,4 +24,5 @@ if __name__ == '__main__':
       simulator.print_nuking_cycle()
       print('==========================')
       edps_statistics = simulator.damage_history.get_edps_statistics(8, 16)
+      #print([x['name'] for x in simulator.damage_history.get_subhistory(12.7).max_cycle])
       print([max(edps_statistics), EDPS_LINSPACE[edps_statistics.index(max(edps_statistics))]])

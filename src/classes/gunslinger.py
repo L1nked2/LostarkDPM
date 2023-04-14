@@ -133,14 +133,14 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
     elif skill.get_attribute('identity_type') == 'Handgun':
-      s_acd = skill.get_attribute('additional_crit_damage')
-      skill.update_attribute('additional_crit_damage', s_acd + s_handgun_additional_crit_damage)
+      s_acd = skill.get_attribute('crit_damage')
+      skill.update_attribute('crit_damage', s_acd + s_handgun_additional_crit_damage)
     elif skill.get_attribute('identity_type') == 'Rifle':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_rifle_multiplier)
     elif skill.get_attribute('identity_type') == 'Shotgun':
-      s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-      skill.update_attribute('additional_defense_reduction_rate', s_adrr + s_shotgun_defense_reduction_rate)
+      s_adrr = skill.get_attribute('defense_reduction_rate')
+      skill.update_attribute('defense_reduction_rate', s_adrr + s_shotgun_defense_reduction_rate)
       
 # 피스메이커 각인
 def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):  
@@ -149,9 +149,9 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
       character.update_attribute('attack_speed', c_as + 0.08)
     elif skill.get_attribute('identity_type') == "Shotgun":
       s_dm = skill.get_attribute('damage_multiplier') 
-      s_acr = skill.get_attribute('additional_crit_rate')
+      s_acr = skill.get_attribute('crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.05)
-      skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+      skill.update_attribute('crit_rate', s_acr + 0.10)
     elif skill.get_attribute('identity_type') == "Rifle":
       s_dm = skill.get_attribute('damage_multiplier') 
       skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0476)
@@ -163,9 +163,9 @@ def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):
         skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.0476)
       else: 
         s_dm = skill.get_attribute('damage_multiplier') 
-        s_acr = skill.get_attribute('additional_crit_rate')
+        s_acr = skill.get_attribute('crit_rate')
         skill.update_attribute('damage_multiplier', s_dm * 1.05)
-        skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+        skill.update_attribute('crit_rate', s_acr + 0.10)
 
 def peace_maker_3(character: CharacterLayer, skill: Skill, buff: Buff):  
     if skill.get_attribute('identity_type') == "Handgun":
@@ -173,9 +173,9 @@ def peace_maker_3(character: CharacterLayer, skill: Skill, buff: Buff):
       character.update_attribute('attack_speed', c_as + 0.16)
     elif skill.get_attribute('identity_type') == "Shotgun":
       s_dm = skill.get_attribute('damage_multiplier') 
-      s_acr = skill.get_attribute('additional_crit_rate')
+      s_acr = skill.get_attribute('crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
-      skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+      skill.update_attribute('crit_rate', s_acr + 0.10)
     elif skill.get_attribute('identity_type') == "Rifle":
       s_dm = skill.get_attribute('damage_multiplier') 
       skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.1304)
@@ -187,23 +187,23 @@ def peace_maker_3(character: CharacterLayer, skill: Skill, buff: Buff):
         skill.update_attribute('damage_multiplier', s_dm * 1.10 * 1.1304)
       else: 
         s_dm = skill.get_attribute('damage_multiplier') 
-        s_acr = skill.get_attribute('additional_crit_rate')
+        s_acr = skill.get_attribute('crit_rate')
         skill.update_attribute('damage_multiplier', s_dm * 1.05)
-        skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+        skill.update_attribute('crit_rate', s_acr + 0.10)
       
 # 사냥의시간 각인
 def time_to_hunt_1(character: CharacterLayer, skill: Skill, buff: Buff):  
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.22)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.22)
 
 def time_to_hunt_3(character: CharacterLayer, skill: Skill, buff: Buff):  
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.45)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.45)
      
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.10)
     
 # 퀵 스텝 공이속 버프
 def speed_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):

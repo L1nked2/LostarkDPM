@@ -29,7 +29,34 @@ eDPS info:  [32329532.0, 8.0]
 ##### Done Initialization of BuffsManager #####
 ##### Done Initialization of SkillsManager #####
 LostArkDpmSimulator is now ready to run
-target_character: character_aeromancer_gale_rage.json
+target_character: character_aeromancer_gale_rage_dom.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 15878030
+Nuking_W/O_Awaking_Short_DPS: 30093828
+Nuking_W/O_Awaking_Long_DPS: 25481289
+Nuking_DPS: 22428080
+DPCT_by_Percentage: 24428641.617
+Idle_Ratio: 10.4 %
+Idle_Score: 98.84
+Delay_Score: 1.053
+Delay_Score_by_Percentage: 1.217
+Total_Damage: 24055215907
+Elapsed_Time: 1515.01 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [334, 33], 'jm': [168, 43]}
+==========================
+Damage_Details: {'나르가의 칼날': 340930315, '돌개바람': 490659781, '소용돌이': 2193022142, '여우비 활성화': 0, '펼치기': 810389556, '칼바람': 5519992383, 'sunshower_damage|여우비 활성화': 870293713, '내려찍기': 344332289, '바람송곳': 5907746083, '출혈|None': 718042118, '몰아치기': 4069765012, '회오리 걸음': 2790042515}
+Delay_Statistics: {'나르가의 칼날': 3.889, '돌개바람': 0.479, '소용돌이': 0.658, '여우비 활성화': 0.537, '펼치기': 0.665, '칼바람': 1.471, '내려찍기': 0.593, '바람송곳': 1.638, '몰아치기': 1.262, '회오리 걸음': 0.928}
+Nuking_W/O_Awaking_Cycle_Short: [('칼바람', 51064969), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('sunshower_damage|여우비 활성화', 1097639), ('바람송곳', 55363338), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('펼치기', 2627973), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('몰아치기', 32821409), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('회오리 걸음', 27773797), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639)]
+Nuking_W/O_Awaking_Cycle_Long: [('칼바람', 51064969), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('sunshower_damage|여우비 활성화', 1097639), ('바람송곳', 55363338), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('펼치기', 2627973), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('몰아치기', 32821409), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('회오리 걸음', 27773797), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('돌개바람', 3173344), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('소용돌이', 14216410), ('펼치기', 2627973), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639)]
+Nuking_Cycle: [('돌개바람', 2971084), ('소용돌이', 13310293), ('여우비 활성화', 0), ('펼치기', 2627973), ('칼바람', 51064969), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('sunshower_damage|여우비 활성화', 1097639), ('바람송곳', 55363338), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('펼치기', 2627973), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('몰아치기', 32821409), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1088488), ('회오리 걸음', 27773797), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('돌개바람', 3173344), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('소용돌이', 14216410), ('펼치기', 2627973), ('출혈|None', 537168), ('sunshower_damage|여우비 활성화', 1097639), ('내려찍기', 1018214), ('출혈|None', 502931)]
+eDPS info:  [25657832.73809524, 8.4]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_aeromancer_gale_rage_hal.json
 ==========================
 DPS stabilized, terminating simulation
 Actual_DPS: 16721784

@@ -27,11 +27,11 @@ ENGRAVINGS = {
   'Hell': [('additional_damage', lambda x: x - 0.30)],
   'Synergy_Crit_A': [('crit_rate', lambda x: x + 0.10)],
   'Synergy_Crit_B': [('crit_rate', lambda x: x + 0.18)],
-  'Synergy_Damage': [('damage_multiplier', lambda x: x * 1.06)],
+  'Synergy_Damage': [('character_damage_multiplier', lambda x: x * 1.06)],
   'Synergy_Defense_Reduction': [('static_buff_queue', lambda x: x + ['Synergy_Defense_Reduction'])],
   'Synergy_Head_Back': [('static_buff_queue', lambda x: x + ['Synergy_Head_Back'])],
-  'Card_세구_18': [('damage_multiplier', lambda x: x * 1.07)],
-  'Card_세구_30': [('damage_multiplier', lambda x: x * 1.15)],
+  'Card_세구_18': [('character_damage_multiplier', lambda x: x * 1.07)],
+  'Card_세구_30': [('character_damage_multiplier', lambda x: x * 1.15)],
   '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x + 0.08)],
   '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x + 0.10)],
   '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
@@ -39,9 +39,9 @@ ENGRAVINGS = {
   ####### 공통각인 #######
   ## Static ##
   #원한
-  'Grudge_1': [('damage_multiplier', lambda x: x * 1.04)],
-  'Grudge_2': [('damage_multiplier', lambda x: x * 1.10)],
-  'Grudge_3': [('damage_multiplier', lambda x: x * 1.20)],
+  'Grudge_1': [('character_damage_multiplier', lambda x: x * 1.04)],
+  'Grudge_2': [('character_damage_multiplier', lambda x: x * 1.10)],
+  'Grudge_3': [('character_damage_multiplier', lambda x: x * 1.20)],
   #저주받은인형
   'Cursed_Doll_1': [('additional_attack_power', lambda x: x + 0.03)],
   'Cursed_Doll_2': [('additional_attack_power', lambda x: x + 0.08)],
@@ -51,19 +51,19 @@ ENGRAVINGS = {
   'Spirit_Absorption_2': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08)],
   'Spirit_Absorption_3': [('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #예리한둔기
-  'Keen_Blunt_Weapon_1': [('crit_damage', lambda x: x + 0.10), ('damage_multiplier', lambda x: x * 0.98)],
-  'Keen_Blunt_Weapon_2': [('crit_damage', lambda x: x + 0.25), ('damage_multiplier', lambda x: x * 0.98)],
-  'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('damage_multiplier', lambda x: x * 0.98)],
+  'Keen_Blunt_Weapon_1': [('crit_damage', lambda x: x + 0.10), ('character_damage_multiplier', lambda x: x * 0.98)],
+  'Keen_Blunt_Weapon_2': [('crit_damage', lambda x: x + 0.25), ('character_damage_multiplier', lambda x: x * 0.98)],
+  'Keen_Blunt_Weapon_3': [('crit_damage', lambda x: x + 0.50), ('character_damage_multiplier', lambda x: x * 0.98)],
   #아드레날린
   'Adrenaline_1': [('additional_attack_power', lambda x: x + 0.018), ('crit_rate', lambda x: x + 0.05)],
   'Adrenaline_2': [('additional_attack_power', lambda x: x + 0.036), ('crit_rate', lambda x: x + 0.10)],
   'Adrenaline_3': [('additional_attack_power', lambda x: x + 0.06), ('crit_rate', lambda x: x + 0.15)],
   #달인의저력
-  'Master\'s_Tenacity_3': [('damage_multiplier', lambda x: x * 1.16)],
+  'Master\'s_Tenacity_3': [('character_damage_multiplier', lambda x: x * 1.16)],
   #바리케이드 -> TODO: move to buff layer(class specific)
-  'Barricade_3': [('damage_multiplier', lambda x: x * 1.16)],
+  'Barricade_3': [('character_damage_multiplier', lambda x: x * 1.16)],
   #안정된상태
-  'Stabilised_Status_3': [('damage_multiplier', lambda x: x * 1.16)],
+  'Stabilised_Status_3': [('character_damage_multiplier', lambda x: x * 1.16)],
   #에테르포식자
   'Ether_Predator_1': [('additional_attack_power', lambda x: x + 0.06)],
   'Ether_Predator_3': [('additional_attack_power', lambda x: x + 0.15)],
@@ -106,8 +106,8 @@ ENGRAVINGS = {
   ####### 직업각인 #######
   #광기
   # TODO: move to berserker.py
-  'Mayhem_1': [('damage_multiplier', lambda x: x * 1.03), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
-  'Mayhem_3': [('damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
+  'Mayhem_1': [('character_damage_multiplier', lambda x: x * 1.03), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
+  'Mayhem_3': [('character_damage_multiplier', lambda x: x * 1.16), ('attack_speed', lambda x: x + 0.15), ('movement_speed', lambda x: x + 0.15)],
   #광전사의비기
   #처단자
   'Punisher_3': [('static_buff_queue', lambda x: x + ['Punisher_Enabled_3'])],
@@ -124,8 +124,8 @@ ENGRAVINGS = {
   #오의강화
   #초심
   # TODO: move to battlemaster.py
-  'First_Intention_1': [('damage_multiplier', lambda x: x * 1.16)],
-  'First_Intention_3': [('damage_multiplier', lambda x: x * 1.32)],
+  'First_Intention_1': [('character_damage_multiplier', lambda x: x * 1.16)],
+  'First_Intention_3': [('character_damage_multiplier', lambda x: x * 1.32)],
   #극의:체술
   'Taijutsu_3': [('static_buff_queue', lambda x: x + ['Taijutsu_3'])],
   #충격단련
@@ -213,23 +213,23 @@ ARTIFACT_TABLE = {
   #구원
   '구원_6_1': [('additional_damage', lambda x: x + 0.42),
                ('attack_speed', lambda x: x + 0.10),
-               ('damage_multiplier', lambda x: x * 1.05)],
+               ('character_damage_multiplier', lambda x: x * 1.05)],
   '구원_6_2': [('additional_damage', lambda x: x + 0.54),
                ('attack_speed', lambda x: x + 0.10),
-               ('damage_multiplier', lambda x: x * 1.05)],
+               ('character_damage_multiplier', lambda x: x * 1.05)],
   '구원_6_3': [('additional_damage', lambda x: x + 0.63),
                ('attack_speed', lambda x: x + 0.10),
-               ('damage_multiplier', lambda x: x * 1.06)],
+               ('character_damage_multiplier', lambda x: x * 1.06)],
   #사멸
   '사멸_6_1': [('static_buff_queue', lambda x: x + ['Entropy_Set_1'])],
   '사멸_6_2': [('static_buff_queue', lambda x: x + ['Entropy_Set_2'])],
   '사멸_6_3': [('static_buff_queue', lambda x: x + ['Entropy_Set_3'])],
   #환각
-  '환각_6_1': [('damage_multiplier', lambda x: x * 1.25),
+  '환각_6_1': [('character_damage_multiplier', lambda x: x * 1.25),
                ('crit_rate', lambda x: x + 0.20)],
-  '환각_6_2': [('damage_multiplier', lambda x: x * 1.29),
+  '환각_6_2': [('character_damage_multiplier', lambda x: x * 1.29),
                ('crit_rate', lambda x: x + 0.25)],
-  '환각_6_3': [('damage_multiplier', lambda x: x * 1.32),
+  '환각_6_3': [('character_damage_multiplier', lambda x: x * 1.32),
                ('crit_rate', lambda x: x + 0.28)],
   #2악4구
   '2악4구_1': [('attack_speed', lambda x: x + 0.10), ('static_buff_queue', lambda x: x + ['Nig2_Sal4_Set_1'])],

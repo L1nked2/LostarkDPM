@@ -1,7 +1,6 @@
 """
 simple timer class for simulator
 """
-from ..dynamic.constants import *
 
 DEFAULT_MAX_TICK = 360000
 

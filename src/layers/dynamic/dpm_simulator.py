@@ -3,7 +3,7 @@ import math
 from re import T
 from itertools import compress
 from ..static.character_layer import CharacterLayer
-from ..static.timer import SimpleTimer, DEFAULT_MAX_TICK
+from ..core.timer import SimpleTimer, DEFAULT_MAX_TICK
 from .skill import Skill
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
@@ -141,15 +141,14 @@ class DpmSimulator:
         if self.verbose > 0:
           print(f'===idle streak ended on {ticks_to_seconds(self.timer.elapsed_tick-1)}s and took {ticks_to_seconds(idle_streak)}s===')
     
-    
-
   def _freeze_character(self):
     self.current_character = self.base_character.copy()
   
   def _calc_skill_damage(self, skill: Skill):
+    res_pack = ResourcePacker([self.current_character, skill])
     self.buffs_manager.apply_stat_buffs(self.current_character, skill)
     dmg_stats = self.current_character.extract_dmg_stats()
-    damage = round(skill.calc_damage(**dmg_stats))
+    damage = round(skill.calc_damage(res_pack))
     # print damage, skill, buff details if verbose is set
     if self.verbose > 1:
       print(dmg_stats)

@@ -4,15 +4,15 @@ Basic skill class
 
 import copy
 import warnings
-from .utils import seconds_to_ticks, ticks_to_seconds
 #from src.layers.utils import crit_to_multiplier, defense_reduction_to_multiplier
-from src.layers.core.term_base import TermBase
+from .term_base import TermBase, SequentialTerms
+from .utils import ResourcePacker, seconds_to_ticks, ticks_to_seconds
 
 DEFAULT_PRIORITY = 10
 MAX_PRIORITY = 32
 
 
-class NaiveSkill:
+class SkillBase:
     def __init__(self, name:str, class_name:str, default_damage:int=0,
                   default_coefficient:float=0, cooldown:int=0,
                   triggered_actions=None, terms:list[TermBase]=list(), **kwargs):
@@ -27,7 +27,7 @@ class NaiveSkill:
           self._triggered_actions = list()
         else:
           self._triggered_actions = triggered_actions
-        self._terms = terms
+        self._seq_terms = SequentialTerms(terms)
         self._priority = DEFAULT_PRIORITY
         self._buff_applied = False
     
@@ -37,6 +37,14 @@ class NaiveSkill:
     def _validate_skill(self):
         if self._default_damage < 0 or self.default_coefficient < 0:
             warnings.warn("Damage and coefficient cannot be negative", UserWarning)
+    
+    def _is_skill_available(self):
+        if not self._remaining_cooldown <= 0:
+            warnings.warn(f"Damage calculation before cooldown finished, check skill {self.name}", UserWarning)
+            return False
+        if not self._buff_applied:
+            warnings.warn("Damage calculation before buff applied", UserWarning)
+        return True
         
     def _refresh_skill(self):
         warnings.warn("refresh skill method not defined", UserWarning)
@@ -66,7 +74,6 @@ class NaiveSkill:
     @_setter_wrapper
     def default_damage(self, value: int):
         self._default_damage = max(0, value)
-
 
     # coefficient
     @property
@@ -126,7 +133,7 @@ class NaiveSkill:
     
     # check dimension of term and given arguments
     def _check_args_dim(self, args:list[list]):
-        if len(args) == len(self._terms):
+        if len(args) == len(self._seq_terms):
             return True
         else:
             return False
@@ -140,25 +147,18 @@ class NaiveSkill:
         self._buff_applied = False
         self._actual_cooldown = self._base_cooldown
 
-    # TODO: change multipliers as plugin
-    def calc_damage(self, attack_power:int, args_all:list[list]):
-        if not self._remaining_cooldown <= 0:
-            warnings.warn(f"Damage calculation before cooldown finished, check skill {self.name}", UserWarning)
-        if not self._buff_applied:
-            warnings.warn("Damage calculation before buff applied", UserWarning)
-        if not self._check_args_dim(args_all):
-            raise AttributeError(f'Given arguments\' dimension does not match with num of terms')
-        calculated_terms:list[float] = list()
-        for term, args in zip(self._terms, *args_all):
-            calculated_terms[term.name] = term.get_multiplier(*args)
-        damage = self.default_damage + attack_power * self.default_coefficient
-        for calculated_term in calculated_terms:
-            damage *= calculated_term
+    # calculate damage
+    def calc_damage(self, res_pack:ResourcePacker):
+        assert self._is_skill_available()
+        calculated_terms = self._seq_terms.iterate_terms(res_pack)
+        damage = 1.0
+        for multiplier in calculated_terms:
+            damage *= multiplier
         return damage
 
     def print_skill_info(self):
-        targets = [self._class_name, self._name]
-        for term in self._terms:
+        targets = [self._name, self._class_name]
+        for term in self._seq_terms._terms:
             targets.append(term.name)
         print(f'{targets}')
 

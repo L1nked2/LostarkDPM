@@ -30,24 +30,23 @@ import copy
 import warnings
 import src.layers.dynamic.constants as constants
 from src.layers.core.utils import seconds_to_ticks
-from src.layers.utils import crit_to_multiplier, defense_reduction_to_multiplier
-from ..core.skill_base import NaiveSkill
+from ..core.utils import ResourcePacker
+from ..core.skill_base import SkillBase
 from .common_term import *
 
 DEFAULT_PRIORITY = 10
 SKILL_TYPES = ['Common', 'Combo', 'Chain', 'Point', 'Holding_A', 'Holding_B', 'Casting', 'Charge']
 
 
-class Skill(NaiveSkill):
+class Skill(SkillBase):
     def __init__(self, class_name, name, default_damage=0,
                   skill_type=None, identity_type=None, cooldown=0,
                   common_delay=0, type_specific_delay=0,
                   head_attack=False, back_attack=False,
                   level=12, default_coefficient=0, 
                   triggered_actions=None, **kwargs):
-        terms = [CommonTerm.crit_term(), CommonTerm.defense_term()]
+        terms = [CommonTerm.base_damage_term(), CommonTerm.crit_term(), CommonTerm.defense_term(), CommonTerm.total_multiplier_term()]
         super().__init__(name, class_name, default_damage, default_coefficient, cooldown, triggered_actions, terms, **kwargs)
-        # TODO: property
         self.level = level
         if default_coefficient <= 0:
           self._default_coefficient = self.default_damage * constants.SKILL_DAMAGE_COEFF[class_name][level]
@@ -76,15 +75,17 @@ class Skill(NaiveSkill):
         self._set_additional_variables(**kwargs)
         self._apply_jewel()
         self._apply_rune()
-
-        # validation
-        self._validate_skill()
+        
         # reset variables
         self.reset()
+        # validation
+        self._validate_skill()
+        
 
         # delay estimation
         self.prev_delay = self.actual_delay
     
+    # hardcopy method
     def copy(self):
         return copy.deepcopy(self)
     
@@ -94,9 +95,9 @@ class Skill(NaiveSkill):
         self.common_delay = self.base_common_delay
         self.type_specific_delay = self.base_type_specific_delay
         self.damage_multiplier = self.base_damage_multiplier
-        self.additional_crit_rate = self.base_additional_crit_rate
-        self.additional_crit_damage = self.base_additional_crit_damage
-        self.additional_defense_reduction_rate = self.base_defense_reduction_rate
+        self.crit_rate = self.base_additional_crit_rate
+        self.crit_damage = self.base_additional_crit_damage
+        self.defense_reduction_rate = self.base_defense_reduction_rate
         self._refresh_skill()
 
     def _set_additional_variables(self, **kwargs):
@@ -137,6 +138,9 @@ class Skill(NaiveSkill):
         if self.jewel_cooldown_level < 0 or self.jewel_damage_level < 0:
             warnings.warn("Jewel level cannot be negative", UserWarning)
         #TODO: check skill identity_type is in predefined identity types in specific class.py
+    
+    def _is_skill_available(self):
+        return super()._is_skill_available()
         
     def _refresh_skill(self):
         self.actual_delay = self.common_delay + self.type_specific_delay
@@ -189,17 +193,9 @@ class Skill(NaiveSkill):
     
     def update_remaining_cooldown(self, function):
         self._remaining_cooldown = max(0, function(self._remaining_cooldown))
-
-    # TODO: change multipliers as plugin
-    def calc_damage(self, attack_power, crit_rate, crit_damage, total_multiplier):
-        if not self._remaining_cooldown <= 0:
-          warnings.warn(f"Damage calculation before cooldown finished, check skill {self.name}", UserWarning)
-        if not self._buff_applied:
-          warnings.warn("Damage calculation before buff applied", UserWarning)
-        crit_multiplier = crit_to_multiplier(crit_rate + self.additional_crit_rate, crit_damage + self.additional_crit_damage)
-        defense_multiplier = defense_reduction_to_multiplier(self.additional_defense_reduction_rate)
-        damage = ((self.default_damage + attack_power * self.default_coefficient)
-                   * self.damage_multiplier * crit_multiplier * defense_multiplier * total_multiplier)
+    
+    def calc_damage(self, res_pack:ResourcePacker):
+        damage = super().calc_damage(res_pack)
         return damage
     
     def calc_delay(self, attack_speed):

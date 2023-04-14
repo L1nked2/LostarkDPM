@@ -170,8 +170,8 @@ def persona(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 방깎 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)
 
 # 디스토션 순풍
 def tailwind(character: CharacterLayer, skill: Skill, buff: Buff):

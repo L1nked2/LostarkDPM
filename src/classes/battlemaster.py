@@ -157,8 +157,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 용포 치적 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-  s_acr = skill.get_attribute('additional_crit_rate')
-  skill.update_attribute('additional_crit_rate', s_acr + 0.18)
+  s_acr = skill.get_attribute('crit_rate')
+  skill.update_attribute('crit_rate', s_acr + 0.18)
 
 # 바속 공이속 시너지
 def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):

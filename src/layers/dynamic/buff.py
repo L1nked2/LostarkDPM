@@ -49,9 +49,9 @@ class DamageBuff(Buff):
     def calc_damage(self, character: CharacterLayer, dummy_skill: Skill, current_tick) -> int:
         damage_value = 0
         attack_power = character.actual_attack_power
-        crit_rate = character.actual_crit_rate + dummy_skill.additional_crit_rate
-        crit_damage = character.crit_damage + dummy_skill.additional_crit_damage
-        defense_reduction_rate = dummy_skill.additional_defense_reduction_rate
+        crit_rate = character.actual_crit_rate + dummy_skill.crit_rate
+        crit_damage = character.crit_damage + dummy_skill.crit_damage
+        defense_reduction_rate = dummy_skill.defense_reduction_rate
         total_multiplier = character.total_multiplier * dummy_skill.damage_multiplier
         tick_diff = current_tick - self.last_tick
         crit_multiplier = crit_to_multiplier(crit_rate, crit_damage)

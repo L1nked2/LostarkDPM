@@ -207,10 +207,10 @@ def magic_release(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 점화 버프
 def igniter_3(character: CharacterLayer, skill: Skill, buff: Buff):
-  s_acr = skill.get_attribute('additional_crit_rate')
-  s_acd = skill.get_attribute('additional_crit_damage')
-  skill.update_attribute('additional_crit_rate', s_acr + 0.25)
-  skill.update_attribute('additional_crit_damage', s_acd + 0.50)
+  s_acr = skill.get_attribute('crit_rate')
+  s_acd = skill.get_attribute('crit_damage')
+  skill.update_attribute('crit_rate', s_acr + 0.25)
+  skill.update_attribute('crit_damage', s_acd + 0.50)
 
 # 환류 버프
 def reflux_3(character: CharacterLayer, skill: Skill, buff: Buff):

@@ -35,6 +35,10 @@ class StatLayer:
         else:
             raise_attribute_error('StatLayer','missing field in combat_stat')
     
+    @property
+    def attack_power(self):
+        return self.actual_attack_power
+    
     def _calc_attack_power(self):
         return (self.stat * self.weapon_power / 6.0) ** 0.5
 
@@ -46,7 +50,7 @@ class StatLayer:
         # set these terms in bottom layer first, and run refresh_character_layer()
         self.additional_attack_power = 0.0  # 추가 공격력(저받&질증&아드&에포)
         self.additional_damage = DEFAULT_ADDITIONAL_DAMAGE  # 추가피해(equipment(구원,악몽,갈망,파괴), 무품100 -> 0.3 default)
-        self.damage_multiplier = 1.00  # 피해증가
+        self.character_damage_multiplier = 1.00  # 피해증가
         # crit
         crit = self.combat_stat['crit']
         self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
@@ -104,7 +108,7 @@ class StatLayer:
         character_detail = dict()
         target_detail = [
             # base attack terms
-            'attack_power_base', 'additional_attack_power', 'additional_damage', 'damage_multiplier', 'static_buff_queue',
+            'attack_power_base', 'additional_attack_power', 'additional_damage', 'character_damage_multiplier', 'static_buff_queue',
             # useful terms
             'actual_attack_power', 'total_multiplier', 'actual_crit_rate', 'actual_attack_speed', 'actual_movement_speed',
             # crit terms
@@ -126,7 +130,7 @@ class StatLayer:
     # scale some stats
     def _calc_useful_stats(self):
         self.actual_attack_power = self.attack_power_base * (1 + self.additional_attack_power)
-        self.total_multiplier = (1 + self.additional_damage) * self.damage_multiplier
+        self.total_multiplier = (1 + self.additional_damage) * self.character_damage_multiplier
         # crit_rate cannot exceed 1
         self.actual_crit_rate = min(self.crit_rate, 1.0)
         # movement_speed, attack_speed, cooldown_reduction cannot exceed max values

@@ -77,12 +77,12 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 # 분노의 망치 버프
 def rage_hammer_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Gravity_Release':
-      s_acr = skill.get_attribute('additional_crit_rate')
-      s_acd = skill.get_attribute('additional_crit_damage')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.15)
-      skill.update_attribute('additional_crit_damage', s_acd + 0.45)
+      s_acr = skill.get_attribute('crit_rate')
+      s_acd = skill.get_attribute('crit_damage')
+      skill.update_attribute('crit_rate', s_acr + 0.15)
+      skill.update_attribute('crit_damage', s_acd + 0.45)
 
 # 방감 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)

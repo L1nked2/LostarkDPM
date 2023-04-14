@@ -1,0 +1,15 @@
+{
+  "character_settings": [
+    {
+      "class_name": "aeromancer",
+      "upgrade": 25,
+      "crit": 800,
+      "specialization": 0,
+      "swiftness": 1400,
+      "engravings": ["Grudge_3", "Raid_Captain_3", "Gale_Rage_3", "Hit_Master_3", "Adrenaline_3", "Awakening_1"],
+      "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
+      "artifact_set": ["지배_6_3"],
+      "skill_set": "./db/skills/aeromancer_gale_rage.json"
+    }
+  ]
+}

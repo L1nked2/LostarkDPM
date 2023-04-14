@@ -29,10 +29,11 @@ character_striker_deathblow_e2.json,"스트라이커(일격필살, 2오의 방천격)","Strike
 character_soulfist_energy_overflow.json,기공사(세맥타통),Soulfist(energy overflow),17122778,36915034,32409111,34706620,36325597.706422016,10.9
 character_blaster_firepower_enhancement.json,블래스터(화력 강화),Artillerist(firepower enhancement),16769338,31628274,30445911,30700372,30445911.375,8.0
 character_aeromancer_drizzle.json,기상술사(이슬비),Aeromancer(drizzle),16732150,41305057,32329532,34304359,32329532.0,8.0
-character_aeromancer_gale_rage.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),16721784,27596264,26643913,23659885,26643912.875,8.0
+character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),16721784,27596264,26643913,23659885,26643912.875,8.0
 character_scouter_arthetinean_skill.json,"스카우터(아르데타인의 기술, 422)","Machinist(arthetinean skill, 422)",16103841,30101083,29578589,28619742,29578589.0,8.0
 character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),15983836,26309040,20544011,21106458,21916988.61788618,12.3
 character_gunslinger_time_to_hunt.json,건슬링어(사냥의 시간),Gunslinger(time to hunt),15967981,36783918,33446881,31909349,34678135.61797753,8.9
+character_aeromancer_gale_rage_dom.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),15878030,30093828,25481289,22428080,25657832.73809524,8.4
 character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),15263119,29791406,25201634,25628673,25201634.5,8.0
 character_sorceress_igniter.json,소서리스(점화),Sorceress(igniter),15048038,75457994,57214081,45989441,57214080.625,8.0
 character_demonic_demonic_impulse.json,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),14942728,22196892,19902671,28510659,19902671.125,8.0
