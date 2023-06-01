@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 from collections import deque
-from .constants import ticks_to_seconds, seconds_to_ticks
+from src.layers.core.utils import ticks_to_seconds, seconds_to_ticks
 
 STABILIZATION_THRESHOLD = 0.01 / 100 # 0.01% threshold
 MINIMUM_RUNNING_SECONDS = 1500

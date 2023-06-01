@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -130,13 +130,13 @@ def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 레더 치적 버프
 def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.332)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.332)
 
 # 체소 치적 버프
 def crit_buff_2(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.332)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.332)
 
 # 피증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

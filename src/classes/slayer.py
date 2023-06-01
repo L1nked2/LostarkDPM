@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks, ticks_to_seconds
+from src.layers.core.utils import seconds_to_ticks, ticks_to_seconds
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 기본 폭주 지속 시간
@@ -164,9 +164,9 @@ def berserk(character: CharacterLayer, skill: Skill, buff: Buff):
   s = character.get_attribute('specialization')
   s_damage_on_berserk_multiplier = (1 + s * SPEC_COEF_1)
   s_dm = skill.get_attribute('damage_multiplier')
-  s_acr = skill.get_attribute('additional_crit_rate')
+  s_acr = skill.get_attribute('crit_rate')
   skill.update_attribute('damage_multiplier', s_dm * s_damage_on_berserk_multiplier)
-  skill.update_attribute('additional_crit_rate', s_acr + 0.30)
+  skill.update_attribute('crit_rate', s_acr + 0.30)
   # 공이속 파트
   c_ms = character.get_attribute('movement_speed')
   c_as = character.get_attribute('attack_speed')
@@ -180,14 +180,14 @@ def punisher_3(character: CharacterLayer, skill: Skill, buff: Buff):
   skill.update_attribute('damage_multiplier', s_dm * 1.25)
   # 블러드러스트 치적 증가
   if skill.get_attribute('name') == '블러드러스트':
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.20)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.20)
 
 # 포식자
 def devourer_3(character: CharacterLayer, skill: Skill, buff: Buff):
   # 폭주시 치피증 파트
-  s_acd = skill.get_attribute('additional_crit_damage')
-  skill.update_attribute('additional_crit_damage', s_acd + 0.40)
+  s_acd = skill.get_attribute('crit_damage')
+  skill.update_attribute('crit_damage', s_acd + 0.40)
 
 # 와일드 스톰프 속공 준비 공속 버프
 def swift_attck_prep(character: CharacterLayer, skill: Skill, buff: Buff):

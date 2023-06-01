@@ -1,45 +1,18 @@
 import importlib
 import math
 from re import T
+from itertools import compress
 from ..static.character_layer import CharacterLayer
+from ..core.timer import SimpleTimer, DEFAULT_MAX_TICK
 from .skill import Skill
 from .buff_manager import BuffManager
 from .skill_manager import SkillManager
 from .damage_history import DamageHistory, TIME_LINSPACE, EDPS_MIN_SECONDS, EDPS_MAX_SECONDS
-from .constants import *
+from ..core.utils import *
 
-DEFAULT_TICK_INTERVAL = 1
-MAX_TICK = 360000
-MAX_SECONDS = ticks_to_seconds(MAX_TICK)
 
-# simple timer class for simulator
-class SimpleTimer:
-  def __init__(self, max_tick=MAX_TICK, **kwargs):
-    self.max_tick = max_tick
-    self.elapsed_tick = 0
-    self.delay_tick = 0
-    self.idle_tick = 0
-  
-  def is_expired(self):
-    return self.elapsed_tick >= self.max_tick
-  
-  def increase_tick(self, tick=DEFAULT_TICK_INTERVAL, is_delay_tick=False, is_idle_tick=False):
-    # case1: character is using skill
-    if is_delay_tick:
-      self.delay_tick += tick
-    # case2: character is idle but skill is not available
-    elif is_idle_tick:
-      self.idle_tick += tick
-    self.elapsed_tick += tick
+MAX_SECONDS = ticks_to_seconds(DEFAULT_MAX_TICK)
 
-  def get_elapsed_tick(self):
-    return self.elapsed_tick
-
-  def get_delay_tick(self):
-    return self.delay_tick
-
-  def get_idle_tick(self):
-    return self.idle_tick
 
 # main simulator class
 class DpmSimulator:
@@ -54,7 +27,8 @@ class DpmSimulator:
     # verbose 2: print damage info, damage stats, skill info, buff info
     self.verbose = verbose
     # timer
-    self.timer = SimpleTimer(max_tick=seconds_to_ticks(max_seconds), **kwargs)
+    self.tick_types = ['delay', 'idle']
+    self.timer = SimpleTimer(max_tick=seconds_to_ticks(max_seconds), tick_types=self.tick_types, **kwargs)
     # damage history manager
     self.damage_history = DamageHistory()
     # buff manager
@@ -81,7 +55,7 @@ class DpmSimulator:
 
   # main function for simulation
   def run_simulation(self):
-    while not self.timer.is_expired():
+    while not self.timer.is_expired:
       if self.damage_history.is_stablized():
         print("DPS stabilized, terminating simulation")
         break
@@ -103,12 +77,12 @@ class DpmSimulator:
     print(f'Nuking_W/O_Awaking_Long_DPS: {round(self.damage_history.max_nuking_dps_long)}')
     print(f'Nuking_DPS: {round(self.damage_history.max_nuking_dps_awakening)}')
     print(f'DPCT_by_Percentage: {round(self.dpct_by_percentage, 3)}')
-    print(f'Idle_Ratio: {round(self.timer.get_idle_tick() / self.timer.get_elapsed_tick() * 100, 2)} %')
+    print(f'Idle_Ratio: {round((self.timer.tick_counts["idle"]) / self.timer.elapsed_tick * 100, 2)} %')
     print(f'Idle_Score: {round(self.idle_score, 2)}')
     print(f'Delay_Score: {round(self.delay_score, 3)}')
     print(f'Delay_Score_by_Percentage: {round(self.delay_score_by_percentage, 3)}')
     print(f'Total_Damage: {self.damage_history.total_damage}')
-    print(f"Elapsed_Time: {ticks_to_seconds(self.timer.get_elapsed_tick())} s")
+    print(f"Elapsed_Time: {ticks_to_seconds(self.timer.elapsed_tick)} s")
     print(f'Rune_Ratio: {self.skills_manager.rune_ratio}')
   
   def print_damage_details(self):
@@ -140,50 +114,48 @@ class DpmSimulator:
       result.append((damage_info['name'], damage_info['damage_value']))
     print(f'Nuking_Cycle: {result}')
     result.clear()    
-  
-  def _update_idle_streak(self, is_character_available, is_skill_available):
-    # case1: character is using skill
-    if is_character_available == False:
-      self.idle_streak = 0
-    # case2: character is idle but skill is not available
-    elif is_skill_available == False:
-      self.idle_streak += DEFAULT_TICK_INTERVAL
-    # case3: skill is available, end idle streak
-    elif self.idle_streak > 0:
-      if self.verbose > 0:
-        print(f'idle streak ended with {ticks_to_seconds(self.idle_streak)}s')
-      self._update_idle_statistics(self.idle_streak)
-      self.idle_streak = 0
 
   def _main_loop(self):
     # synchronize tick
     self._sync_tick()
     # update character and skill availability from skills_manager
-    is_character_available, is_skill_available = self.skills_manager.is_next_cycle_available()
-    # update idle streak, ending streak if character finished idle state
-    self._update_idle_streak(is_character_available, is_skill_available)
+    state = self.skills_manager.is_next_cycle_available
+    tick_type_flag = [not state[0], state[0] and not state[1]]
+    current_tick_types = list(compress(self.tick_types, tick_type_flag))
+    self.timer.set_tick_types(current_tick_types)
     # check character and skill availability and use skill
-    if is_character_available and is_skill_available:
+    if all(state):
       self._use_skill()
     # calc damages from buffs
     self.buffs_manager.calc_damage_from_buffs(self.damage_history, self.skills_manager)
     # increase tick
-    self.timer.increase_tick(tick = DEFAULT_TICK_INTERVAL, is_delay_tick=(not is_character_available), is_idle_tick=(not is_skill_available))
-
+    streak_info = self.timer.increase_tick()
+    #print(current_tick_types, streak_info)
+    # update idle streak, ending streak if character finished idle state
+    if self.verbose > 0 and self.timer.tick_streaks['idle'] == 1:
+      print(f'===idle streak started on {ticks_to_seconds(self.timer.elapsed_tick)}s===')
+    if 'idle' in streak_info.keys():
+      idle_streak = streak_info['idle'] - 1
+      if idle_streak > 0:
+        self._update_idle_statistics(idle_streak)
+        if self.verbose > 0:
+          print(f'===idle streak ended on {ticks_to_seconds(self.timer.elapsed_tick-1)}s and took {ticks_to_seconds(idle_streak)}s===')
+    
   def _freeze_character(self):
     self.current_character = self.base_character.copy()
   
   def _calc_skill_damage(self, skill: Skill):
+    res_pack = ResourcePacker([self.current_character, skill])
     self.buffs_manager.apply_stat_buffs(self.current_character, skill)
     dmg_stats = self.current_character.extract_dmg_stats()
-    damage = round(skill.calc_damage(**dmg_stats))
+    damage = round(skill.calc_damage(res_pack))
     # print damage, skill, buff details if verbose is set
     if self.verbose > 1:
       print(dmg_stats)
       skill.print_skill_info()
       self.buffs_manager.print_buffs()
     if self.verbose > 0:
-      print(f'{skill} dealt {damage} on {ticks_to_seconds(self.timer.get_elapsed_tick())}s')
+      print(f'{skill} dealt {damage} on {ticks_to_seconds(self.timer.elapsed_tick)}s')
     return damage
 
   def _update_skill_delay(self, skill: Skill):
@@ -202,13 +174,13 @@ class DpmSimulator:
     # handle triggered_actions
     self._handle_triggered_actions(target_skill)
     # block skill_manger until delay is over
-    self.skills_manager.block_until(self.timer.get_elapsed_tick() + delay)
+    self.skills_manager.block_until(self.timer.elapsed_tick + delay)
     # update average delay
     if delay > 0:
       self._update_delay_statistics(target_skill.name, delay)
     # register damage info
     is_awakening = bool(target_skill.identity_type == "Awakening")
-    self.damage_history.register_damage(target_skill.name, damage, delay, is_awakening, self.timer.get_elapsed_tick())
+    self.damage_history.register_damage(target_skill.name, damage, delay, is_awakening, self.timer.elapsed_tick)
     # reset skill to undo buffs
     target_skill.reset()
     self.used_skill_count += 1
@@ -225,8 +197,8 @@ class DpmSimulator:
     return
   
   def _sync_tick(self):
-    self.buffs_manager.update_tick(self.timer.get_elapsed_tick())
-    self.skills_manager.update_tick(self.timer.get_elapsed_tick())
+    self.buffs_manager.update_tick(self.timer.elapsed_tick)
+    self.skills_manager.update_tick(self.timer.elapsed_tick)
   
   def _update_delay_statistics(self, name, delay):
     delay = ticks_to_seconds(delay)

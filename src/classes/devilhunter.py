@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -81,8 +81,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
     elif skill.get_attribute('identity_type') == "Handgun":
-      s_acd = skill.get_attribute('additional_crit_damage')
-      skill.update_attribute('additional_crit_damage', s_acd + s_handgun_additional_crit_damage)
+      s_acd = skill.get_attribute('crit_damage')
+      skill.update_attribute('crit_damage', s_acd + s_handgun_additional_crit_damage)
     elif skill.get_attribute('identity_type') == 'Shotgun':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
@@ -98,5 +98,5 @@ def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_acr = skill.get_attribute('additional_crit_rate')
-    skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+    s_acr = skill.get_attribute('crit_rate')
+    skill.update_attribute('crit_rate', s_acr + 0.10)

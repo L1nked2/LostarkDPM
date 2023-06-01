@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -108,7 +108,7 @@ def finalize_skill(skill: Skill):
 def grant_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '페르소나 상태 진입':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.remaining_cooldown = 0
   skill_manager.apply_function(cooldown_reduction)
 
 # 페르소나 사용
@@ -119,7 +119,7 @@ def activate_persona(buff_manager: BuffManager, skill_manager: SkillManager, ski
 def deactivate_persona(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '어둠 게이지 체크':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.remaining_cooldown = 0
   skill_manager.apply_function(cooldown_reduction)
 
 # 방깎 시너지 등록
@@ -134,16 +134,14 @@ def activate_poison(buff_manager: BuffManager, skill_manager: SkillManager, skil
 def swoop_activation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Swoop':
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(1.9))
+      skill.remaining_cooldown = skill.remaining_cooldown - seconds_to_ticks(1.9)
   skill_manager.apply_function(cooldown_reduction)
 
 # 트랩 그림자 활성
 def shadow_activation(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('identity_type') == 'Shadow':
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(2.4))
+      skill.remaining_cooldown = skill.remaining_cooldown - seconds_to_ticks(2.4)
   skill_manager.apply_function(cooldown_reduction)
 
 # 디스토션 순풍 버프 등록
@@ -172,8 +170,8 @@ def persona(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 방깎 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)
 
 # 디스토션 순풍
 def tailwind(character: CharacterLayer, skill: Skill, buff: Buff):

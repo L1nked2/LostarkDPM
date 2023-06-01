@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 기본 변신 시간
@@ -176,5 +176,5 @@ def perfect_suppression_1(character: CharacterLayer, skill: Skill, buff: Buff):
 # 멈출 수 없는 충동 버프
 def demonic_impulse_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Demon':
-      s_acr = skill.get_attribute('additional_crit_rate')
-      skill.update_attribute('additional_crit_rate', s_acr + 0.3)
+      s_acr = skill.get_attribute('crit_rate')
+      skill.update_attribute('crit_rate', s_acr + 0.3)

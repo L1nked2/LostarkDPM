@@ -334,9 +334,9 @@ def head_attack(character: CharacterLayer, skill: Skill, buff: Buff):
 def back_attack(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('back_attack') == True:
       s_dm = skill.get_attribute('damage_multiplier')
-      s_acr = skill.get_attribute('additional_crit_rate')
+      s_acr = skill.get_attribute('crit_rate')
       skill.update_attribute('damage_multiplier', s_dm * 1.05)
-      skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+      skill.update_attribute('crit_rate', s_acr + 0.10)
 
 
 # Non-engraving buffs
@@ -347,8 +347,8 @@ def synergy_damage(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 방감 시너지
 def synergy_defense_reduction(character: CharacterLayer, skill: Skill, buff: Buff):
-    s_adrr = skill.get_attribute('additional_defense_reduction_rate')
-    skill.update_attribute('additional_defense_reduction_rate', s_adrr + 0.12)
+    s_adrr = skill.get_attribute('defense_reduction_rate')
+    skill.update_attribute('defense_reduction_rate', s_adrr + 0.12)
 
 # 헤드백 시너지
 def synergy_head_back(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -478,27 +478,27 @@ def entropy_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
 # 악몽(마나중독)
 def nightmare_set_addiction_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.15)
-    character.update_attribute('damage_multiplier', c_dm * 1.15)
+    character.update_attribute('character_damage_multiplier', c_dm * 1.15)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
       
 def nightmare_set_addiction_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.18)
-    character.update_attribute('damage_multiplier', c_dm * 1.18)
+    character.update_attribute('character_damage_multiplier', c_dm * 1.18)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
 def nightmare_set_addiction_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     character.update_attribute('additional_damage', c_ad + 0.20)
-    character.update_attribute('damage_multiplier', c_dm * 1.20)
+    character.update_attribute('character_damage_multiplier', c_dm * 1.20)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
@@ -562,19 +562,19 @@ def nig2_sal4_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
 # Engraving buffs
 # 돌격대장
 def raid_captain_1(character: CharacterLayer, skill: Skill, buff: Buff):
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     c_ams = character.get_attribute('actual_movement_speed')
-    character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.10))
+    character.update_attribute('character_damage_multiplier', c_dm * (1+(c_ams-1)*0.10))
 
 def raid_captain_2(character: CharacterLayer, skill: Skill, buff: Buff):
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     c_ams = character.get_attribute('actual_movement_speed')
-    character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.22))
+    character.update_attribute('character_damage_multiplier', c_dm * (1+(c_ams-1)*0.22))
 
 def raid_captain_3(character: CharacterLayer, skill: Skill, buff: Buff):
-    c_dm = character.get_attribute('damage_multiplier')
+    c_dm = character.get_attribute('character_damage_multiplier')
     c_ams = character.get_attribute('actual_movement_speed')
-    character.update_attribute('damage_multiplier', c_dm * (1+(c_ams-1)*0.45))
+    character.update_attribute('character_damage_multiplier', c_dm * (1+(c_ams-1)*0.45))
 
 # 슈퍼 차지
 def super_charge_1(character: CharacterLayer, skill: Skill, buff: Buff):

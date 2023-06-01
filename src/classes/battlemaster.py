@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks, ticks_to_seconds
+from src.layers.core.utils import seconds_to_ticks, ticks_to_seconds
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -157,8 +157,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 
 # 용포 치적 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-  s_acr = skill.get_attribute('additional_crit_rate')
-  skill.update_attribute('additional_crit_rate', s_acr + 0.18)
+  s_acr = skill.get_attribute('crit_rate')
+  skill.update_attribute('crit_rate', s_acr + 0.18)
 
 # 바속 공이속 시너지
 def synergy_2(character: CharacterLayer, skill: Skill, buff: Buff):

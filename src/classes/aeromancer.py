@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks, ticks_to_seconds
+from src.layers.core.utils import seconds_to_ticks, ticks_to_seconds
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 기본 여우비 지속 시간
@@ -196,16 +196,16 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     
 # 돌개바람 치적 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
-  s_acr = skill.get_attribute('additional_crit_rate')
-  skill.update_attribute('additional_crit_rate', s_acr + 0.10)
+  s_acr = skill.get_attribute('crit_rate')
+  skill.update_attribute('crit_rate', s_acr + 0.10)
 
 # 질풍노도
 def gale_rage_3(character: CharacterLayer, skill: Skill, buff: Buff):
   c_ms = character.get_attribute('movement_speed')
-  s_acr = skill.get_attribute('additional_crit_rate')
-  s_acd = skill.get_attribute('additional_crit_damage')
-  skill.update_attribute('additional_crit_rate', s_acr + 0.30 * (c_ms-1))
-  skill.update_attribute('additional_crit_damage', s_acd + 0.90 * (c_ms-1))
+  s_acr = skill.get_attribute('crit_rate')
+  s_acd = skill.get_attribute('crit_damage')
+  skill.update_attribute('crit_rate', s_acr + 0.30 * (c_ms-1))
+  skill.update_attribute('crit_damage', s_acd + 0.90 * (c_ms-1))
 
 # 이슬비
 def drizzle_3(character: CharacterLayer, skill: Skill, buff: Buff):

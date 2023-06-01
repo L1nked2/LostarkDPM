@@ -6,7 +6,7 @@ from src.layers.dynamic.buff_manager import BuffManager
 from src.layers.dynamic.skill_manager import SkillManager
 from src.layers.dynamic.skill import Skill
 from src.layers.dynamic.buff import Buff
-from src.layers.dynamic.constants import seconds_to_ticks
+from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
@@ -136,7 +136,7 @@ def finalize_skill(skill: Skill):
 def grant_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.remaining_cooldown = 0
   skill_manager.apply_function(cooldown_reduction)
 
 # 하이퍼 싱크 사용
@@ -148,9 +148,9 @@ def activate_hyper_sync(buff_manager: BuffManager, skill_manager: SkillManager, 
     buff_manager.register_buff(CLASS_BUFF_DICT['Evolutionary_Legacy_3'], skill_on_use)
   def cooldown_reduction(skill: Skill):
     if skill.get_attribute('name') == '하이퍼 싱크 변신해제':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.remaining_cooldown = 0
     if skill.get_attribute('identity_type') == 'Sync':
-      skill.update_attribute('remaining_cooldown', 0)
+      skill.remaining_cooldown = 0
   skill_manager.apply_function(cooldown_reduction)
     
 # 변신 해제
@@ -180,8 +180,7 @@ def evolutionary_legacy_action(buff_manager: BuffManager, skill_manager: SkillMa
   def cooldown_reduction(skill: Skill):
     if (skill.get_attribute('identity_type') == 'Sync' 
       and not(skill.get_attribute('name') == skill_on_use.get_attribute('name'))):
-      rc = skill.get_attribute('remaining_cooldown')
-      skill.update_attribute('remaining_cooldown', rc - seconds_to_ticks(0.5))
+      skill.remaining_cooldown = skill.remaining_cooldown - seconds_to_ticks(0.5)
   # 유산 버프 스택 증가함수
   def increase_legacy_buff_stack(buff: Buff):
     if buff.name == 'evolutionary_legacy' and buff.stack < 3:
