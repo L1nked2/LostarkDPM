@@ -540,21 +540,21 @@ def nightmare_set_boundless_3(character: CharacterLayer, skill: Skill, buff: Buf
 # 2악4구
 def nig2_sal4_set_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    character.update_attribute('additional_damage', c_ad + 0.14)
+    character.update_attribute('additional_damage', c_ad + 0.28)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.12)
       
 def nig2_sal4_set_2(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    character.update_attribute('additional_damage', c_ad + 0.18)
+    character.update_attribute('additional_damage', c_ad + 0.36)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.15)
 
 def nig2_sal4_set_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_ad = character.get_attribute('additional_damage')
-    character.update_attribute('additional_damage', c_ad + 0.21)
+    character.update_attribute('additional_damage', c_ad + 0.42)
     if skill.get_attribute('mana_cost') > 0:
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.17)
