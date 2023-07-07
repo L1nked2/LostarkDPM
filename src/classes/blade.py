@@ -10,9 +10,9 @@ from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 버스트 특화 계수
-SPEC_COEF_1 = 1 / 8.738 / 100
+SPEC_COEF_1 = 0.80 / 699
 # 아츠 쿨감 특화 계수
-SPEC_COEF_2 = 1 / 34.95 / 100
+SPEC_COEF_2 = 0.20 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {

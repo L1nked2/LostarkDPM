@@ -10,7 +10,7 @@ from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 충격 뎀증 특화 계수
-SPEC_COEF_1 = 1 / 17.475 / 100
+SPEC_COEF_1 = 0.40 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {

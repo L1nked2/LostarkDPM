@@ -15,11 +15,11 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 핸드건 치명타 피해량 특화 계수
-SPEC_COEF_1 = 1 / 9.32 / 100
+SPEC_COEF_1 = 0.75 / 699
 # 샷건 스킬 물/마방관 특화 계수
-SPEC_COEF_2 = 1 / 27.96 / 100
+SPEC_COEF_2 = 0.25 / 699
 # 라이플 스킬 피해량 특화 계수
-SPEC_COEF_3 = 1 / 27.96 / 100
+SPEC_COEF_3 = 0.25 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {

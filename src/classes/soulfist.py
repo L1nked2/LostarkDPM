@@ -11,9 +11,9 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 금강선공 증폭 특화 계수
-SPEC_COEF_1 = 1 / 46.6 / 100
+SPEC_COEF_1 = 0.15 / 699
 # 운기조식 시간 감소 특화 계수
-SPEC_COEF_2 = 1 / 23.3 / 100
+SPEC_COEF_2 = 0.30 / 699
 # 금강선공 유지 시간
 DEFUALT_HYPE_DURATION_1 = 90
 DEFUALT_HYPE_DURATION_2 = 40

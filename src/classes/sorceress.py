@@ -11,7 +11,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 마력 강화 및 마력 해방 속성 피해 효율 특화 계수
-SPEC_COEF_1 = 1 / 3.251 / 100
+SPEC_COEF_1 = 2.15 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

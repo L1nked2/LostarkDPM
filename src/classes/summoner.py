@@ -11,7 +11,7 @@ from src.layers.core.utils import seconds_to_ticks, ticks_to_seconds
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 고대 정령 스킬 피해량 특화 계수
-SPEC_COEF_1 = 1 / 8.2235 / 100
+SPEC_COEF_1 = 0.85 / 699
 # 슈르디 기본 지속 시간
 DEFAULT_SHURDI_DURATION = 20
 
