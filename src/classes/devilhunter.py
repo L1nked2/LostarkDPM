@@ -91,10 +91,10 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.40)
+      skill.update_attribute('damage_multiplier', s_dm * 1.50)
     elif skill.get_attribute('identity_type') == "Handgun":
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.85)
+      skill.update_attribute('damage_multiplier', s_dm * 1.75)
 
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

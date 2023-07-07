@@ -304,7 +304,10 @@ def hype_3_rs1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     character.update_attribute('attack_speed', c_as + 0.15 * s_hype_multiplier)
     s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * (1 + 0.70 * s_hype_multiplier))
+    skill.update_attribute('damage_multiplier', s_dm * (1 + 0.80 * s_hype_multiplier))
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.05)
 
 # 역천지체 3레벨
 def hype_3_rs3(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -315,7 +318,10 @@ def hype_3_rs3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     character.update_attribute('attack_speed', c_as + 0.15 * s_hype_multiplier)
     s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * (1 + 0.90 * s_hype_multiplier))
+    skill.update_attribute('damage_multiplier', s_dm * (1 + 1.00 * s_hype_multiplier))
+    if skill.get_attribute('identity_type') == 'Awakening':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.20)
 
 # 내공 방출 공증 버프
 def ap_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -339,6 +345,6 @@ def energy_overflow_1(character: CharacterLayer, skill: Skill, buff: Buff):
 
 def energy_overflow_3(character: CharacterLayer, skill: Skill, buff: Buff):
     s_dm = skill.get_attribute('damage_multiplier')
-    skill.update_attribute('damage_multiplier', s_dm * 1.15)
+    skill.update_attribute('damage_multiplier', s_dm * 1.18)
     
 

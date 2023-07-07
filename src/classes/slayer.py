@@ -13,10 +13,10 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 DEFAULT_BERSERK_TIME_LIMIT = 30
 
 # 폭주 상태 스킬 피해량 증가 특화 계수
-SPEC_COEF_1 = 1 / 69.90 / 100
+SPEC_COEF_1 = 10 / 699 / 100
 
 # 블러드러스트 스킬 피해량 증가 특화 계수
-SPEC_COEF_2 = 1 / 5.377 / 100
+SPEC_COEF_2 = 120 / 699 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

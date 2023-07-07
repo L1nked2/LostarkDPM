@@ -123,9 +123,8 @@ ENGRAVINGS = {
   #중력수련
   #오의강화
   #초심
-  # TODO: move to battlemaster.py
-  'First_Intention_1': [('character_damage_multiplier', lambda x: x * 1.16)],
-  'First_Intention_3': [('character_damage_multiplier', lambda x: x * 1.32)],
+  'First_Intention_1': [('static_buff_queue', lambda x: x + ['First_Intention_1'])],
+  'First_Intention_3': [('static_buff_queue', lambda x: x + ['First_Intention_3'])],
   #극의:체술
   'Taijutsu_3': [('static_buff_queue', lambda x: x + ['Taijutsu_3'])],
   #충격단련
