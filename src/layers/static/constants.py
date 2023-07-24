@@ -72,7 +72,7 @@ ENGRAVINGS = {
   #안정된상태
   'Stabilised_Status_3': [('character_damage_multiplier', lambda x: x * 1.16)],
   #에테르포식자
-  'Ether_Predator_1': [('additional_attack_power', lambda x: x + 0.04)],
+  'Ether_Predator_1': [('additional_attack_power', lambda x: x + 0.06)],
   'Ether_Predator_3': [('additional_attack_power', lambda x: x + 0.15)],
   #정밀단도
   'Precise_Dagger_3': [('crit_rate', lambda x: x + 0.20), ('crit_damage', lambda x: x - 0.12)],
