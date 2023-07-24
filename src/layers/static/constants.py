@@ -35,7 +35,14 @@ ENGRAVINGS = {
   '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x + 0.08)],
   '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x + 0.10)],
   '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
-
+  '만찬와인': [('attack_speed', lambda x: x + 0.035), ('movement_speed', lambda x: x + 0.065)],
+  '만찬와인_2': [('attack_speed', lambda x: x + 0.065), ('movement_speed', lambda x: x + 0.035)],
+  
+  '달인': [('crit_rate', lambda x: x + 0.07), ('additional_damage', lambda x: x + 0.085), ('crit_damage', lambda x: x + 0.07)],
+  '달인_추피': [('crit_rate', lambda x: x + 0.07), ('additional_damage', lambda x: x + 0.085), ('additional_damage', lambda x: x + 0.031)],
+  '회심': [('crit_damage_multiplier', lambda x: x*1.12), ('crit_damage', lambda x: x + 0.07)],
+  '회심_추피': [('crit_damage_multiplier', lambda x: x*1.12), ('additional_damage', lambda x: x + 0.031)],
+  
   ####### 공통각인 #######
   ## Static ##
   #원한

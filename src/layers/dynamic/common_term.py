@@ -17,13 +17,14 @@ def base_damage_term(default_damage, attack_power, default_coefficient, damage_m
 """
 Crit stats to multiplier helper
 """
-def crit_to_multiplier(crit_rate, crit_damage):
+def crit_to_multiplier(crit_rate, crit_damage, crit_damage_multiplier):
   if crit_rate < 0 or crit_damage < 0:
     warnings.warn("Crit rate and crit damage must be positive")
     crit_rate = 0
     crit_damage = 0
   crit_rate = min(crit_rate, 1.0)
-  return crit_rate * crit_damage + (1 - crit_rate) * 1.0
+  crit_damage_multiplier = max(crit_damage_multiplier, 1.0)
+  return crit_rate * crit_damage * crit_damage_multiplier + (1 - crit_rate) * 1.0
 
 """
 Defense reduction rate to multiplier helper
@@ -48,7 +49,7 @@ class CommonTerm(TermBase):
     
     @classmethod
     def crit_term(cls):
-        return cls('Crit_Term', ['crit_rate', 'crit_damage'], crit_to_multiplier)
+        return cls('Crit_Term', ['crit_rate', 'crit_damage', 'crit_damage_multiplier'], crit_to_multiplier)
 
     @classmethod
     def defense_term(cls):

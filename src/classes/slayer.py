@@ -16,7 +16,7 @@ DEFAULT_BERSERK_TIME_LIMIT = 30
 SPEC_COEF_1 = 1 / 69.90 / 100
 
 # 블러드러스트 스킬 피해량 증가 특화 계수
-SPEC_COEF_2 = 1 / 5.377 / 100
+SPEC_COEF_2 = 1 / 5.825 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {

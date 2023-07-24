@@ -51,10 +51,11 @@ class DamageBuff(Buff):
         attack_power = character.actual_attack_power
         crit_rate = character.actual_crit_rate + dummy_skill.crit_rate
         crit_damage = character.crit_damage + dummy_skill.crit_damage
+        crit_damage_multiplier = character.crit_damage_multiplier
         defense_reduction_rate = dummy_skill.defense_reduction_rate
         total_multiplier = character.total_multiplier * dummy_skill.damage_multiplier
         tick_diff = current_tick - self.last_tick
-        crit_multiplier = crit_to_multiplier(crit_rate, crit_damage)
+        crit_multiplier = crit_to_multiplier(crit_rate, crit_damage, crit_damage_multiplier)
         defense_multiplier = defense_reduction_to_multiplier(defense_reduction_rate)
         # get damage jewel multiplier
         if self.buff_origin is not None:
