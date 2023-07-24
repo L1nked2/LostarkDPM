@@ -14,6 +14,8 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 SPEC_COEF_1 = 1 / 9.32 / 100
 # 샷건 스킬 피해량 특화 계수
 SPEC_COEF_2 = 1 / 27.96 / 100
+# 라이플 스킬 물/마방관 특화 계수
+SPEC_COEF_3 = 1 / 27.96 / 100
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -36,7 +38,21 @@ CLASS_BUFF_DICT = {
     'effect': 'synergy_1',
     'duration': 8,
     'priority': 7,
-  }
+  },
+  'Synergy_2': {
+    'name': 'synergy_1',
+    'buff_type': 'stat',
+    'effect': 'synergy_1',
+    'duration': 12,
+    'priority': 7,
+  },
+  'Fierce': {
+    'name': 'fierce',
+    'buff_type': 'stat',
+    'effect': 'fierce',
+    'duration': 6,
+    'priority': 9,
+  },
 }
 
 
@@ -56,6 +72,9 @@ def finalize_skill(skill: Skill):
   elif name == '나선의 추적자':
     if tripod[0] == '2':
       skill.triggered_actions.append('activate_synergy')
+  elif name == '이퀄리브리엄':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy2')
 
 ######## Actions #########
 # 유탄 출혈 시간 갱신 action
@@ -70,6 +89,15 @@ def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, ski
   if (skill_on_use.get_attribute('name') == 'AT02 유탄' 
       or skill_on_use.get_attribute('name') == '나선의 추적자'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
+    
+def activate_synergy2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if (skill_on_use.get_attribute('name') == '이퀄리브리엄'):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
+    
+# 맹공 버프 등록
+def activate_fierce(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Fierce'], skill_on_use)
+    
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -77,6 +105,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
     s_handgun_additional_crit_damage = s * SPEC_COEF_1
     s_shotgun_multiplier = (1 + s * SPEC_COEF_2)
+    s_rifle_defense_reduction_rate = s * SPEC_COEF_3
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
@@ -86,17 +115,29 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == 'Shotgun':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
+    elif skill.get_attribute('identity_type') == 'Rifle':
+      s_adrr = skill.get_attribute('defense_reduction_rate')
+      skill.update_attribute('defense_reduction_rate', s_adrr + s_rifle_defense_reduction_rate)
 
 # 핸드거너 각인
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.40)
+      skill.update_attribute('damage_multiplier', s_dm * 1.50)
     elif skill.get_attribute('identity_type') == "Handgun":
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.85)
+      skill.update_attribute('damage_multiplier', s_dm * 1.75)
 
 # 치적 시너지 (8초)
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_acr = skill.get_attribute('crit_rate')
     skill.update_attribute('crit_rate', s_acr + 0.10)
+
+# 맹공 버프(6초)
+def fierce(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    c_cr = character.get_attribute('cooldown_reduction')
+    character.update_attribute('attack_speed', c_as + 0.08)
+    character.update_attribute('movement_speed', c_ms + 0.08)
+    character.update_attribute('cooldown_reduction', c_cr + 0.05)
