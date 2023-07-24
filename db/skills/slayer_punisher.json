@@ -188,7 +188,7 @@
     },
     {
       "name": "라그나 브레이크",
-      "default_damage": 55420,
+      "default_damage": 50820,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Awakening",

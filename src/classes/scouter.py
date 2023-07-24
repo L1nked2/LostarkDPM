@@ -238,7 +238,7 @@ def arthetinean_skill_1(character: CharacterLayer, skill: Skill, buff: Buff):
         or skill.get_attribute('identity_type') == "Drone" 
         or skill.get_attribute('identity_type') == "Joint"):
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.15)
+      skill.update_attribute('damage_multiplier', s_dm * 1.16)
 
 def arthetinean_skill_3(character: CharacterLayer, skill: Skill, buff: Buff):
     # 재장전 풀스택 제공
@@ -251,7 +251,7 @@ def arthetinean_skill_3(character: CharacterLayer, skill: Skill, buff: Buff):
         or skill.get_attribute('identity_type') == "Drone" 
         or skill.get_attribute('identity_type') == "Joint"):
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.25)
+      skill.update_attribute('damage_multiplier', s_dm * 1.32)
 
 # 공증 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
