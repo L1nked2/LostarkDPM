@@ -139,8 +139,8 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_rifle_multiplier)
     elif skill.get_attribute('identity_type') == 'Shotgun':
-      s_adrr = skill.get_attribute('defense_reduction_rate')
-      skill.update_attribute('defense_reduction_rate', s_adrr + s_shotgun_defense_reduction_rate)
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + s_shotgun_defense_reduction_rate)
       
 # 피스메이커 각인
 def peace_maker_1(character: CharacterLayer, skill: Skill, buff: Buff):  

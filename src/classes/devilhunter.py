@@ -14,6 +14,8 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 SPEC_COEF_1 = 0.75 / 699
 # 샷건 스킬 피해량 특화 계수
 SPEC_COEF_2 = 0.25 / 699
+# 라이플 스킬 물/마방관 특화 계수
+SPEC_COEF_3 = 0.25 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -77,6 +79,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
     s_handgun_additional_crit_damage = s * SPEC_COEF_1
     s_shotgun_multiplier = (1 + s * SPEC_COEF_2)
+    s_rifle_defense_reduction_rate = s * SPEC_COEF_3
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
@@ -86,6 +89,9 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == 'Shotgun':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
+    elif skill.get_attribute('identity_type') == 'Rifle':
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + s_rifle_defense_reduction_rate)
 
 # 핸드거너 각인
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
