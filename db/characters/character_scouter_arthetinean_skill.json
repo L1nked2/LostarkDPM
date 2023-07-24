@@ -3,13 +3,13 @@
     {
       "class_name": "scouter",
       "upgrade": 25,
-      "crit": 1400,
+      "crit": 1600,
       "specialization": 0,
-      "swiftness": 800,
-      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Increase_Mass_3", "Raid_Captain_3", "Adrenaline_3", "Arthetinean_Skill_1"],
+      "swiftness": 600,
+      "engravings": ["Grudge_3", "Keen_Blunt_Weapon_3", "Increase_Mass_3", "Raid_Captain_3", "Adrenaline_1", "Arthetinean_Skill_3"],
       "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["구원_6_3"],
-      "skill_set": "./db/skills/scouter_arthetinean_skill_422.json"
+      "skill_set": "./db/skills/scouter_arthetinean_skill_332.json"
     }
   ]
 }

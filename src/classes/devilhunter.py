@@ -38,7 +38,21 @@ CLASS_BUFF_DICT = {
     'effect': 'synergy_1',
     'duration': 8,
     'priority': 7,
-  }
+  },
+  'Synergy_2': {
+    'name': 'synergy_1',
+    'buff_type': 'stat',
+    'effect': 'synergy_1',
+    'duration': 12,
+    'priority': 7,
+  },
+  'Fierce': {
+    'name': 'fierce',
+    'buff_type': 'stat',
+    'effect': 'fierce',
+    'duration': 6,
+    'priority': 9,
+  },
 }
 
 
@@ -58,6 +72,9 @@ def finalize_skill(skill: Skill):
   elif name == '나선의 추적자':
     if tripod[0] == '2':
       skill.triggered_actions.append('activate_synergy')
+  elif name == '이퀄리브리엄':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_synergy2')
 
 ######## Actions #########
 # 유탄 출혈 시간 갱신 action
@@ -72,6 +89,15 @@ def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, ski
   if (skill_on_use.get_attribute('name') == 'AT02 유탄' 
       or skill_on_use.get_attribute('name') == '나선의 추적자'):
     buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
+    
+def activate_synergy2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  if (skill_on_use.get_attribute('name') == '이퀄리브리엄'):
+    buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_2'], skill_on_use)
+    
+# 맹공 버프 등록
+def activate_fierce(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
+  buff_manager.register_buff(CLASS_BUFF_DICT['Fierce'], skill_on_use)
+    
 
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
@@ -106,3 +132,12 @@ def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_acr = skill.get_attribute('crit_rate')
     skill.update_attribute('crit_rate', s_acr + 0.10)
+
+# 맹공 버프(6초)
+def fierce(character: CharacterLayer, skill: Skill, buff: Buff):
+    c_as = character.get_attribute('attack_speed')
+    c_ms = character.get_attribute('movement_speed')
+    c_cr = character.get_attribute('cooldown_reduction')
+    character.update_attribute('attack_speed', c_as + 0.08)
+    character.update_attribute('movement_speed', c_ms + 0.08)
+    character.update_attribute('cooldown_reduction', c_cr + 0.05)

@@ -183,7 +183,7 @@
       "back_attack": true,
       "key_strokes" : 1,
       "mana_cost": 0,
-      "rune": "질풍_전설"
+      "rune": "질풍_영웅"
     },
     {
       "name": "에너지 버스터",
@@ -195,7 +195,7 @@
       "identity_type": "Joint",
       "cooldown": 30,
       "common_delay": 3.25,
-      "type_specific_delay": 1.02,
+      "type_specific_delay": 0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,
       "head_attack": false,
