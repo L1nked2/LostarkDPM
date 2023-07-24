@@ -5,6 +5,7 @@ import copy
 
 DEFAULT_ADDITIONAL_DAMAGE = 0.30
 DEFUALT_CRIT_DAMAGE = 2.0
+DEFUALT_CRIT_DAMAGE_MULTIPLIER = 1.0
 
 class StatLayer:
     """
@@ -55,6 +56,7 @@ class StatLayer:
         crit = self.combat_stat['crit']
         self.crit_rate = crit * CRITICAL_RATE_PER_CRIT
         self.crit_damage = DEFUALT_CRIT_DAMAGE
+        self.crit_damage_multiplier = DEFUALT_CRIT_DAMAGE_MULTIPLIER
         # spec -> TODO: init on where?
         specialization = self.combat_stat['specialization']
         self.specialization = specialization

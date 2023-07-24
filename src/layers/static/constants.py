@@ -35,7 +35,14 @@ ENGRAVINGS = {
   '갈망_1': [('attack_speed', lambda x: x + 0.08), ('movement_speed', lambda x: x + 0.08), ('additional_damage', lambda x: x + 0.08)],
   '갈망_2': [('attack_speed', lambda x: x + 0.10), ('movement_speed', lambda x: x + 0.10), ('additional_damage', lambda x: x + 0.10)],
   '갈망_3': [('attack_speed', lambda x: x + 0.12), ('movement_speed', lambda x: x + 0.12), ('additional_damage', lambda x: x + 0.12)],
-
+  '만찬와인': [('attack_speed', lambda x: x + 0.035), ('movement_speed', lambda x: x + 0.065)],
+  '만찬와인_2': [('attack_speed', lambda x: x + 0.065), ('movement_speed', lambda x: x + 0.035)],
+  
+  '달인': [('crit_rate', lambda x: x + 0.07), ('additional_damage', lambda x: x + 0.085), ('crit_damage', lambda x: x + 0.07)],
+  '달인_추피': [('crit_rate', lambda x: x + 0.07), ('additional_damage', lambda x: x + 0.085), ('additional_damage', lambda x: x + 0.031)],
+  '회심': [('crit_damage_multiplier', lambda x: x*1.12), ('crit_damage', lambda x: x + 0.07)],
+  '회심_추피': [('crit_damage_multiplier', lambda x: x*1.12), ('additional_damage', lambda x: x + 0.031)],
+  
   ####### 공통각인 #######
   ## Static ##
   #원한
@@ -65,7 +72,7 @@ ENGRAVINGS = {
   #안정된상태
   'Stabilised_Status_3': [('character_damage_multiplier', lambda x: x * 1.16)],
   #에테르포식자
-  'Ether_Predator_1': [('additional_attack_power', lambda x: x + 0.06)],
+  'Ether_Predator_1': [('additional_attack_power', lambda x: x + 0.04)],
   'Ether_Predator_3': [('additional_attack_power', lambda x: x + 0.15)],
   #정밀단도
   'Precise_Dagger_3': [('crit_rate', lambda x: x + 0.20), ('crit_damage', lambda x: x - 0.12)],
