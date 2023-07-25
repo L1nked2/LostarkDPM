@@ -75,6 +75,9 @@ def finalize_skill(skill: Skill):
   elif name == '이퀄리브리엄':
     if tripod[0] == '2':
       skill.triggered_actions.append('activate_synergy2')
+  elif name == '끊임없는 맹공':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_fierce')
 
 ######## Actions #########
 # 유탄 출혈 시간 갱신 action
@@ -118,6 +121,17 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == 'Rifle':
       s_drr = skill.get_attribute('defense_reduction_rate')
       skill.update_attribute('defense_reduction_rate', s_drr + s_rifle_defense_reduction_rate)
+    # 치명타 적중 시 방관 증가 트포 처리
+    # 이퀄리브리엄 - 급소 사격
+    if (skill.get_attribute('name') == '이퀄리브리엄' and skill.get_attribute('tripod')[2] == '2'):
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      c_cr = character.get_attribute('crit_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + 0.50 * c_cr)
+    # 데스페라도
+    if (skill.get_attribute('name') == '데스페라도' and skill.get_attribute('tripod')[1] == '1'):
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      c_cr = character.get_attribute('crit_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + 0.25 * c_cr)
 
 # 핸드거너 각인
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):

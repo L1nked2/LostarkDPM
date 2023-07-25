@@ -4,3 +4,1086 @@
 LostArkDpmSimulator is now ready to run
 target_character: character_aeromancer_drizzle.json
 ==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17038124
+Nuking_W/O_Awaking_Short_DPS: 42333338
+Nuking_W/O_Awaking_Long_DPS: 32537201
+Nuking_DPS: 34303499
+DPCT_by_Percentage: 35299495.367
+Idle_Ratio: 44.14 %
+Idle_Score: 412.13
+Delay_Score: 1.019
+Delay_Score_by_Percentage: 0.916
+Total_Damage: 27182963622
+Elapsed_Time: 1595.43 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [103, 52]}
+==========================
+Damage_Details: {'여우비 활성화': 0, '돌개바람': 507261198, 'sunshower_damage|여우비 활성화': 2981346496, '소용돌이': 3932400332, '출혈|None': 256733400, '뙤약볕': 5025136602, '싹쓸바람': 4611259530, '날아가기': 3032363981, '소나기': 3280100708, '센바람': 2895353181, '나르가의 칼날': 500194842, '펼치기': 160813352, '여우비 비활성화': 0}
+Delay_Statistics: {'여우비 활성화': 0.663, '돌개바람': 0.593, '소용돌이': 0.814, '뙤약볕': 1.159, '싹쓸바람': 0.797, '날아가기': 0.675, '소나기': 1.328, '센바람': 1.018, '나르가의 칼날': 4.85, '펼치기': 0.824}
+Nuking_W/O_Awaking_Cycle_Short: [('돌개바람', 4924866), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('뙤약볕', 48787734), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('싹쓸바람', 44769510), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('소나기', 35953886), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312)]
+Nuking_W/O_Awaking_Cycle_Long: [('여우비 활성화', 0), ('돌개바람', 4924866), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('뙤약볕', 48787734), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('싹쓸바람', 44769510), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('소나기', 35953886), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('펼치기', 792184), ('sunshower_damage|여우비 활성화', 2544312)]
+Nuking_Cycle: [('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('뙤약볕', 48787734), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('싹쓸바람', 44769510), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('소나기', 35953886), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('나르가의 칼날', 83365807), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312)]
+eDPS info:  [32537201.25, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_aeromancer_gale_rage_dom.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 16001389
+Nuking_W/O_Awaking_Short_DPS: 30092773
+Nuking_W/O_Awaking_Long_DPS: 25808899
+Nuking_DPS: 22135723
+DPCT_by_Percentage: 24527778.556
+Idle_Ratio: 10.06 %
+Idle_Score: 99.02
+Delay_Score: 1.049
+Delay_Score_by_Percentage: 1.219
+Total_Damage: 29870753421
+Elapsed_Time: 1866.77 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [414, 41], 'jm': [204, 54]}
+==========================
+Damage_Details: {'돌개바람': 596829182, '소용돌이': 2665294752, '나르가의 칼날': 434081976, '여우비 활성화': 0, '펼치기': 1009108938, '칼바람': 6823899073, 'sunshower_damage|여우비 활성화': 1084094937, '내려찍기': 427558752, '바람송곳': 7301293234, '출혈|None': 897640334, '몰아치기': 5159766974, '회오리 걸음': 3471185269}
+Delay_Statistics: {'돌개바람': 0.479, '소용돌이': 0.658, '나르가의 칼날': 3.911, '여우비 활성화': 0.537, '펼치기': 0.665, '칼바람': 1.472, '내려찍기': 0.594, '바람송곳': 1.638, '몰아치기': 1.263, '회오리 걸음': 0.929}
+Nuking_W/O_Awaking_Cycle_Short: [('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+Nuking_W/O_Awaking_Cycle_Long: [('펼치기', 2627900), ('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('돌개바람', 3173250), ('소용돌이', 14215986), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+Nuking_Cycle: [('소용돌이', 8466858), ('나르가의 칼날', 29705835), ('여우비 활성화', 0), ('펼치기', 2627900), ('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+eDPS info:  [25808899.25, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_aeromancer_gale_rage_hal.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 16721419
+Nuking_W/O_Awaking_Short_DPS: 27595648
+Nuking_W/O_Awaking_Long_DPS: 26643333
+Nuking_DPS: 23659372
+DPCT_by_Percentage: 27477974.399
+Idle_Ratio: 15.52 %
+Idle_Score: 116.39
+Delay_Score: 1.076
+Delay_Score_by_Percentage: 1.221
+Total_Damage: 27339353576
+Elapsed_Time: 1635.0 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [347, 34], 'jm': [170, 46]}
+==========================
+Damage_Details: {'나르가의 칼날': 490145850, '돌개바람': 546331017, '소용돌이': 2430885512, '여우비 활성화': 0, '펼치기': 908056022, '칼바람': 6324120648, 'sunshower_damage|여우비 활성화': 1031676597, '내려찍기': 404304065, '바람송곳': 6492911416, '출혈|None': 862244764, '몰아치기': 4810140523, '회오리 걸음': 3038537162}
+Delay_Statistics: {'나르가의 칼날': 3.859, '돌개바람': 0.478, '소용돌이': 0.656, '여우비 활성화': 0.534, '펼치기': 0.664, '칼바람': 1.469, '내려찍기': 0.592, '바람송곳': 1.635, '몰아치기': 1.26, '회오리 걸음': 0.926}
+Nuking_W/O_Awaking_Cycle_Short: [('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+Nuking_W/O_Awaking_Cycle_Long: [('돌개바람', 3095317), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('회오리 걸음', 28908886), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+Nuking_Cycle: [('나르가의 칼날', 54057604), ('돌개바람', 3095317), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+eDPS info:  [26643332.625, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_battlemaster_first_intention.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 18247149
+Nuking_W/O_Awaking_Short_DPS: 34046826
+Nuking_W/O_Awaking_Long_DPS: 29233604
+Nuking_DPS: 26275589
+DPCT_by_Percentage: 18046421.038
+Idle_Ratio: 14.08 %
+Idle_Score: 120.04
+Delay_Score: 0.989
+Delay_Score_by_Percentage: 1.055
+Total_Damage: 40191536346
+Elapsed_Time: 2202.63 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [377, 37], 'jm': [364, 66]}
+==========================
+Damage_Details: {'극의 : 일순난격': 240879996, '내공연소 버프 체크': 0, '내공연소': 52275770, '용맹의 포효': 331913928, '바람의 속삭임': 0, 'energy_combustion|내공연소': 2913417444, 'last_whisper|내공연소': 4462095918, '방천격': 9276403802, '출혈|None': 1200826540, '섬열란아': 12115237446, '월섬각': 5338694499, '붕천퇴': 453739088, 'intense_shock|월섬각': 497696443, '뇌명각': 3308355472}
+Delay_Statistics: {'극의 : 일순난격': 1.256, '내공연소': 0.579, '용맹의 포효': 0.473, '바람의 속삭임': 0.473, '방천격': 1.325, '섬열란아': 1.698, '월섬각': 1.257, '붕천퇴': 0.58, '뇌명각': 0.629}
+Nuking_W/O_Awaking_Cycle_Short: [('용맹의 포효', 1331835), ('바람의 속삭임', 0), ('energy_combustion|내공연소', 1710745), ('last_whisper|내공연소', 50915614), ('방천격', 51256193), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('섬열란아', 39519490), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('월섬각', 31635142), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('붕천퇴', 1506431), ('intense_shock|월섬각', 781122), ('출혈|None', 891922), ('뇌명각', 10156882), ('energy_combustion|내공연소', 1710745), ('intense_shock|월섬각', 781122), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('intense_shock|월섬각', 781122), ('출혈|None', 891922)]
+Nuking_W/O_Awaking_Cycle_Long: [('섬열란아', 39519490), ('energy_combustion|내공연소', 1710745), ('last_whisper|내공연소', 50915614), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('출혈|None', 891922), ('방천격', 51256193), ('energy_combustion|내공연소', 1710745), ('출혈|None', 891922), ('월섬각', 31635142), ('energy_combustion|내공연소', 1710745), ('출혈|None', 891922), ('intense_shock|월섬각', 650843), ('붕천퇴', 853369), ('energy_combustion|내공연소', 1215309), ('뇌명각', 7337900), ('intense_shock|월섬각', 554907), ('energy_combustion|내공연소', 1215309), ('섬열란아', 33694224), ('intense_shock|월섬각', 554907), ('energy_combustion|내공연소', 1215309), ('intense_shock|월섬각', 554907), ('energy_combustion|내공연소', 952909), ('용맹의 포효', 1331835)]
+Nuking_Cycle: [('섬열란아', 39519490), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('last_whisper|내공연소', 50915614), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('월섬각', 31635142), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('intense_shock|월섬각', 781122), ('붕천퇴', 1506431), ('출혈|None', 891922), ('energy_combustion|내공연소', 1425419), ('뇌명각', 8606521), ('intense_shock|월섬각', 435096), ('용맹의 포효', 1331835), ('energy_combustion|내공연소', 1143653), ('intense_shock|월섬각', 522189), ('바람의 속삭임', 0), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('섬열란아', 39519490), ('intense_shock|월섬각', 781122), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('방천격', 51256193), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745), ('붕천퇴', 1506431), ('뇌명각', 10156882), ('출혈|None', 891922), ('energy_combustion|내공연소', 1710745)]
+eDPS info:  [29233604.375, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_berserker_mayhem.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 20042019
+Nuking_W/O_Awaking_Short_DPS: 39660948
+Nuking_W/O_Awaking_Long_DPS: 37427189
+Nuking_DPS: 31557481
+DPCT_by_Percentage: 30048619.507
+Idle_Ratio: 22.05 %
+Idle_Score: 390.06
+Delay_Score: 0.668
+Delay_Score_by_Percentage: 1.544
+Total_Damage: 31094790987
+Elapsed_Time: 1551.49 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'레드 더스트': 525153838, '오버드라이브': 7140360744, '출혈|None': 959733476, '피니쉬 스트라이크': 6626376603, '브레이브 슬래쉬': 3454482141, '헬 블레이드': 5222946168, '체인 소드': 83043613, '소드 스톰': 2864994059, 'flame_storm|None': 563952594, '템페스트 슬래쉬': 2583396602, '다크 러쉬': 641090079, '버서크 퓨리': 429261070}
+Delay_Statistics: {'레드 더스트': 0.869, '오버드라이브': 1.787, '피니쉬 스트라이크': 1.887, '브레이브 슬래쉬': 1.134, '헬 블레이드': 1.571, '체인 소드': 0.89, '소드 스톰': 1.46, '템페스트 슬래쉬': 1.218, '다크 러쉬': 2.422, '버서크 퓨리': 2.816}
+Nuking_W/O_Awaking_Cycle_Short: [('레드 더스트', 5024434), ('오버드라이브', 72124856), ('출혈|None', 1004008), ('피니쉬 스트라이크', 66933097), ('출혈|None', 1004008), ('출혈|None', 1004008), ('브레이브 슬래쉬', 34893759), ('출혈|None', 1004008), ('헬 블레이드', 52757032), ('출혈|None', 1004008), ('체인 소드', 1212473)]
+Nuking_W/O_Awaking_Cycle_Long: [('레드 더스트', 5024434), ('오버드라이브', 72124856), ('출혈|None', 1004008), ('피니쉬 스트라이크', 66933097), ('출혈|None', 1004008), ('출혈|None', 1004008), ('브레이브 슬래쉬', 34893759), ('출혈|None', 1004008), ('헬 블레이드', 52757032), ('출혈|None', 1004008), ('체인 소드', 1212473), ('소드 스톰', 36144744), ('출혈|None', 1004008), ('flame_storm|None', 887037), ('템페스트 슬래쉬', 22766158), ('출혈|None', 649875)]
+Nuking_Cycle: [('레드 더스트', 5024434), ('오버드라이브', 72124856), ('출혈|None', 1004008), ('피니쉬 스트라이크', 66933097), ('출혈|None', 1004008), ('출혈|None', 1004008), ('브레이브 슬래쉬', 34893759), ('출혈|None', 1004008), ('헬 블레이드', 52757032), ('출혈|None', 1004008), ('체인 소드', 1212473), ('소드 스톰', 36144744), ('출혈|None', 1004008), ('flame_storm|None', 887037), ('템페스트 슬래쉬', 22766158), ('출혈|None', 649875), ('다크 러쉬', 13083471), ('flame_storm|None', 887037), ('출혈|None', 649875), ('flame_storm|None', 887037), ('출혈|None', 649875)]
+eDPS info:  [37427189.125, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_blade_burst.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 23690048
+Nuking_W/O_Awaking_Short_DPS: 32381699
+Nuking_W/O_Awaking_Long_DPS: 33069424
+Nuking_DPS: 31995306
+DPCT_by_Percentage: 79430865.521
+Idle_Ratio: 0.42 %
+Idle_Score: 4.15
+Delay_Score: 0.896
+Delay_Score_by_Percentage: 1.16
+Total_Damage: 35815798605
+Elapsed_Time: 1511.86 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'플래시 블링크': 377300521, '다크 악셀': 9090287, '아츠 활성화': 0, '스핀 커터': 901522950, '윈드 컷': 1014940191, '소울 앱소버': 4662157370, '출혈|None': 530026118, '블리츠 러시': 5281218540, '어스 슬래쉬': 1408417140, '보이드 스트라이크': 2202780060, 'void_zone|보이드 스트라이크': 282593192, '버스트': 19054295235, '마엘스톰': 91457001}
+Delay_Statistics: {'플래시 블링크': 1.541, '다크 악셀': 0.787, '아츠 활성화': 0.451, '스핀 커터': 1.205, '윈드 컷': 0.689, '소울 앱소버': 1.262, '블리츠 러시': 1.052, '어스 슬래쉬': 0.892, '보이드 스트라이크': 2.038, '버스트': 1.151, '마엘스톰': 0.823}
+Nuking_W/O_Awaking_Cycle_Short: [('버스트', 147707715), ('void_zone|보이드 스트라이크', 342852), ('출혈|None', 311653), ('마엘스톰', 708969), ('void_zone|보이드 스트라이크', 342852), ('출혈|None', 311653), ('아츠 활성화', 0), ('출혈|None', 405042), ('스핀 커터', 3304898), ('출혈|None', 414381), ('윈드 컷', 3723768), ('소울 앱소버', 35862749), ('출혈|None', 426832), ('출혈|None', 426832)]
+Nuking_W/O_Awaking_Cycle_Long: [('소울 앱소버', 35862749), ('출혈|None', 426832), ('블리츠 러시', 40624758), ('출혈|None', 433058), ('어스 슬래쉬', 10833978), ('출혈|None', 436171), ('보이드 스트라이크', 16944462), ('출혈|None', 448623), ('void_zone|보이드 스트라이크', 493388), ('출혈|None', 448623), ('스핀 커터', 3660148), ('void_zone|보이드 스트라이크', 503652), ('출혈|None', 457962), ('void_zone|보이드 스트라이크', 503652), ('윈드 컷', 4115119), ('버스트', 147707715), ('void_zone|보이드 스트라이크', 342852), ('출혈|None', 311653)]
+Nuking_Cycle: [('플래시 블링크', 81288869), ('void_zone|보이드 스트라이크', 513916), ('출혈|None', 467301), ('void_zone|보이드 스트라이크', 513916), ('출혈|None', 467301), ('다크 악셀', 1970959), ('출혈|None', 467301), ('아츠 활성화', 0), ('버스트', 147707715), ('출혈|None', 311653), ('마엘스톰', 708969), ('출혈|None', 311653), ('아츠 활성화', 0), ('스핀 커터', 3304898), ('출혈|None', 414381), ('윈드 컷', 3723768), ('소울 앱소버', 35862749), ('출혈|None', 426832), ('블리츠 러시', 40624758), ('출혈|None', 433058), ('출혈|None', 433058)]
+eDPS info:  [33262254.803149607, 12.7]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 12 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_blade_remaining_energy.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 23280674
+Nuking_W/O_Awaking_Short_DPS: 27800600
+Nuking_W/O_Awaking_Long_DPS: 27203198
+Nuking_DPS: 27516433
+DPCT_by_Percentage: 34315988.756
+Idle_Ratio: 5.63 %
+Idle_Score: 48.25
+Delay_Score: 1.037
+Delay_Score_by_Percentage: 1.071
+Total_Damage: 36158378175
+Elapsed_Time: 1553.16 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'플래시 블링크': 389718017, '다크 악셀': 9346361, '아츠 활성화': 0, '버스트': 9299103137, '스핀 커터_1회': 200146162, '블리츠 러시': 8918056984, '마엘스톰': 175643088, '보이드 스트라이크': 3381692208, '소울 앱소버': 7367491744, 'black_explosion|보이드 스트라이크': 1497732584, '마엘스톰 쿨타임 체크': 0, '문라이트 소닉': 2378770554, '어스 슬래쉬': 2540677336}
+Delay_Statistics: {'플래시 블링크': 1.533, '다크 악셀': 0.846, '아츠 활성화': 0.444, '버스트': 1.093, '스핀 커터_1회': 0.516, '블리츠 러시': 1.003, '마엘스톰': 0.744, '보이드 스트라이크': 1.061, '소울 앱소버': 1.277, '문라이트 소닉': 1.414, '어스 슬래쉬': 0.949}
+Nuking_W/O_Awaking_Cycle_Short: [('블리츠 러시', 48467701), ('마엘스톰', 954582), ('보이드 스트라이크', 18378762), ('소울 앱소버', 40040716), ('black_explosion|보이드 스트라이크', 8139851), ('아츠 활성화', 0), ('버스트', 49749791), ('스핀 커터_1회', 1072194)]
+Nuking_W/O_Awaking_Cycle_Long: [('버스트', 49749791), ('스핀 커터_1회', 1072194), ('블리츠 러시', 48467701), ('마엘스톰', 954582), ('보이드 스트라이크', 18378762), ('black_explosion|보이드 스트라이크', 8139851), ('소울 앱소버', 40040716), ('아츠 활성화', 0), ('버스트', 49749791), ('스핀 커터_1회', 1072194)]
+Nuking_Cycle: [('버스트', 49749791), ('스핀 커터_1회', 1072194), ('마엘스톰 쿨타임 체크', 0), ('문라이트 소닉', 25578178), ('어스 슬래쉬', 13808029), ('블리츠 러시', 48467701), ('마엘스톰', 954582), ('보이드 스트라이크', 18378762), ('black_explosion|보이드 스트라이크', 8139851), ('소울 앱소버', 40040716), ('플래시 블링크', 68974527)]
+eDPS info:  [28693636.285714287, 10.5]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 13 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_blaster_barrage_enhancement.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17721358
+Nuking_W/O_Awaking_Short_DPS: 22969846
+Nuking_W/O_Awaking_Long_DPS: 27583061
+Nuking_DPS: 36384061
+DPCT_by_Percentage: 23972606.138
+Idle_Ratio: 13.86 %
+Idle_Score: 307.37
+Delay_Score: 0.548
+Delay_Score_by_Percentage: 2.599
+Total_Damage: 28042454465
+Elapsed_Time: 1582.42 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'포탑 소환': 419952357, '헤비 터렛': 0, 'heavy_turret|헤비 터렛': 918884736, '강화탄': 462532161, '포탑 소환_스택': 422154903, '출혈|None': 643482726, '포격 모드 활성화': 0, '포격 : 곡사포': 3404227288, '포격 : 집중포화': 7371768140, '포격 : 에너지 포': 7434786186, '포격 모드 해제': 0, '미사일 폭격': 1902034071, '공중 폭격': 1666026873, '화염방사기': 1172652748, '중력 폭발': 2223952276}
+Delay_Statistics: {'포탑 소환': 0.739, '헤비 터렛': 1.404, '강화탄': 0.772, '포탑 소환_스택': 0.739, '포격 모드 활성화': 0.552, '포격 : 곡사포': 1.103, '포격 : 집중포화': 3.813, '포격 : 에너지 포': 3.916, '포격 모드 해제': 0.544, '미사일 폭격': 0.633, '공중 폭격': 1.355, '화염방사기': 1.985, '중력 폭발': 2.313}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 600914), ('포격 모드 활성화', 0), ('포격 : 곡사포', 25805240), ('출혈|None', 600914), ('포격 : 집중포화', 108408355), ('출혈|None', 600914), ('출혈|None', 600914), ('출혈|None', 600914), ('출혈|None', 600914)]
+Nuking_W/O_Awaking_Cycle_Long: [('포격 : 집중포화', 108408355), ('출혈|None', 600914), ('출혈|None', 600914), ('출혈|None', 600914), ('출혈|None', 600914), ('포격 : 에너지 포', 108722760), ('출혈|None', 564859), ('출혈|None', 564859)]
+Nuking_Cycle: [('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('포격 : 곡사포', 25805240), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('포격 : 집중포화', 108408355), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('포격 : 에너지 포', 115662511), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 600914), ('heavy_turret|헤비 터렛', 7797732), ('출혈|None', 564859), ('포격 : 곡사포', 24256926), ('heavy_turret|헤비 터렛', 7329868), ('출혈|None', 564859), ('포격 모드 해제', 0), ('heavy_turret|헤비 터렛', 7329868), ('heavy_turret|헤비 터렛', 7329868)]
+eDPS info:  [27760746.404494382, 8.9]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_blaster_firepower_enhancement.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 16757360
+Nuking_W/O_Awaking_Short_DPS: 31605683
+Nuking_W/O_Awaking_Long_DPS: 30424165
+Nuking_DPS: 30678439
+DPCT_by_Percentage: 34259852.435
+Idle_Ratio: 40.24 %
+Idle_Score: 219.97
+Delay_Score: 0.759
+Delay_Score_by_Percentage: 1.259
+Total_Damage: 26380105647
+Elapsed_Time: 1574.25 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [305, 30], 'jm': [0, 0]}
+==========================
+Damage_Details: {'강화탄': 2340711582, '미사일 폭격': 5500810525, '공중 폭격': 4258835940, 'flame_barrage|None': 436671300, '고압열탄': 4531740160, '다연장로켓포': 3197706764, '포탑 소환': 4246676016, '출혈|None': 1194091280, '헤비 터렛': 0, 'heavy_turret|헤비 터렛': 672862080}
+Delay_Statistics: {'강화탄': 0.771, '미사일 폭격': 0.632, '공중 폭격': 1.354, '고압열탄': 2.366, '다연장로켓포': 2.394, '포탑 소환': 0.892, '헤비 터렛': 1.406}
+Nuking_W/O_Awaking_Cycle_Short: [('미사일 폭격', 47833135), ('공중 폭격', 37033356), ('flame_barrage|None', 766090), ('고압열탄', 59628160), ('flame_barrage|None', 766090), ('flame_barrage|None', 766090), ('다연장로켓포', 42075089), ('flame_barrage|None', 766090)]
+Nuking_W/O_Awaking_Cycle_Long: [('강화탄', 7258260), ('미사일 폭격', 47833135), ('공중 폭격', 37033356), ('flame_barrage|None', 766090), ('고압열탄', 59628160), ('flame_barrage|None', 766090), ('flame_barrage|None', 766090), ('다연장로켓포', 42075089), ('flame_barrage|None', 766090), ('포탑 소환', 37251544), ('flame_barrage|None', 766090), ('강화탄', 7721553), ('출혈|None', 761771)]
+Nuking_Cycle: [('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('강화탄', 7721553), ('heavy_turret|헤비 터렛', 5097440), ('미사일 폭격', 47833135), ('출혈|None', 761771), ('공중 폭격', 37033356), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('flame_barrage|None', 766090), ('heavy_turret|헤비 터렛', 5097440), ('고압열탄', 59628160), ('출혈|None', 761771), ('flame_barrage|None', 766090), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('flame_barrage|None', 766090), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('다연장로켓포', 42075089), ('flame_barrage|None', 766090), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('flame_barrage|None', 766090), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('heavy_turret|헤비 터렛', 5097440), ('강화탄', 7721553), ('출혈|None', 761771), ('포탑 소환', 37251544), ('heavy_turret|헤비 터렛', 5097440), ('출혈|None', 761771), ('heavy_turret|헤비 터렛', 5097440)]
+eDPS info:  [30424164.75, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 21 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_demonic_demonic_impulse.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 16607846
+Nuking_W/O_Awaking_Short_DPS: 25106189
+Nuking_W/O_Awaking_Long_DPS: 22166688
+Nuking_DPS: 36514147
+DPCT_by_Percentage: 25902080.584
+Idle_Ratio: 11.81 %
+Idle_Score: 106.27
+Delay_Score: 1.014
+Delay_Score_by_Percentage: 1.036
+Total_Damage: 26304502360
+Elapsed_Time: 1583.87 s
+Rune_Ratio: {'rg': [226, 45], 'qr': [323, 32], 'jm': [0, 0]}
+==========================
+Damage_Details: {'데몬 비전': 290869247, '데시메이트': 641169528, '하울링': 154881923, '데몬 그랩': 184685630, '데모닉 슬래쉬': 33535188, '악마화 변신': 0, '블러드 매서커': 5018990355, '리프 블로우': 3511816571, '디스트럭션': 3504533930, '고어 블리딩': 5799466039, '출혈|None': 434499404, '데스 클로': 3850699383, '루인 러쉬': 1938081103, '폴른 루인': 941274059, '악마화 해제': 0}
+Delay_Statistics: {'데몬 비전': 1.505, '데시메이트': 0.836, '하울링': 0.613, '데몬 그랩': 0.458, '데모닉 슬래쉬': 0.593, '악마화 변신': 0.986, '블러드 매서커': 1.152, '리프 블로우': 0.958, '디스트럭션': 0.764, '고어 블리딩': 1.281, '데스 클로': 0.951, '루인 러쉬': 0.776, '폴른 루인': 1.765}
+Nuking_W/O_Awaking_Cycle_Short: [('악마화 변신', 0), ('블러드 매서커', 48691644), ('리프 블로우', 34146428), ('디스트럭션', 19974876), ('고어 블리딩', 24606464), ('출혈|None', 418923), ('데스 클로', 12764546), ('출혈|None', 418923), ('루인 러쉬', 9207818), ('출혈|None', 407513)]
+Nuking_W/O_Awaking_Cycle_Long: [('출혈|None', 384446), ('고어 블리딩', 22581421), ('출혈|None', 384446), ('데스 클로', 11714059), ('출혈|None', 384446), ('루인 러쉬', 8450041), ('출혈|None', 395210), ('블러드 매서커', 45935513), ('리프 블로우', 32213611), ('디스트럭션', 18844223), ('고어 블리딩', 23213645), ('출혈|None', 395210), ('데스 클로', 12042024), ('출혈|None', 395210)]
+Nuking_Cycle: [('블러드 매서커', 48691644), ('리프 블로우', 34146428), ('디스트럭션', 19974876), ('고어 블리딩', 24606464), ('출혈|None', 418923), ('데스 클로', 12764546), ('출혈|None', 418923), ('루인 러쉬', 9207818), ('출혈|None', 407513), ('폴른 루인', 159998603), ('출혈|None', 407513), ('데스 클로', 12416903), ('출혈|None', 384446), ('고어 블리딩', 22581421), ('출혈|None', 384446), ('디스트럭션', 18331000)]
+eDPS info:  [22438591.979166668, 9.6]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_demonic_perfect_suppression.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19727976
+Nuking_W/O_Awaking_Short_DPS: 32348274
+Nuking_W/O_Awaking_Long_DPS: 24763958
+Nuking_DPS: 24833786
+DPCT_by_Percentage: 44911300.945
+Idle_Ratio: 27.11 %
+Idle_Score: 127.86
+Delay_Score: 1.042
+Delay_Score_by_Percentage: 1.02
+Total_Damage: 29733807737
+Elapsed_Time: 1507.2 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [150, 45]}
+==========================
+Damage_Details: {'게이트 오브 이럽션': 231772207, '하울링': 190686826, '데모닉 슬래쉬': 363550248, '크루얼 커터': 7752510612, '데몰리션': 8832519466, '샤펀 컷': 1866515419, '쓰러스트 임팩트': 4174619661, '데시메이트': 4123770987, '라이징 클로': 1804475787, '출혈|None': 393386524}
+Delay_Statistics: {'게이트 오브 이럽션': 1.384, '하울링': 0.766, '데모닉 슬래쉬': 0.53, '크루얼 커터': 0.573, '데몰리션': 1.665, '샤펀 컷': 1.045, '쓰러스트 임팩트': 0.766, '데시메이트': 0.952, '라이징 클로': 0.795}
+Nuking_W/O_Awaking_Cycle_Short: [('하울링', 1535130), ('데모닉 슬래쉬', 1714554), ('크루얼 커터', 51701276), ('데몰리션', 50194180), ('샤펀 컷', 15304333), ('쓰러스트 임팩트', 35689137), ('데시메이트', 27320829), ('라이징 클로', 10256137), ('출혈|None', 374069)]
+Nuking_W/O_Awaking_Cycle_Long: [('출혈|None', 374069), ('데모닉 슬래쉬', 1718604), ('데몰리션', 50194180), ('출혈|None', 374069), ('출혈|None', 374069), ('하울링', 1631082), ('출혈|None', 374069), ('쓰러스트 임팩트', 35689137), ('크루얼 커터', 51701276), ('라이징 클로', 10256137), ('데시메이트', 27320829), ('출혈|None', 374069), ('샤펀 컷', 15268262), ('출혈|None', 373187), ('데모닉 슬래쉬', 1714554), ('출혈|None', 374069)]
+Nuking_Cycle: [('데몰리션', 50194180), ('출혈|None', 374069), ('데모닉 슬래쉬', 1714554), ('라이징 클로', 10256137), ('하울링', 1631082), ('출혈|None', 374069), ('쓰러스트 임팩트', 35689137), ('출혈|None', 374069), ('샤펀 컷', 15304333), ('출혈|None', 374069), ('데시메이트', 27320829), ('출혈|None', 374069), ('크루얼 커터', 51701276), ('출혈|None', 374069), ('데몰리션', 50194180), ('출혈|None', 373187), ('데모닉 슬래쉬', 1714554)]
+eDPS info:  [29338557.82178218, 10.1]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_destroyer_rage_hammer.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 20933285
+Nuking_W/O_Awaking_Short_DPS: 37352533
+Nuking_W/O_Awaking_Long_DPS: 34189546
+Nuking_DPS: 27720977
+DPCT_by_Percentage: 39074725.099
+Idle_Ratio: 4.06 %
+Idle_Score: 111.57
+Delay_Score: 0.502
+Delay_Score_by_Percentage: 2.863
+Total_Damage: 31409556545
+Elapsed_Time: 1500.47 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [243, 24], 'jm': [0, 0]}
+==========================
+Damage_Details: {'파워 스트라이크': 415898028, '헤비 크러쉬': 463279014, '퍼펙트 스윙': 9336508041, '인듀어 페인': 105256303, '풀 스윙': 12755357250, '파워 숄더_1타': 45936774, '출혈|None': 214621665, '어스 이터': 4285542686, '빅뱅': 383598560, '사이즈믹 해머': 3403558224}
+Delay_Statistics: {'파워 스트라이크': 1.828, '헤비 크러쉬': 1.089, '퍼펙트 스윙': 3.201, '인듀어 페인': 0.689, '풀 스윙': 3.258, '파워 숄더_1타': 0.947, '어스 이터': 2.789, '빅뱅': 4.277, '사이즈믹 해머': 1.026}
+Nuking_W/O_Awaking_Cycle_Short: [('사이즈믹 해머', 63028856), ('인듀어 페인', 2447821), ('퍼펙트 스윙', 158245899), ('파워 숄더_1타', 392622)]
+Nuking_W/O_Awaking_Cycle_Long: [('헤비 크러쉬', 1906498), ('퍼펙트 스윙', 158245899), ('인듀어 페인', 2447821), ('풀 스윙', 110916150)]
+Nuking_Cycle: [('파워 스트라이크', 3300778), ('헤비 크러쉬', 1906498), ('퍼펙트 스윙', 158245899), ('인듀어 페인', 2447821), ('풀 스윙', 110916150), ('파워 숄더_1타', 392622)]
+eDPS info:  [34189546.0, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_devilhunter_enhanced_weapon.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19677068
+Nuking_W/O_Awaking_Short_DPS: 49901111
+Nuking_W/O_Awaking_Long_DPS: 47196306
+Nuking_DPS: 43730068
+DPCT_by_Percentage: 42268776.133
+Idle_Ratio: 39.09 %
+Idle_Score: 241.59
+Delay_Score: 0.636
+Delay_Score_by_Percentage: 1.975
+Total_Damage: 35623757469
+Elapsed_Time: 1810.43 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [273, 27], 'jm': [0, 0]}
+==========================
+Damage_Details: {'AT02 유탄': 246892205, '샷건의 지배자': 5871110656, '심판의 날': 5832853715, '샷건 연사': 7174883885, '최후의 만찬': 6453695755, '조준 사격': 3882464495, '원샷 원킬': 2976182028, '데스페라도': 2076827816, '버스팅 플레어': 1108846914}
+Delay_Statistics: {'AT02 유탄': 0.576, '샷건의 지배자': 1.896, '심판의 날': 2.385, '샷건 연사': 2.242, '최후의 만찬': 1.566, '조준 사격': 2.196, '원샷 원킬': 1.133, '데스페라도': 1.575, '버스팅 플레어': 3.426}
+Nuking_W/O_Awaking_Cycle_Short: [('심판의 날', 89736211), ('샷건 연사', 110382829), ('최후의 만찬', 99287627)]
+Nuking_W/O_Awaking_Cycle_Long: [('샷건의 지배자', 77251456), ('심판의 날', 89736211), ('샷건 연사', 110382829), ('최후의 만찬', 99287627), ('AT02 유탄', 912329)]
+Nuking_Cycle: [('샷건의 지배자', 77251456), ('심판의 날', 89736211), ('샷건 연사', 110382829), ('최후의 만찬', 99287627), ('AT02 유탄', 912329), ('조준 사격', 59730223)]
+eDPS info:  [47196306.5, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_devilhunter_pistoleer.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 15711458
+Nuking_W/O_Awaking_Short_DPS: 23467815
+Nuking_W/O_Awaking_Long_DPS: 22632166
+Nuking_DPS: 26945434
+DPCT_by_Percentage: 21996308.925
+Idle_Ratio: 11.18 %
+Idle_Score: 142.92
+Delay_Score: 0.679
+Delay_Score_by_Percentage: 1.694
+Total_Damage: 25305973255
+Elapsed_Time: 1610.68 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [251, 24], 'jm': [0, 0]}
+==========================
+Damage_Details: {'AT02 유탄': 2745167811, '클레이 폭격': 624126900, '출혈|None': 609916188, '끊임없는 맹공': 0, '데스페라도': 4461415158, '메테오 스트림': 3082451536, '이퀄리브리엄': 3272583807, '잔혹한 추적자': 3122593702, '데스파이어': 3894717978, '퀵 샷': 3151443905, '사형 집행': 341556270}
+Delay_Statistics: {'AT02 유탄': 0.576, '클레이 폭격': 3.216, '끊임없는 맹공': 0.602, '데스페라도': 1.575, '메테오 스트림': 1.584, '이퀄리브리엄': 1.312, '잔혹한 추적자': 2.07, '데스파이어': 2.833, '퀵 샷': 1.593, '사형 집행': 1.673}
+Nuking_W/O_Awaking_Cycle_Short: [('잔혹한 추적자', 38080411), ('출혈|None', 382587), ('출혈|None', 382587), ('데스페라도', 47972206), ('출혈|None', 382587), ('퀵 샷', 39891695), ('출혈|None', 382587), ('출혈|None', 382587), ('AT02 유탄', 12567057), ('출혈|None', 382587)]
+Nuking_W/O_Awaking_Cycle_Long: [('퀵 샷', 39891695), ('출혈|None', 382587), ('출혈|None', 382587), ('이퀄리브리엄', 29482737), ('출혈|None', 382587), ('AT02 유탄', 12567057), ('출혈|None', 382587), ('데스페라도', 47972206), ('출혈|None', 382587), ('데스파이어', 48082938), ('출혈|None', 382587), ('출혈|None', 382587), ('출혈|None', 382587)]
+Nuking_Cycle: [('클레이 폭격', 104021150), ('출혈|None', 382587), ('출혈|None', 382587), ('출혈|None', 382587), ('끊임없는 맹공', 0), ('데스페라도', 47972206), ('출혈|None', 382587), ('출혈|None', 382587), ('메테오 스트림', 33504908), ('출혈|None', 382587), ('이퀄리브리엄', 29482737), ('출혈|None', 382587), ('AT02 유탄', 12567057), ('출혈|None', 382587), ('잔혹한 추적자', 38080411), ('출혈|None', 382587), ('출혈|None', 382587)]
+eDPS info:  [23681504.444444444, 9.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_gunslinger_peace_maker.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17375130
+Nuking_W/O_Awaking_Short_DPS: 36234934
+Nuking_W/O_Awaking_Long_DPS: 39536504
+Nuking_DPS: 35492541
+DPCT_by_Percentage: 32180334.208
+Idle_Ratio: 30.65 %
+Idle_Score: 165.1
+Delay_Score: 0.767
+Delay_Score_by_Percentage: 1.79
+Total_Damage: 26878457441
+Elapsed_Time: 1546.96 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [318, 30], 'jm': [0, 0]}
+==========================
+Damage_Details: {'나선의 추적자': 265418296, '마탄의 사수': 5292418746, '절멸의 탄환': 4269053026, '포커스 샷': 4938521662, '타겟 다운': 3819314545, '대재앙': 2036037862, '퍼펙트 샷': 2028030165, '레인 오브 불릿': 2738339382, '퀵 스텝': 145284793, 'AT02 유탄': 197337812, '황혼의 눈': 447664842, '출혈|None': 701036310}
+Delay_Statistics: {'나선의 추적자': 0.488, '마탄의 사수': 1.829, '절멸의 탄환': 1.732, '포커스 샷': 2.067, '타겟 다운': 2.285, '대재앙': 1.027, '퍼펙트 샷': 1.298, '레인 오브 불릿': 2.258, '퀵 스텝': 0.565, 'AT02 유탄': 0.472, '황혼의 눈': 2.006}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 580510), ('마탄의 사수', 80303967), ('출혈|None', 580510), ('포커스 샷', 68718918), ('출혈|None', 580510), ('출혈|None', 580510), ('절멸의 탄환', 66064682)]
+Nuking_W/O_Awaking_Cycle_Long: [('마탄의 사수', 80303967), ('절멸의 탄환', 66064682), ('포커스 샷', 68718918), ('타겟 다운', 69783303), ('대재앙', 31421162)]
+Nuking_Cycle: [('나선의 추적자', 1425272), ('마탄의 사수', 80303967), ('절멸의 탄환', 66064682), ('포커스 샷', 68718918), ('타겟 다운', 69783303), ('대재앙', 31421162), ('퍼펙트 샷', 35782833), ('나선의 추적자', 1425272)]
+eDPS info:  [40008507.38636363, 8.8]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_gunslinger_time_to_hunt.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 15967970
+Nuking_W/O_Awaking_Short_DPS: 36783915
+Nuking_W/O_Awaking_Long_DPS: 33446673
+Nuking_DPS: 31909323
+DPCT_by_Percentage: 30686741.875
+Idle_Ratio: 31.94 %
+Idle_Score: 189.24
+Delay_Score: 0.772
+Delay_Score_by_Percentage: 1.766
+Total_Damage: 25336856549
+Elapsed_Time: 1586.74 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [325, 32], 'jm': [0, 0]}
+==========================
+Damage_Details: {'나선의 추적자': 356767136, '포커스 샷': 6261478814, '타겟 다운': 4749346102, '대재앙': 3098744017, '퍼펙트 샷': 3277793663, '레인 오브 불릿': 3933207675, 'AT02 유탄': 1824074591, '출혈|None': 827295012, '퀵 스텝': 177884850, '이퀄리브리엄': 315606727, '황혼의 눈': 514657962}
+Delay_Statistics: {'나선의 추적자': 0.522, '포커스 샷': 2.177, '타겟 다운': 2.235, '대재앙': 1.132, '퍼펙트 샷': 1.421, '레인 오브 불릿': 2.444, 'AT02 유탄': 0.505, '퀵 스텝': 0.612, '이퀄리브리엄': 1.287, '황혼의 눈': 2.123}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 558196), ('타겟 다운', 84871070), ('출혈|None', 558196), ('출혈|None', 558196), ('퍼펙트 샷', 48951854), ('출혈|None', 558196), ('포커스 샷', 83576556), ('출혈|None', 535612), ('출혈|None', 535612)]
+Nuking_W/O_Awaking_Cycle_Long: [('타겟 다운', 84871070), ('출혈|None', 558196), ('출혈|None', 558196), ('퍼펙트 샷', 48951854), ('출혈|None', 558196), ('출혈|None', 558196), ('AT02 유탄', 8459119), ('포커스 샷', 80195113), ('출혈|None', 535612), ('출혈|None', 535612), ('나선의 추적자', 1882668), ('출혈|None', 558196), ('대재앙', 38793158), ('출혈|None', 558196)]
+Nuking_Cycle: [('포커스 샷', 83576556), ('타겟 다운', 84871070), ('대재앙', 38793158), ('퍼펙트 샷', 48951854), ('레인 오브 불릿', 52442769), ('AT02 유탄', 8016960), ('나선의 추적자', 1882668), ('출혈|None', 558196)]
+eDPS info:  [34678135.61797753, 8.9]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_infighter_shock_training.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 18999462
+Nuking_W/O_Awaking_Short_DPS: 29395726
+Nuking_W/O_Awaking_Long_DPS: 30133018
+Nuking_DPS: 29757252
+DPCT_by_Percentage: 34285579.911
+Idle_Ratio: 11.14 %
+Idle_Score: 137.28
+Delay_Score: 0.803
+Delay_Score_by_Percentage: 1.743
+Total_Damage: 29497804517
+Elapsed_Time: 1552.57 s
+Rune_Ratio: {'rg': [209, 41], 'qr': [231, 23], 'jm': [0, 0]}
+==========================
+Damage_Details: {'파쇄의 강타_1타': 96218492, '죽음의 선고': 7426649880, '출혈|None': 390206592, '맹호격': 204754792, '전진의 일격': 437014578, '초신성 폭발': 5803871703, '연환파신권': 5245096896, '진 : 극멸권': 501004644, '진 용출권': 4184279946, '일망 타진': 5208706994}
+Delay_Statistics: {'파쇄의 강타_1타': 0.529, '죽음의 선고': 1.335, '맹호격': 0.85, '전진의 일격': 0.883, '초신성 폭발': 1.788, '연환파신권': 3.123, '진 : 극멸권': 3.008, '진 용출권': 2.101, '일망 타진': 0.736}
+Nuking_W/O_Awaking_Cycle_Short: [('죽음의 선고', 71410095), ('출혈|None', 314176), ('맹호격', 979688), ('출혈|None', 314176), ('전진의 일격', 1891838), ('출혈|None', 314176), ('초신성 폭발', 66711169), ('출혈|None', 314176), ('출혈|None', 314176), ('일망 타진', 16748254), ('일망 타진', 16748254), ('출혈|None', 314176)]
+Nuking_W/O_Awaking_Cycle_Long: [('죽음의 선고', 71410095), ('출혈|None', 314176), ('출혈|None', 314176), ('전진의 일격', 1891838), ('연환파신권', 81954639), ('출혈|None', 314176), ('파쇄의 강타_1타', 463093), ('초신성 폭발', 66711169), ('출혈|None', 314176), ('출혈|None', 314176), ('일망 타진', 16748254), ('출혈|None', 314176)]
+Nuking_Cycle: [('초신성 폭발', 66711169), ('출혈|None', 314176), ('연환파신권', 81954639), ('출혈|None', 314176), ('출혈|None', 314176), ('진 : 극멸권', 83500774), ('파쇄의 강타_1타', 436880), ('진 용출권', 63398181), ('출혈|None', 314176), ('출혈|None', 314176)]
+eDPS info:  [30133018.0, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_infighter_taijutsu.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19656070
+Nuking_W/O_Awaking_Short_DPS: 24978775
+Nuking_W/O_Awaking_Long_DPS: 22461440
+Nuking_DPS: 24009986
+DPCT_by_Percentage: 23184543.964
+Idle_Ratio: 0.6 %
+Idle_Score: 43.07
+Delay_Score: 1.103
+Delay_Score_by_Percentage: 1.043
+Total_Damage: 31517525981
+Elapsed_Time: 1603.46 s
+Rune_Ratio: {'rg': [249, 49], 'qr': [383, 38], 'jm': [0, 0]}
+==========================
+Damage_Details: {'파쇄의 강타_1타': 252141785, '철포난격': 6843868436, '난타연권': 7314617556, '용의 강림': 4180040104, '지진쇄': 3464879509, '출혈|None': 539914484, 'conflagration_attack|용의 강림': 564747573, '전진의 일격': 3196793811, '죽음의 선고': 3803303546, '진 : 극멸권': 370373424, '일망 타진': 978387653, 'undying_power|None': 8458100}
+Delay_Statistics: {'파쇄의 강타_1타': 0.437, '철포난격': 0.869, '난타연권': 1.617, '용의 강림': 1.016, '지진쇄': 0.716, '전진의 일격': 0.812, '죽음의 선고': 1.08, '진 : 극멸권': 2.616, '일망 타진': 0.609}
+Nuking_W/O_Awaking_Cycle_Short: [('파쇄의 강타_1타', 956287), ('철포난격', 25717180), ('난타연권', 42755458), ('용의 강림', 24576859), ('지진쇄', 20491933), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('전진의 일격', 10686974), ('죽음의 선고', 22902341), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065)]
+Nuking_W/O_Awaking_Cycle_Long: [('죽음의 선고', 22902341), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('출혈|None', 337745), ('철포난격', 25717180), ('conflagration_attack|용의 강림', 555065), ('파쇄의 강타_1타', 1013664), ('출혈|None', 338543), ('conflagration_attack|용의 강림', 556376), ('undying_power|None', 50445), ('난타연권', 42856465), ('출혈|None', 338543), ('출혈|None', 338543), ('전진의 일격', 10712221), ('용의 강림', 24634920), ('출혈|None', 338543), ('conflagration_attack|용의 강림', 556376), ('지진쇄', 20540345), ('출혈|None', 338543), ('철포난격', 25777936), ('conflagration_attack|용의 강림', 556376), ('출혈|None', 338543)]
+Nuking_Cycle: [('파쇄의 강타_1타', 956287), ('철포난격', 25717180), ('난타연권', 42755458), ('용의 강림', 24576859), ('지진쇄', 20491933), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('전진의 일격', 10686974), ('죽음의 선고', 22902341), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('진 : 극멸권', 46296678), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('일망 타진', 2553403), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('파쇄의 강타_1타', 1013664), ('철포난격', 25717180), ('undying_power|None', 50326), ('출혈|None', 337745), ('conflagration_attack|용의 강림', 555065), ('전진의 일격', 10686974), ('출혈|None', 337745)]
+eDPS info:  [22941436.024096385, 8.3]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_lancemaster_control.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 25190346
+Nuking_W/O_Awaking_Short_DPS: 31607261
+Nuking_W/O_Awaking_Long_DPS: 30110433
+Nuking_DPS: 31792214
+DPCT_by_Percentage: 36071514.42
+Idle_Ratio: 9.8 %
+Idle_Score: 118.23
+Delay_Score: 1.097
+Delay_Score_by_Percentage: 0.909
+Total_Damage: 41728564217
+Elapsed_Time: 1656.54 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [154, 15], 'jm': [154, 52]}
+==========================
+Damage_Details: {'맹룡열파': 4545449453, '청룡진': 481120780, '청룡출수': 4701583502, '반월섬': 7527630572, '선풍참흔': 7923367605, '연환섬': 7978368294, '열공참': 7667929458, '철량추': 338398060, '연가창식: 적룡질풍격': 564716493}
+Delay_Statistics: {'맹룡열파': 0.91, '청룡진': 0.692, '청룡출수': 0.82, '반월섬': 0.763, '선풍참흔': 0.669, '연환섬': 0.977, '열공참': 1.133, '철량추': 0.713, '연가창식: 적룡질풍격': 3.242}
+Nuking_W/O_Awaking_Cycle_Short: [('맹룡열파', 28649702), ('청룡진', 2445286), ('청룡출수', 30529763), ('반월섬', 48880718), ('선풍참흔', 25809015), ('연환섬', 26073099), ('열공참', 25058593), ('철량추', 2197390)]
+Nuking_W/O_Awaking_Cycle_Long: [('선풍참흔', 25809015), ('연환섬', 26073099), ('열공참', 25058593), ('맹룡열파', 29521567), ('청룡진', 3128598), ('청룡출수', 30529763), ('반월섬', 48880718), ('선풍참흔', 25809015), ('연환섬', 26073099)]
+Nuking_Cycle: [('맹룡열파', 28649702), ('청룡진', 2445286), ('청룡출수', 30529763), ('반월섬', 48880718), ('선풍참흔', 25809015), ('연환섬', 26073099), ('열공참', 25058593), ('철량추', 2197390), ('연가창식: 적룡질풍격', 51337863), ('선풍참흔', 25809015), ('연환섬', 26073099), ('열공참', 25058593)]
+eDPS info:  [30354385.853658535, 12.3]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_lancemaster_pinnacle.json
+==========================
+DPS stablization failed, ratio is 0.9971457303744047
+Actual_DPS: 25777697
+Nuking_W/O_Awaking_Short_DPS: 65412851
+Nuking_W/O_Awaking_Long_DPS: 49482462
+Nuking_DPS: 46270360
+DPCT_by_Percentage: 57208320.719
+Idle_Ratio: 42.45 %
+Idle_Score: 727.66
+Delay_Score: 0.697
+Delay_Score_by_Percentage: 1.406
+Total_Damage: 92763619032
+Elapsed_Time: 3600.0 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'스탠스 변경': 0, '맹룡열파': 8281286160, '연가창식: 은하유성탄': 944857662, '청룡진': 439052250, '반월섬': 14364792120, '출혈|None': 1492107540, '적룡포': 24058933290, '유성강천': 16819632690, '굉열파': 16154730900, '사두룡격': 10208226420}
+Delay_Statistics: {'맹룡열파': 1.853, '연가창식: 은하유성탄': 2.446, '청룡진': 0.71, '반월섬': 1.516, '적룡포': 1.314, '유성강천': 1.272, '굉열파': 1.223, '사두룡격': 1.758}
+Nuking_W/O_Awaking_Cycle_Short: [('반월섬', 68403772), ('출혈|None', 645934), ('스탠스 변경', 0), ('적룡포', 114566349), ('출혈|None', 645934), ('유성강천', 80093489), ('출혈|None', 645934), ('굉열파', 76927290), ('출혈|None', 645934), ('사두룡격', 48610602), ('출혈|None', 645934), ('출혈|None', 645934)]
+Nuking_W/O_Awaking_Cycle_Long: [('청룡진', 2090725), ('반월섬', 68403772), ('출혈|None', 645934), ('스탠스 변경', 0), ('적룡포', 114566349), ('출혈|None', 645934), ('유성강천', 80093489), ('출혈|None', 645934), ('굉열파', 76927290), ('출혈|None', 645934), ('사두룡격', 48610602), ('출혈|None', 645934), ('출혈|None', 645934), ('출혈|None', 645934), ('출혈|None', 645934)]
+Nuking_Cycle: [('연가창식: 은하유성탄', 67489833), ('청룡진', 2090725), ('반월섬', 68403772), ('출혈|None', 645934), ('스탠스 변경', 0), ('적룡포', 114566349), ('출혈|None', 645934), ('유성강천', 80093489), ('출혈|None', 645934), ('굉열파', 76927290), ('출혈|None', 645934), ('사두룡격', 48610602), ('출혈|None', 645934), ('출혈|None', 645934), ('출혈|None', 645934)]
+eDPS info:  [49482462.375, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_reaper_hunger.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 21630307
+Nuking_W/O_Awaking_Short_DPS: 32832533
+Nuking_W/O_Awaking_Long_DPS: 29781260
+Nuking_DPS: 30202700
+DPCT_by_Percentage: 41158945.101
+Idle_Ratio: 29.52 %
+Idle_Score: 102.62
+Delay_Score: 1.311
+Delay_Score_by_Percentage: 1.027
+Total_Damage: 37809777119
+Elapsed_Time: 1748.01 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [856, 84], 'jm': [0, 0]}
+==========================
+Damage_Details: {'나이트메어_1타': 487368345, '레이지 스피어': 8152764525, 'poison_corrosion|None': 117362468, '라스트 그래피티': 8790791430, '댄싱 오브 퓨리': 10892614202, '사일런트 스매셔': 4808274430, '쉐도우 닷_1타': 191015604, '쉐도우 스톰': 3860445035, '월식 : 카덴차': 509141080}
+Delay_Statistics: {'나이트메어_1타': 0.378, '레이지 스피어': 1.064, '라스트 그래피티': 1.12, '댄싱 오브 퓨리': 1.27, '사일런트 스매셔': 0.749, '쉐도우 닷_1타': 0.307, '쉐도우 스톰': 0.497, '월식 : 카덴차': 1.415}
+Nuking_W/O_Awaking_Cycle_Short: [('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('레이지 스피어', 34692615), ('poison_corrosion|None', 67141), ('댄싱 오브 퓨리', 66825854), ('poison_corrosion|None', 67141), ('라스트 그래피티', 40887402), ('poison_corrosion|None', 67141), ('나이트메어_1타', 2215915), ('poison_corrosion|None', 67141), ('사일런트 스매셔', 20905541), ('쉐도우 닷_1타', 300339), ('poison_corrosion|None', 67141), ('쉐도우 스톰', 30397205), ('poison_corrosion|None', 67141)]
+Nuking_W/O_Awaking_Cycle_Long: [('라스트 그래피티', 40887402), ('poison_corrosion|None', 67141), ('쉐도우 스톰', 30397205), ('쉐도우 닷_1타', 300339), ('poison_corrosion|None', 67141), ('나이트메어_1타', 2215915), ('사일런트 스매셔', 20905541), ('poison_corrosion|None', 67141), ('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('레이지 스피어', 34692615), ('poison_corrosion|None', 67141), ('댄싱 오브 퓨리', 66825854), ('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('poison_corrosion|None', 67141), ('라스트 그래피티', 40887402), ('poison_corrosion|None', 67141)]
+Nuking_Cycle: [('poison_corrosion|None', 67141), ('라스트 그래피티', 40887402), ('댄싱 오브 퓨리', 66825854), ('poison_corrosion|None', 67141), ('사일런트 스매셔', 20905541), ('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('쉐도우 스톰', 30397205), ('poison_corrosion|None', 67141), ('월식 : 카덴차', 63642635), ('poison_corrosion|None', 67141), ('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('poison_corrosion|None', 67141), ('나이트메어_1타', 2215915), ('poison_corrosion|None', 67141), ('레이지 스피어', 34692615), ('poison_corrosion|None', 67141), ('쉐도우 닷_1타', 300339), ('라스트 그래피티', 40887402), ('poison_corrosion|None', 67141)]
+eDPS info:  [29781259.875, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_reaper_lunar_voice.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 22028675
+Nuking_W/O_Awaking_Short_DPS: 39076172
+Nuking_W/O_Awaking_Long_DPS: 29716822
+Nuking_DPS: 38461201
+DPCT_by_Percentage: 76994817.55
+Idle_Ratio: 16.24 %
+Idle_Score: 100.08
+Delay_Score: 1.187
+Delay_Score_by_Percentage: 1.242
+Total_Damage: 33631399097
+Elapsed_Time: 1526.72 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'어둠 게이지 체크': 0, '쉐도우 스톰': 891847260, '쉐도우 닷': 482378830, '페르소나 상태 진입': 0, 'poison_corrosion|None': 77697312, '레이지 스피어': 10469534700, '월식 : 카덴차': 331231602, '라스트 그래피티': 9275899500, '나이트메어': 462540820, '디스토션': 184269552, '쉐도우 트랩': 90459909, '댄싱 오브 퓨리': 11365539612}
+Delay_Statistics: {'쉐도우 스톰': 0.635, '쉐도우 닷': 0.855, '페르소나 상태 진입': 0.35, '레이지 스피어': 1.212, '월식 : 카덴차': 1.629, '라스트 그래피티': 1.14, '나이트메어': 0.814, '디스토션': 0.708, '쉐도우 트랩': 0.496, '댄싱 오브 퓨리': 1.448}
+Nuking_W/O_Awaking_Cycle_Short: [('페르소나 상태 진입', 0), ('poison_corrosion|None', 51184), ('댄싱 오브 퓨리', 115106742), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('쉐도우 스톰', 11026796), ('poison_corrosion|None', 51184), ('쉐도우 닷', 1138008), ('페르소나 상태 진입', 0), ('poison_corrosion|None', 51184), ('레이지 스피어', 104695347), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('나이트메어', 2183032), ('poison_corrosion|None', 51184)]
+Nuking_W/O_Awaking_Cycle_Long: [('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('쉐도우 스톰', 11026796), ('쉐도우 닷', 1138008), ('poison_corrosion|None', 51184), ('페르소나 상태 진입', 0), ('poison_corrosion|None', 51184), ('댄싱 오브 퓨리', 115106742), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('나이트메어', 2183032), ('poison_corrosion|None', 51184), ('디스토션', 869196), ('쉐도우 트랩', 1116789), ('poison_corrosion|None', 51184), ('쉐도우 닷', 1138008), ('poison_corrosion|None', 51184), ('페르소나 상태 진입', 0), ('레이지 스피어', 104695347), ('poison_corrosion|None', 51184), ('poison_corrosion|None', 51184)]
+Nuking_Cycle: [('댄싱 오브 퓨리', 115106742), ('poison_corrosion|None', 51184), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('월식 : 카덴차', 55205267), ('poison_corrosion|None', 51184), ('poison_corrosion|None', 51184), ('페르소나 상태 진입', 0), ('레이지 스피어', 104695347), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('쉐도우 스톰', 11026796), ('poison_corrosion|None', 51184), ('쉐도우 닷', 1138008), ('poison_corrosion|None', 51184), ('페르소나 상태 진입', 0), ('라스트 그래피티', 92758995), ('poison_corrosion|None', 51184), ('어둠 게이지 체크', 0), ('나이트메어', 2183032), ('poison_corrosion|None', 51184), ('디스토션', 869196), ('poison_corrosion|None', 51184), ('쉐도우 트랩', 1116789)]
+eDPS info:  [36727194.777777776, 9.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 15 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_scouter_arthetinean_skill.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19951075
+Nuking_W/O_Awaking_Short_DPS: 48956955
+Nuking_W/O_Awaking_Long_DPS: 37136413
+Nuking_DPS: 34753489
+DPCT_by_Percentage: 51912536.194
+Idle_Ratio: 44.17 %
+Idle_Score: 214.01
+Delay_Score: 0.985
+Delay_Score_by_Percentage: 1.22
+Total_Damage: 31613275982
+Elapsed_Time: 1584.55 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [112, 11], 'jm': [259, 45]}
+==========================
+Damage_Details: {'기동 타격': 453685270, '과충전 배터리': 203550822, '명령 : 베이비 드론': 7098638622, '아발란체': 2795694836, '출혈|None': 449468945, '명령 : 레이드 미사일': 5279927967, '어나힐레이션 모드': 4565863009, '명령 : 플레어빔': 2972339160, '에너지 버스터': 7441163551, 'flame_buster|None': 15090643, '명령 : 파이널 익스플로전': 337853157}
+Delay_Statistics: {'기동 타격': 0.299, '과충전 배터리': 0.521, '명령 : 베이비 드론': 1.11, '아발란체': 1.318, '명령 : 레이드 미사일': 0.409, '어나힐레이션 모드': 1.709, '명령 : 플레어빔': 0.375, '에너지 버스터': 2.063, '명령 : 파이널 익스플로전': 0.935}
+Nuking_W/O_Awaking_Cycle_Short: [('명령 : 베이비 드론', 53888176), ('아발란체', 21340116), ('출혈|None', 571585), ('명령 : 레이드 미사일', 41692833), ('어나힐레이션 모드', 49143025), ('출혈|None', 571585), ('명령 : 플레어빔', 26678577), ('출혈|None', 571585), ('에너지 버스터', 98672215), ('출혈|None', 571585), ('flame_buster|None', 40446)]
+Nuking_W/O_Awaking_Cycle_Long: [('어나힐레이션 모드', 49143025), ('과충전 배터리', 1544038), ('명령 : 베이비 드론', 53888176), ('아발란체', 21340116), ('출혈|None', 571585), ('명령 : 플레어빔', 26678577), ('명령 : 레이드 미사일', 41692833), ('출혈|None', 545774), ('기동 타격', 1790901), ('에너지 버스터', 98672215), ('출혈|None', 571585), ('flame_buster|None', 40446), ('출혈|None', 571585), ('flame_buster|None', 40446)]
+Nuking_Cycle: [('기동 타격', 1875598), ('과충전 배터리', 1544038), ('명령 : 베이비 드론', 53888176), ('아발란체', 21340116), ('출혈|None', 571585), ('어나힐레이션 모드', 49143025), ('출혈|None', 571585), ('출혈|None', 571585), ('에너지 버스터', 98672215), ('출혈|None', 545774), ('flame_buster|None', 38620), ('출혈|None', 545774), ('flame_buster|None', 38620), ('명령 : 플레어빔', 25473849), ('기동 타격', 1790901), ('명령 : 파이널 익스플로전', 48578115), ('출혈|None', 571585), ('flame_buster|None', 40446), ('명령 : 레이드 미사일', 41692833), ('flame_buster|None', 40446)]
+eDPS info:  [37136412.75, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 16 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_scouter_evolutionary_legacy.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19468084
+Nuking_W/O_Awaking_Short_DPS: 21813648
+Nuking_W/O_Awaking_Long_DPS: 21959122
+Nuking_DPS: 23762479
+DPCT_by_Percentage: 24058525.038
+Idle_Ratio: 0.0 %
+Idle_Score: inf
+Delay_Score: 1.178
+Delay_Score_by_Percentage: 0.892
+Total_Damage: 29204072836
+Elapsed_Time: 1500.11 s
+Rune_Ratio: {'rg': [730, 133], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'하이퍼 싱크 변신해제': 0, '에어 스트라이크': 287540015, '하이퍼 싱크 변신': 0, '코멧 스트라이크': 2773235404, '엑셀리온 빔': 7139291578, '슬러그 샷': 2552611688, '버스트 블로우': 3893868693, '출혈|None': 656034630, '레이저 블레이드': 5674015008, '크림슨 브레이커': 4763938350, '명령 : 레이드 미사일': 819135548, '명령 : 베이비 드론': 644401922}
+Delay_Statistics: {'에어 스트라이크': 1.455, '하이퍼 싱크 변신': 1.224, '코멧 스트라이크': 0.604, '엑셀리온 빔': 0.818, '슬러그 샷': 0.73, '버스트 블로우': 0.841, '레이저 블레이드': 0.972, '크림슨 브레이커': 1.274, '명령 : 레이드 미사일': 1.251, '명령 : 베이비 드론': 0.551}
+Nuking_W/O_Awaking_Cycle_Short: [('버스트 블로우', 16024151), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('출혈|None', 483232), ('레이저 블레이드', 23349856), ('크림슨 브레이커', 39048675), ('출혈|None', 483232), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('엑셀리온 빔', 29660771), ('출혈|None', 483232), ('슬러그 샷', 8428660), ('출혈|None', 483232)]
+Nuking_W/O_Awaking_Cycle_Long: [('코멧 스트라이크', 5735191), ('출혈|None', 483232), ('엑셀리온 빔', 29660771), ('출혈|None', 483232), ('슬러그 샷', 8428660), ('출혈|None', 483232), ('버스트 블로우', 16024151), ('코멧 스트라이크', 5735191), ('출혈|None', 483232), ('레이저 블레이드', 23349856), ('출혈|None', 483232), ('크림슨 브레이커', 39048675), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('출혈|None', 483232), ('엑셀리온 빔', 29660771), ('출혈|None', 483232), ('슬러그 샷', 8428660)]
+Nuking_Cycle: [('버스트 블로우', 16024151), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('출혈|None', 483232), ('레이저 블레이드', 23349856), ('크림슨 브레이커', 39048675), ('출혈|None', 483232), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('엑셀리온 빔', 29660771), ('출혈|None', 483232), ('슬러그 샷', 8428660), ('출혈|None', 483232), ('버스트 블로우', 16024151), ('출혈|None', 483232), ('코멧 스트라이크', 5735191), ('레이저 블레이드', 23349856), ('출혈|None', 483232), ('하이퍼 싱크 변신해제', 0), ('에어 스트라이크', 59794219), ('출혈|None', 436510), ('출혈|None', 436510)]
+eDPS info:  [22958263.333333336, 8.1]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_slayer_devourer_6m.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19986751
+Nuking_W/O_Awaking_Short_DPS: 44280273
+Nuking_W/O_Awaking_Long_DPS: 33617074
+Nuking_DPS: 33304530
+DPCT_by_Percentage: 39469248.046
+Idle_Ratio: 32.17 %
+Idle_Score: 355.26
+Delay_Score: 0.957
+Delay_Score_by_Percentage: 1.156
+Total_Damage: 32854220490
+Elapsed_Time: 1643.81 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [161, 16], 'jm': [162, 50]}
+==========================
+Damage_Details: {'폭주 활성화': 0, '와일드 스톰프': 527303520, '와일드 러시': 373239414, '브루탈 임팩트': 6001249419, '출혈|None': 428688590, '볼케이노 이럽션': 5105965248, '페이탈 소드': 5839349894, '길로틴': 5998274201, '퍼니싱 드로': 4045749608, '퓨리어스 클로': 3953322096, '라그나 브레이크': 581078500}
+Delay_Statistics: {'폭주 활성화': 0.451, '와일드 스톰프': 0.571, '와일드 러시': 0.556, '브루탈 임팩트': 1.051, '볼케이노 이럽션': 1.724, '페이탈 소드': 1.589, '길로틴': 0.693, '퍼니싱 드로': 0.925, '퓨리어스 클로': 0.934, '라그나 브레이크': 2.577}
+Nuking_W/O_Awaking_Cycle_Short: [('와일드 러시', 2303947), ('브루탈 임팩트', 74089499), ('출혈|None', 441947), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('출혈|None', 441947), ('길로틴', 37325235), ('퍼니싱 드로', 25221960), ('출혈|None', 441947), ('퓨리어스 클로', 24783451), ('출혈|None', 441947)]
+Nuking_W/O_Awaking_Cycle_Long: [('폭주 활성화', 0), ('와일드 스톰프', 3254960), ('와일드 러시', 2303947), ('브루탈 임팩트', 74089499), ('출혈|None', 441947), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('출혈|None', 441947), ('길로틴', 37325235), ('퍼니싱 드로', 25221960), ('출혈|None', 441947), ('퓨리어스 클로', 24783451), ('출혈|None', 441947)]
+Nuking_Cycle: [('폭주 활성화', 0), ('와일드 스톰프', 3254960), ('와일드 러시', 2303947), ('브루탈 임팩트', 74089499), ('출혈|None', 441947), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('출혈|None', 441947), ('길로틴', 37325235), ('퍼니싱 드로', 25221960), ('출혈|None', 441947), ('퓨리어스 클로', 24783451), ('출혈|None', 441947), ('라그나 브레이크', 58107850), ('와일드 스톰프', 3254960), ('와일드 러시', 2303947), ('출혈|None', 441947)]
+eDPS info:  [33617074.5, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_slayer_devourer_7m.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 20801097
+Nuking_W/O_Awaking_Short_DPS: 40450659
+Nuking_W/O_Awaking_Long_DPS: 37011869
+Nuking_DPS: 35593400
+DPCT_by_Percentage: 36057716.698
+Idle_Ratio: 22.94 %
+Idle_Score: 265.27
+Delay_Score: 0.794
+Delay_Score_by_Percentage: 1.282
+Total_Damage: 33746451169
+Elapsed_Time: 1622.35 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'폭주 활성화': 0, '와일드 스톰프': 256217452, '퍼니싱 드로': 3707628120, '출혈|None': 390105232, '마운틴 클리브': 3798227580, '페이탈 소드': 5256155884, '길로틴': 5409189107, '파이널 블로': 4314806244, '브루탈 임팩트': 5482622926, '볼케이노 이럽션': 4608527974, '라그나 브레이크': 522970650}
+Delay_Statistics: {'폭주 활성화': 0.458, '와일드 스톰프': 0.57, '퍼니싱 드로': 0.924, '마운틴 클리브': 1.463, '페이탈 소드': 1.593, '길로틴': 0.695, '파이널 블로': 1.608, '브루탈 임팩트': 1.051, '볼케이노 이럽션': 1.727, '라그나 브레이크': 2.57}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('길로틴', 37325235), ('파이널 블로', 29773623), ('출혈|None', 441947), ('출혈|None', 441947), ('브루탈 임팩트', 74089499), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947)]
+Nuking_W/O_Awaking_Cycle_Long: [('폭주 활성화', 0), ('와일드 스톰프', 1731199), ('퍼니싱 드로', 25221960), ('출혈|None', 441947), ('마운틴 클리브', 25995893), ('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('길로틴', 37325235), ('파이널 블로', 29773623), ('출혈|None', 441947), ('출혈|None', 441947), ('브루탈 임팩트', 74089499), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947)]
+Nuking_Cycle: [('와일드 스톰프', 1731199), ('퍼니싱 드로', 25221960), ('출혈|None', 441947), ('마운틴 클리브', 25995893), ('출혈|None', 441947), ('페이탈 소드', 36269254), ('출혈|None', 441947), ('길로틴', 37325235), ('파이널 블로', 29773623), ('출혈|None', 441947), ('출혈|None', 441947), ('브루탈 임팩트', 74089499), ('볼케이노 이럽션', 63036608), ('출혈|None', 441947), ('라그나 브레이크', 58107850), ('와일드 스톰프', 1731199)]
+eDPS info:  [37011869.125, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_slayer_punisher.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 20672182
+Nuking_W/O_Awaking_Short_DPS: 60559819
+Nuking_W/O_Awaking_Long_DPS: 55014474
+Nuking_DPS: 56695581
+DPCT_by_Percentage: 54511695.63
+Idle_Ratio: 33.54 %
+Idle_Score: 156.16
+Delay_Score: 0.885
+Delay_Score_by_Percentage: 1.679
+Total_Damage: 34002432404
+Elapsed_Time: 1644.85 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [60, 5], 'jm': [0, 0]}
+==========================
+Damage_Details: {'와일드 스톰프': 308788036, '스피닝 소드': 491220023, '플래시 블레이드': 389731399, '퓨리어스 클로': 4423427773, '출혈|None': 522209733, '와일드 러시': 79230600, '폭주 활성화': 0, '길로틴': 5458315800, '브루탈 임팩트': 6555386400, '볼케이노 이럽션': 4384775460, '블러드러스트': 10634762700, '라그나 브레이크': 754584480}
+Delay_Statistics: {'와일드 스톰프': 0.649, '스피닝 소드': 1.02, '플래시 블레이드': 0.797, '퓨리어스 클로': 0.933, '와일드 러시': 0.57, '폭주 활성화': 0.449, '길로틴': 0.693, '브루탈 임팩트': 2.106, '볼케이노 이럽션': 1.724, '블러드러스트': 2.333, '라그나 브레이크': 2.56}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 537971), ('브루탈 임팩트', 109256440), ('볼케이노 이럽션', 73079591), ('플래시 블레이드', 2162925), ('블러드러스트', 177246045), ('출혈|None', 537971), ('출혈|None', 537971)]
+Nuking_W/O_Awaking_Cycle_Long: [('출혈|None', 256096), ('폭주 활성화', 0), ('길로틴', 45868200), ('출혈|None', 537971), ('퓨리어스 클로', 30094607), ('출혈|None', 537971), ('브루탈 임팩트', 109256440), ('볼케이노 이럽션', 73079591), ('플래시 블레이드', 2162925), ('블러드러스트', 177246045), ('출혈|None', 537971), ('출혈|None', 537971)]
+Nuking_Cycle: [('출혈|None', 256096), ('폭주 활성화', 0), ('길로틴', 45868200), ('출혈|None', 537971), ('퓨리어스 클로', 30094607), ('출혈|None', 537971), ('브루탈 임팩트', 109256440), ('볼케이노 이럽션', 73079591), ('플래시 블레이드', 2162925), ('블러드러스트', 177246045), ('출혈|None', 537971), ('출혈|None', 537971), ('라그나 브레이크', 125764080), ('출혈|None', 537971), ('출혈|None', 537971)]
+eDPS info:  [55014473.5, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_sorceress_igniter.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 14584675
+Nuking_W/O_Awaking_Short_DPS: 72132252
+Nuking_W/O_Awaking_Long_DPS: 54692417
+Nuking_DPS: 43962528
+DPCT_by_Percentage: 16068574.196
+Idle_Ratio: 49.29 %
+Idle_Score: 504.13
+Delay_Score: 0.797
+Delay_Score_by_Percentage: 0.862
+Total_Damage: 23454783415
+Elapsed_Time: 1608.19 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [61, 6], 'jm': [0, 0]}
+==========================
+Damage_Details: {'엔비스카의 권능': 258268584, '엘리멘탈 리액트': 3173300211, '아이스 애로우': 2293057651, '마력 해방 준비_1': 0, '블레이즈': 1520424991, '익스플로전': 3472843510, '출혈|None': 575236728, '천벌': 3477960773, 'electric_discharge|천벌': 161201721, '돌풍': 134407888, '마력 해방 준비_2': 0, '종말의 날': 0, '혹한의 부름': 0, '마력 해방 시작': 0, '종말의 날_데미지': 6383712830, '혹한의 부름_데미지': 1650018253, 'ignite|None': 354350275, '마력 해방 종료': 0}
+Delay_Statistics: {'엔비스카의 권능': 4.285, '엘리멘탈 리액트': 1.036, '아이스 애로우': 1.328, '블레이즈': 0.575, '익스플로전': 1.781, '천벌': 1.615, '돌풍': 0.814, '종말의 날': 1.501, '혹한의 부름': 0.778, '마력 해방 시작': 0.812}
+Nuking_W/O_Awaking_Cycle_Short: [('종말의 날_데미지', 104651030), ('혹한의 부름_데미지', 40177933), ('엘리멘탈 리액트', 38790209), ('ignite|None', 1572995), ('아이스 애로우', 37059813), ('ignite|None', 1572995), ('블레이즈', 24572721), ('ignite|None', 1572995), ('익스플로전', 87544486), ('출혈|None', 1042975), ('ignite|None', 1572995), ('출혈|None', 1042975), ('천벌', 87673483), ('ignite|None', 1572995), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936)]
+Nuking_W/O_Awaking_Cycle_Long: [('종말의 날_데미지', 104651030), ('혹한의 부름_데미지', 40177933), ('엘리멘탈 리액트', 38790209), ('ignite|None', 1572995), ('아이스 애로우', 37059813), ('ignite|None', 1572995), ('블레이즈', 24572721), ('ignite|None', 1572995), ('출혈|None', 1042975), ('익스플로전', 87544486), ('ignite|None', 1572995), ('출혈|None', 1042975), ('천벌', 87673483), ('ignite|None', 1572995), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936)]
+Nuking_Cycle: [('혹한의 부름', 0), ('마력 해방 시작', 0), ('출혈|None', 1042975), ('종말의 날_데미지', 104651030), ('혹한의 부름_데미지', 40177933), ('엘리멘탈 리액트', 38790209), ('ignite|None', 1572995), ('아이스 애로우', 37059813), ('ignite|None', 1572995), ('블레이즈', 24572721), ('ignite|None', 1572995), ('출혈|None', 1042975), ('익스플로전', 87544486), ('ignite|None', 1572995), ('출혈|None', 1042975), ('천벌', 87673483), ('ignite|None', 1572995), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936), ('출혈|None', 1042975), ('electric_discharge|천벌', 1329936), ('출혈|None', 1042975)]
+eDPS info:  [54692416.625, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_sorceress_igniter.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 14672544
+Nuking_W/O_Awaking_Short_DPS: 73017245
+Nuking_W/O_Awaking_Long_DPS: 55363445
+Nuking_DPS: 44501876
+DPCT_by_Percentage: 16063064.543
+Idle_Ratio: 49.5 %
+Idle_Score: 504.28
+Delay_Score: 0.796
+Delay_Score_by_Percentage: 0.869
+Total_Damage: 23279605094
+Elapsed_Time: 1586.62 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [60, 5], 'jm': [0, 0]}
+==========================
+Damage_Details: {'엔비스카의 권능': 304249080, '엘리멘탈 리액트': 3155501606, '아이스 애로우': 2264973451, '마력 해방 준비_1': 0, '블레이즈': 1501803603, '익스플로전': 3422734901, '출혈|None': 573945178, '천벌': 3427778345, 'electric_discharge|천벌': 161630460, '돌풍': 133082400, '마력 해방 준비_2': 0, '종말의 날': 0, '혹한의 부름': 0, '마력 해방 시작': 0, '종말의 날_데미지': 6356104560, '혹한의 부름_데미지': 1627407030, 'ignite|None': 350394480, '마력 해방 종료': 0}
+Delay_Statistics: {'엔비스카의 권능': 4.285, '엘리멘탈 리액트': 1.036, '아이스 애로우': 1.328, '블레이즈': 0.575, '익스플로전': 1.788, '천벌': 1.621, '돌풍': 0.814, '종말의 날': 1.495, '혹한의 부름': 0.778, '마력 해방 시작': 0.812}
+Nuking_W/O_Awaking_Cycle_Short: [('종말의 날_데미지', 105935076), ('혹한의 부름_데미지', 40670908), ('엘리멘탈 리액트', 39266156), ('ignite|None', 1592296), ('아이스 애로우', 37514529), ('ignite|None', 1592296), ('블레이즈', 24874223), ('ignite|None', 1592296), ('익스플로전', 88618638), ('출혈|None', 1055598), ('ignite|None', 1592296), ('출혈|None', 1055598), ('천벌', 88749218), ('ignite|None', 1592296), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448)]
+Nuking_W/O_Awaking_Cycle_Long: [('종말의 날_데미지', 105935076), ('혹한의 부름_데미지', 40670908), ('엘리멘탈 리액트', 39266156), ('ignite|None', 1592296), ('아이스 애로우', 37514529), ('ignite|None', 1592296), ('블레이즈', 24874223), ('ignite|None', 1592296), ('출혈|None', 1055598), ('익스플로전', 88618638), ('ignite|None', 1592296), ('출혈|None', 1055598), ('천벌', 88749218), ('ignite|None', 1592296), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448)]
+Nuking_Cycle: [('혹한의 부름', 0), ('마력 해방 시작', 0), ('출혈|None', 1055598), ('종말의 날_데미지', 105935076), ('혹한의 부름_데미지', 40670908), ('엘리멘탈 리액트', 39266156), ('ignite|None', 1592296), ('아이스 애로우', 37514529), ('ignite|None', 1592296), ('블레이즈', 24874223), ('ignite|None', 1592296), ('출혈|None', 1055598), ('익스플로전', 88618638), ('ignite|None', 1592296), ('출혈|None', 1055598), ('천벌', 88749218), ('ignite|None', 1592296), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448), ('출혈|None', 1055598), ('electric_discharge|천벌', 1346448), ('출혈|None', 1055598)]
+eDPS info:  [55363445.25, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_soulfist_energy_overflow.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17122315
+Nuking_W/O_Awaking_Short_DPS: 36914034
+Nuking_W/O_Awaking_Long_DPS: 32408232
+Nuking_DPS: 34705687
+DPCT_by_Percentage: 30560299.564
+Idle_Ratio: 22.6 %
+Idle_Score: 158.01
+Delay_Score: 1.162
+Delay_Score_by_Percentage: 1.032
+Total_Damage: 28067754600
+Elapsed_Time: 1639.26 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [288, 28], 'jm': [163, 44]}
+==========================
+Damage_Details: {'금강선공 1단계 활성화': 0, '금강선공 2단계 활성화': 0, '극상마섬광_캔슬': 188607109, '금강선공 3단계 활성화': 0, '내공 방출': 0, '섬열파': 6855120648, '난화격': 7442447231, '여래신장': 4035688382, '기공장': 4912780133, '섭물진기_캔슬': 3370588922, '회선격추': 377874828, '출혈|None': 799961693, '순보_1회': 29752220, '순보_2회': 27466717, '순보_3회': 27466717}
+Delay_Statistics: {'금강선공 1단계 활성화': 0.408, '금강선공 2단계 활성화': 0.436, '극상마섬광_캔슬': 3.093, '금강선공 3단계 활성화': 0.489, '내공 방출': 0.648, '섬열파': 1.517, '난화격': 1.33, '여래신장': 0.498, '기공장': 0.566, '섭물진기_캔슬': 0.902, '회선격추': 0.588, '순보_1회': 0.423, '순보_2회': 0.423, '순보_3회': 0.408}
+Nuking_W/O_Awaking_Cycle_Short: [('기공장', 14870906), ('내공 방출', 0), ('출혈|None', 1249803), ('섬열파', 55495567), ('출혈|None', 1249803), ('출혈|None', 1249803), ('난화격', 60920515), ('출혈|None', 1249803), ('여래신장', 33095686), ('기공장', 23121093), ('출혈|None', 1249803), ('섭물진기_캔슬', 27731425)]
+Nuking_W/O_Awaking_Cycle_Long: [('여래신장', 33095686), ('기공장', 23121093), ('출혈|None', 1249803), ('섭물진기_캔슬', 27731425), ('회선격추', 3882406), ('출혈|None', 803557), ('기공장', 14870906), ('내공 방출', 0), ('출혈|None', 1249803), ('섬열파', 55495567), ('출혈|None', 1249803), ('출혈|None', 1249803), ('난화격', 60920515), ('출혈|None', 1249803), ('여래신장', 33095686)]
+Nuking_Cycle: [('출혈|None', 1249803), ('난화격', 60920515), ('출혈|None', 1249803), ('여래신장', 33095686), ('기공장', 23121093), ('출혈|None', 1249803), ('섭물진기_캔슬', 27731425), ('회선격추', 3882406), ('출혈|None', 803557), ('기공장', 14870906), ('내공 방출', 0), ('출혈|None', 1249803), ('섬열파', 55495567), ('출혈|None', 1249803), ('출혈|None', 1249803), ('난화격', 60920515), ('출혈|None', 1249803), ('여래신장', 33095686), ('기공장', 23121093), ('출혈|None', 1249803)]
+eDPS info:  [36324617.33944954, 10.9]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_soulfist_robust_spirit.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 18411134
+Nuking_W/O_Awaking_Short_DPS: 44528966
+Nuking_W/O_Awaking_Long_DPS: 37576960
+Nuking_DPS: 53363324
+DPCT_by_Percentage: 52786299.034
+Idle_Ratio: 48.49 %
+Idle_Score: 594.49
+Delay_Score: 1.184
+Delay_Score_by_Percentage: 1.067
+Total_Damage: 45740068007
+Elapsed_Time: 2484.38 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [401, 40], 'jm': [0, 0]}
+==========================
+Damage_Details: {'순보_1회': 69352800, '순보_2회': 69352800, '회선격추': 467643360, '금강선공 3단계 활성화': 0, '출혈|None': 1491258006, '순보_3회': 50343525, '섬열파': 11413361795, '난화격': 12332585663, '내공 방출': 0, '여래신장': 6852450720, '기공장': 6978845429, '천하섬멸옥': 311557361, '섭물진기_캔슬': 5703316548}
+Delay_Statistics: {'순보_1회': 0.465, '순보_2회': 0.465, '회선격추': 0.653, '금강선공 3단계 활성화': 0.613, '순보_3회': 0.411, '섬열파': 1.547, '난화격': 1.357, '내공 방출': 0.661, '여래신장': 0.508, '기공장': 0.576, '천하섬멸옥': 4.009, '섭물진기_캔슬': 0.921}
+Nuking_W/O_Awaking_Cycle_Short: [('출혈|None', 1039858), ('내공 방출', 0), ('섬열파', 71814616), ('출혈|None', 1617353), ('출혈|None', 1617353), ('난화격', 77598513), ('출혈|None', 1617353), ('여래신장', 42827817), ('출혈|None', 1617353), ('기공장', 29920091), ('섭물진기_캔슬', 35886139), ('출혈|None', 1617353)]
+Nuking_W/O_Awaking_Cycle_Long: [('순보_3회', 621525), ('회선격추', 4589804), ('기공장', 27769387), ('출혈|None', 1501023), ('내공 방출', 0), ('섭물진기_캔슬', 35886139), ('출혈|None', 1617353), ('여래신장', 42827817), ('출혈|None', 1617353), ('난화격', 77598513), ('출혈|None', 1617353), ('섬열파', 71814616), ('출혈|None', 1617353), ('출혈|None', 1617353), ('기공장', 29920091)]
+Nuking_Cycle: [('회선격추', 1255738), ('금강선공 3단계 활성화', 0), ('출혈|None', 1039858), ('순보_3회', 621525), ('섬열파', 66652467), ('출혈|None', 1501023), ('난화격', 72020609), ('출혈|None', 1501023), ('출혈|None', 1501023), ('내공 방출', 0), ('여래신장', 42827817), ('출혈|None', 1617353), ('기공장', 29920091), ('천하섬멸옥', 311557361), ('출혈|None', 1617353)]
+eDPS info:  [37576960.0, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 13 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_striker_deathblow.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 19931483
+Nuking_W/O_Awaking_Short_DPS: 45292334
+Nuking_W/O_Awaking_Long_DPS: 36570136
+Nuking_DPS: 35207188
+DPCT_by_Percentage: 52935242.423
+Idle_Ratio: 28.54 %
+Idle_Score: 279.31
+Delay_Score: 0.862
+Delay_Score_by_Percentage: 1.124
+Total_Damage: 31598576317
+Elapsed_Time: 1585.37 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'폭쇄진': 3387297558, 'flame_explosion|None': 562022229, '번개의 속삭임': 347839455, '폭쇄진_대폭발': 4710548797, '붕천퇴': 187725900, '뇌호격': 11111508600, '격호각': 720809600, '월섬각': 883413900, '호왕출현': 9225356100, '진천각': 317797078, '운룡각': 144257100}
+Delay_Statistics: {'폭쇄진': 1.66, '번개의 속삭임': 0.682, '붕천퇴': 0.877, '뇌호격': 1.4, '격호각': 0.916, '월섬각': 1.278, '호왕출현': 1.207, '진천각': 2.625, '운룡각': 1.278}
+Nuking_W/O_Awaking_Cycle_Short: [('번개의 속삭임', 3443955), ('flame_explosion|None', 1150103), ('폭쇄진_대폭발', 46639097), ('붕천퇴', 1005798), ('뇌호격', 111115086), ('flame_explosion|None', 1150103), ('flame_explosion|None', 1150103), ('격호각', 3861954), ('월섬각', 8834139), ('flame_explosion|None', 1150103), ('호왕출현', 92253561)]
+Nuking_W/O_Awaking_Cycle_Long: [('폭쇄진', 19808758), ('flame_explosion|None', 998326), ('번개의 속삭임', 3443955), ('flame_explosion|None', 1150103), ('폭쇄진_대폭발', 46639097), ('붕천퇴', 1005798), ('뇌호격', 111115086), ('flame_explosion|None', 1150103), ('flame_explosion|None', 1150103), ('격호각', 3861954), ('월섬각', 8834139), ('flame_explosion|None', 1150103), ('호왕출현', 92253561)]
+Nuking_Cycle: [('폭쇄진', 19808758), ('flame_explosion|None', 998326), ('번개의 속삭임', 3443955), ('flame_explosion|None', 1150103), ('폭쇄진_대폭발', 46639097), ('붕천퇴', 1005798), ('뇌호격', 111115086), ('flame_explosion|None', 1150103), ('flame_explosion|None', 1150103), ('격호각', 3861954), ('월섬각', 8834139), ('flame_explosion|None', 1150103), ('호왕출현', 92253561), ('진천각', 59510798)]
+eDPS info:  [37830520.493827164, 8.1]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_striker_deathblow_c1.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 20725462
+Nuking_W/O_Awaking_Short_DPS: 36730026
+Nuking_W/O_Awaking_Long_DPS: 27656452
+Nuking_DPS: 28773661
+DPCT_by_Percentage: 59701885.585
+Idle_Ratio: 14.39 %
+Idle_Score: 109.38
+Delay_Score: 0.746
+Delay_Score_by_Percentage: 1.627
+Total_Damage: 34098566754
+Elapsed_Time: 1645.26 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'붕천퇴': 201307491, '번개의 속삭임': 396054825, '뇌호격': 12778234890, '격호각': 828931040, '월섬각': 1015925985, '호왕출현': 10609159515, '진천각': 357064788, '운룡각': 165895665, '풍신초래': 7745992555}
+Delay_Statistics: {'붕천퇴': 0.877, '번개의 속삭임': 0.582, '뇌호격': 1.4, '격호각': 0.916, '월섬각': 1.278, '호왕출현': 1.209, '진천각': 2.625, '운룡각': 1.278, '풍신초래': 2.729}
+Nuking_W/O_Awaking_Cycle_Short: [('붕천퇴', 871461), ('번개의 속삭임', 3443955), ('뇌호격', 111115086), ('격호각', 3861954), ('월섬각', 8834139), ('호왕출현', 92253561)]
+Nuking_W/O_Awaking_Cycle_Long: [('붕천퇴', 871461), ('번개의 속삭임', 3443955), ('뇌호격', 111115086), ('격호각', 3861954), ('월섬각', 8834139), ('호왕출현', 92253561), ('붕천퇴', 871461)]
+Nuking_Cycle: [('풍신초래', 67356457), ('붕천퇴', 871461), ('번개의 속삭임', 3443955), ('뇌호격', 111115086), ('격호각', 3861954), ('월섬각', 8834139), ('호왕출현', 92253561)]
+eDPS info:  [29972563.854166668, 9.6]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_striker_deathblow_e2.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17134420
+Nuking_W/O_Awaking_Short_DPS: 38516868
+Nuking_W/O_Awaking_Long_DPS: 29204251
+Nuking_DPS: 28229240
+DPCT_by_Percentage: 67219182.632
+Idle_Ratio: 36.18 %
+Idle_Score: 407.41
+Delay_Score: 0.879
+Delay_Score_by_Percentage: 1.259
+Total_Damage: 28384537223
+Elapsed_Time: 1656.59 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'붕천퇴': 109279000, '번개의 속삭임': 431860500, '뇌호격': 13217954125, '격호각': 480904250, '월섬각': 1100058500, '호왕출현': 10886443476, '방천격': 1669093649, '운룡각': 196993353, '진천각': 291950370}
+Delay_Statistics: {'붕천퇴': 0.838, '번개의 속삭임': 0.561, '뇌호격': 1.347, '격호각': 0.881, '월섬각': 1.23, '호왕출현': 1.156, '방천격': 1.329, '운룡각': 1.43, '진천각': 2.494}
+Nuking_W/O_Awaking_Cycle_Short: [('번개의 속삭임', 3454884), ('뇌호격', 105743633), ('격호각', 3847234), ('월섬각', 8800468), ('호왕출현', 87793899), ('방천격', 21461089)]
+Nuking_W/O_Awaking_Cycle_Long: [('붕천퇴', 874232), ('번개의 속삭임', 3454884), ('뇌호격', 105743633), ('격호각', 3847234), ('월섬각', 8800468), ('호왕출현', 87793899), ('방천격', 21461089), ('운룡각', 1658570)]
+Nuking_Cycle: [('붕천퇴', 874232), ('번개의 속삭임', 3454884), ('뇌호격', 105743633), ('격호각', 3847234), ('월섬각', 8800468), ('호왕출현', 87793899), ('방천격', 21461089), ('운룡각', 1658570), ('진천각', 48658395)]
+eDPS info:  [29204251.125, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 13 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_summoner_communication_overflow.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17996686
+Nuking_W/O_Awaking_Short_DPS: 27253998
+Nuking_W/O_Awaking_Long_DPS: 24217441
+Nuking_DPS: 27250916
+DPCT_by_Percentage: 10063258.742
+Idle_Ratio: 26.58 %
+Idle_Score: 107.62
+Delay_Score: 0.851
+Delay_Score_by_Percentage: 0.885
+Total_Damage: 28272793204
+Elapsed_Time: 1571.01 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [692, 68], 'jm': [157, 44]}
+==========================
+Damage_Details: {'슈르디': 0, '파우루': 214320804, '마리린': 0, '출혈|None': 956697769, 'shurdi|슈르디': 807536172, 'thrilling_light|슈르디': 719499210, '켈시온': 72093198, 'pauru|파우루': 1398083139, 'maririn|마리린': 939047626, 'kelsion|켈시온': 448728774, '끈적이는 이끼늪': 90991175, '파우루_체인': 2283410313, '마리린_체인': 1958294840, '켈시온_체인': 723825587, '고대의 창': 7776251519, '엘씨드': 0, '대지 붕괴': 3518379616, 'elcid|엘씨드': 3710041498, '물의 정령': 288736734, '아키르': 2366855230}
+Delay_Statistics: {'슈르디': 0.676, '파우루': 0.662, '마리린': 0.675, '켈시온': 1.819, '끈적이는 이끼늪': 0.663, '고대의 창': 2.158, '엘씨드': 0.734, '대지 붕괴': 1.226, '물의 정령': 0.585, '아키르': 1.445}
+Nuking_W/O_Awaking_Cycle_Short: [('elcid|엘씨드', 2683994), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('파우루_체인', 8148508), ('대지 붕괴', 28510843), ('pauru|파우루', 998097), ('elcid|엘씨드', 2683994), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('고대의 창', 46861885), ('pauru|파우루', 998097), ('elcid|엘씨드', 2683994), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('pauru|파우루', 998097), ('elcid|엘씨드', 2683994), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('pauru|파우루', 998097), ('아키르', 29692609), ('elcid|엘씨드', 2683994), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('pauru|파우루', 691716), ('elcid|엘씨드', 1860103), ('마리린_체인', 6487240), ('끈적이는 이끼늪', 490931), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('pauru|파우루', 998097), ('파우루_체인', 8148508)]
+Nuking_W/O_Awaking_Cycle_Long: [('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('마리린_체인', 9360630), ('파우루_체인', 8148508), ('물의 정령', 1843222), ('elcid|엘씨드', 2683994), ('슈르디', 0), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('아키르', 29692609), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('끈적이는 이끼늪', 708353), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('대지 붕괴', 28510843), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('파우루', 2686026), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('파우루_체인', 8148508), ('고대의 창', 46861885), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('마리린_체인', 9360630)]
+Nuking_Cycle: [('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('켈시온_체인', 18555135), ('대지 붕괴', 28510843), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('파우루_체인', 8148508), ('kelsion|켈시온', 2232940), ('파우루', 2686026), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('마리린_체인', 9360630), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 691716), ('kelsion|켈시온', 1547506), ('끈적이는 이끼늪', 490931), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('켈시온_체인', 18555135), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('고대의 창', 46861885), ('kelsion|켈시온', 2232940), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('파우루_체인', 8148508), ('물의 정령', 1843222), ('maririn|마리린', 650383), ('출혈|None', 662475), ('shurdi|슈르디', 559149), ('thrilling_light|슈르디', 498191), ('아키르', 29692609), ('elcid|엘씨드', 2683994), ('pauru|파우루', 998097), ('kelsion|켈시온', 2232940), ('maririn|마리린', 450739), ('출혈|None', 458963), ('shurdi|슈르디', 387510), ('thrilling_light|슈르디', 345264), ('elcid|엘씨드', 1860103), ('pauru|파우루', 691716), ('kelsion|켈시온', 1547506), ('켈시온_체인', 12859349), ('마리린_체인', 6487240), ('maririn|마리린', 450739), ('출혈|None', 458963), ('shurdi|슈르디', 387510), ('thrilling_light|슈르디', 345264)]
+eDPS info:  [24217440.75, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_summoner_master_summoner_spcr.json
+==========================
+DPS stablization failed, ratio is 0.9875729052209986
+Actual_DPS: 18357891
+Nuking_W/O_Awaking_Short_DPS: 52151728
+Nuking_W/O_Awaking_Long_DPS: 45223391
+Nuking_DPS: 52345333
+DPCT_by_Percentage: 6592871.827
+Idle_Ratio: 36.2 %
+Idle_Score: 522.35
+Delay_Score: 0.729
+Delay_Score_by_Percentage: 0.555
+Total_Damage: 66073720940
+Elapsed_Time: 3600.0 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'슈르디': 0, '전기 폭풍': 1240967691, '출혈|None': 1199015193, 'shurdi|슈르디': 481323265, '아키르(상소)_딜레이': 0, '끈적이는 이끼늪': 88589720, '아키르(상소)_데미지': 41981281246, '바그론의 분노': 1106457492, '엘씨드': 0, '물의 정령': 2050382096, 'elcid|엘씨드': 1556274245, '대지 붕괴': 5487502961, '마력의 질주': 2159136027, 'stormlike_gallop|None': 4979212, '고대의 창': 8717811792}
+Delay_Statistics: {'슈르디': 0.772, '전기 폭풍': 1.585, '아키르(상소)_딜레이': 1.651, '끈적이는 이끼늪': 0.756, '바그론의 분노': 1.547, '엘씨드': 0.748, '물의 정령': 0.667, '대지 붕괴': 1.382, '마력의 질주': 1.163, '고대의 창': 2.46}
+Nuking_W/O_Awaking_Cycle_Short: [('끈적이는 이끼늪', 521116), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857), ('고대의 창', 55176024), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('물의 정령', 9084145), ('아키르(상소)_딜레이', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('엘씨드', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857)]
+Nuking_W/O_Awaking_Cycle_Long: [('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857), ('고대의 창', 55176024), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('물의 정령', 9084145), ('아키르(상소)_딜레이', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('엘씨드', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857), ('대지 붕괴', 33569179), ('elcid|엘씨드', 1130349), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('마력의 질주', 9887854), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('stormlike_gallop|None', 5112), ('출혈|None', 618363), ('shurdi|슈르디', 229865)]
+Nuking_Cycle: [('아키르(상소)_데미지', 121519857), ('바그론의 분노', 92204791), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_딜레이', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857), ('아키르(상소)_딜레이', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('엘씨드', 0), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('아키르(상소)_데미지', 121519857), ('물의 정령', 9084145), ('elcid|엘씨드', 1130349), ('대지 붕괴', 33569179), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('마력의 질주', 9887854), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('stormlike_gallop|None', 5112), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('stormlike_gallop|None', 5112), ('출혈|None', 618363), ('shurdi|슈르디', 229865), ('elcid|엘씨드', 1130349), ('stormlike_gallop|None', 3543)]
+eDPS info:  [45223390.875, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_summoner_master_summoner_spsw.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 18494545
+Nuking_W/O_Awaking_Short_DPS: 47056037
+Nuking_W/O_Awaking_Long_DPS: 40718490
+Nuking_DPS: 47282591
+DPCT_by_Percentage: 5974814.022
+Idle_Ratio: 29.2 %
+Idle_Score: 399.23
+Delay_Score: 0.731
+Delay_Score_by_Percentage: 0.55
+Total_Damage: 29986871128
+Elapsed_Time: 1621.4 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [0, 0]}
+==========================
+Damage_Details: {'슈르디': 0, '전기 폭풍': 562990056, '출혈|None': 553445263, 'shurdi|슈르디': 219911182, '아키르(상소)_딜레이': 0, '끈적이는 이끼늪': 40426966, '아키르(상소)_데미지': 19064547228, '바그론의 분노': 501806052, '엘씨드': 0, '물의 정령': 934605112, 'elcid|엘씨드': 710212079, '대지 붕괴': 2480567902, '마력의 질주': 984059373, 'stormlike_gallop|None': 2282290, '고대의 창': 3932017625}
+Delay_Statistics: {'슈르디': 0.768, '전기 폭풍': 1.58, '아키르(상소)_딜레이': 1.647, '끈적이는 이끼늪': 0.753, '바그론의 분노': 1.518, '엘씨드': 0.745, '물의 정령': 0.665, '대지 붕괴': 1.377, '마력의 질주': 1.159, '고대의 창': 2.451}
+Nuking_W/O_Awaking_Cycle_Short: [('끈적이는 이끼늪', 470081), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_데미지', 109618842), ('고대의 창', 49772375), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('물의 정령', 8239773), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_딜레이', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('엘씨드', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_데미지', 109618842)]
+Nuking_W/O_Awaking_Cycle_Long: [('아키르(상소)_데미지', 109618842), ('고대의 창', 49772375), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('물의 정령', 8239773), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_딜레이', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('엘씨드', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_데미지', 109618842), ('대지 붕괴', 30281590), ('elcid|엘씨드', 1025283), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('마력의 질주', 8980929), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('stormlike_gallop|None', 4637), ('출혈|None', 560886), ('shurdi|슈르디', 208499)]
+Nuking_Cycle: [('아키르(상소)_데미지', 109618842), ('바그론의 분노', 83634342), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_딜레이', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_데미지', 109618842), ('아키르(상소)_딜레이', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('엘씨드', 0), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('아키르(상소)_데미지', 109618842), ('물의 정령', 8239773), ('elcid|엘씨드', 1025283), ('대지 붕괴', 30281590), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('마력의 질주', 8980929), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('stormlike_gallop|None', 4637), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('stormlike_gallop|None', 4637), ('출혈|None', 560886), ('shurdi|슈르디', 208499), ('elcid|엘씨드', 1025283), ('stormlike_gallop|None', 3213)]
+eDPS info:  [40718489.625, 8.0]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 13 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_warlord_combat_readiness.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 15984305
+Nuking_W/O_Awaking_Short_DPS: 26309832
+Nuking_W/O_Awaking_Long_DPS: 20544631
+Nuking_DPS: 21106799
+DPCT_by_Percentage: 25199167.46
+Idle_Ratio: 12.57 %
+Idle_Score: 150.87
+Delay_Score: 0.655
+Delay_Score_by_Percentage: 1.627
+Total_Damage: 24076839009
+Elapsed_Time: 1506.29 s
+Rune_Ratio: {'rg': [83, 16], 'qr': [492, 48], 'jm': [0, 0]}
+==========================
+Damage_Details: {'심판의 창': 245480905, '증오의 함성': 324937382, '배쉬': 457326429, '리프 어택(빠준낮충)': 6281025135, '출혈|None': 690296828, '가디언의 낙뢰': 6067121965, '방패 밀치기': 3719529922, '방패 격동': 2606380661, '방패 돌진': 3684739782}
+Delay_Statistics: {'심판의 창': 2.468, '증오의 함성': 0.956, '배쉬': 0.866, '리프 어택(빠준낮충)': 2.018, '가디언의 낙뢰': 1.527, '방패 밀치기': 0.962, '방패 격동': 1.776, '방패 돌진': 2.094}
+Nuking_W/O_Awaking_Cycle_Short: [('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714), ('방패 격동', 18803321), ('출혈|None', 705714), ('출혈|None', 705714)]
+Nuking_W/O_Awaking_Cycle_Long: [('증오의 함성', 3826624), ('배쉬', 2671432), ('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714), ('방패 격동', 18803321), ('출혈|None', 705714), ('출혈|None', 705714)]
+Nuking_Cycle: [('심판의 창', 46710941), ('증오의 함성', 3826624), ('배쉬', 2671432), ('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714), ('방패 격동', 18803321), ('출혈|None', 705714), ('출혈|None', 705714)]
+eDPS info:  [21917643.658536583, 12.3]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_warlord_combat_readiness_v1.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 14237656
+Nuking_W/O_Awaking_Short_DPS: 24261037
+Nuking_W/O_Awaking_Long_DPS: 18363645
+Nuking_DPS: 19657451
+DPCT_by_Percentage: 26710708.326
+Idle_Ratio: 23.56 %
+Idle_Score: 220.69
+Delay_Score: 0.67
+Delay_Score_by_Percentage: 1.61
+Total_Damage: 21631270784
+Elapsed_Time: 1519.31 s
+Rune_Ratio: {'rg': [75, 14], 'qr': [247, 24], 'jm': [0, 0]}
+==========================
+Damage_Details: {'심판의 창': 245480905, '증오의 함성': 296278414, '배쉬': 534978089, '리프 어택(빠준낮충)': 6283953338, '출혈|None': 692196806, '가디언의 낙뢰': 6044630317, '방패 밀치기': 3727560180, '방패 돌진': 3674369969, '대쉬 어퍼 파이어': 131822766}
+Delay_Statistics: {'심판의 창': 2.468, '증오의 함성': 0.955, '배쉬': 0.867, '리프 어택(빠준낮충)': 2.021, '가디언의 낙뢰': 1.534, '방패 밀치기': 0.966, '방패 돌진': 2.094, '대쉬 어퍼 파이어': 1.634}
+Nuking_W/O_Awaking_Cycle_Short: [('증오의 함성', 4070877), ('배쉬', 3145388), ('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714), ('출혈|None', 705714)]
+Nuking_W/O_Awaking_Cycle_Long: [('대쉬 어퍼 파이어', 1587189), ('증오의 함성', 3826624), ('배쉬', 3145388), ('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714), ('출혈|None', 705714)]
+Nuking_Cycle: [('출혈|None', 678571), ('심판의 창', 49692491), ('대쉬 어퍼 파이어', 1587189), ('증오의 함성', 3826624), ('배쉬', 3145388), ('리프 어택(빠준낮충)', 38066819), ('출혈|None', 705714), ('출혈|None', 705714), ('가디언의 낙뢰', 73097855), ('출혈|None', 705714), ('방패 밀치기', 23656714), ('출혈|None', 705714)]
+eDPS info:  [19979482.452830188, 10.6]
+==========================
+##### Done Initialization of CharacterLayer #####
+##### Done Initialization of BuffsManager #####
+Too many jewels, 12 > 11
+##### Done Initialization of SkillsManager #####
+LostArkDpmSimulator is now ready to run
+target_character: character_warlord_lone_knight.json
+==========================
+DPS stabilized, terminating simulation
+Actual_DPS: 17225656
+Nuking_W/O_Awaking_Short_DPS: 41258840
+Nuking_W/O_Awaking_Long_DPS: 31051634
+Nuking_DPS: 26450667
+DPCT_by_Percentage: 37056637.304
+Idle_Ratio: 11.13 %
+Idle_Score: 170.71
+Delay_Score: 0.913
+Delay_Score_by_Percentage: 1.433
+Total_Damage: 32886705269
+Elapsed_Time: 1909.18 s
+Rune_Ratio: {'rg': [98, 19], 'qr': [840, 83], 'jm': [0, 0]}
+==========================
+Damage_Details: {'심판의 창': 224735794, '증오의 함성': 97423904, '배쉬': 253322430, '버스트 캐넌': 8810417658, '출혈|None': 665258760, '차지 스팅거': 9117688436, '스피어 샷': 6433492357, '대쉬 어퍼 파이어': 3185972062, '파이어 불릿': 4098393868}
+Delay_Statistics: {'심판의 창': 1.986, '증오의 함성': 0.744, '배쉬': 0.674, '버스트 캐넌': 1.657, '차지 스팅거': 1.685, '스피어 샷': 1.353, '대쉬 어퍼 파이어': 1.325, '파이어 불릿': 0.868}
+Nuking_W/O_Awaking_Cycle_Short: [('배쉬', 729038), ('버스트 캐넌', 89902221), ('출혈|None', 406752), ('차지 스팅거', 93996788), ('출혈|None', 406752), ('스피어 샷', 34982598), ('출혈|None', 406752), ('대쉬 어퍼 파이어', 18902992), ('출혈|None', 406752), ('파이어 불릿', 6598888), ('출혈|None', 406752), ('출혈|None', 406752)]
+Nuking_W/O_Awaking_Cycle_Long: [('버스트 캐넌', 89902221), ('출혈|None', 406752), ('출혈|None', 406752), ('차지 스팅거', 93996788), ('출혈|None', 406752), ('출혈|None', 406752), ('파이어 불릿', 6598888), ('출혈|None', 406752), ('스피어 샷', 34982598), ('출혈|None', 406752), ('배쉬', 775573), ('대쉬 어퍼 파이어', 18902992), ('출혈|None', 406752), ('출혈|None', 406752)]
+Nuking_Cycle: [('심판의 창', 16249284), ('증오의 함성', 704353), ('배쉬', 729038), ('버스트 캐넌', 89902221), ('출혈|None', 406752), ('차지 스팅거', 93996788), ('출혈|None', 406752), ('스피어 샷', 34982598), ('출혈|None', 406752), ('대쉬 어퍼 파이어', 18902992), ('출혈|None', 406752), ('파이어 불릿', 6598888), ('출혈|None', 406752), ('출혈|None', 406752)]
+eDPS info:  [31051634.5, 8.0]
+==========================

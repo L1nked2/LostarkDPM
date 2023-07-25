@@ -21,11 +21,19 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  # 청룡진 치적 시너지
+  # 청룡진 치명타 공격 데미지 시너지
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
+    'duration': 16,
+    'priority': 7,
+  },
+  # 청룡진 치적 버프
+  'Crit_Buff_1': {
+    'name': 'crit_buff_1',
+    'buff_type': 'stat',
+    'effect': 'crit_buff_1',
     'duration': 6,
     'priority': 7,
   },
@@ -81,6 +89,7 @@ def finalize_skill(skill: Skill):
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '청룡진':
     buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], skill_on_use)
 
 # 치적 시너지 등록
 def activate_stance_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -102,10 +111,15 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_awakening_multiplier)
     
-# 청룡진 치적 시너지
+# 청룡진 치명타 데미지 증가 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
+  c_cdm = character.get_attribute('crit_damage_multiplier')
+  character.update_attribute('crit_rate', c_cdm * 1.08)
+
+# 청룡진 치적 증가 버프
+def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
   s_acr = skill.get_attribute('crit_rate')
-  skill.update_attribute('crit_rate', s_acr + 0.18)
+  skill.update_attribute('crit_rate', s_acr + 0.20)
 
 # 기본 난무/집중 버프, 스킬에 맞게 상시 3레벨 가정, 각성기는 난무 취급
 # 출혈 등 직업과 관련없는 스킬은 난무 버프로 적용되어 있으므로 국민 각인 사용시 주의(일반적인 세팅에서는 문제 없음)
