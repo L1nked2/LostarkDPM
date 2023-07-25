@@ -11,7 +11,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 마력 강화 및 마력 해방 속성 피해 효율 특화 계수
-SPEC_COEF_1 = 1 / 3.251 / 100
+SPEC_COEF_1 = 2.15 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -210,7 +210,7 @@ def igniter_3(character: CharacterLayer, skill: Skill, buff: Buff):
   s_acr = skill.get_attribute('crit_rate')
   s_acd = skill.get_attribute('crit_damage')
   skill.update_attribute('crit_rate', s_acr + 0.25)
-  skill.update_attribute('crit_damage', s_acd + 0.50)
+  skill.update_attribute('crit_damage', s_acd + 0.40)
 
 # 환류 버프
 def reflux_3(character: CharacterLayer, skill: Skill, buff: Buff):

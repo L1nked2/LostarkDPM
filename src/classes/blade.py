@@ -10,9 +10,9 @@ from src.layers.core.utils import seconds_to_ticks
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 # 버스트 특화 계수
-SPEC_COEF_1 = 1 / 8.738 / 100
+SPEC_COEF_1 = 0.80 / 699
 # 아츠 쿨감 특화 계수
-SPEC_COEF_2 = 1 / 34.95 / 100
+SPEC_COEF_2 = 0.20 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -104,8 +104,8 @@ CLASS_BUFF_DICT = {
     'name': 'black_explosion',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 3564 * 1.68,
-    'coefficient': 22.0968 * 1.68,
+    'base_damage': 3781 * 1.05 * 1.60,
+    'coefficient': 23.442 * 1.05 * 1.60,
     'damage_interval': 1,
     'duration': 1,
     'priority': 7,
@@ -115,8 +115,8 @@ CLASS_BUFF_DICT = {
     'name': 'void_zone',
     'buff_type': 'damage',
     'effect': None,
-    'base_damage': 3564 * 0.45 / 5,
-    'coefficient': 22.0968 * 0.45 / 5,
+    'base_damage': 3781 * 0.45 / 5,
+    'coefficient': 23.442 * 0.45 / 5,
     'damage_interval': 1,
     'duration': 5,
     'priority': 7,

@@ -11,11 +11,11 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 핸드건 치명타 피해량 특화 계수
-SPEC_COEF_1 = 1 / 9.32 / 100
+SPEC_COEF_1 = 0.75 / 699
 # 샷건 스킬 피해량 특화 계수
-SPEC_COEF_2 = 1 / 27.96 / 100
+SPEC_COEF_2 = 0.25 / 699
 # 라이플 스킬 물/마방관 특화 계수
-SPEC_COEF_3 = 1 / 27.96 / 100
+SPEC_COEF_3 = 0.25 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -75,6 +75,9 @@ def finalize_skill(skill: Skill):
   elif name == '이퀄리브리엄':
     if tripod[0] == '2':
       skill.triggered_actions.append('activate_synergy2')
+  elif name == '끊임없는 맹공':
+    if tripod[0] == '2':
+      skill.triggered_actions.append('activate_fierce')
 
 ######## Actions #########
 # 유탄 출혈 시간 갱신 action
@@ -116,8 +119,19 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * s_shotgun_multiplier)
     elif skill.get_attribute('identity_type') == 'Rifle':
-      s_adrr = skill.get_attribute('defense_reduction_rate')
-      skill.update_attribute('defense_reduction_rate', s_adrr + s_rifle_defense_reduction_rate)
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + s_rifle_defense_reduction_rate)
+    # 치명타 적중 시 방관 증가 트포 처리
+    # 이퀄리브리엄 - 급소 사격
+    if (skill.get_attribute('name') == '이퀄리브리엄' and skill.get_attribute('tripod')[2] == '2'):
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      c_cr = character.get_attribute('crit_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + 0.50 * c_cr)
+    # 데스페라도
+    if (skill.get_attribute('name') == '데스페라도' and skill.get_attribute('tripod')[1] == '1'):
+      s_drr = skill.get_attribute('defense_reduction_rate')
+      c_cr = character.get_attribute('crit_rate')
+      skill.update_attribute('defense_reduction_rate', s_drr + 0.25 * c_cr)
 
 # 핸드거너 각인
 def pistoleer_3(character: CharacterLayer, skill: Skill, buff: Buff):

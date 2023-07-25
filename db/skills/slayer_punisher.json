@@ -156,7 +156,7 @@
     },
     {
       "name": "블러드러스트",
-      "default_damage": 11310,
+      "default_damage": 11412,
       "base_damage_multiplier": 1.0,
       "skill_type": "Common",
       "identity_type": "Berserk",

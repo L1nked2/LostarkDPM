@@ -10,8 +10,8 @@ from src.layers.core.utils import seconds_to_ticks, ticks_to_seconds
 from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
-# 난무/집중 버프 효과 증가 특화 계수
-SPEC_COEF_1 = 1 / 13.706 / 100
+# 집중 스킬 피해량 증가 특화 계수
+SPEC_COEF_1 = 0.42 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
@@ -21,11 +21,19 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  # 청룡진 치적 시너지
+  # 청룡진 치명타 공격 데미지 시너지
   'Synergy_1': {
     'name': 'synergy_1',
     'buff_type': 'stat',
     'effect': 'synergy_1',
+    'duration': 16,
+    'priority': 7,
+  },
+  # 청룡진 치적 버프
+  'Crit_Buff_1': {
+    'name': 'crit_buff_1',
+    'buff_type': 'stat',
+    'effect': 'crit_buff_1',
     'duration': 6,
     'priority': 7,
   },
@@ -34,7 +42,7 @@ CLASS_BUFF_DICT = {
     'name': 'stance_buff',
     'buff_type': 'stat',
     'effect': 'stance_buff_default',
-    'duration': 12,
+    'duration': 15,
     'priority': 9,
   },
   # 스탠스 버프(절정)
@@ -42,7 +50,7 @@ CLASS_BUFF_DICT = {
     'name': 'stance_buff',
     'buff_type': 'stat',
     'effect': 'stance_buff_pinnacle_3',
-    'duration': 12,
+    'duration': 15,
     'priority': 9,
   },
   # 절정 확인용 더미 버프
@@ -81,6 +89,7 @@ def finalize_skill(skill: Skill):
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
   if skill_on_use.get_attribute('name') == '청룡진':
     buff_manager.register_buff(CLASS_BUFF_DICT['Synergy_1'], skill_on_use)
+    buff_manager.register_buff(CLASS_BUFF_DICT['Crit_Buff_1'], skill_on_use)
 
 # 치적 시너지 등록
 def activate_stance_buff(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -93,56 +102,51 @@ def activate_stance_buff(buff_manager: BuffManager, skill_manager: SkillManager,
 ######## Buff bodies ########
 def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     s = character.get_attribute('specialization')
-    s_multiplier_1 = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
+    s_awakening_multiplier = (1 + s * AWAKENING_DAMAGE_PER_SPECIALIZATION)
+    s_focus_multiplier = (1 + s * SPEC_COEF_1)
+    if skill.get_attribute('identity_type') == 'Focus':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * s_focus_multiplier)
     if skill.get_attribute('identity_type') == 'Awakening':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * s_multiplier_1)
+      skill.update_attribute('damage_multiplier', s_dm * s_awakening_multiplier)
     
-# 청룡진 치적 시너지
+# 청룡진 치명타 데미지 증가 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
+  c_cdm = character.get_attribute('crit_damage_multiplier')
+  character.update_attribute('crit_rate', c_cdm * 1.08)
+
+# 청룡진 치적 증가 버프
+def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
   s_acr = skill.get_attribute('crit_rate')
-  skill.update_attribute('crit_rate', s_acr + 0.18)
+  skill.update_attribute('crit_rate', s_acr + 0.20)
 
 # 기본 난무/집중 버프, 스킬에 맞게 상시 3레벨 가정, 각성기는 난무 취급
-# 난무는 20초, 집중은 12초이나 12초로 통일, 난무에서 12초 이상 유지시 확인 필요
+# 출혈 등 직업과 관련없는 스킬은 난무 버프로 적용되어 있으므로 국민 각인 사용시 주의(일반적인 세팅에서는 문제 없음)
 def stance_buff_default(character: CharacterLayer, skill: Skill, buff: Buff):
-  s = character.get_attribute('specialization')
-  buff_multiplier = 1 + (s * SPEC_COEF_1)
   s_dm = skill.get_attribute('damage_multiplier')
-  s_acr = skill.get_attribute('crit_rate')
   s_acd = skill.get_attribute('crit_damage')
   c_ms = character.get_attribute('movement_speed')
   c_as = character.get_attribute('attack_speed')
   if (skill.get_attribute('identity_type') == 'Flurry'
       or skill.get_attribute('identity_type') == 'Awakening'
       or skill.get_attribute('identity_type') == None):
-    skill.update_attribute('damage_multiplier', s_dm * (1 + (0.10 * buff_multiplier)))
-    skill.update_attribute('crit_rate', s_acr + 0.15 * buff_multiplier)
-    character.update_attribute('attack_speed', c_as + 0.10 * buff_multiplier)
+    skill.update_attribute('damage_multiplier', s_dm * 1.25)
+    character.update_attribute('attack_speed', c_as + 0.15)
   elif skill.get_attribute('identity_type') == 'Focus':
-    skill.update_attribute('damage_multiplier', s_dm * (1 + (0.10 * buff_multiplier)))
-    skill.update_attribute('crit_damage', s_acd + 0.25 * buff_multiplier)
-    character.update_attribute('movement_speed', c_ms + 0.15 * buff_multiplier)
+    skill.update_attribute('crit_damage', s_acd + 0.60)
+    character.update_attribute('movement_speed', c_ms + 0.15)
 
 # 난무/집중 절정3 적용시 버프
 def stance_buff_pinnacle_3(character: CharacterLayer, skill: Skill, buff: Buff):
-  s = character.get_attribute('specialization')
-  buff_multiplier = 1 + (s * SPEC_COEF_1)
   s_dm = skill.get_attribute('damage_multiplier')
-  s_acr = skill.get_attribute('crit_rate')
   s_acd = skill.get_attribute('crit_damage')
   c_ms = character.get_attribute('movement_speed')
   c_as = character.get_attribute('attack_speed')
-  if (skill.get_attribute('identity_type') == 'Flurry'
-      or skill.get_attribute('identity_type') == 'Awakening'
-      or skill.get_attribute('identity_type') == None):
-    skill.update_attribute('damage_multiplier', s_dm * (1 + (0.17 * buff_multiplier)))
-    skill.update_attribute('crit_rate', s_acr + 0.25 * buff_multiplier)
-    character.update_attribute('attack_speed', c_as + 0.15 * buff_multiplier)
-  elif skill.get_attribute('identity_type') == 'Focus':
-    skill.update_attribute('damage_multiplier', s_dm * (1 + (0.22 * buff_multiplier)))
-    skill.update_attribute('crit_damage', s_acd + 0.50 * buff_multiplier)
-    character.update_attribute('movement_speed', c_ms + 0.15 * buff_multiplier)
+  skill.update_attribute('damage_multiplier', s_dm * 1.25)
+  character.update_attribute('attack_speed', c_as + 0.15)
+  skill.update_attribute('crit_damage', s_acd + 0.60)
+  character.update_attribute('movement_speed', c_ms + 0.15)
 
 # 절제 적용 버프
 def control_3(character: CharacterLayer, skill: Skill, buff: Buff):

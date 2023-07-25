@@ -11,13 +11,28 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 오의 스킬 피해량 증가 특화 계수
-SPEC_COEF_1 = 1 / 25.889 / 100
+SPEC_COEF_1 = 0.27 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
     'name': 'specialization',
     'buff_type': 'stat',
     'effect': 'specialization',
+    'duration': 999999,
+    'priority': 7,
+  },
+  # 초심 버프
+  'First_Intention_1': {
+    'name': 'first_intention',
+    'buff_type': 'stat',
+    'effect': 'first_intention_1',
+    'duration': 999999,
+    'priority': 7,
+  },
+  'First_Intention_3': {
+    'name': 'first_intention',
+    'buff_type': 'stat',
+    'effect': 'first_intention_3',
     'duration': 999999,
     'priority': 7,
   },
@@ -154,6 +169,15 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
     elif skill.get_attribute('identity_type') == 'Esoteric':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * eso_multiplier)
+
+# 초심
+def first_intention_1(character: CharacterLayer, skill: Skill, buff: Buff):
+  s_dm = skill.get_attribute('damage_multiplier')
+  skill.update_attribute('damage_multiplier', s_dm * 1.20)
+
+def first_intention_3(character: CharacterLayer, skill: Skill, buff: Buff):
+  s_dm = skill.get_attribute('damage_multiplier')
+  skill.update_attribute('damage_multiplier', s_dm * 1.40)
 
 # 용포 치적 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

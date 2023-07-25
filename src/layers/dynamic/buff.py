@@ -5,7 +5,7 @@ from src.layers.core.utils import *
 from .constants import DAMAGE_JEWEL_LIST
 from src.layers.static.character_layer import CharacterLayer
 from src.layers.dynamic.skill import Skill
-from src.layers.utils import crit_to_multiplier, defense_reduction_to_multiplier
+from .common_term import crit_to_multiplier, defense_reduction_to_multiplier
 
 MAX_PRIORITY = 31
 

@@ -33,6 +33,7 @@ class CharacterLayer(EquipmentLayer):
         dmg_stats['attack_power'] = self.actual_attack_power
         dmg_stats['crit_rate'] = self.actual_crit_rate
         dmg_stats['crit_damage'] = self.crit_damage
+        dmg_stats['crit_damage_multiplier'] = self.crit_damage_multiplier
         dmg_stats['total_multiplier'] = self.total_multiplier
         return dmg_stats
 

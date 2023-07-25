@@ -88,29 +88,6 @@ class CharacterFactory(StatFactory):
   def build_dict(self):
     return self.__dict__
 
-
-"""
-Simple crit stats to multiplier helper
-"""
-def crit_to_multiplier(crit_rate, crit_damage, crit_damage_multiplier):
-  if crit_rate < 0 or crit_damage < 0:
-    warnings.warn("Crit rate and crit damage must be positive")
-    crit_rate = 0
-    crit_damage = 0
-  crit_rate = min(crit_rate, 1.0)
-  crit_damage_multiplier = max(crit_damage_multiplier, 1.0)
-  return crit_rate * crit_damage * crit_damage_multiplier + (1 - crit_rate) * 1.0
-
-"""
-Simple defense reduction rate to multiplier helper
-"""
-def defense_reduction_to_multiplier(defense_reduction_rate):
-  if defense_reduction_rate < 0:
-    warnings.warn("Defense reduction rate must be positive")
-    defense_reduction_rate = 0
-  defense_reduction_rate = min(defense_reduction_rate, 1.0)
-  return DEFAULT_DEFENSE / (DEFAULT_DEFENSE * (1.0 - defense_reduction_rate) + DEFAULT_DEFENSE) * DEFENSE_CORRECTION
-
 """
 Import characterss from file_path
 returns list of dictionary contaning configuration of each character

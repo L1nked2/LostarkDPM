@@ -4,8 +4,12 @@ from src.layers.utils import import_character, CharacterFactory
 from src.layers.dynamic.damage_history import EDPS_LINSPACE
 
 if __name__ == '__main__':
-    character_path = './db/characters/character_soulfist_energy_overflow.json'
+    
     character_path = './db/characters/character_aeromancer_gale_rage_dom.json'
+    character_path = './db/characters/character_lancemaster_pinnacle.json'
+    character_path = './db/characters/character_lancemaster_control.json'
+    character_path = './db/characters/character_devilhunter_pistoleer.json'
+    character_path = './db/characters/character_devilhunter_enhanced_weapon.json'
     #character_path = './db/characters/character_aeromancer_gale_rage_hal.json'
     character_configs = import_character(character_path)
     character_config: CharacterFactory

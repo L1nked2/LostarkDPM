@@ -13,7 +13,7 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 DEFAULT_SUNSHOWER_TIME_LIMIT = 12
 
 # 기상 스킬 피해량 증가 특화 계수
-SPEC_COEF_1 = 1 / 13.98 / 100
+SPEC_COEF_1 = 0.50 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {

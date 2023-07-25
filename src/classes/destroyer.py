@@ -11,9 +11,9 @@ from src.layers.static.constants import AWAKENING_DAMAGE_PER_SPECIALIZATION
 
 
 # 코어 해방 스킬 피해 증가 특화 계수
-SPEC_COEF_1 = 1 / 12.157 / 100
+SPEC_COEF_1 = 0.575 / 699
 # 중력가중 피해량 특화 계수
-SPEC_COEF_2 = 1 / 12.944 / 100
+SPEC_COEF_2 = 0.54 / 699
 
 CLASS_BUFF_DICT = {
   'Specialization': {
