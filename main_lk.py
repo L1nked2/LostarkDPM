@@ -9,7 +9,7 @@ if __name__ == '__main__':
     character_path = './db/characters/character_lancemaster_pinnacle.json'
     character_path = './db/characters/character_lancemaster_control.json'
     character_path = './db/characters/character_devilhunter_pistoleer.json'
-    #character_path = './db/characters/character_devilhunter_enhanced_weapon.json'
+    character_path = './db/characters/character_devilhunter_enhanced_weapon.json'
     #character_path = './db/characters/character_aeromancer_gale_rage_hal.json'
     character_configs = import_character(character_path)
     character_config: CharacterFactory

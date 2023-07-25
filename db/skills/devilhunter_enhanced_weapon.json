@@ -75,7 +75,7 @@
       "level": 12,
       "tripod": "122",
       "default_damage": 7848,
-      "base_damage_multiplier": 2.5575,
+      "base_damage_multiplier": 3.410055,
       "skill_type": "Holding_A",
       "identity_type": "Shotgun",
       "cooldown": 36,
@@ -137,7 +137,7 @@
       "type_specific_delay": 0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,
-      "head_attack": true,
+      "head_attack": false,
       "back_attack": true,
       "key_strokes" : 1,
       "rune": "압도_전설"
