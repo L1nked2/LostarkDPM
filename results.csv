@@ -1,22 +1,21 @@
 ,classname_kor,classname_eng,actual_dps,short_dps,long_dps,nuking_dps,edps,edps_time_length
-character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",25777697,65412851,49482462,46270360,49482462.375,8.0
-character_lancemaster_control.json,창술사(절제),Graivier(control),25190346,31607261,30110433,31792214,30354385.853658535,12.3
+character_lancemaster_control.json,창술사(절제),Graivier(control),24521126,31912208,29164939,30755346,29863722.601626016,12.3
 character_blade_burst.json,블레이드(버스트),Deathblade(surge),23690048,32381699,33069424,31995306,33262254.803149607,12.7
 character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),23280674,27800600,27203198,27516433,28693636.285714287,10.5
-character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),22028675,39076172,29716822,38461201,36727194.777777776,9.0
-character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),21630307,32832533,29781260,30202700,29781259.875,8.0
+character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",22785988,57679763,43616341,41603985,43616340.75,8.0
+character_scouter_arthetinean_skill.json,"스카우터(아르데타인의 기술, 332)","Machinist(arthetinean skill, 332)",21188335,42403901,38932219,36029840,38932218.75,8.0
 character_devilhunter_enhanced_weapon.json,데빌헌터(강화 무기),Deadeye(enhanced weapon),21127881,51214083,48867064,45237757,48867064.375,8.0
 character_destroyer_rage_hammer.json,디스트로이어(분노의 망치),Destroyer(rage hammer),20933285,37352533,34189546,27720977,34189546.0,8.0
-character_slayer_devourer_7m.json,"슬레이어(포식자, 페소채용7딜)","Slayer(devourer, 7m)",20801097,40450659,37011869,35593400,37011869.125,8.0
 character_striker_deathblow_c1.json,"스트라이커(일격필살, 3오의 풍신초래)","Striker(deathblow, 3 esotheric call the wind god)",20725462,36730026,27656452,28773661,29972563.854166668,9.6
 character_slayer_punisher.json,"슬레이어(처단자, 1.5사이클2길2퓨)",Slayer(punisher),20672182,60559819,55014474,56695581,55014473.5,8.0
+character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),20269481,35496413,26941586,35810756,33782255.222222224,9.0
+character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),20194617,30267982,27857846,28663969,27857846.375,8.0
 character_berserker_mayhem.json,"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),20042019,39660948,37427189,31557481,37427189.125,8.0
 character_slayer_devourer_6m.json,"슬레이어(포식자, 6딜)","Slayer(devourer, 6m)",19986751,44280273,33617074,33304530,33617074.5,8.0
-character_scouter_arthetinean_skill.json,"스카우터(아르데타인의 기술, 332)","Machinist(arthetinean skill, 332)",19951075,48956955,37136413,34753489,37136412.75,8.0
 character_striker_deathblow.json,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",19931483,45292334,36570136,35207188,37830520.493827164,8.1
+character_scouter_evolutionary_legacy.json,스카우터(진화의 유산),Machinist(evolutionary legacy),19834084,22275326,22423879,24265409,23444170.246913582,8.1
 character_demonic_perfect_suppression.json,데모닉(완벽한 억제),Shadowhunter(perfect suppression),19727976,32348274,24763958,24833786,29338557.82178218,10.1
 character_infighter_taijutsu.json,인파이터(극의 : 체술),Scrapper(taijutsu),19656070,24978775,22461440,24009986,22941436.024096385,8.3
-character_scouter_evolutionary_legacy.json,스카우터(진화의 유산),Machinist(evolutionary legacy),19468084,21813648,21959122,23762479,22958263.333333336,8.1
 character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),18999462,29395726,30133018,29757252,30133018.0,8.0
 character_summoner_master_summoner_spsw.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18494545,47056037,40718490,47282591,40718489.625,8.0
 character_soulfist_robust_spirit.json,기공사(역천지체),Soulfist(robust spirit),18411134,44528966,37576960,53363324,37576960.0,8.0
