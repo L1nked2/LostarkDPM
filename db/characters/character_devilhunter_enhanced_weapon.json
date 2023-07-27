@@ -10,6 +10,17 @@
       "options": ["Synergy_Damage", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
       "skill_set": "./db/skills/devilhunter_enhanced_weapon.json"
+    },
+    {
+      "class_name": "devilhunter",
+      "upgrade": 25,
+      "crit": 600,
+      "specialization": 1600,
+      "swiftness": 0,
+      "engravings": ["Grudge_3", "All_Out_Attack_3", "Cursed_Doll_3", "Keen_Blunt_Weapon_3", "Adrenaline_3", "Enhanced_Weapon_1"],
+      "options": ["Synergy_Damage", "Synergy_Crit_A", "갈망_3"],
+      "artifact_set": ["악몽A_6_3"],
+      "skill_set": "./db/skills/devilhunter_enhanced_weapon_nightmare.json"
     }
   ]
 }
