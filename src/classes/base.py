@@ -706,7 +706,17 @@ Rune Actions
 def rune_qr_1(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     pass
 def rune_qr_2(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-    pass
+    skill_manager.rune_ratio['qr'][0] += 1
+    def cooldown_reduction(skill: Skill):
+      it = skill.get_attribute('identity_type')
+      if it == 'Awakening':
+        return
+      rc = skill.get_attribute('remaining_cooldown')
+      skill.update_attribute('remaining_cooldown', rc * 0.92)
+      return
+    if skill_manager.check_chance(0.10, 'qr_2'):
+      skill_manager.rune_ratio['qr'][1] += 1
+      skill_manager.apply_function(cooldown_reduction)
 def rune_qr_3(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
     skill_manager.rune_ratio['qr'][0] += 1
     def cooldown_reduction(skill: Skill):
