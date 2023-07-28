@@ -10,6 +10,7 @@ if __name__ == '__main__':
     character_path = './db/characters/character_lancemaster_control.json'
     character_path = './db/characters/character_reaper_lunar_voice.json'
     character_path = './db/characters/character_scouter_arthetinean_skill.json'
+    character_path = './db/characters/character_warlord_combat_readiness.json'
     #character_path = './db/characters/character_reaper_hunger.json'
     #character_path = './db/characters/character_devilhunter_pistoleer.json'
     #character_path = './db/characters/character_devilhunter_enhanced_weapon.json'
