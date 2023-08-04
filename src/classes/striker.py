@@ -77,7 +77,7 @@ def finalize_skill(skill: Skill):
     if tripod[1] == '3':
       skill.triggered_actions.append('activate_speed_buff')
   if name == '나선경':
-    if tripod[2] == '3'
+    if tripod[2] == '3':
       skill.triggered_actions.append('activate_speed_buff')
   elif name == '폭쇄진':
     if tripod[1] == '3':
