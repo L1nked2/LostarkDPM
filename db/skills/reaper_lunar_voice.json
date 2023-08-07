@@ -146,7 +146,7 @@
       "name": "댄싱 오브 퓨리",
       "level": 12,
       "tripod": "232",
-      "default_damage": 3926,
+      "default_damage": 3022,
       "base_damage_multiplier": 1.7,
       "skill_type": "Common",
       "identity_type": "Swoop",
