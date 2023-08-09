@@ -9,6 +9,8 @@
 ---------
 ### Standard
 python3를 설치 후 root 디렉토리에서 main.py를 실행합니다.
+
+(python 버전은 `3.8` 이상이 필요합니다.)
 ```
 $ python3 main.py
 ```
