@@ -114,7 +114,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 # 청룡진 치명타 데미지 증가 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
   c_cdm = character.get_attribute('crit_damage_multiplier')
-  character.update_attribute('crit_rate', c_cdm * 1.08)
+  character.update_attribute('crit_damage_multiplier', c_cdm * 1.08)
 
 # 청룡진 치적 증가 버프
 def crit_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
