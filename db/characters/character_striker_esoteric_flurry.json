@@ -6,10 +6,10 @@
       "crit": 600,
       "specialization": 1600,
       "swiftness": 0,
-      "engravings": ["Grudge_3", "Deathblow_3", "Master_Of_Ambush_3", "Keen_Blunt_Weapon_3", "Ether_Predator_1", "Adrenaline_3"],
+      "engravings": ["Grudge_3", "Esoteric_Flurry_3", "Master_Of_Ambush_3", "Keen_Blunt_Weapon_3", "Ether_Predator_1", "Adrenaline_3"],
       "options": ["Synergy_Crit_A", "Synergy_Damage", "갈망_3"],
       "artifact_set": ["사멸_6_3"],
-      "skill_set": "./db/skills/striker_deathblow.json"
+      "skill_set": "./db/skills/striker_esoteric_flurry.json"
     }
   ]
 }

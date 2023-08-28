@@ -20,18 +20,19 @@ CLASS_BUFF_DICT = {
     'duration': 999999,
     'priority': 7,
   },
-  # 에러 출력 방지용 더미 일격필살 버프
+  # 일격필살 버프
   'Deathblow_3': {
     'name': 'deathblow',
     'buff_type': 'stat',
-    'effect': None,
+    'effect': 'deathblow',
     'duration': 999999,
     'priority': 7,
-  },
-  'Esoteric_Prepared_4': {
-    'name': 'esoteric_prepared',
+  }, 
+  # 오의난무 버프
+  'Esoteric_Flurry_3': {
+    'name': 'esoteric_flurry',
     'buff_type': 'stat',
-    'effect': 'esoteric_prepared_4',
+    'effect': 'esoteric_flurry',
     'duration': 999999,
     'priority': 7,
   },
@@ -70,25 +71,19 @@ def finalize_skill(skill: Skill):
   rune = skill.get_attribute('rune')
   # connect actions
   if name == '번개의 속삭임':
-    skill.triggered_actions.append('prepare_esoteric')
     skill.triggered_actions.append('activate_synergy')
   # apply tripods
   if name == '붕천퇴':
     if tripod[1] == '3':
+      skill.triggered_actions.append('activate_speed_buff')
+  if name == '나선경':
+    if tripod[2] == '3':
       skill.triggered_actions.append('activate_speed_buff')
   elif name == '폭쇄진':
     if tripod[1] == '3':
       skill.triggered_actions.append('action_1')
 
 ######## Actions #########
-# 버블 활성화
-def prepare_esoteric(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  if not buff_manager.is_buff_exists('esoteric_prepared'):
-    buff_manager.register_buff(CLASS_BUFF_DICT['Esoteric_Prepared_4'], skill_on_use)
-
-# 버블 사용
-def esoteric_used(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
-  buff_manager.unregister_buff('esoteric_prepared')
 
 # 번개의 속삭임 시너지 등록
 def activate_synergy(buff_manager: BuffManager, skill_manager: SkillManager, skill_on_use: Skill):
@@ -119,7 +114,7 @@ def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     s_acr = skill.get_attribute('crit_rate')
     skill.update_attribute('crit_rate', s_acr + 0.18)
 
-# 붕천퇴 공이속 버프
+# 붕천퇴/나선경 공이속 버프
 def speed_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
@@ -127,7 +122,13 @@ def speed_buff_1(character: CharacterLayer, skill: Skill, buff: Buff):
     character.update_attribute('movement_speed', c_ms + 0.192)
 
 # 일격필살 버프
-def esoteric_prepared_4(character: CharacterLayer, skill: Skill, buff: Buff):
+def deathblow(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Esoteric':
       s_dm = skill.get_attribute('damage_multiplier')
       skill.update_attribute('damage_multiplier', s_dm * 1.7)
+      
+# 오의난무 버프
+def esoteric_flurry(character: CharacterLayer, skill: Skill, buff: Buff):
+  if skill.get_attribute('identity_type') == 'Esoteric':
+      s_dm = skill.get_attribute('damage_multiplier')
+      skill.update_attribute('damage_multiplier', s_dm * 1.3)

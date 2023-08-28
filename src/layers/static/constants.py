@@ -148,6 +148,7 @@ ENGRAVINGS = {
   #일격필살
   'Deathblow_3': [('static_buff_queue', lambda x: x + ['Deathblow_3'])],
   #오의난무
+  'Esoteric_Flurry_3': [('static_buff_queue', lambda x: x + ['Esoteric_Flurry_3'])],
   #강화무기 # TODO: move to devilhunter.py
   'Enhanced_Weapon_1': [('crit_rate', lambda x: x + 0.20)],
   'Enhanced_Weapon_3': [('crit_rate', lambda x: x + 0.30)],
