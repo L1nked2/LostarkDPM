@@ -76,8 +76,7 @@ def finalize_skill(skill: Skill):
     if tripod[0] == '2':
       skill.triggered_actions.append('activate_synergy2')
   elif name == '끊임없는 맹공':
-    if tripod[0] == '2':
-      skill.triggered_actions.append('activate_fierce')
+    skill.triggered_actions.append('activate_fierce')
 
 ######## Actions #########
 # 유탄 출혈 시간 갱신 action

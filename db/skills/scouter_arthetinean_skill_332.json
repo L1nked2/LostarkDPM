@@ -4,11 +4,9 @@
     "mode": "fixed",
     "main_cycle": [
       ["기동 타격"],
-      ["과충전 배터리", "명령 : 베이비 드론", "아발란체"],
-      ["에너지 버스터"],
-      ["명령 : 레이드 미사일"],
+      ["과충전 배터리", "명령 : 레이드 미사일", "명령 : 베이비 드론", "아발란체", "명령 : 카펫"],
+	  ["에너지 버스터"],
       ["어나힐레이션 모드"],
-      ["명령 : 카펫"],
       ["명령 : 파이널 익스플로전"]
     ]
   },
@@ -43,7 +41,7 @@
       "cooldown": 8,
       "common_delay": 0.45,
       "type_specific_delay": 0,
-      "jewel_cooldown_level": 10,
+      "jewel_cooldown_level": 0,
       "jewel_damage_level": 0,
       "head_attack": false,
       "back_attack": true,
@@ -65,10 +63,10 @@
       "jewel_cooldown_level": 0,
       "jewel_damage_level": 10,
       "head_attack": false,
-      "back_attack": false,
+      "back_attack": true,
       "key_strokes" : 1,
       "mana_cost": 0,
-      "rune": "심판_전설"
+      "rune": "속행_영웅"
     },
     {
       "name": "명령 : 카펫",
@@ -81,13 +79,13 @@
       "cooldown": 18,
       "common_delay": 1.796,
       "type_specific_delay": 0.0,
-      "jewel_cooldown_level": 0,
+      "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,
       "head_attack": false,
       "back_attack": false,
       "key_strokes": 1,
       "mana_cost": 0,
-      "rune": "속행_희귀"
+      "rune": "심판_전설"
     },
     {
       "name": "명령 : 베이비 드론",
@@ -132,7 +130,7 @@
       "level": 12,
       "tripod": "111",
       "default_damage": 5112,
-      "base_damage_multiplier": 3.5136,
+      "base_damage_multiplier": 3.68745,
       "skill_type": "Holding_A",
       "identity_type": "Joint",
       "cooldown": 24,
