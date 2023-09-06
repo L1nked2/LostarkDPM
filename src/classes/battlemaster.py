@@ -173,11 +173,11 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 # 초심
 def first_intention_1(character: CharacterLayer, skill: Skill, buff: Buff):
   s_dm = skill.get_attribute('damage_multiplier')
-  skill.update_attribute('damage_multiplier', s_dm * 1.20)
+  skill.update_attribute('damage_multiplier', s_dm * 1.30)
 
 def first_intention_3(character: CharacterLayer, skill: Skill, buff: Buff):
   s_dm = skill.get_attribute('damage_multiplier')
-  skill.update_attribute('damage_multiplier', s_dm * 1.40)
+  skill.update_attribute('damage_multiplier', s_dm * 1.50)
 
 # 용포 치적 시너지
 def synergy_1(character: CharacterLayer, skill: Skill, buff: Buff):

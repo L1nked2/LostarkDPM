@@ -2,13 +2,13 @@
 character_aeromancer_drizzle.json,기상술사(이슬비),Aeromancer(drizzle),뙤약볕,48787734,나르가의 칼날,83365807
 character_aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,바람송곳,55361684,나르가의 칼날,31728089
 character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),바람송곳,57625986,나르가의 칼날,57685018
-character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),방천격,51256193,극의 : 일순난격,15222038
+character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),방천격,54917349,극의 : 일순난격,16309326
 character_berserker_mayhem.json,"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),오버드라이브,72124856,버서크 퓨리,61323010
 character_blade_burst.json,블레이드(버스트),Deathblade(surge),버스트,147707715,플래시 블링크,81288869
-character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),버스트,49749791,플래시 블링크,68974527
+character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),블리츠 러시,50429552,플래시 블링크,71766443
 character_blaster_barrage_enhancement.json,블래스터(포격 강화),Artillerist(barrage enhancement),포격 : 에너지 포,115662511,heavy_turret|헤비 터렛,7797732
-character_blaster_firepower_enhancement.json,블래스터(화력 강화),Artillerist(firepower enhancement),고압열탄,59628160,heavy_turret|헤비 터렛,5097440
-character_demonic_demonic_impulse.json,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),블러드 매서커,48691644,폴른 루인,159998603
+character_blaster_firepower_enhancement.json,블래스터(화력 강화),Artillerist(firepower enhancement),고압열탄,61059236,heavy_turret|헤비 터렛,5097440
+character_demonic_demonic_impulse.json,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),블러드 매서커,50102827,폴른 루인,159998603
 character_demonic_perfect_suppression.json,데모닉(완벽한 억제),Shadowhunter(perfect suppression),크루얼 커터,51701276,게이트 오브 이럽션,29212153
 character_destroyer_rage_hammer.json,디스트로이어(분노의 망치),Destroyer(rage hammer),퍼펙트 스윙,158245899,빅뱅,76719712
 character_devilhunter_enhanced_weapon.json,데빌헌터(강화 무기),Deadeye(enhanced weapon),심판의 날,119650212,버스팅 플레어,158406702
@@ -16,12 +16,12 @@ character_devilhunter_enhanced_weapon_nightmare.json,except devilhunter_enhanced
 character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),데스페라도,53769709,클레이 폭격,104021150
 character_gunslinger_peace_maker.json,건슬링어(피스메이커),Gunslinger(peace maker),마탄의 사수,80303967,황혼의 눈,74610807
 character_gunslinger_time_to_hunt.json,건슬링어(사냥의 시간),Gunslinger(time to hunt),타겟 다운,84871070,황혼의 눈,85776327
-character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),연환파신권,81954639,진 : 극멸권,83500774
-character_infighter_taijutsu.json,인파이터(극의 : 체술),Scrapper(taijutsu),난타연권,42856465,진 : 극멸권,46296678
+character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),연환파신권,84093051,진 : 극멸권,85774113
+character_infighter_taijutsu.json,인파이터(극의 : 체술),Scrapper(taijutsu),난타연권,45348917,진 : 극멸권,47557122
 character_lancemaster_control.json,창술사(절제),Graivier(control),반월섬,49444811,연가창식: 적룡질풍격,49063942
-character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",적룡포,90433759,연가창식: 은하유성탄,67489833
-character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),댄싱 오브 퓨리,51438546,월식 : 카덴차,63642635
-character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),레이지 스피어,104695347,월식 : 카덴차,55205267
+character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",적룡포,86816409,연가창식: 은하유성탄,64790239
+character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),댄싱 오브 퓨리,52681105,월식 : 카덴차,65429283
+character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),레이지 스피어,107567198,월식 : 카덴차,56755051
 character_scouter_arthetinean_skill.json,except scouter_arthetinean_skill_431.json,except scouter_arthetinean_skill_431.json,에너지 버스터,98672215,명령 : 파이널 익스플로전,48578115
 character_scouter_evolutionary_legacy.json,스카우터(진화의 유산),Machinist(evolutionary legacy),크림슨 브레이커,39875214,에어 스트라이크,61059876
 character_slayer_devourer_6m.json,"슬레이어(포식자, 6딜)","Slayer(devourer, 6m)",브루탈 임팩트,74089499,라그나 브레이크,58107850
@@ -29,11 +29,12 @@ character_slayer_punisher.json,"슬레이어(처단자, 1.5사이클2길2퓨)",Slayer(punish
 character_sorceress_igniter.json,소서리스(점화),Sorceress(igniter),종말의 날_데미지,105935076,엔비스카의 권능,50708180
 character_soulfist_energy_overflow.json,기공사(세맥타통),Soulfist(energy overflow),난화격,60920515,극상마섬광_캔슬,21404232
 character_soulfist_robust_spirit.json,기공사(역천지체),Soulfist(robust spirit),난화격,77598513,천하섬멸옥,311557361
-character_striker_deathblow.json,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",뇌호격,111115086,진천각,59510798
+character_striker_deathblow.json,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",뇌호격,113496663,진천각,60736204
 character_striker_deathblow_c1.json,"스트라이커(일격필살, 3오의 풍신초래)","Striker(deathblow, 3 esotheric call the wind god)",뇌호격,111115086,진천각,59510798
+character_striker_esoteric_flurry.json,except striker_esoteric_flurry.json,except striker_esoteric_flurry.json,뇌호격,86791566,진천각,53268451
 character_summoner_communication_overflow.json,서머너(넘치는 교감),Summoner(communication overflow),고대의 창,46861885,켈시온_체인,18555135
 character_summoner_master_summoner_spcr.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),아키르(상소)_데미지,121519857,바그론의 분노,92204791
 character_summoner_master_summoner_spsw.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),아키르(상소)_데미지,109618842,바그론의 분노,83634342
-character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),가디언의 낙뢰,73592414,심판의 창,58533574
-character_warlord_combat_readiness_v1.json,"워로드(전투태세, 대어파채용)","Gunlancer(combat readiness, dash upper fire)",가디언의 낙뢰,73592414,심판의 창,58533574
-character_warlord_lone_knight.json,워로드(고독한 기사),Gunlancer(solo knight),차지 스팅거,93996788,심판의 창,23985174
+character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),가디언의 낙뢰,79555619,심판의 창,58486482
+character_warlord_combat_readiness_v1.json,"워로드(전투태세, 대어파채용)","Gunlancer(combat readiness, dash upper fire)",가디언의 낙뢰,79555619,심판의 창,58486482
+character_warlord_lone_knight.json,워로드(고독한 기사),Gunlancer(solo knight),차지 스팅거,103090458,심판의 창,23965877

@@ -131,7 +131,7 @@ def stance_buff_default(character: CharacterLayer, skill: Skill, buff: Buff):
   if (skill.get_attribute('identity_type') == 'Flurry'
       or skill.get_attribute('identity_type') == 'Awakening'
       or skill.get_attribute('identity_type') == None):
-    skill.update_attribute('damage_multiplier', s_dm * 1.25)
+    skill.update_attribute('damage_multiplier', s_dm * 1.20)
     character.update_attribute('attack_speed', c_as + 0.15)
   elif skill.get_attribute('identity_type') == 'Focus':
     skill.update_attribute('crit_damage', s_acd + 0.60)
@@ -143,7 +143,7 @@ def stance_buff_pinnacle_3(character: CharacterLayer, skill: Skill, buff: Buff):
   s_acd = skill.get_attribute('crit_damage')
   c_ms = character.get_attribute('movement_speed')
   c_as = character.get_attribute('attack_speed')
-  skill.update_attribute('damage_multiplier', s_dm * 1.25)
+  skill.update_attribute('damage_multiplier', s_dm * 1.20)
   character.update_attribute('attack_speed', c_as + 0.15)
   skill.update_attribute('crit_damage', s_acd + 0.60)
   character.update_attribute('movement_speed', c_ms + 0.15)

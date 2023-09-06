@@ -263,7 +263,7 @@ def remaining_energy_1(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
-    character.update_attribute('additional_attack_power', c_aap + 0.33 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.36 * (1 + c_aap))
     character.update_attribute('attack_speed', c_as + 0.06)
     character.update_attribute('movement_speed', c_ms + 0.06)
 
@@ -271,7 +271,7 @@ def remaining_energy_3(character: CharacterLayer, skill: Skill, buff: Buff):
     c_aap = character.get_attribute('additional_attack_power')
     c_as = character.get_attribute('attack_speed')
     c_ms = character.get_attribute('movement_speed')
-    character.update_attribute('additional_attack_power', c_aap + 0.48 * (1 + c_aap))
+    character.update_attribute('additional_attack_power', c_aap + 0.54 * (1 + c_aap))
     character.update_attribute('attack_speed', c_as + 0.12)
     character.update_attribute('movement_speed', c_ms + 0.12)
 

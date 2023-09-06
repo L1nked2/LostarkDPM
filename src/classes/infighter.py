@@ -152,8 +152,8 @@ def shock_training_3(character: CharacterLayer, skill: Skill, buff: Buff):
 def taijutsu_3(character: CharacterLayer, skill: Skill, buff: Buff):
   if skill.get_attribute('identity_type') == 'Stamina':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.65)
+      skill.update_attribute('damage_multiplier', s_dm * 1.70)
   elif skill.get_attribute('identity_type') == 'Shock':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 0.7)
+      skill.update_attribute('damage_multiplier', s_dm * 0.70)
 
