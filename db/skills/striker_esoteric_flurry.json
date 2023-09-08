@@ -78,7 +78,7 @@
       "skill_type": "Common",
       "identity_type": "Esoteric",
       "cooldown": 8,
-      "common_delay": 1.4,
+      "common_delay": 1.2,
       "type_specific_delay": 0.0,
       "jewel_cooldown_level": 10,
       "jewel_damage_level": 10,

@@ -2,8 +2,9 @@
 character_lancemaster_control.json,창술사(절제),Graivier(control),24521126,31912208,29164939,30755346,29863722.601626016,12.3
 character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),23980634,28590272,27800876,28428854,29545128.65168539,8.9
 character_blade_burst.json,블레이드(버스트),Deathblade(surge),23690048,32381699,33069424,31995306,33262254.803149607,12.7
+character_striker_esoteric_flurry.json,except striker_esoteric_flurry.json,except striker_esoteric_flurry.json,21910753,47272074,39350055,34081777,39350054.625,8.0
 character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",21874549,55372572,41871687,39939825,41871687.125,8.0
-character_striker_esoteric_flurry.json,except striker_esoteric_flurry.json,except striker_esoteric_flurry.json,21836109,44213568,39388257,31862202,39388257.125,8.0
+character_scouter_arthetinean_skill.json,except scouter_arthetinean_skill_431.json,except scouter_arthetinean_skill_431.json,21857405,42330570,37176248,34570486,37176247.75,8.0
 character_devilhunter_enhanced_weapon.json,데빌헌터(강화 무기),Deadeye(enhanced weapon),21127881,51214083,48867064,45237757,48867064.375,8.0
 character_destroyer_rage_hammer.json,디스트로이어(분노의 망치),Destroyer(rage hammer),20933285,37352533,34189546,27720977,34189546.0,8.0
 character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),20801363,36455536,27669004,36759831,34667797.55555555,9.0
@@ -19,13 +20,12 @@ character_scouter_evolutionary_legacy.json,스카우터(진화의 유산),Machinist(evolu
 character_demonic_perfect_suppression.json,데모닉(완벽한 억제),Shadowhunter(perfect suppression),19727976,32348274,24763958,24833786,29338557.82178218,10.1
 character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),19550517,36478742,31321719,28152417,31321719.125,8.0
 character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),19518323,30263398,30977396,30562784,30977396.25,8.0
-character_scouter_arthetinean_skill.json,except scouter_arthetinean_skill_431.json,except scouter_arthetinean_skill_431.json,19021623,41911487,31897035,30436642,31897034.875,8.0
 character_warlord_lone_knight.json,워로드(고독한 기사),Gunlancer(solo knight),18841338,45130508,33956752,28778023,33956751.75,8.0
+character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),18678412,32641180,26373824,31262828,28832679.647058822,8.5
 character_summoner_master_summoner_spsw.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18494545,47056037,40718490,47282591,40718489.625,8.0
 character_soulfist_robust_spirit.json,기공사(역천지체),Soulfist(robust spirit),18411134,44528966,37576960,53363324,37576960.0,8.0
 character_summoner_master_summoner_spcr.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18357891,52151728,45223391,52345333,45223390.875,8.0
 character_summoner_communication_overflow.json,서머너(넘치는 교감),Summoner(communication overflow),17996686,27253998,24217441,27250916,24217440.75,8.0
-character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),17952243,26678332,26254478,30139858,27230864.111111112,9.0
 character_blaster_barrage_enhancement.json,블래스터(포격 강화),Artillerist(barrage enhancement),17721358,22969846,27583061,36384061,27760746.404494382,8.9
 character_gunslinger_peace_maker.json,건슬링어(피스메이커),Gunslinger(peace maker),17375130,36234934,39536504,35492541,40008507.38636363,8.8
 character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),17361123,28544048,22290819,23330384,23781804.878048778,12.3
