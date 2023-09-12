@@ -1,39 +1,40 @@
 ,classname_kor,classname_eng,actual_dps,short_dps,long_dps,nuking_dps,edps,edps_time_length
 character_lancemaster_control.json,창술사(절제),Graivier(control),24521126,31912208,29164939,30755346,29863722.601626016,12.3
+character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),23980634,28590272,27800876,28428854,29545128.65168539,8.9
 character_blade_burst.json,블레이드(버스트),Deathblade(surge),23690048,32381699,33069424,31995306,33262254.803149607,12.7
-character_blade_remaining_energy.json,블레이드(잔재된 기운),Deathblade(remaining energy),23280674,27800600,27203198,27516433,28693636.285714287,10.5
-character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",22785988,57679763,43616341,41603985,43616340.75,8.0
+character_striker_esoteric_flurry.json,except striker_esoteric_flurry.json,except striker_esoteric_flurry.json,21910753,47272074,39350055,34081777,39350054.625,8.0
+character_lancemaster_pinnacle.json,"창술사(절정, 3난무4집중)","Graivier(pinnacle, 3 Flurry & 4 Focus)",21874549,55372572,41871687,39939825,41871687.125,8.0
+character_scouter_arthetinean_skill.json,except scouter_arthetinean_skill_431.json,except scouter_arthetinean_skill_431.json,21857405,42330570,37176248,34570486,37176247.75,8.0
 character_devilhunter_enhanced_weapon.json,데빌헌터(강화 무기),Deadeye(enhanced weapon),21127881,51214083,48867064,45237757,48867064.375,8.0
-character_destroyer_rage_hammer.json,디스트로이어(분노의 망치),Destroyer(rage hammer),20933285,37352533,34189546,27720977,34189546.0,8.0
+character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),20801363,36455536,27669004,36759831,34667797.55555555,9.0
 character_striker_deathblow_c1.json,"스트라이커(일격필살, 3오의 풍신초래)","Striker(deathblow, 3 esotheric call the wind god)",20725462,36730026,27656452,28773661,29972563.854166668,9.6
+character_infighter_taijutsu.json,인파이터(극의 : 체술),Scrapper(taijutsu),20713075,26342612,23677828,25207560,24195939.999999996,8.3
+character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),20703586,31008359,28557840,29402628,28557839.75,8.0
 character_slayer_punisher.json,"슬레이어(처단자, 1.5사이클2길2퓨)",Slayer(punisher),20672182,60559819,55014474,56695581,55014473.5,8.0
-character_reaper_lunar_voice.json,리퍼(달의 소리),Reaper(lunar voice),20269481,35496413,26941586,35810756,33782255.222222224,9.0
-character_reaper_hunger.json,리퍼(갈증),Reaper(hunger),20194617,30267982,27857846,28663969,27857846.375,8.0
+character_striker_deathblow.json,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",20390211,46268625,39175503,37414023,39175503.375,8.0
 character_berserker_mayhem.json,"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),20042019,39660948,37427189,31557481,37427189.125,8.0
 character_slayer_devourer_6m.json,"슬레이어(포식자, 6딜)","Slayer(devourer, 6m)",19986751,44280273,33617074,33304530,33617074.5,8.0
 character_devilhunter_enhanced_weapon_nightmare.json,except devilhunter_enhanced_weapon_nightmare.json,except devilhunter_enhanced_weapon_nightmare.json,19975189,43039166,45165934,42694096,45165933.75,8.0
-character_striker_deathblow.json,"스트라이커(일격필살, 3오의 폭쇄진)","Striker(deathblow, 3 esotheric blast formation)",19931483,45292334,36570136,35207188,37830520.493827164,8.1
 character_scouter_evolutionary_legacy.json,스카우터(진화의 유산),Machinist(evolutionary legacy),19834084,22275326,22423879,24265409,23444170.246913582,8.1
 character_demonic_perfect_suppression.json,데모닉(완벽한 억제),Shadowhunter(perfect suppression),19727976,32348274,24763958,24833786,29338557.82178218,10.1
-character_infighter_taijutsu.json,인파이터(극의 : 체술),Scrapper(taijutsu),19656070,24978775,22461440,24009986,22941436.024096385,8.3
-character_scouter_arthetinean_skill.json,except scouter_arthetinean_skill_431.json,except scouter_arthetinean_skill_431.json,19021623,41911487,31897035,30436642,31897034.875,8.0
-character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),18999462,29395726,30133018,29757252,30133018.0,8.0
+character_destroyer_rage_hammer.json,디스트로이어(분노의 망치),Destroyer(rage hammer),19669075,41554457,31805945,25827750,32552193.30097087,10.3
+character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),19550517,36478742,31321719,28152417,31321719.125,8.0
+character_infighter_shock_training.json,인파이터(충격 단련),Scrapper(shock training),19518323,30263398,30977396,30562784,30977396.25,8.0
+character_warlord_lone_knight.json,워로드(고독한 기사),Gunlancer(solo knight),18841338,45130508,33956752,28778023,33956751.75,8.0
+character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),18678412,32641180,26373824,31262828,28832679.647058822,8.5
 character_summoner_master_summoner_spsw.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18494545,47056037,40718490,47282591,40718489.625,8.0
 character_soulfist_robust_spirit.json,기공사(역천지체),Soulfist(robust spirit),18411134,44528966,37576960,53363324,37576960.0,8.0
 character_summoner_master_summoner_spcr.json,"서머너(상급 소환사, 마질 채용)",Summoner(master summoner),18357891,52151728,45223391,52345333,45223390.875,8.0
-character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),18247149,34046826,29233604,26275589,29233604.375,8.0
 character_summoner_communication_overflow.json,서머너(넘치는 교감),Summoner(communication overflow),17996686,27253998,24217441,27250916,24217440.75,8.0
-character_devilhunter_pistoleer.json,데빌헌터(핸드거너),Deadeye(pistoleer),17952243,26678332,26254478,30139858,27230864.111111112,9.0
 character_blaster_barrage_enhancement.json,블래스터(포격 강화),Artillerist(barrage enhancement),17721358,22969846,27583061,36384061,27760746.404494382,8.9
 character_gunslinger_peace_maker.json,건슬링어(피스메이커),Gunslinger(peace maker),17375130,36234934,39536504,35492541,40008507.38636363,8.8
-character_warlord_lone_knight.json,워로드(고독한 기사),Gunlancer(solo knight),17225656,41258840,31051634,26450667,31051634.5,8.0
+character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),17361123,28544048,22290819,23330384,23781804.878048778,12.3
+character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),17299120,28705473,27628070,24338031,27628070.375,8.0
 character_soulfist_energy_overflow.json,기공사(세맥타통),Soulfist(energy overflow),17122315,36914034,32408232,34705687,36324617.33944954,10.9
-character_aeromancer_drizzle.json,기상술사(이슬비),Aeromancer(drizzle),17038124,42333338,32537201,34303499,32537201.25,8.0
-character_blaster_firepower_enhancement.json,블래스터(화력 강화),Artillerist(firepower enhancement),16757360,31605683,30424165,30678439,30424164.75,8.0
-character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),16721419,27595648,26643333,23659372,26643332.625,8.0
-character_demonic_demonic_impulse.json,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),16607846,25106189,22166688,36514147,22438591.979166668,9.6
-character_warlord_combat_readiness.json,"워로드(전투태세, 방격채용)",Gunlancer(combat readiness),16120621,26487837,20683630,22049060,22065932.43902439,12.3
-character_aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,16001389,30092773,25808899,22135723,25808899.25,8.0
+character_blaster_firepower_enhancement.json,블래스터(화력 강화),Artillerist(firepower enhancement),17121464,32351962,31140568,31252673,31140567.875,8.0
+character_aeromancer_drizzle.json,기상술사(이슬비),Aeromancer(drizzle),17005358,42370732,32569367,34303499,32569366.75,8.0
+character_demonic_demonic_impulse.json,데모닉(멈출수 없는 충동),Shadowhunter(demonic impulse),16956097,25827802,22800651,37101674,22984909.6875,9.6
+character_aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,16581819,31289656,26749444,22864463,26749443.5,8.0
 character_gunslinger_time_to_hunt.json,건슬링어(사냥의 시간),Gunslinger(time to hunt),15967970,36783915,33446673,31909323,34678135.61797753,8.9
+character_warlord_combat_readiness_v1.json,"워로드(전투태세, 대어파채용)","Gunlancer(combat readiness, dash upper fire)",15466707,26330540,19934721,21793692,21671791.03773585,10.6
 character_sorceress_igniter.json,소서리스(점화),Sorceress(igniter),14672544,73017245,55363445,44501876,55363445.25,8.0
-character_warlord_combat_readiness_v1.json,"워로드(전투태세, 대어파채용)","Gunlancer(combat readiness, dash upper fire)",14361638,24425180,18487888,20640935,20114658.11320755,10.6

@@ -88,28 +88,6 @@ Chain -> 마지막 스킬 모션 시작부터 쿨이 돌음
 ================================================================
 F) 스킬 policy 구성 및 skill_manager의 cycle fetch
 
-=== 무시 start ===
-스킬의 priority를 부여하여 skill_queue(priority queue)를 구성한다.
-다만 특정 스킬들의 순서를 고정하고 싶으면 바인딩을 부여한다. ex)증배버차
-바인딩으로 묶인 스킬들은 하나의 스킬로 취급되며, priority는 스킬중 가장 높은 스킬이 가져간다.
-사실 가장 편한 방식은 모든 스킬을 하나의 바인딩으로 묶어서 제시하는 것이 가장 편할듯하다.
-
-json을 통해 import한다.
-attributes
-->priorities, bindings, lookup_cooldown
-
-remaining_cooldown < lookup_cooldown인 스킬들에 대해
-priority를 고려하여 queue에 올린다.
-binding이 있는 스킬은 queue에 올릴 때 실제로 가용가능한지(바인딩 내부 스킬들의 쿨타임이 목표 스킬보다 작은지) 확인한다.
-만약 queue에 스킬이 없다면 idle 상태로 취급한다.
-
-idle 처리방식 추가 필요
-validation추가 필요
-
-어디다 어떻게 적어야하는가?
-skill정보를 담은 json에 작성 요령을 정해 적어두는게 좋을듯 하다
-=== 무시 end ===
-
 policy를 자유롭게 풀어주는건 실제 사이클을 반영하기가 생각보다 힘들었다...
 cycle을 제공받아 고정된 스킬 순서로 사용하는 것을 먼저 지원하고 이후에 기능을 추가하는 방향으로 선회
 "mode": fixed,

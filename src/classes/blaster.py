@@ -158,7 +158,7 @@ def specialization(character: CharacterLayer, skill: Skill, buff: Buff):
 def firepower_enhancement_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Common':
       s_dm = skill.get_attribute('damage_multiplier')
-      skill.update_attribute('damage_multiplier', s_dm * 1.25)
+      skill.update_attribute('damage_multiplier', s_dm * 1.28)
 
 def barrage_enhancement_3(character: CharacterLayer, skill: Skill, buff: Buff):
     if skill.get_attribute('identity_type') == 'Barrage':
