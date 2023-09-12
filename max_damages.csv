@@ -1,7 +1,7 @@
 ,classname_kor,classname_eng,name_normal,damage_normal,name_awakening,damage_awakening
 character_aeromancer_drizzle.json,기상술사(이슬비),Aeromancer(drizzle),뙤약볕,48787734,나르가의 칼날,83365807
-character_aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,바람송곳,55361684,나르가의 칼날,31728089
-character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),바람송곳,57625986,나르가의 칼날,57685018
+character_aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,except aeromancer_gale_rage_dom.json,바람송곳,57685401,나르가의 칼날,31728089
+character_aeromancer_gale_rage_hal.json,"기상술사(질풍, 2기4역)",Aeromancer(gale rage),바람송곳,60044744,나르가의 칼날,57685018
 character_battlemaster_first_intention.json,배틀마스터(초심),Wardancer(first intention),방천격,54917349,극의 : 일순난격,16309326
 character_berserker_mayhem.json,"버서커(광기, 혼일휘몰24초)",Berserker(mayhem),오버드라이브,72124856,버서크 퓨리,61323010
 character_blade_burst.json,블레이드(버스트),Deathblade(surge),버스트,147707715,플래시 블링크,81288869

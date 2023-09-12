@@ -5,25 +5,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_aeromancer_drizzle.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 17038124
-Nuking_W/O_Awaking_Short_DPS: 42333338
-Nuking_W/O_Awaking_Long_DPS: 32537201
+Actual_DPS: 17005358
+Nuking_W/O_Awaking_Short_DPS: 42370732
+Nuking_W/O_Awaking_Long_DPS: 32569367
 Nuking_DPS: 34303499
-DPCT_by_Percentage: 35299495.367
-Idle_Ratio: 44.14 %
+DPCT_by_Percentage: 35251387.439
+Idle_Ratio: 44.19 %
 Idle_Score: 412.13
 Delay_Score: 1.019
 Delay_Score_by_Percentage: 0.916
-Total_Damage: 27182963622
-Elapsed_Time: 1595.43 s
-Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [103, 52]}
+Total_Damage: 27096678197
+Elapsed_Time: 1593.43 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [0, 0], 'jm': [102, 51]}
 ==========================
-Damage_Details: {'여우비 활성화': 0, '돌개바람': 507261198, 'sunshower_damage|여우비 활성화': 2981346496, '소용돌이': 3932400332, '출혈|None': 256733400, '뙤약볕': 5025136602, '싹쓸바람': 4611259530, '날아가기': 3032363981, '소나기': 3280100708, '센바람': 2895353181, '나르가의 칼날': 500194842, '펼치기': 160813352, '여우비 비활성화': 0}
+Damage_Details: {'여우비 활성화': 0, '돌개바람': 530370484, 'sunshower_damage|여우비 활성화': 2976257872, '소용돌이': 3932400332, '출혈|None': 255899850, '뙤약볕': 5025136602, '싹쓸바람': 4566490020, '날아가기': 3002923554, '소나기': 3244146822, '센바람': 2895353181, '나르가의 칼날': 500194842, '펼치기': 167504638, '여우비 비활성화': 0}
 Delay_Statistics: {'여우비 활성화': 0.663, '돌개바람': 0.593, '소용돌이': 0.814, '뙤약볕': 1.159, '싹쓸바람': 0.797, '날아가기': 0.675, '소나기': 1.328, '센바람': 1.018, '나르가의 칼날': 4.85, '펼치기': 0.824}
-Nuking_W/O_Awaking_Cycle_Short: [('돌개바람', 4924866), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('뙤약볕', 48787734), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('싹쓸바람', 44769510), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('소나기', 35953886), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312)]
-Nuking_W/O_Awaking_Cycle_Long: [('여우비 활성화', 0), ('돌개바람', 4924866), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('뙤약볕', 48787734), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('싹쓸바람', 44769510), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('소나기', 35953886), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('펼치기', 792184), ('sunshower_damage|여우비 활성화', 2544312)]
+Nuking_W/O_Awaking_Cycle_Short: [('돌개바람', 5149228), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('뙤약볕', 48787734), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('싹쓸바람', 44769510), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('소나기', 35953886), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312)]
+Nuking_W/O_Awaking_Cycle_Long: [('여우비 활성화', 0), ('돌개바람', 5149228), ('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('뙤약볕', 48787734), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('싹쓸바람', 44769510), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('소나기', 35953886), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('펼치기', 825146), ('sunshower_damage|여우비 활성화', 2544312)]
 Nuking_Cycle: [('sunshower_damage|여우비 활성화', 2544312), ('소용돌이', 38178644), ('출혈|None', 416775), ('뙤약볕', 48787734), ('sunshower_damage|여우비 활성화', 2544312), ('출혈|None', 416775), ('싹쓸바람', 44769510), ('sunshower_damage|여우비 활성화', 2544312), ('날아가기', 29440427), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('소나기', 35953886), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('센바람', 34595213), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('나르가의 칼날', 83365807), ('출혈|None', 416775), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312), ('sunshower_damage|여우비 활성화', 2544312)]
-eDPS info:  [32537201.25, 8.0]
+eDPS info:  [32569366.75, 8.0]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
@@ -32,25 +32,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_aeromancer_gale_rage_dom.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 16001389
-Nuking_W/O_Awaking_Short_DPS: 30092773
-Nuking_W/O_Awaking_Long_DPS: 25808899
-Nuking_DPS: 22135723
-DPCT_by_Percentage: 24527778.556
-Idle_Ratio: 10.06 %
-Idle_Score: 99.02
-Delay_Score: 1.049
-Delay_Score_by_Percentage: 1.219
-Total_Damage: 29870753421
-Elapsed_Time: 1866.77 s
-Rune_Ratio: {'rg': [0, 0], 'qr': [414, 41], 'jm': [204, 54]}
+Actual_DPS: 16581819
+Nuking_W/O_Awaking_Short_DPS: 31289656
+Nuking_W/O_Awaking_Long_DPS: 26749444
+Nuking_DPS: 22864463
+DPCT_by_Percentage: 25638353.791
+Idle_Ratio: 10.09 %
+Idle_Score: 98.86
+Delay_Score: 1.053
+Delay_Score_by_Percentage: 1.22
+Total_Damage: 32542317255
+Elapsed_Time: 1962.54 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [436, 43], 'jm': [216, 57]}
 ==========================
-Damage_Details: {'돌개바람': 596829182, '소용돌이': 2665294752, '나르가의 칼날': 434081976, '여우비 활성화': 0, '펼치기': 1009108938, '칼바람': 6823899073, 'sunshower_damage|여우비 활성화': 1084094937, '내려찍기': 427558752, '바람송곳': 7301293234, '출혈|None': 897640334, '몰아치기': 5159766974, '회오리 걸음': 3471185269}
-Delay_Statistics: {'돌개바람': 0.479, '소용돌이': 0.658, '나르가의 칼날': 3.911, '여우비 활성화': 0.537, '펼치기': 0.665, '칼바람': 1.472, '내려찍기': 0.594, '바람송곳': 1.638, '몰아치기': 1.263, '회오리 걸음': 0.929}
-Nuking_W/O_Awaking_Cycle_Short: [('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
-Nuking_W/O_Awaking_Cycle_Long: [('펼치기', 2627900), ('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('돌개바람', 3173250), ('소용돌이', 14215986), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
-Nuking_Cycle: [('소용돌이', 8466858), ('나르가의 칼날', 29705835), ('여우비 활성화', 0), ('펼치기', 2627900), ('칼바람', 51062822), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 55361684), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2627900), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 32820101), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1088458), ('회오리 걸음', 27772967), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
-eDPS info:  [25808899.25, 8.0]
+Damage_Details: {'돌개바람': 658624039, '소용돌이': 2825277336, '나르가의 칼날': 434081976, '여우비 활성화': 0, '펼치기': 1108411812, '칼바람': 7478639224, 'sunshower_damage|여우비 활성화': 1141469340, '내려찍기': 466702844, '바람송곳': 7996844209, '출혈|None': 946875194, '몰아치기': 5656271588, '회오리 걸음': 3829119693}
+Delay_Statistics: {'돌개바람': 0.479, '소용돌이': 0.658, '나르가의 칼날': 3.911, '여우비 활성화': 0.537, '펼치기': 0.665, '칼바람': 1.472, '내려찍기': 0.594, '바람송곳': 1.638, '몰아치기': 1.264, '회오리 걸음': 0.929}
+Nuking_W/O_Awaking_Cycle_Short: [('칼바람', 53221603), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 57685401), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2734003), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 34285949), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('회오리 걸음', 28821397), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+Nuking_W/O_Awaking_Cycle_Long: [('펼치기', 2734003), ('칼바람', 53221603), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 57685401), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2734003), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 34285949), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('회오리 걸음', 28821397), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('돌개바람', 3304105), ('소용돌이', 14215986), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2734003), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+Nuking_Cycle: [('소용돌이', 8466858), ('나르가의 칼날', 29705835), ('여우비 활성화', 0), ('펼치기', 2734003), ('칼바람', 53221603), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('sunshower_damage|여우비 활성화', 1097607), ('바람송곳', 57685401), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('펼치기', 2734003), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('몰아치기', 34285949), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607), ('내려찍기', 1127665), ('회오리 걸음', 28821397), ('출혈|None', 537152), ('sunshower_damage|여우비 활성화', 1097607)]
+eDPS info:  [26749443.5, 8.0]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
@@ -59,25 +59,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_aeromancer_gale_rage_hal.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 16721419
-Nuking_W/O_Awaking_Short_DPS: 27595648
-Nuking_W/O_Awaking_Long_DPS: 26643333
-Nuking_DPS: 23659372
-DPCT_by_Percentage: 27477974.399
+Actual_DPS: 17299120
+Nuking_W/O_Awaking_Short_DPS: 28705473
+Nuking_W/O_Awaking_Long_DPS: 27628070
+Nuking_DPS: 24338031
+DPCT_by_Percentage: 28659065.016
 Idle_Ratio: 15.52 %
 Idle_Score: 116.39
 Delay_Score: 1.076
-Delay_Score_by_Percentage: 1.221
-Total_Damage: 27339353576
-Elapsed_Time: 1635.0 s
+Delay_Score_by_Percentage: 1.224
+Total_Damage: 28281985034
+Elapsed_Time: 1634.89 s
 Rune_Ratio: {'rg': [0, 0], 'qr': [347, 34], 'jm': [170, 46]}
 ==========================
-Damage_Details: {'나르가의 칼날': 490145850, '돌개바람': 546331017, '소용돌이': 2430885512, '여우비 활성화': 0, '펼치기': 908056022, '칼바람': 6324120648, 'sunshower_damage|여우비 활성화': 1031676597, '내려찍기': 404304065, '바람송곳': 6492911416, '출혈|None': 862244764, '몰아치기': 4810140523, '회오리 걸음': 3038537162}
+Damage_Details: {'나르가의 칼날': 490145850, '돌개바람': 568860129, '소용돌이': 2430885512, '여우비 활성화': 0, '펼치기': 944719432, '칼바람': 6591485282, 'sunshower_damage|여우비 활성화': 1031676597, '내려찍기': 418867249, '바람송곳': 6765440886, '출혈|None': 861685607, '몰아치기': 5024976536, '회오리 걸음': 3153241954}
 Delay_Statistics: {'나르가의 칼날': 3.859, '돌개바람': 0.478, '소용돌이': 0.656, '여우비 활성화': 0.534, '펼치기': 0.664, '칼바람': 1.469, '내려찍기': 0.592, '바람송곳': 1.635, '몰아치기': 1.26, '회오리 걸음': 0.926}
-Nuking_W/O_Awaking_Cycle_Short: [('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
-Nuking_W/O_Awaking_Cycle_Long: [('돌개바람', 3095317), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('회오리 걸음', 28908886), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
-Nuking_Cycle: [('나르가의 칼날', 54057604), ('돌개바람', 3095317), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2667090), ('칼바람', 55769703), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 57625986), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2667090), ('몰아치기', 35543025), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1104686), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
-eDPS info:  [26643332.625, 8.0]
+Nuking_W/O_Awaking_Cycle_Short: [('펼치기', 2774776), ('칼바람', 58127477), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 60044744), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2774776), ('몰아치기', 37130488), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+Nuking_W/O_Awaking_Cycle_Long: [('돌개바람', 3222959), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2774776), ('칼바람', 58127477), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 60044744), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2774776), ('몰아치기', 37130488), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('회오리 걸음', 30000197), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+Nuking_Cycle: [('나르가의 칼날', 54057604), ('돌개바람', 3222959), ('소용돌이', 13866914), ('여우비 활성화', 0), ('펼치기', 2774776), ('칼바람', 58127477), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('sunshower_damage|여우비 활성화', 1142499), ('바람송곳', 60044744), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('펼치기', 2774776), ('몰아치기', 37130488), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499), ('내려찍기', 1144477), ('출혈|None', 559157), ('sunshower_damage|여우비 활성화', 1142499)]
+eDPS info:  [27628070.375, 8.0]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
@@ -305,25 +305,25 @@ LostArkDpmSimulator is now ready to run
 target_character: character_destroyer_rage_hammer.json
 ==========================
 DPS stabilized, terminating simulation
-Actual_DPS: 20933285
-Nuking_W/O_Awaking_Short_DPS: 37352533
-Nuking_W/O_Awaking_Long_DPS: 34189546
-Nuking_DPS: 27720977
-DPCT_by_Percentage: 39074725.099
-Idle_Ratio: 4.06 %
-Idle_Score: 111.57
-Delay_Score: 0.502
-Delay_Score_by_Percentage: 2.863
-Total_Damage: 31409556545
-Elapsed_Time: 1500.47 s
-Rune_Ratio: {'rg': [0, 0], 'qr': [243, 24], 'jm': [0, 0]}
+Actual_DPS: 19669075
+Nuking_W/O_Awaking_Short_DPS: 41554457
+Nuking_W/O_Awaking_Long_DPS: 31805945
+Nuking_DPS: 25827750
+DPCT_by_Percentage: 41852012.28
+Idle_Ratio: 4.13 %
+Idle_Score: 112.89
+Delay_Score: 0.501
+Delay_Score_by_Percentage: 2.734
+Total_Damage: 31487828235
+Elapsed_Time: 1600.89 s
+Rune_Ratio: {'rg': [0, 0], 'qr': [259, 25], 'jm': [0, 0]}
 ==========================
-Damage_Details: {'파워 스트라이크': 415898028, '헤비 크러쉬': 463279014, '퍼펙트 스윙': 9336508041, '인듀어 페인': 105256303, '풀 스윙': 12755357250, '파워 숄더_1타': 45936774, '출혈|None': 214621665, '어스 이터': 4285542686, '빅뱅': 383598560, '사이즈믹 해머': 3403558224}
-Delay_Statistics: {'파워 스트라이크': 1.828, '헤비 크러쉬': 1.089, '퍼펙트 스윙': 3.201, '인듀어 페인': 0.689, '풀 스윙': 3.258, '파워 숄더_1타': 0.947, '어스 이터': 2.789, '빅뱅': 4.277, '사이즈믹 해머': 1.026}
-Nuking_W/O_Awaking_Cycle_Short: [('사이즈믹 해머', 63028856), ('인듀어 페인', 2447821), ('퍼펙트 스윙', 158245899), ('파워 숄더_1타', 392622)]
-Nuking_W/O_Awaking_Cycle_Long: [('헤비 크러쉬', 1906498), ('퍼펙트 스윙', 158245899), ('인듀어 페인', 2447821), ('풀 스윙', 110916150)]
-Nuking_Cycle: [('파워 스트라이크', 3300778), ('헤비 크러쉬', 1906498), ('퍼펙트 스윙', 158245899), ('인듀어 페인', 2447821), ('풀 스윙', 110916150), ('파워 숄더_1타', 392622)]
-eDPS info:  [34189546.0, 8.0]
+Damage_Details: {'파워 스트라이크': 445605030, '헤비 크러쉬': 493782982, '퍼펙트 스윙': 9969491637, '인듀어 페인': 112599766, '풀 스윙': 10030518164, '파워 숄더_1타': 48685128, '출혈|None': 227786760, '어스 이터': 4581097354, '빅뱅': 460318272, '사이즈믹 해머': 5117943142}
+Delay_Statistics: {'파워 스트라이크': 1.828, '헤비 크러쉬': 1.089, '퍼펙트 스윙': 3.201, '인듀어 페인': 0.689, '풀 스윙': 3.259, '파워 숄더_1타': 0.947, '어스 이터': 2.79, '빅뱅': 4.294, '사이즈믹 해머': 1.026}
+Nuking_W/O_Awaking_Cycle_Short: [('사이즈믹 해머', 88240399), ('인듀어 페인', 2447821), ('퍼펙트 스윙', 158245899), ('파워 숄더_1타', 392622)]
+Nuking_W/O_Awaking_Cycle_Long: [('파워 스트라이크', 3300778), ('출혈|None', 306165), ('헤비 크러쉬', 1906498), ('사이즈믹 해머', 88240399), ('인듀어 페인', 2447821), ('퍼펙트 스윙', 158245899)]
+Nuking_Cycle: [('인듀어 페인', 2447821), ('사이즈믹 해머', 88240399), ('파워 숄더_1타', 392622), ('헤비 크러쉬', 1906498), ('출혈|None', 306165), ('출혈|None', 306165), ('퍼펙트 스윙', 158245899), ('출혈|None', 306165), ('출혈|None', 306165), ('출혈|None', 306165), ('파워 스트라이크', 3300778), ('출혈|None', 306165), ('헤비 크러쉬', 1906498)]
+eDPS info:  [32552193.30097087, 10.3]
 ==========================
 ##### Done Initialization of CharacterLayer #####
 ##### Done Initialization of BuffsManager #####
